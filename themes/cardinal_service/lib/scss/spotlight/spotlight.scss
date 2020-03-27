@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.spotlight-all-content-container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 70px 0 0;
+
+    @media (max-width: 1900px) {
+        width: 65%;
+    }
+
+    @media (max-width: 1400px) {
+        width: 85%;
+    }
+
+    @media (max-width: 1200px) {
+        width: 90%;
+    }
+
+    @media (max-width: 767px) {
+        display: flex;
+        text-align: left;
+        padding: 50px 0 0;
+    }
+
+    .image {
+        margin-right: 40px;
+        flex-shrink: 0;
+        order: 1;
+    }
+
+    img {
+        border-radius: 50%;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+}
