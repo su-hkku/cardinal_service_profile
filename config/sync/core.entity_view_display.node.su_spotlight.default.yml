@@ -23,14 +23,15 @@ third_party_settings:
     enabled: true
     sections:
       -
-        layout_id: jumpstart_ui_one_column
+        layout_id: jumpstart_ui_two_column
         layout_settings:
-          extra_classes: ''
-          centered: null
+          extra_classes: spotlight-all-content-container
+          centered: centered-container
+          orientation: equal
         components:
           c1d34561-d1ec-4ef3-b369-2bd212415cb4:
             uuid: c1d34561-d1ec-4ef3-b369-2bd212415cb4
-            region: main
+            region: left
             configuration:
               id: 'field_block:node:su_spotlight:su_spotlight_feature_image'
               label: 'Feature Image'
@@ -38,11 +39,11 @@ third_party_settings:
               label_display: '0'
               formatter:
                 label: hidden
-                type: media_responsive_image_formatter
+                type: media_image_formatter
                 settings:
                   view_mode: default
-                  image_style: stanford_hero_block_wide
-                  link: true
+                  image_style: large_square
+                  link: false
                 third_party_settings:
                   field_formatter_class:
                     class: ''
@@ -92,27 +93,21 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 1
-        third_party_settings: {  }
-      -
-        layout_id: jumpstart_ui_one_column
-        layout_settings:
-          extra_classes: ''
-          centered: centered-container
-        components:
-          9a94ac35-54e3-4ae3-967b-708db39f3e8f:
-            uuid: 9a94ac35-54e3-4ae3-967b-708db39f3e8f
+            weight: 0
+          cd45276b-4d92-4cde-815f-b13dbcf0f375:
+            uuid: cd45276b-4d92-4cde-815f-b13dbcf0f375
             region: main
             configuration:
-              id: 'field_block:node:su_spotlight:title'
-              label: Title
+              id: 'field_block:node:su_spotlight:su_spotlight_graduation_year'
+              label: 'Graduation Year'
               provider: layout_builder
               label_display: '0'
               formatter:
                 label: hidden
-                type: entity_title_heading
+                type: datetime_custom
                 settings:
-                  tag: h1
+                  timezone_override: ''
+                  date_format: 'Y'
                 third_party_settings:
                   field_formatter_class:
                     class: ''
@@ -120,7 +115,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 0
+            weight: 1
         third_party_settings: {  }
       -
         layout_id: jumpstart_ui_two_column
