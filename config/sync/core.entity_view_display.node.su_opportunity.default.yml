@@ -19,11 +19,13 @@ dependencies:
     - field.field.node.su_opportunity.su_opp_time_year
     - field.field.node.su_opportunity.su_opp_type
     - node.type.su_opportunity
+    - views.view.su_spotlights
   module:
     - jumpstart_ui
     - layout_builder
     - layout_library
     - user
+    - views
 third_party_settings:
   layout_builder:
     allow_custom: false
@@ -241,6 +243,19 @@ third_party_settings:
                 view_mode: view_mode
             additional: {  }
             weight: 5
+          b91c815f-0720-487b-af89-bc947af98442:
+            uuid: b91c815f-0720-487b-af89-bc947af98442
+            region: left
+            configuration:
+              id: 'views_block:su_spotlights-opportunity_spotlight_ref'
+              label: ''
+              provider: views
+              label_display: '0'
+              views_label: ''
+              items_per_page: none
+              context_mapping: {  }
+            additional: {  }
+            weight: 1
         third_party_settings: {  }
   layout_library:
     enable: false
@@ -251,6 +266,7 @@ mode: default
 content: {  }
 hidden:
   body: true
+  links: true
   su_opp_application_deadline: true
   su_opp_contact_email: true
   su_opp_contact_name: true
@@ -265,4 +281,3 @@ hidden:
   su_opp_submissions_open: true
   su_opp_time_year: true
   su_opp_type: true
-  links: true

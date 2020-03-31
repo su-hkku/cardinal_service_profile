@@ -1,16 +1,16 @@
-uuid: 336da2e0-8765-4aad-89e1-2bc9ca405f7c
+uuid: bad99854-1f40-48bc-99f5-9cf751befe5b
 langcode: en
 status: true
 dependencies:
   module:
-    - link
     - node
-id: node.su_opp_solo_url
-field_name: su_opp_solo_url
+id: node.su_spotlight_opportunity
+field_name: su_spotlight_opportunity
 entity_type: node
-type: link
-settings: {  }
-module: link
+type: entity_reference
+settings:
+  target_type: node
+module: core
 locked: false
 cardinality: 1
 translatable: true
