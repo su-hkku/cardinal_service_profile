@@ -29,7 +29,7 @@ class OpportunityContentCest {
     ], 'su_opportunity_type');
 
     $I->logInWithRole('site_manager');
-    $I->amOnUrl('/node/add/su_opportunity');
+    $I->amOnPage('/node/add/su_opportunity');
     $I->fillField('Title', 'Test Opportunity');
     $I->fillField('Body', 'Lorem Ipsum');
     $I->click('Save');

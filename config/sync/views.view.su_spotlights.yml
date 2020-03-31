@@ -641,6 +641,7 @@ display:
           plugin_id: numeric
       defaults:
         arguments: false
+      block_category: 'Spotlight Views'
     cache_metadata:
       max-age: -1
       contexts:
