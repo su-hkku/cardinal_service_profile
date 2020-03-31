@@ -8,7 +8,7 @@ class OpportunityContentCest {
   /**
    * Create a new piece of Opportunity content.
    */
-  public function testSpotlightContentCreation(\AcceptanceTester $I) {
+  public function testOpportunityContentCreation(\AcceptanceTester $I) {
     $this->createTaxonomyTerms($I, [
       'Stanford',
       'Canada',
