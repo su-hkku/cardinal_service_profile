@@ -228,13 +228,14 @@ third_party_settings:
               label_display: '0'
               formatter:
                 label: hidden
-                type: link
+                type: link_class
                 settings:
                   trim_length: 80
                   url_only: false
                   url_plain: false
                   rel: '0'
                   target: _blank
+                  class: su-button
                 third_party_settings:
                   field_formatter_class:
                     class: ''
@@ -286,13 +287,14 @@ third_party_settings:
               label_display: '0'
               formatter:
                 label: hidden
-                type: link
+                type: link_class
                 settings:
                   trim_length: 80
                   url_only: false
                   url_plain: false
                   rel: nofollow
                   target: '0'
+                  class: su-button
                 third_party_settings:
                   field_formatter_class:
                     class: ''
