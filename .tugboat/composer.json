@@ -97,7 +97,7 @@
         },
         "merge-plugin": {
             "include": [
-                "htdocs/profiles/cardinal_service_profile"
+                "htdocs/profiles/cardinal_service_profile/composer.json"
             ],
             "recurse": true,
             "replace": false,
