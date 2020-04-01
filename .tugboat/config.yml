@@ -25,11 +25,12 @@ services:
         - chmod +x /usr/local/bin/drush
 
         # Setup the directory.
-        - ls ./
-        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json ./
-        - rsync ${TUGBOAT_ROOT} /var/www/localhost/htdocs/profiles/cardinal_service_profile
-        - composer install --no-interaction
-        - composer install --no-interaction
+        - rm -rf /var/www/localhost
+        - mkdir /var/www/localhost
+        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json /var/www/localhost/
+        - ln -snf ${TUGBOAT_ROOT} /var/www/localhost/htdocs/profiles/cardinal_service_profile
+        - cd /var/www/localhost/ && composer install --no-interaction
+        - /var/www/localhost/ && composer install --no-interaction
 
         # Install Drupal
         - drush si cardinal_service_profile --db-url=mysql://tugboat:tugboat@mysql/tugboat -y
