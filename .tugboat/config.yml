@@ -1,0 +1,59 @@
+services:
+
+  # What to call the service hosting the site.
+  cardinalsites:
+
+    # Use PHP 7.2 with Apache
+    image: pookmish/tugboat:latest
+
+    # Set this as the default service. This does a few things
+    #   1. Clones the git repository into the service container
+    #   2. Exposes port 80 to the Tugboat HTTP proxy
+    #   3. Routes requests to the preview URL to this service
+    default: true
+
+    # Wait until the mysql service is done building
+    depends: mysql
+
+    # A set of commands to run while building this service
+    commands:
+
+      # Commands that set up the basic preview infrastructure
+      init:
+        # Install drush-launcher
+        - wget -O /usr/local/bin/drush https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+        - chmod +x /usr/local/bin/drush
+
+        # Setup the directory.
+        - rm -rf /var/www/localhost
+        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json
+        - rsync ${TUGBOAT_ROOT} /var/www/localhost/htdocs/profiles/cardinal_service_profile
+        - composer install --no-interaction
+        - composer install --no-interaction
+
+        # Install Drupal
+        - drush si cardinal_service_profile --db-url=mysql://tugboat:tugboat@mysql/tugboat -y
+        - drush user:create tugboat --password=tugboat
+        - drush user:role:add administrator tugboat
+        - chmod -R 777 htdocs/sites/default/files
+
+      # Commands that are run on base previews to create the new preview.
+      build:
+        # Install/update packages managed by composer.
+        - drush updatedb
+        - drush config:import -y
+        - drush cache:rebuild
+        - drush pm:uninstall simplesamlphp_auth -y
+
+    # Collection of urls to compare visual results.
+    visualdiffs:
+      - /
+      - /people
+      - /resources
+      - /about
+
+  # What to call the service hosting MySQL. This name also acts as the
+  # hostname to access the service by from the php service.
+  mysql:
+    # Use the latest available 5.x version of MySQL
+    image: tugboatqa/mysql:5
