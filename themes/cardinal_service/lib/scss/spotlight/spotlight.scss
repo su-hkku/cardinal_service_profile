@@ -14,12 +14,9 @@
 	.node-su-spotlight-su-spotlight-graduation-year,
 	.node-su-spotlight-su-spotlight-major {
 		display: inline-block;
-
-		p {
-			font-size: 1.2em;
-			margin: 0;
-		}
-	}
+    font-size: 1.2em;
+    margin: 0;
+  }
 
 	@media (max-width: 1900px) {
 		width: 65%;
@@ -42,7 +39,7 @@
 			font-size: 1.7em;
 		}
 
-		.su-spotlight-major p {
+		.su-spotlight-major {
 			font-size: 1em;
 		}
 	}
@@ -62,11 +59,25 @@
 }
 
 .su-spotlight.body {
-	padding: 2em 0;
+	padding: 2em 0 0 0;
 	width: 65%;
-	margin: 0 auto;
+  margin: 0 auto;
 
 	@media (max-width: 767px) {
 		width: 100%;
 	}
+}
+
+.su-spotlight-quote {
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 1.5em;
+
+  &:before {
+    content: open-quote;
+  }
+}
+
+.su-spotlight-body {
+  font-size: 1em;
 }
