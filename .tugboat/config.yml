@@ -26,8 +26,8 @@ services:
 
         # Setup the directory.
         - rm -rf /var/www/localhost
-        - mkdir /var/www/localhost
-        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json /var/www/localhost/
+        - mkdir -R /var/www/localhost/htdocs/profiles/
+        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json /var/www/localhost/composer.json
         - ln -snf ${TUGBOAT_ROOT} /var/www/localhost/htdocs/profiles/cardinal_service_profile
         - cd /var/www/localhost/ && composer install --no-interaction
         - /var/www/localhost/ && composer install --no-interaction
