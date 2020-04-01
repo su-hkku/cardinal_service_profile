@@ -25,8 +25,8 @@ services:
         - chmod +x /usr/local/bin/drush
 
         # Setup the directory.
-        - rm -rf /var/www/localhost
-        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json
+        - ls ./
+        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json ./
         - rsync ${TUGBOAT_ROOT} /var/www/localhost/htdocs/profiles/cardinal_service_profile
         - composer install --no-interaction
         - composer install --no-interaction
