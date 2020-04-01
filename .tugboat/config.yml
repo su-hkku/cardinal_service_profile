@@ -28,10 +28,10 @@ services:
         # Setup the directory.
         - rm -rf /var/www/localhost
         - mkdir -p /var/www/localhost/htdocs/profiles/
-        - cp ${TUGBOAT_ROOT}/.tugboat/composer.json /var/www/localhost/composer.json
+        - cp ${TUGBOAT_ROOT}/.tugboat/composer.* /var/www/localhost/
         - ln -snf ${TUGBOAT_ROOT} /var/www/localhost/htdocs/profiles/cardinal_service_profile
         - cd /var/www/localhost/ && composer install --no-dev --no-interaction
-        - /var/www/localhost/ && composer install --no-dev --no-interaction
+        - cd /var/www/localhost/ && composer install --no-dev --no-interaction
 
         # Install Drupal
         - drush si cardinal_service_profile --db-url=mysql://tugboat:tugboat@mysql/tugboat -y

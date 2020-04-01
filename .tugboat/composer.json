@@ -44,28 +44,28 @@
             }
         },
         "installer-paths": {
-            "docroot/core": [
+            "htdocs/core": [
                 "type:drupal-core"
             ],
-            "docroot/modules/contrib/{$name}": [
+            "htdocs/modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
-            "docroot/modules/custom/{$name}": [
+            "htdocs/modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
-            "docroot/profiles/contrib/{$name}": [
+            "htdocs/profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
-            "docroot/profiles/custom/{$name}": [
+            "htdocs/profiles/custom/{$name}": [
                 "type:drupal-custom-profile"
             ],
-            "docroot/themes/contrib/{$name}": [
+            "htdocs/themes/contrib/{$name}": [
                 "type:drupal-theme"
             ],
-            "docroot/themes/custom/{$name}": [
+            "htdocs/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ],
-            "docroot/libraries/{$name}": [
+            "htdocs/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
                 "type:npm-asset"
@@ -75,7 +75,7 @@
             ]
         },
         "custom-installer": {
-            "docroot/libraries/{$name}/": [
+            "htdocs/libraries/{$name}/": [
                 "type:component",
                 "ckeditor/ckeditor",
                 "enyo/dropzone",
@@ -85,7 +85,7 @@
             "vendor/{$vendor}/{$name}/": [
                 "type:library"
             ],
-            "docroot/profiles/custom/{$name}": [
+            "htdocs/profiles/custom/{$name}": [
                 "type:drupal-custom-profile"
             ]
         },
