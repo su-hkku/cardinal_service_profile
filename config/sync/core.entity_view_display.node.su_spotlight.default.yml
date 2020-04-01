@@ -42,7 +42,7 @@ third_party_settings:
                 type: media_image_formatter
                 settings:
                   view_mode: default
-                  image_style: large_square
+                  image_style: spotlight_image_370x370_
                   link: false
                 third_party_settings:
                   field_formatter_class:
@@ -107,7 +107,7 @@ third_party_settings:
                 type: datetime_custom
                 settings:
                   timezone_override: ''
-                  date_format: 'Y'
+                  date_format: 'y'''
                 third_party_settings:
                   field_formatter_class:
                     class: ''
