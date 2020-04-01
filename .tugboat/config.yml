@@ -34,19 +34,19 @@ services:
         - cd /var/www/localhost/ && composer install --no-dev --no-interaction
 
         # Install Drupal
-        - drush si cardinal_service_profile --db-url=mysql://tugboat:tugboat@mysql/tugboat -y
-        - drush user:create tugboat --password=tugboat
-        - drush user:role:add administrator tugboat
+        - cd /var/www/localhost/htdocs/ && drush si cardinal_service_profile --db-url=mysql://tugboat:tugboat@mysql/tugboat -y
+        - cd /var/www/localhost/htdocs/ && drush user:create tugboat --password=tugboat
+        - cd /var/www/localhost/htdocs/ && drush user:role:add administrator tugboat
         - chmod -R 777 /var/www/localhost/htdocs/sites/default/files
 
       # Commands that are run on base previews to create the new preview.
       build:
         # Install/update packages managed by composer.
         - cd /var/www/localhost && composer update --no-dev
-        - drush updatedb
-        - drush config:import -y
-        - drush cache:rebuild
-        - drush pm:uninstall simplesamlphp_auth -y
+        - cd /var/www/localhost/htdocs/ && drush updatedb
+        - cd /var/www/localhost/htdocs/ && drush config:import -y
+        - cd /var/www/localhost/htdocs/ && drush cache:rebuild
+        - cd /var/www/localhost/htdocs/ && drush pm:uninstall simplesamlphp_auth -y
 
     # Collection of urls to compare visual results.
     visualdiffs:
