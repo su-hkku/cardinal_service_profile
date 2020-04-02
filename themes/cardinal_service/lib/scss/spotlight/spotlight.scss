@@ -7,6 +7,19 @@
 	align-items: center;
 	margin: 0 auto;
 	padding: 70px 0 0;
+
+  .image {
+    margin-right: 40px;
+    flex-shrink: 0;
+    order: 1;
+  }
+  
+  img {
+    border-radius: 50%;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
 }
 
 .su-spotlight-student-name h2 {
@@ -19,19 +32,6 @@
   display: inline-block;
   font-size: 1.2em;
   margin: 0;
-}
-
-.image {
-  margin-right: 40px;
-  flex-shrink: 0;
-  order: 1;
-}
-
-img {
-  border-radius: 50%;
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .content {
@@ -60,6 +60,12 @@ img {
 
 .su-spotlight-body {
   font-size: 1em;
+}
+
+@media (min-width: 1900px) {
+  .spotlight-all-content-container {
+    width: 50%;
+  }
 }
 
 @media (max-width: 1900px) {
@@ -91,6 +97,16 @@ img {
     display: flex;
     text-align: left;
     padding: 50px 0 0;
+
+    .image {
+      display: flex;
+      margin-right: 0;
+      width: 286px;
+    }
+  
+    img {
+      max-width: 82%;
+    }
   }
 
   .su-spotlight-student-name h2 {
@@ -100,16 +116,6 @@ img {
 
   .su-spotlight-major {
     font-size: 1em;
-  }
-
-  .image {
-    display: flex;
-    margin-right: 0;
-    width: 286px;
-  }
-
-  img {
-    max-width: 82%;
   }
 }
 
@@ -124,16 +130,16 @@ img {
 
   .spotlight-all-content-container { // Not sure if we should use this class
     text-align: center;
-  }
 
-  .image {
-    flex-shrink: 0;
-    margin-right: unset;
-    margin: 0 auto;
-    width: 60%;
-  }
-
-  img {
-    max-width: 100%;
+    .image {
+      flex-shrink: 0;
+      margin-right: unset;
+      margin: 0 auto;
+      width: 60%;
+    }
+  
+    img {
+      max-width: 100%;
+    }
   }
 }
