@@ -7,13 +7,12 @@
 	align-items: center;
 	margin: 0 auto;
 	padding: 70px 0 0;
-
-  .image {
-    margin-right: 40px;
-    flex-shrink: 0;
-    order: 1;
-  }
   
+  .image {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   img {
     border-radius: 50%;
     height: auto;
@@ -87,8 +86,19 @@
 }
 
 @media (max-width: 992px) {
-  .flex-lg-6-of-12 {
-    width: 50%;
+  .spotlight-all-content-container {
+    .left-region {
+      width: 50%;
+    }
+
+    .main-region {
+      width: 50%;
+    }
+  }
+
+  .image {
+    display: flex;
+    width: 325px;
   }
 }
 
@@ -98,9 +108,15 @@
     text-align: left;
     padding: 50px 0 0;
 
+    .left-region {
+      width: 55%;
+    }
+    
+    .main-region {
+      width: 45%;
+    }
+
     .image {
-      display: flex;
-      margin-right: 0;
       width: 286px;
     }
   
@@ -120,20 +136,24 @@
 }
 
 @media (max-width: 576px) {
-  .flex-lg-6-of-12 {
-    width: 100%;
-  }
-
   .su-spotlight.body {
     width: 100%;
   }
 
   .spotlight-all-content-container { // Not sure if we should use this class
     text-align: center;
+    
+    .left-region {
+      width: 100%;
+    }
 
+    .main-region {
+      margin-left: 0;
+      width: 100%;
+    }
+    
     .image {
       flex-shrink: 0;
-      margin-right: unset;
       margin: 0 auto;
       width: 60%;
     }
