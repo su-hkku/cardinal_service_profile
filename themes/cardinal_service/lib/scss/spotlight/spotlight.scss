@@ -1,170 +1,168 @@
 @charset "UTF-8";
 
 .spotlight-all-content-container {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  padding: 70px 0 0;
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	padding: 70px 0 0;
 
-  .image {
-    display: flex;
-    justify-content: flex-end;
-  }
+	.image {
+		display: flex;
+		justify-content: flex-end;
+	}
 
-  img {
-    border-radius: 50%;
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
-  }
+	img {
+		border-radius: 50%;
+		height: auto;
+		max-width: 100%;
+		vertical-align: middle;
+	}
 }
 
 .su-spotlight-student-name {
-  h2 {
-    font-size: 2.4em;
-    margin: 0 0 20px;
-  }
+	h2 {
+		font-size: 2.4em;
+		margin: 0 0 20px;
+	}
 }
 
 .node-su-spotlight-su-spotlight-graduation-year,
 .node-su-spotlight-su-spotlight-major {
-  display: inline-block;
-  font-size: 1.2em;
-  margin: 0;
+	display: inline-block;
+	font-size: 1.2em;
+	margin: 0;
 }
 
 .content {
-  margin-bottom: 100px;
+	margin-bottom: 100px;
 }
 
 .su-spotlight {
-  &.body {
-    padding: 2em 0 0 0;
-    width: 65%;
-    margin: 0 auto;
-  }
+	&.body {
+		padding: 2em 0 0 0;
+		width: 65%;
+		margin: 0 auto;
+	}
 }
 
 .su-spotlight-quote {
-  font-size: 1.6em;
-  font-weight: 400;
-  line-height: 1.5em;
+	font-size: 1.6em;
+	font-weight: 400;
+	line-height: 1.5em;
 
-  &::before {
-    content: open-quote;
-  }
+	&::before {
+		content: open-quote;
+	}
 
-  &::after {
-    content: close-quote;
-  }
+	&::after {
+		content: close-quote;
+	}
 }
 
 .su-spotlight-body {
-  font-size: 1em;
+	font-size: 1em;
 }
 
 @media (min-width: 1900px) {
-  .spotlight-all-content-container {
-    width: 50%;
-  }
+	.spotlight-all-content-container {
+		width: 50%;
+	}
 }
 
 @media (max-width: 1900px) {
-  .spotlight-all-content-container {
-    width: 65%;
-  }
+	.spotlight-all-content-container {
+		width: 65%;
+	}
 }
 
 @media (max-width: 1400px) {
-  .spotlight-all-content-container {
-    width: 85%;
-  }
+	.spotlight-all-content-container {
+		width: 85%;
+	}
 }
 
 @media (max-width: 1200px) {
-  .spotlight-all-content-container {
-    width: 90%;
-  }
+	.spotlight-all-content-container {
+		width: 90%;
+	}
 }
 
 @media (max-width: 992px) {
-  .spotlight-all-content-container {
-    .left-region, 
-    .main-region {
-      width: 50%;
-    }
-  }
+	.spotlight-all-content-container {
+		.left-region,
+		.main-region {
+			width: 50%;
+		}
+	}
 
-  .image {
-    display: flex;
-    width: 325px;
-  }
+	.image {
+		display: flex;
+		width: 325px;
+	}
 }
 
 @media (max-width: 767px) {
-  .spotlight-all-content-container {
-    display: flex;
-    text-align: left;
-    padding: 50px 0 0;
+	.spotlight-all-content-container {
+		display: flex;
+		text-align: left;
+		padding: 50px 0 0;
 
-    .left-region {
-      width: 55%;
-    }
+		.left-region {
+			width: 55%;
+		}
 
-    .main-region {
-      width: 45%;
-    }
+		.main-region {
+			width: 45%;
+		}
 
-    .image {
-      width: 286px;
-    }
+		.image {
+			width: 286px;
+		}
 
-    img {
-      max-width: 82%;
-    }
-  }
+		img {
+			max-width: 82%;
+		}
+	}
 
-  .su-spotlight-student-name {
-    h2 {
-      font-size: 1.7em;
-      margin-top: 2em;
-    }
-  }
+	.su-spotlight-student-name {
+		h2 {
+			font-size: 1.7em;
+			margin-top: 2em;
+		}
+	}
 
-  .su-spotlight-major {
-    font-size: 1em;
-  }
+	.su-spotlight-major {
+		font-size: 1em;
+	}
 }
 
 @media (max-width: 576px) {
-  .su-spotlight {
-    &.body {
-      width: 100%;
-    }
+	.su-spotlight {
+		&.body {
+			width: 100%;
+		}
+	}
 
-  }
+	.spotlight-all-content-container {
+		text-align: center;
 
-  .spotlight-all-content-container {
-    text-align: center;
+		.left-region {
+			width: 100%;
+		}
 
-    .left-region {
-      width: 100%;
-    }
+		.main-region {
+			margin-left: 0;
+			width: 100%;
+		}
 
-    .main-region {
-      margin-left: 0;
-      width: 100%;
-    }
+		.image {
+			flex-shrink: 0;
+			margin: 0 auto;
+			width: 60%;
+		}
 
-    .image {
-      flex-shrink: 0;
-      margin: 0 auto;
-      width: 60%;
-    }
-
-    img {
-      max-width: 100%;
-    }
-    
-  }
+		img {
+			max-width: 100%;
+		}
+	}
 }
