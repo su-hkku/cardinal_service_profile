@@ -1,0 +1,151 @@
+uuid: 18fe55a6-a1f6-47c9-b079-992ef831c99b
+langcode: en
+status: false
+dependencies: {  }
+id: hs_capx
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: {  }
+migration_group: opportunities
+label: 'SOLO Opportunities'
+source:
+  constants:
+    status: 1
+    type: su_opportunity
+    basic_html: stanford_html
+    image_destination: 'public://media/image/solo/'
+  urls:
+    - https://solo.stanford.edu/data/opportunities.xml?type=236
+  item_selector: OPPORTUNITY
+  fields:
+    -
+      name: id
+      label: ID
+      selector: ID
+    -
+      name: title
+      label: Title
+      selector: TITLE
+    -
+      name: url
+      label: URL
+      selector: URL
+    -
+      name: application_deadline
+      label: 'Application Deadline'
+      selector: APPLICATION_DEADLINE
+    -
+      name: start
+      label: Start
+      selector: DURATION/START
+    -
+      name: end
+      label: End
+      selector: DURATION/END
+    -
+      name: sponsor
+      label: Sponsor
+      selector: SPONSOR
+    -
+      name: teaser
+      label: Teaser
+      selector: TEASER
+    -
+      name: body
+      label: Body
+      selector: DESCRIPTION
+    -
+      name: image
+      label: Image
+      selector: IMAGE
+    -
+      name: eligibility
+      label: Eligibility
+      selector: ELIGIBILITY
+    -
+      name: type
+      label: Type
+      selector: TYPE
+    -
+      name: time_of_year
+      label: 'Time of the Year'
+      selector: TIME_OF_YEAR
+    -
+      name: open_to
+      label: 'Open To'
+      selector: OPEN_TO
+    -
+      name: location
+      label: Location
+      selector: LOCATION
+    -
+      name: contact_name
+      label: 'Contact Name'
+      selector: CONTACT_NAME
+    -
+      name: contact_email
+      label: 'Contact Email'
+      selector: CONTACT_EMAIL
+    -
+      name: contact_phone
+      label: 'Contact Phone Number'
+      selector: CONTACT_PHONE
+  ids:
+    id:
+      type: string
+process:
+  title: title
+  revision_timestamp:
+    -
+      plugin: callback
+      callable: time
+  revision_translation_affected:
+    -
+      plugin: default_value
+      default_value: 1
+  status: constants/status
+  type: constants/type
+  body/value: body
+  body/format: constants/basic_html
+  image_file:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: image
+    -
+      plugin: file_import
+      destination: constants/image_destination
+      id_only: true
+      reuse: true
+  su_opp_image/target_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: image
+    -
+      plugin: skip_on_empty
+      method: process
+      source: '@image_file'
+    -
+      plugin: entity_generate
+      source: title
+      value_key: name
+      bundle_key: bundle
+      bundle: image
+      entity_type: media
+      ignore_case: true
+      values:
+        field_media_image: '@image_file'
+destination:
+  plugin: 'entity_reference_revisions:node'
+  new_revisions: true
+  force_revision: true
+  overwrite_properties:
+    - title
+    - revision_timestamp
+    - revision_translation_affected
+    - body/value
+    - body/format
+migration_dependencies:
+  required: {  }
