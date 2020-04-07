@@ -44,7 +44,6 @@ services:
         # Install/update packages managed by composer.
         - cd /var/www/localhost && composer update --no-dev --no-interaction
         - cd /var/www/localhost/htdocs/ && drush updatedb
-        - cd /var/www/localhost/htdocs/ && drush en telephone && drush cr
         - cd /var/www/localhost/htdocs/ && drush config:import -y
         - cd /var/www/localhost/htdocs/ && drush cache:rebuild
         - cd /var/www/localhost/htdocs/ && drush pm:uninstall simplesamlphp_auth -y
