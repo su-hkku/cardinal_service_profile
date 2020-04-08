@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-.spotlight-all-content-container {
+.spotlight-header-content-container {
   align-items: center;
   display: flex;
   margin: 0 auto;
@@ -17,92 +17,31 @@
     max-width: 100%;
     vertical-align: middle;
   }
-}
 
-.su-spotlight-student-name {
-  h2 {
-    font-size: 2.4em;
-    margin: 0 0 20px;
-  }
-}
+  @include grid-media-max('sm') {
+    text-align: center;
 
-.node-su-spotlight-su-spotlight-graduation-year,
-.node-su-spotlight-su-spotlight-major {
-  display: inline-block;
-  font-size: 1.2em;
-  margin: 0;
-}
+    .left-region {
+      width: 100%;
+    }
 
-.content {
-  margin-bottom: 100px;
-}
-
-.su-spotlight {
-  &.body {
-    margin: 0 auto;
-    padding: 2em 0 0;
-    width: 65%;
-  }
-}
-
-.su-spotlight-quote {
-  font-size: 1.6em;
-  font-weight: 400;
-  line-height: 1.5em;
-
-  &::before {
-    content: open-quote;
-  }
-
-  &::after {
-    content: close-quote;
-  }
-}
-
-.su-spotlight-body {
-  font-size: 1em;
-}
-
-@media (min-width: 1900px) {
-  .spotlight-all-content-container {
-    width: 50%;
-  }
-}
-
-@media (max-width: 1900px) {
-  .spotlight-all-content-container {
-    width: 65%;
-  }
-}
-
-@include grid-media-max('2xl') {
-  .spotlight-all-content-container {
-    width: 85%;
-  }
-}
-
-@include grid-media-max('xl') {
-  .spotlight-all-content-container {
-    width: 90%;
-  }
-}
-
-@include grid-media-max('lg') {
-  .spotlight-all-content-container {
-    .left-region,
     .main-region {
-      width: 50%;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .image {
+      flex-shrink: 0;
+      margin: 0 auto;
+      width: 60%;
+    }
+
+    img {
+      max-width: 100%;
     }
   }
 
-  .image {
-    display: flex;
-    width: 325px;
-  }
-}
-
-@include grid-media-max('md') {
-  .spotlight-all-content-container {
+  @include grid-media-max('md') {
     display: flex;
     padding: 50px 0 0;
     text-align: left;
@@ -124,45 +63,90 @@
     }
   }
 
-  .su-spotlight-student-name {
-    h2 {
-      font-size: 1.7em;
-      margin-top: 2em;
+  @include grid-media-max('lg') {
+    .left-region,
+    .main-region {
+      width: 50%;
+    }
+
+    .image {
+      display: flex;
+      width: 325px;
     }
   }
 
+  @include grid-media-max('xl') {
+    width: 90%;
+  }
+
+  @include grid-media-max('2xl') {
+    width: 85%;
+  }
+
+  @media (max-width: 1900px) {
+    width: 65%;
+  }
+
+  @media (min-width: 1900px) {
+    width: 50%;
+  }
+}
+
+.su-spotlight {
+  &.body {
+    @include grid-media-max('sm') {
+      width: 100%;
+    }
+
+    margin: 0 auto;
+    padding: 2em 0 0;
+    width: 65%;
+  }
+}
+
+.su-spotlight-body {
+  font-size: 1em;
+}
+
+.node-su-spotlight-su-spotlight-graduation-year,
+.node-su-spotlight-su-spotlight-major {
+  display: inline-block;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.su-spotlight-student-name {
+  h2 {
+    @include grid-media-max('md') {
+      font-size: 1.7em;
+      margin-top: 2em;
+    }
+
+    font-size: 2.4em;
+    margin: 0 0 20px;
+  }
+}
+
+@include grid-media-max('md') {
   .su-spotlight-major {
     font-size: 1em;
   }
 }
 
-@include grid-media-max('sm') {
-  .su-spotlight {
-    &.body {
-      width: 100%;
-    }
+.content {
+  margin-bottom: 100px;
+}
+
+.su-spotlight-quote {
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 1.5em;
+
+  &::before {
+    content: open-quote;
   }
 
-  .spotlight-all-content-container {
-    text-align: center;
-
-    .left-region {
-      width: 100%;
-    }
-
-    .main-region {
-      margin-left: 0;
-      width: 100%;
-    }
-
-    .image {
-      flex-shrink: 0;
-      margin: 0 auto;
-      width: 60%;
-    }
-
-    img {
-      max-width: 100%;
-    }
+  &::after {
+    content: close-quote;
   }
 }
