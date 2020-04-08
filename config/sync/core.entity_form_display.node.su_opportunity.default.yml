@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.su_opportunity.su_opp_contact_name
     - field.field.node.su_opportunity.su_opp_contact_phone
     - field.field.node.su_opportunity.su_opp_duration
-    - field.field.node.su_opportunity.su_opp_eligability
+    - field.field.node.su_opportunity.su_opp_eligibility
     - field.field.node.su_opportunity.su_opp_image
     - field.field.node.su_opportunity.su_opp_learn_more
     - field.field.node.su_opportunity.su_opp_location
@@ -110,7 +110,7 @@ content:
     third_party_settings: {  }
     type: daterange_default
     region: content
-  su_opp_eligability:
+  su_opp_eligibility:
     weight: 128
     settings:
       rows: 5

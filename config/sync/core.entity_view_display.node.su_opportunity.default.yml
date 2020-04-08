@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.su_opportunity.su_opp_contact_name
     - field.field.node.su_opportunity.su_opp_contact_phone
     - field.field.node.su_opportunity.su_opp_duration
-    - field.field.node.su_opportunity.su_opp_eligability
+    - field.field.node.su_opportunity.su_opp_eligibility
     - field.field.node.su_opportunity.su_opp_image
     - field.field.node.su_opportunity.su_opp_learn_more
     - field.field.node.su_opportunity.su_opp_location
@@ -261,8 +261,8 @@ third_party_settings:
             uuid: 97425a44-5454-4bcd-97b6-db185f33cf48
             region: left
             configuration:
-              id: 'field_block:node:su_opportunity:su_opp_eligability'
-              label: Eligability
+              id: 'field_block:node:su_opportunity:su_opp_eligibility'
+              label: eligibility
               provider: layout_builder
               label_display: visible
               formatter:
@@ -319,7 +319,7 @@ hidden:
   su_opp_contact_name: true
   su_opp_contact_phone: true
   su_opp_duration: true
-  su_opp_eligability: true
+  su_opp_eligibility: true
   su_opp_image: true
   su_opp_learn_more: true
   su_opp_location: true
