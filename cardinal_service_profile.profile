@@ -18,6 +18,19 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\NodeInterface;
 
 /**
+ * Migration callback to just get the current timestamp.
+ *
+ * @param mixed $arg
+ *   Passed parameter from migration plugin `callback`.
+ *
+ * @return int
+ *   Current timestamp.
+ */
+function cardinal_service_profile_get_time($arg = NULL) {
+  return time();
+}
+
+/**
  * Implements hook_install_tasks().
  */
 function cardinal_service_profile_install_tasks(&$install_state) {
@@ -83,7 +96,7 @@ function cardinal_service_profile_menu_link_content_presave(MenuLinkContent $ent
   // by the menu cache tags.
   $parent_id = $entity->getParentId();
   if (!empty($parent_id)) {
-    list($entity_name, $uuid) = explode(':', $parent_id);
+    [$entity_name, $uuid] = explode(':', $parent_id);
     $menu_link_content = \Drupal::entityTypeManager()->getStorage($entity_name)->loadByProperties(['uuid' => $uuid]);
     if (is_array($menu_link_content)) {
       $parent_item = array_pop($menu_link_content);
