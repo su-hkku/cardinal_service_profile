@@ -119,6 +119,7 @@ process:
     callable: cardinal_service_profile_get_time
   status: constants/status
   type: constants/type
+  body/summary: teaser
   body/value: body
   body/format: constants/basic_html
   su_opp_contact_email: contact_email
