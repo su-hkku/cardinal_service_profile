@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
-// Global style includes go in here.
-@import
-'spotlight/index';
+// Load the decanter dependencies.
+@import 'decanter/core/src/scss/decanter-no-markup';
+
+// Add our custom styles.
+@import 'spotlight/index';
+
