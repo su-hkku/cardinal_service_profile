@@ -26,7 +26,7 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_two_column
         layout_settings:
-          extra_classes: spotlight-all-content-container
+          extra_classes: spotlight-header-content-container
           centered: centered-container
           orientation: equal
         components:
