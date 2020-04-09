@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.su_opp_eligibility
+    - field.storage.node.su_opp_eligability
     - node.type.su_opportunity
   module:
     - allowed_formats
@@ -13,11 +13,11 @@ third_party_settings:
     stanford_html: '0'
     stanford_minimal_html: '0'
     plain_text: '0'
-id: node.su_opportunity.su_opp_eligibility
-field_name: su_opp_eligibility
+id: node.su_opportunity.su_opp_eligability
+field_name: su_opp_eligability
 entity_type: node
 bundle: su_opportunity
-label: Eligibility
+label: Eligability
 description: ''
 required: false
 translatable: false

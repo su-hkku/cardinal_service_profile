@@ -5,8 +5,8 @@ dependencies:
   module:
     - node
     - text
-id: node.su_opp_eligibility
-field_name: su_opp_eligibility
+id: node.su_opp_eligability
+field_name: su_opp_eligability
 entity_type: node
 type: text_long
 settings: {  }

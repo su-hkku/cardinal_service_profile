@@ -54,7 +54,7 @@ permissions:
   - 'delete any su_spotlight content'
   - 'delete any video media'
   - 'delete media'
-  - 'delete own su_spotlight content'
+  - 'delete orphan revisions'
   - 'delete own file media'
   - 'delete own image media'
   - 'delete own stanford_page content'
