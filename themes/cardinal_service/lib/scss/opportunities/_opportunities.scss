@@ -1,50 +1,53 @@
 @charset 'UTF-8';
 
-.opportunity-header-content-container {
-  background-color: #e3ded4;
-  margin-bottom: 9.6rem;
+@include grid-media-max('md') {
+  .opportunity-header-content-container {
+    background-color: #e3ded4;
+    margin-bottom: 9.6rem;
 
-  .main-region {
-    padding: 115px 0;
-  }
-
-  .su-opportunity {
-    margin: 0 auto;
-    max-width: calc(100% - 40px);
-    width: calc(100% - 40px);
-  }
-}
-
-.node-su-opportunity-body,
-.su-opp-image,
-.su-spotlights-opportunity-spotlight-ref,
-.node-su-opportunity-su-opp-eligability,
-.node-su-opportunity-su-opp-solo-url {
-  margin-bottom: 9.6rem;
-}
-
-.opportunity {
-  .flex-lg-3-of-12 {
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    box-sizing: border-box;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.1);
-    padding: 3.2rem;
-
-    .node-su-opportunity-su-opp-location,
-    .node-su-opportunity-su-opp-duration,
-    .node-su-opportunity-su-opp-application-deadline,
-    .node-su-opportunity-su-opp-open-to,
-    .node-su-opportunity-su-opp-contact-email {
-      margin-bottom: 2.31rem;
-
-      > h2 {
-        margin-bottom: 1.07rem;
-      }
+    .main-region {
+      padding: 115px 0;
     }
 
-    .node-su-opportunity-su-opp-solo-url {
-      margin-bottom: 0;
+    .su-opportunity {
+      margin: 0 auto;
+      max-width: calc(100% - 40px);
+      width: calc(100% - 40px);
+    }
+  }
+
+  .node-su-opportunity-body,
+  .su-opp-image,
+  .su-spotlights-opportunity-spotlight-ref,
+  .node-su-opportunity-su-opp-eligability,
+  .node-su-opportunity-su-opp-solo-url {
+    margin-bottom: 9.6rem;
+  }
+
+  .opportunity {
+    .flex-lg-3-of-12 {
+      background: #ffffff;
+      border: 1px solid #eeeeee;
+      box-sizing: border-box;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+      padding: 3.2rem;
+
+      .node-su-opportunity-su-opp-location,
+      .node-su-opportunity-su-opp-duration,
+      .node-su-opportunity-su-opp-application-deadline,
+      .node-su-opportunity-su-opp-open-to,
+      .node-su-opportunity-su-opp-contact-email {
+        margin-bottom: 2.31rem;
+
+        > h2 {
+          margin-bottom: 1.07rem;
+        }
+      }
+
+      .node-su-opportunity-su-opp-solo-url {
+        margin-bottom: 0;
+      }
     }
   }
 }
