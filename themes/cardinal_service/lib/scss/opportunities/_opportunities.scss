@@ -37,6 +37,7 @@
   img {
     border-radius: 50%;
     height: auto;
+    margin: 0 auto;
     max-width: 100%;
     vertical-align: middle;
   }
@@ -46,40 +47,41 @@
   .flex-lg-3-of-12 {
     background: #ffffff;
     border: 1px solid #eeeeee;
-    box-sizing: border-box;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
     height: fit-content;
     padding: 3.2rem;
+  }
 
-    .node-su-opportunity-su-opp-location,
-    .node-su-opportunity-su-opp-duration,
-    .node-su-opportunity-su-opp-application-deadline,
-    .node-su-opportunity-su-opp-open-to,
-    .node-su-opportunity-su-opp-contact-email {
-      word-wrap: break-word;
-      margin-bottom: 2.31rem;
+  .node-su-opportunity-su-opp-location,
+  .node-su-opportunity-su-opp-duration,
+  .node-su-opportunity-su-opp-application-deadline,
+  .node-su-opportunity-su-opp-open-to,
+  .node-su-opportunity-su-opp-contact-email {
+    word-wrap: break-word;
+    margin-bottom: 2.31rem;
 
-      > h2 {
-        margin-bottom: 1.07rem;
-      }
+    h2 {
+      margin-bottom: 1.07rem;
     }
+  }
 
-    .node-su-opportunity-su-opp-solo-url {
-      margin-bottom: 0;
-    }
+  .node-su-opportunity-su-opp-solo-url {
+    margin-bottom: 0;
   }
 }
 
 @include grid-media-max('lg') {
   .flex-lg-9-of-12 {
-    -webkit-box-flex: none;
     -ms-flex: none;
+    -webkit-box-flex: none;
     flex: none;
     max-width: 100%;
   }
+
   .flex-lg-3-of-12 {
-    -webkit-box-flex: none;
     -ms-flex: none;
+    -webkit-box-flex: none;
     flex: none;
     max-width: 100%;
   }
