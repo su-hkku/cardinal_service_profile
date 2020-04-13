@@ -38,6 +38,20 @@ class OpportunityContentCest {
   }
 
   /**
+   * The importer should bring in some content.
+   */
+  public function testImporter(\AcceptanceTester $I) {
+    $I->runDrush('migrate:import solo_opportunities');
+    $I->logInWithRole('site_manager');
+    $I->amOnPage('/admin/content');
+    $I->selectOption('Content type', 'Opportunity');
+    $I->click('Filter');
+    $I->click('.views-field-operations a:contains("Edit")');
+    $title = $I->grabValueFrom('input[name*="title"]');
+    $I->canSee("Edit Opportunity $title");
+  }
+
+  /**
    * Create taxonomy terms for testing.
    */
   protected function createTaxonomyTerms(\AcceptanceTester $I, array $terms, $vocab) {
