@@ -42,13 +42,11 @@ class OpportunityContentCest {
    */
   public function testImporter(\AcceptanceTester $I) {
     $I->runDrush('migrate:import solo_opportunities');
-    $I->logInWithRole('site_manager');
-    $I->amOnPage('/admin/content');
-    $I->selectOption('Content type', 'Opportunity');
-    $I->click('Filter');
-    $I->click('.views-field-operations a:contains("Edit")');
-    $title = $I->grabValueFrom('input[name*="title"]');
-    $I->canSee("Edit Opportunity $title");
+    $I->logInWithRole('administrator');
+    $I->amOnPage('/admin/structure/migrate/manage/opportunities/migrations');
+    $I->canSee('solo_opportunities');
+    $total_items = $I->grabTextFrom('table tbody td:nth-child(4)');
+    $I->assertGreaterOrEquals(1, (int) $total_items);
   }
 
   /**
