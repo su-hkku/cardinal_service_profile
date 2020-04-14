@@ -27,6 +27,16 @@
       max-width: calc(100% - 160px);
       width: calc(100% - 160px);
     }
+
+    @media only screen and (min-width: 1200px) {
+      max-width: calc(100% - 200px);
+      width: calc(100% - 200px);
+    }
+
+    @media only screen and (min-width: 1500px) {
+      max-width: 1500px;
+      width: calc(100% - 200px);
+    }
   }
 
   .su-opportunity {
@@ -36,6 +46,7 @@
   }
 }
 
+.flex-lg-3-of-12,
 .node-su-opportunity-body,
 .su-opp-image,
 .su-spotlights-opportunity-spotlight-ref,
@@ -86,8 +97,47 @@
     word-wrap: break-word;
     margin-bottom: 2.31rem;
 
-    h2 {
+    .block__title {
       margin-bottom: 1.07rem;
+
+      &::before {
+        font-family: 'Font Awesome 5 Free';
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  .node-su-opportunity-su-opp-location {
+    .block__title::before {
+      // font-family: 'Font Awesome 5 Free';
+      content: '\f3c5';
+    }
+  }
+
+  .node-su-opportunity-su-opp-duration {
+    .block__title::before {
+      // font-family: 'Font Awesome 5 Free';
+      content: '\f073';
+    }
+  }
+
+  .node-su-opportunity-su-opp-application-deadline {
+    .block__title::before {
+      // font-family: 'Font Awesome 5 Free';
+      content: '\f0f3';
+    }
+  }
+
+  .node-su-opportunity-su-opp-open-to {
+    .block__title::before {
+      // font-family: 'Font Awesome 5 Free';
+      content: '\f500';
+    }
+  }
+
+  .node-su-opportunity-su-opp-contact-email {
+    .block__title::before {
+      content: '\f059';
     }
   }
 }
