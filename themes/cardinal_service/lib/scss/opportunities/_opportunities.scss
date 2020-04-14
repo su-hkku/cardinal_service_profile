@@ -6,43 +6,34 @@
 
   .main-region {
     margin: 0 auto;
+    max-width: calc(100% - 40px);
     padding: 115px 0;
+    width: calc(100% - 40px);
 
     @include grid-media-min('sm') {
-      max-width: calc(100% - 40px);
-      width: calc(100% - 40px);
-    }
-
-    @include grid-media-min('md') {
       max-width: calc(100% - 60px);
       width: calc(100% - 60px);
     }
 
-    @include grid-media-min('lg') {
+    @include grid-media-min('md') {
       max-width: calc(100% - 100px);
       width: calc(100% - 100px);
     }
 
-    @include grid-media-min('xl') {
+    @include grid-media-min('lg') {
       max-width: calc(100% - 160px);
       width: calc(100% - 160px);
     }
 
-    @media only screen and (min-width: 1200px) {
+    @include grid-media-min('xl') {
       max-width: calc(100% - 200px);
       width: calc(100% - 200px);
     }
 
-    @media only screen and (min-width: 1500px) {
+    @include grid-media-min('2xl') {
       max-width: 1500px;
       width: calc(100% - 200px);
     }
-  }
-
-  .su-opportunity {
-    margin: 0 auto;
-    max-width: calc(100% - 40px);
-    width: calc(100% - 40px);
   }
 }
 
@@ -105,32 +96,32 @@
         margin-right: 1.5rem;
       }
     }
+
+    .su-opportunity {
+      margin-left: 4.5rem;
+    }
   }
 
   .node-su-opportunity-su-opp-location {
     .block__title::before {
-      // font-family: 'Font Awesome 5 Free';
       content: '\f3c5';
     }
   }
 
   .node-su-opportunity-su-opp-duration {
     .block__title::before {
-      // font-family: 'Font Awesome 5 Free';
       content: '\f073';
     }
   }
 
   .node-su-opportunity-su-opp-application-deadline {
     .block__title::before {
-      // font-family: 'Font Awesome 5 Free';
       content: '\f0f3';
     }
   }
 
   .node-su-opportunity-su-opp-open-to {
     .block__title::before {
-      // font-family: 'Font Awesome 5 Free';
       content: '\f500';
     }
   }
