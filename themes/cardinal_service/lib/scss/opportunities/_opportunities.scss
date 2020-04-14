@@ -35,6 +35,18 @@
       width: calc(100% - 200px);
     }
   }
+
+  .su-opportunity {
+    display: flex;
+
+    div::after {
+      content: ', ';
+      white-space: pre;
+    }
+    div:last-child::after {
+      content: '';
+    }
+  }
 }
 
 .flex-lg-3-of-12,
