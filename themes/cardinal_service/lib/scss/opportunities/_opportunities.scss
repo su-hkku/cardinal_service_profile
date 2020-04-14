@@ -171,6 +171,7 @@
 
   @include grid-media-max('lg') {
     .flex-lg-9-of-12 {
+      order: 2;
       -ms-flex: none;
       -webkit-box-flex: none;
       flex: none;
@@ -178,10 +179,28 @@
     }
 
     .flex-lg-3-of-12 {
+      display: inline-grid;
+      grid-template-columns: repeat(4, auto);
+      order: 1;
       -ms-flex: none;
       -webkit-box-flex: none;
       flex: none;
       max-width: 100%;
+
+      div:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  @include grid-media-max('md') {
+    .flex-lg-3-of-12 {
+      grid-template-columns: repeat(2, auto);
+    }
+  }
+  @include grid-media-max('sm') {
+    .flex-lg-3-of-12 {
+      display: block;
     }
   }
 }
