@@ -76,6 +76,30 @@
     max-width: 100%;
     vertical-align: middle;
   }
+
+  .su-card__contents {
+    margin: auto 0;
+
+    span {
+      font-family: Roboto Slab;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 40px;
+
+      &::before {
+        content: open-quote;
+      }
+
+      &::after {
+        content: close-quote;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
 }
 
 .opportunity {
@@ -101,6 +125,7 @@
     margin-bottom: 2.31rem;
 
     .block__title {
+      font-size: 2rem;
       margin-bottom: 1.07rem;
 
       &::before {
@@ -143,20 +168,20 @@
       content: '\f059';
     }
   }
-}
 
-@include grid-media-max('lg') {
-  .flex-lg-9-of-12 {
-    -ms-flex: none;
-    -webkit-box-flex: none;
-    flex: none;
-    max-width: 100%;
-  }
+  @include grid-media-max('lg') {
+    .flex-lg-9-of-12 {
+      -ms-flex: none;
+      -webkit-box-flex: none;
+      flex: none;
+      max-width: 100%;
+    }
 
-  .flex-lg-3-of-12 {
-    -ms-flex: none;
-    -webkit-box-flex: none;
-    flex: none;
-    max-width: 100%;
+    .flex-lg-3-of-12 {
+      -ms-flex: none;
+      -webkit-box-flex: none;
+      flex: none;
+      max-width: 100%;
+    }
   }
 }
