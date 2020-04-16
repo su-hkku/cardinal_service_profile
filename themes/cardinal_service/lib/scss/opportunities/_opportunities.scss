@@ -43,6 +43,7 @@
       content: ', ';
       white-space: pre;
     }
+
     div:last-child::after {
       content: '';
     }
@@ -110,6 +111,7 @@
     box-sizing: border-box;
     height: fit-content;
     padding: 3.2rem;
+    position: relative;
 
     .node-su-opportunity-su-opp-solo-url {
       margin-bottom: 0;
@@ -124,47 +126,49 @@
     word-wrap: break-word;
     margin-bottom: 2.31rem;
 
+    &::before {
+      font-family: 'Font Awesome\ 5 Free';
+      font-weight: 900;
+      position: absolute;
+    }
+
     .block__title {
       font-size: 2rem;
       margin-bottom: 1.07rem;
-
-      &::before {
-        font-family: 'Font Awesome 5 Free';
-        margin-right: 1.5rem;
-      }
+      margin-left: 30px;
     }
 
     .su-opportunity {
-      margin-left: 4.5rem;
+      margin-left: 30px;
     }
   }
 
   .node-su-opportunity-su-opp-location {
-    .block__title::before {
+    &::before {
       content: '\f3c5';
     }
   }
 
   .node-su-opportunity-su-opp-duration {
-    .block__title::before {
+    &::before {
       content: '\f073';
     }
   }
 
   .node-su-opportunity-su-opp-application-deadline {
-    .block__title::before {
+    &::before {
       content: '\f0f3';
     }
   }
 
   .node-su-opportunity-su-opp-open-to {
-    .block__title::before {
+    &::before {
       content: '\f500';
     }
   }
 
   .node-su-opportunity-su-opp-contact-email {
-    .block__title::before {
+    &::before {
       content: '\f059';
     }
   }
