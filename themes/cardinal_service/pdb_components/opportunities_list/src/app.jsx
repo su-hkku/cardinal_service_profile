@@ -7,12 +7,11 @@ const queryString = require('query-string');
 class OpportunitiesFilter extends Component {
 
   fields = [
-    {field: 'su_opp_type', label: 'Type of Opportunity'},
-    {field: 'su_opp_time_year', label: 'When'},
-    {field: 'su_opp_open_to', label: 'Open To'},
-    {field: 'su_opp_location', label: 'Location'}
+    {field: 'su_opp_type', label: 'Type of Opportunity', multiple: false},
+    {field: 'su_opp_time_year', label: 'When', multiple: false,},
+    {field: 'su_opp_open_to', label: 'Open To', multiple: false},
+    {field: 'su_opp_location', label: 'Location', multiple: true}
   ];
-  multipleSelect = true;
 
   constructor(props) {
     super(props);
@@ -116,7 +115,7 @@ class OpportunitiesFilter extends Component {
               field={field.field}
               onChange={this.onSelectChange}
               options={this.state.activeItems[field.field]}
-              multiple={this.multipleSelect}
+              multiple={field.multiple}
               defaultValue={this.state.filters[field.field]}
             />
           ))}

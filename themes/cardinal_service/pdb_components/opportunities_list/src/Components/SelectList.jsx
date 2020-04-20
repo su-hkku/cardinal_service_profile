@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Select from 'react-select';
 
-var _ = require('lodash-uuid');
+const _ = require('lodash-uuid');
 
 export class SelectList extends Component {
 
