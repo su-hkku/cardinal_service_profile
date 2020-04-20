@@ -46,6 +46,12 @@ class OpportunityContentCest {
     $I->canSee('solo_opportunities');
     $total_items = $I->grabTextFrom('table tbody td:nth-child(4)');
     $I->assertGreaterOrEquals(1, (int) $total_items);
+
+    // These steps require increased execution time. Figure that out and then
+    // these can be uncommented.
+    // $I->runDrush('cron');
+    // $I->amOnPage('/admin/content');
+    // $I->canSee('Opportunity', '.vbo-table');
   }
 
   /**

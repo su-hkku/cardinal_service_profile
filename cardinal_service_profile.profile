@@ -20,6 +20,13 @@ use Drupal\node\NodeInterface;
 /**
  * Migration callback to just get the current timestamp.
  *
+ * We use this function in migration callback processes because using `time` as
+ * the callback produces messages about "function accepts 0 arguments, 1
+ * argument passed". So we just have our own callback that takes the argument
+ * from the migration process and does nothing with it.
+ *
+ * @see \Drupal\migrate\Plugin\migrate\process\Callback::transform()
+ *
  * @param mixed $arg
  *   Passed parameter from migration plugin `callback`.
  *
