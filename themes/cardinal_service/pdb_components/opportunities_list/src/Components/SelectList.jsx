@@ -22,6 +22,13 @@ export class SelectList extends Component {
     this.props.onChange(this.props.field, selections);
   }
 
+  filterOptions = (candidate, input) => {
+    if (input) {
+      return candidate.data.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+    }
+    return true;
+  };
+
   render() {
     if (this.props.options === undefined) {
       return <React.Fragment/>
@@ -29,10 +36,7 @@ export class SelectList extends Component {
 
     const options = this.props.options.map(option => ({
       value: option.id,
-      label: <div>
-        {option.label} ({option.items.length}
-        <span className="visually-hidden">Stuff</span>)
-      </div>,
+      label: `${option.label} (${option.items.length})`,
       resultCount: option.items.length
     }))
 
@@ -61,6 +65,7 @@ export class SelectList extends Component {
           onChange={this.onChange}
           isOptionDisabled={option => option.resultCount === 0}
           value={value}
+          filterOption={this.filterOptions}
         />
       </div>
     )
