@@ -9,7 +9,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * Provides a Demo Resource
+ * Rest endpoint to provide data about what entities are tagged with terms.
+ *
  * @RestResource(
  *   id = "opportunities_resource",
  *   label = @Translation("Opportunities Resource"),
@@ -56,6 +57,15 @@ class OpportunitiesResource extends ResourceBase {
     return [];
   }
 
+  /**
+   * Get request on the rest endpoint.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   Rest response.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
   public function get() {
     $vocabs = [
       'su_opp_location' => 'su_opportunity_location',

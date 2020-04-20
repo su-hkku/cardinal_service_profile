@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\cardinal_service_rest\Kernel\Plugin\rest\resource;
 
-use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
@@ -13,7 +12,7 @@ use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * Class OpportunitiesResourceTest
+ * Class OpportunitiesResourceTest.
  *
  * @group cardinal_service_rest
  * @coversDefaultClass \Drupal\cardinal_service_rest\Plugin\rest\resource\OpportunitiesResource
