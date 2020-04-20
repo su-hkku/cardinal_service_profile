@@ -145,7 +145,13 @@
     "autoload": {
         "psr-4": {
             "Drupal\\stanford_profile\\": "src/",
-            "Drupal\\stanford_profile_drush\\": "modules/stanford_profile_drush/src/"
+            "Drupal\\stanford_profile_drush\\": "modules/stanford_profile_drush/src/",
+            "Drupal\\cardinal_service_rest\\": "modules/cardinal_service_rest/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Drupal\\Tests\\cardinal_service_rest\\": "modules/cardinal_service_rest/tests/src/"
         }
     },
     "extra": {
