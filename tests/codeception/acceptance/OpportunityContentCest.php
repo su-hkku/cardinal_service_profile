@@ -49,7 +49,7 @@ class OpportunityContentCest {
 
     // These steps require increased execution time. Figure that out and then
     // these can be uncommented.
-    // $I->runDrush('cron');
+    // $I->runDrush('mim solo_opportunities');
     // $I->amOnPage('/admin/content');
     // $I->canSee('Opportunity', '.vbo-table');
   }
