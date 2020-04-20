@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {SelectList} from "./Components/SelectList";
 
-var _ = require('lodash');
+const _ = require('lodash');
+const queryString = require('query-string');
 
 class OpportunitiesFilter extends Component {
 
@@ -11,31 +12,21 @@ class OpportunitiesFilter extends Component {
     {field: 'su_opp_open_to', label: 'Open To'},
     {field: 'su_opp_location', label: 'Location'}
   ];
-  multipleSelect = false;
+  multipleSelect = true;
 
   constructor(props) {
     super(props);
-    this.state = {allItems: {}, activeItems: {}, filters: {}};
+    this.state = {
+      allItems: {},
+      activeItems: {},
+      filters: {}
+    };
     this.onSelectChange = this.onSelectChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
 
-    const queryParams = window.location.search;
-    if (!queryParams.length) {
-      return;
+    if (window.location.search.length > 0) {
+      this.state.filters = queryString.parse(window.location.search, {arrayFormat: 'bracket'});
     }
-
-    queryParams.replace('?', '').split('&').map(param => {
-      const [key, value] = param.split('=');
-      const field = key.replace('[]', '');
-
-      if (this.fields.find(availableField => availableField.field === field)) {
-        if (typeof this.state.filters[field] === 'undefined') {
-          this.state.filters[field] = [];
-        }
-
-        this.state.filters[field].push(value);
-      }
-    })
   }
 
   componentDidMount() {
@@ -52,6 +43,10 @@ class OpportunitiesFilter extends Component {
 
   onFormSubmit(e) {
     e.preventDefault();
+    if (window.location.search.length === 0 && Object.keys(this.state.filters).length === 0) {
+      return;
+    }
+
     let newLocation = window.location.pathname;
     newLocation += '?';
     Object.keys(this.state.filters).map(fieldName => {
