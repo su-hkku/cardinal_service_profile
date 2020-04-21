@@ -25,13 +25,13 @@ use Drupal\node\NodeInterface;
  * argument passed". So we just have our own callback that takes the argument
  * from the migration process and does nothing with it.
  *
- * @see \Drupal\migrate\Plugin\migrate\process\Callback::transform()
- *
  * @param mixed $arg
  *   Passed parameter from migration plugin `callback`.
  *
  * @return int
  *   Current timestamp.
+ *
+ * @see \Drupal\migrate\Plugin\migrate\process\Callback::transform()
  */
 function cardinal_service_profile_get_time($arg = NULL) {
   return time();
