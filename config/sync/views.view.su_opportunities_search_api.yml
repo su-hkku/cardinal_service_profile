@@ -1,4 +1,4 @@
-uuid: 0c7f08f6-15e0-4071-bd32-c8dd1ef1791e
+uuid: 98447ecc-7ec2-4e92-80b2-41fd7ca1e189
 langcode: en
 status: true
 dependencies:
@@ -10,8 +10,8 @@ dependencies:
     - taxonomy.vocabulary.su_opportunity_type
   module:
     - search_api
-id: su_opportunties_search_api
-label: 'Opportunties Search API'
+id: su_opportunities_search_api
+label: 'Opportunities Search API'
 module: views
 description: ''
 tag: ''
@@ -345,9 +345,9 @@ display:
           group_type: group
           admin_label: ''
           order: ASC
-          exposed: false
+          exposed: true
           expose:
-            label: ''
+            label: Title
           plugin_id: search_api
       title: 'Opportunties Search API'
       header:
@@ -371,23 +371,28 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user
         - 'user.node_grants:view'
       tags:
         - 'config:search_api.index.su_opportunities'
-  block_1:
+  list:
     display_plugin: block
-    id: block_1
+    id: list
     display_title: Block
     position: 1
     display_options:
       display_extenders: {  }
       exposed_block: true
+      block_category: 'Opportunities (Views)'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user
         - 'user.node_grants:view'
       tags:

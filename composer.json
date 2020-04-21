@@ -118,12 +118,10 @@
         "drupal/paragraphs_edit": "^2.0@alpha",
         "drupal/paranoia": "~1.0@alpha",
         "drupal/pathauto": "^1.6",
-        "drupal/pdb": "^1.0@alpha",
         "drupal/redirect": "~1.0-beta1",
         "drupal/response_code_condition": "^1.0",
         "drupal/role_delegation": "^1.0@beta",
         "drupal/rules": "^3.0@alpha",
-        "drupal/search_api": "^1.16",
         "drupal/seckit": "^1.0@alpha",
         "drupal/ui_patterns": "~1.0",
         "drupal/view_unpublished": "^1.0@alpha",
@@ -140,18 +138,15 @@
         "su-sws/stanford_fields": "dev-8.x-1.x",
         "su-sws/stanford_image_styles": "dev-8.x-1.x",
         "su-sws/stanford_ssp": "dev-8.x-1.x",
-        "su-sws/stanford_text_editor": "dev-8.x-1.x"
+        "su-sws/stanford_text_editor": "dev-8.x-1.x",
+        "drupal/pdb": "^1.0@alpha",
+        "drupal/jsonapi_extras": "^3.14",
+        "drupal/search_api": "^1.16"
     },
     "autoload": {
         "psr-4": {
             "Drupal\\stanford_profile\\": "src/",
-            "Drupal\\stanford_profile_drush\\": "modules/stanford_profile_drush/src/",
-            "Drupal\\cardinal_service_rest\\": "modules/cardinal_service_rest/src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Drupal\\Tests\\cardinal_service_rest\\": "modules/cardinal_service_rest/tests/src/"
+            "Drupal\\stanford_profile_drush\\": "modules/stanford_profile_drush/src/"
         }
     },
     "extra": {
