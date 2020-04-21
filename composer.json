@@ -143,7 +143,6 @@
         "su-sws/stanford_ssp": "dev-8.x-1.x",
         "su-sws/stanford_text_editor": "dev-8.x-1.x",
         "drupal/pdb": "^1.0@alpha",
-        "drupal/jsonapi_extras": "^3.14",
         "drupal/search_api": "^1.16"
     },
     "autoload": {
