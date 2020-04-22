@@ -10,7 +10,11 @@ class OpportunitiesFilter extends Component {
     {field: 'su_opp_type', label: 'Type of Opportunity', multiple: false},
     {field: 'su_opp_time_year', label: 'When', multiple: false,},
     {field: 'su_opp_open_to', label: 'Open To', multiple: false},
-    {field: 'su_opp_location', label: 'Location', multiple: true}
+    {field: 'su_opp_location', label: 'Location', multiple: true},
+    {field: 'su_opp_dimension', label: 'Dimension', multiple: true},
+    {field: 'su_opp_pathway', label: 'Pathway', multiple: true},
+    {field: 'su_opp_placement_type', label: 'Placement Type', multiple: true},
+    {field: 'su_opp_service_theme', label: 'Service Theme', multiple: true}
   ];
 
   constructor(props) {
@@ -18,7 +22,8 @@ class OpportunitiesFilter extends Component {
     this.state = {
       allItems: {},
       activeItems: {},
-      filters: {}
+      filters: {},
+      showMoreFilters: false
     };
     this.onSelectChange = this.onSelectChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -99,7 +104,26 @@ class OpportunitiesFilter extends Component {
     this.setState(newState);
   }
 
+  getSelectElement(field) {
+    return (
+      <SelectList
+        key={field.field}
+        label={field.label}
+        field={field.field}
+        onChange={this.onSelectChange}
+        options={this.state.activeItems[field.field]}
+        multiple={field.multiple}
+        defaultValue={this.state.filters[field.field]}
+      />
+    )
+  }
+
   render() {
+    const availableFields = this.fields.filter(field => typeof this.state.allItems[field.field] !== 'undefined' && this.state.allItems[field.field].length)
+    const mainFilters = availableFields.slice(0, 4);
+    const moreFilters = availableFields.slice(4);
+
+    const showMoreFilter = this.state.showMoreFilters || (moreFilters.length > 0 && moreFilters.filter(field => typeof this.state.filters[field.field] !== 'undefined').length > 0);
 
     return (
       <form onSubmit={this.onFormSubmit}>
@@ -108,17 +132,21 @@ class OpportunitiesFilter extends Component {
           flexWrap: 'nowrap',
           justifyContent: 'space-between'
         }}>
-          {this.fields.map(field => (
-            <SelectList
-              key={field.field}
-              label={field.label}
-              field={field.field}
-              onChange={this.onSelectChange}
-              options={this.state.activeItems[field.field]}
-              multiple={field.multiple}
-              defaultValue={this.state.filters[field.field]}
-            />
-          ))}
+          {mainFilters.map(field => this.getSelectElement(field))}
+          {moreFilters.length > 0 &&
+          <button
+            type="button"
+            onClick={() => this.setState({showMoreFilters: true})}>
+            More Filters
+          </button>
+          }
+
+        </div>
+        <div style={{
+          justifyContent: 'space-between',
+          display: showMoreFilter ? 'flex' : 'none'
+        }}>
+          {moreFilters.map(field => this.getSelectElement(field))}
         </div>
         <input type="submit" value="Apply Filters"/>
         <input

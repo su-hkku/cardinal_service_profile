@@ -29,6 +29,22 @@ class OpportunitiesResource extends ResourceBase {
   protected $entityTypeManager;
 
   /**
+   * Associative array of field => taxonomy vocab.
+   *
+   * @var string[]
+   */
+  protected $vocabs = [
+    'su_opp_location' => 'su_opportunity_location',
+    'su_opp_open_to' => 'su_opportunity_open_to',
+    'su_opp_time_year' => 'su_opportunity_time',
+    'su_opp_type' => 'su_opportunity_type',
+    'su_opp_dimension' => 'su_opportunity_dimension',
+    'su_opp_pathway' => 'su_opportunity_pathway',
+    'su_opp_placement_type' => 'su_opportunity_placement_type',
+    'su_opp_service_theme' => 'su_opportunity_service_theme',
+  ];
+
+  /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -67,17 +83,13 @@ class OpportunitiesResource extends ResourceBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function get() {
-    $vocabs = [
-      'su_opp_location' => 'su_opportunity_location',
-      'su_opp_open_to' => 'su_opportunity_open_to',
-      'su_opp_time_year' => 'su_opportunity_time',
-      'su_opp_type' => 'su_opportunity_type',
-    ];
     $term_storage = $this->entityTypeManager->getStorage('taxonomy_term');
     $node_storage = $this->entityTypeManager->getStorage('node');
     $data = [];
 
-    foreach ($vocabs as $field => $vid) {
+    foreach ($this->vocabs as $field => $vid) {
+      $data[$field] = [];
+
       foreach ($term_storage->loadByProperties([
         'vid' => $vid,
         'status' => 1,
