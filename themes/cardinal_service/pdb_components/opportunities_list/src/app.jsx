@@ -27,9 +27,11 @@ class OpportunitiesFilter extends Component {
     };
     this.onSelectChange = this.onSelectChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.initialFilters = [];
 
     if (window.location.search.length > 0) {
       this.state.filters = queryString.parse(window.location.search, {arrayFormat: 'bracket'});
+      this.initialFilters = queryString.parse(window.location.search, {arrayFormat: 'bracket'});
     }
   }
 
@@ -118,6 +120,19 @@ class OpportunitiesFilter extends Component {
     )
   }
 
+  showHideMoreFilters() {
+    const newState = {...this.state};
+    newState.showMoreFilters = !this.state.showMoreFilters;
+    if (!newState.showMoreFilters) {
+      const availableFields = this.fields.filter(field => typeof this.state.allItems[field.field] !== 'undefined' && this.state.allItems[field.field].length)
+      const moreFilters = availableFields.slice(4);
+      moreFilters.map(field => {
+        delete newState.filters[field.field];
+      })
+    }
+    this.setState(newState);
+  }
+
   render() {
     const availableFields = this.fields.filter(field => typeof this.state.allItems[field.field] !== 'undefined' && this.state.allItems[field.field].length)
     const mainFilters = availableFields.slice(0, 4);
@@ -126,38 +141,77 @@ class OpportunitiesFilter extends Component {
     const showMoreFilter = this.state.showMoreFilters || (moreFilters.length > 0 && moreFilters.filter(field => typeof this.state.filters[field.field] !== 'undefined').length > 0);
 
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <div style={{
-          display: 'flex',
-          flexWrap: 'nowrap',
-          justifyContent: 'space-between'
-        }}>
-          {mainFilters.map(field => this.getSelectElement(field))}
-          {moreFilters.length > 0 &&
-          <button
-            type="button"
-            onClick={() => this.setState({showMoreFilters: true})}>
-            More Filters
-          </button>
-          }
+      <div style={{margin: '20px'}}>
+        <form onSubmit={this.onFormSubmit}>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'nowrap',
+            justifyContent: 'space-between'
+          }}>
+            {mainFilters.map(field => this.getSelectElement(field))}
+            {moreFilters.length > 0 &&
+            <button
+              type="button"
+              onClick={this.showHideMoreFilters.bind(this)}>
+              {this.state.showMoreFilters ? 'Less' : 'More'} Filters
+            </button>
+            }
 
+          </div>
+          <div style={{
+            justifyContent: 'space-between',
+            display: showMoreFilter ? 'flex' : 'none'
+          }}>
+            {moreFilters.map(field => this.getSelectElement(field))}
+          </div>
+          <input type="submit" value="Apply Filters"/>
+          <input
+            style={{marginLeft: '20px'}}
+            type="submit"
+            value="Reset"
+            onClick={() => this.setState({filters: {}})}
+          />
+        </form>
+
+        {(Object.keys(this.initialFilters).length > 0 && Object.keys(this.state.allItems).length > 0) &&
+        <div className="pills">
+          Showing Results for:
+          {Object.keys(this.initialFilters).map(fieldName =>
+            this.initialFilters[fieldName].map(termId =>
+              <Pill
+                key={`${fieldName}-${termId}`}
+                term={this.state.allItems[fieldName].find(item => parseInt(termId) === parseInt(item.id))}
+                on
+              />
+            )
+          )}
         </div>
-        <div style={{
-          justifyContent: 'space-between',
-          display: showMoreFilter ? 'flex' : 'none'
-        }}>
-          {moreFilters.map(field => this.getSelectElement(field))}
-        </div>
-        <input type="submit" value="Apply Filters"/>
-        <input
-          style={{marginLeft: '20px'}}
-          type="submit"
-          value="Reset"
-          onClick={() => this.setState({filters: {}})}
-        />
-      </form>
+        }
+      </div>
     )
   }
+}
+
+const Pill = ({term, onClick}) => {
+
+  const onPillClick = (e) => {
+    e.preventDefault();
+    onClick(term.id);
+  }
+
+  return (
+    <span style={{
+      background: 'lightblue',
+      borderRadius: '20px',
+      padding: '5px',
+      margin: '0 10px'
+    }}>
+      {term.label}
+      <a href="#" onClick={onPillClick}>
+        X<span className="visually-hidden">Remove {term.label} filter</span>
+      </a>
+    </span>
+  )
 }
 
 ReactDOM.render(
