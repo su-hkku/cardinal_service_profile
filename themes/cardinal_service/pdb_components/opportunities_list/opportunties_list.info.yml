@@ -6,6 +6,7 @@ package: React
 core_version_requirement: ^8.8 || ^9
 module_status: active
 presentation: react
+path: api/opportunities
 add_js:
   footer:
     'lib/main.js': { }

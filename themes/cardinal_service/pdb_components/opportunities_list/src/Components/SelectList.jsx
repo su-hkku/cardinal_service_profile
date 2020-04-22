@@ -48,6 +48,7 @@ export class SelectList extends Component {
       })
     }
 
+    const className = this.props.field.split('_').join('-')
     return (
       <div style={{width: 'calc(25% - 20px)'}}>
         <label
@@ -57,6 +58,8 @@ export class SelectList extends Component {
         </label>
         <Select
           isClearable
+          className={className}
+          classNamePrefix={className}
           placeholder={this.props.label}
           inputId={this.uuid}
           options={options}

@@ -17,22 +17,39 @@ class OpportunitiesFilterCest {
     ]);
     $filter_url = $node->toUrl()->toString();
     $this->createOpportunityNodes($I);
+    $I->runDrush('cron');
 
     $I->amOnPage($filter_url);
     $I->click('Layout');
     $I->click('Add block');
-    $I->wait(2);
+    $I->waitForAjaxToFinish();
     $I->click('Opportunities Filtering List');
-    $I->wait(2);
+    $I->waitForAjaxToFinish();
     $I->click('Add block');
-    $I->wait(2);
+    $I->waitForAjaxToFinish();
     $I->click('Add block');
-    $I->wait(2);
+    $I->waitForAjaxToFinish();
     $I->click('Opportunities Search API');
-    $I->wait(2);
+    $I->waitForAjaxToFinish();
     $I->click('Add block');
-    $I->wait(2);
+    $I->waitForAjaxToFinish();
     $I->click('Save layout');
+    $I->canSeeNumberOfElements('.views-row', 10);
+    $I->waitForElement('.su-opp-type__indicators', 5);
+    $I->click('.su-opp-type__indicators');
+    $I->click('.su-opp-type__option');
+
+    $I->click('.su-opp-time-year');
+    $I->click('.su-opp-time-year__option');
+
+    $I->click('.su-opp-open-to');
+    $I->click('.su-opp-open-to__option');
+
+    $I->click('.su-opp-location');
+    $I->click('.su-opp-location__option');
+
+    $I->click('Apply Filters');
+    $I->canSeeNumberOfElements('.views-row', [1, 10]);
   }
 
   protected function createOpportunityNodes(FunctionalTester $I) {
