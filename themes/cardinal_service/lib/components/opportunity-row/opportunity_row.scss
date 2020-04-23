@@ -1,1 +1,61 @@
 @charset 'UTF-8';
+
+@import '../../scss/config';
+
+.pattern-preview__markup {
+  @include card;
+  position: relative;
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .su-opportunity-body-content {
+    display: grid;
+
+    @include grid-media-min('md') {
+      grid-template-columns: repeat(3, 33%);
+    }
+  }
+
+  .su-opportunity-row-location,
+  .su-opportunity-row-duration,
+  .su-opportunity-row-open-to {
+    div {
+      margin-left: 30px;
+    }
+
+    &::before {
+      font-family: 'Font Awesome\ 5 Free';
+      font-weight: 900;
+      position: absolute;
+    }
+  }
+
+  .su-opportunity-row-location {
+    &::before {
+      content: '\f3c5';
+    }
+  }
+
+  .su-opportunity-row-duration {
+    &::before {
+      content: '\f073';
+    }
+  }
+
+  .su-opportunity-row-open-to {
+    &::before {
+      content: '\f500';
+    }
+  }
+
+  // .flex-3-of-12 {
+  //   img {
+  //     object-fit: cover;
+  //     height: 200px;
+  //     max-width: none;
+  //     width: 300px;
+  //   }
+  // }
+}
