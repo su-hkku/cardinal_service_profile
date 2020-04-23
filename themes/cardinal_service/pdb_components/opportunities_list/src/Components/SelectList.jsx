@@ -50,7 +50,7 @@ export class SelectList extends Component {
 
     const className = this.props.field.split('_').join('-')
     return (
-      <div style={{width: 'calc(25% - 20px)'}}>
+      <div style={{width: 'calc(20% - 20px)'}}>
         <label
           htmlFor={this.uuid}
           className="visually-hidden">
