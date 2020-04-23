@@ -1,4 +1,4 @@
-<div{{ attributes.addClass('flex-container') }}>
+<div{{ attributes.addClass('flex-container su-card__contents') }}>
   <div class="flex-9-of-12">
     <div>
       {{ type_list }}
@@ -6,15 +6,24 @@
     <h2>
       {{ title }}
     </h2>
-    <div class="flex-container">
-      <div>
-        {{ location }}
+    <div class="su-opportunity-body-content">
+      <div class="su-opportunity-row-location">
+        <div>
+          <h3>Location:</h3>
+          <p>{{ location }}</p>
+        </div>
       </div>
-      <div>
-        {{ when }}
+      <div class="su-opportunity-row-duration">
+        <div>
+          <h3>When:</h3>
+          <p>{{ when }}</p>
+        </div>
       </div>
-      <div>
-        {{ open_to }}
+      <div class="su-opportunity-row-open-to">
+        <div>
+          <h3>Open to:</h3>
+          <p>{{ open_to }}</p>
+        </div>
       </div>
     </div>
   </div>
