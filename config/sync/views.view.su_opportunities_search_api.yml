@@ -4,8 +4,12 @@ status: true
 dependencies:
   config:
     - search_api.index.su_opportunities
+    - taxonomy.vocabulary.su_opportunity_dimension
     - taxonomy.vocabulary.su_opportunity_location
     - taxonomy.vocabulary.su_opportunity_open_to
+    - taxonomy.vocabulary.su_opportunity_pathway
+    - taxonomy.vocabulary.su_opportunity_placement_type
+    - taxonomy.vocabulary.su_opportunity_service_theme
     - taxonomy.vocabulary.su_opportunity_time
     - taxonomy.vocabulary.su_opportunity_type
   module:
@@ -333,6 +337,226 @@ display:
           type: select
           limit: true
           vid: su_opportunity_type
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        su_opp_dimension:
+          id: su_opp_dimension
+          table: search_api_index_su_opportunities
+          field: su_opp_dimension
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_dimension_op
+            label: Dimension
+            description: ''
+            use_operator: false
+            operator: su_opp_dimension_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_dimension
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_dimension
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        su_opp_pathway:
+          id: su_opp_pathway
+          table: search_api_index_su_opportunities
+          field: su_opp_pathway
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_pathway_op
+            label: Pathway
+            description: ''
+            use_operator: false
+            operator: su_opp_pathway_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_pathway
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_pathway
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        su_opp_placement_type:
+          id: su_opp_placement_type
+          table: search_api_index_su_opportunities
+          field: su_opp_placement_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_placement_type_op
+            label: 'Placement Type'
+            description: ''
+            use_operator: false
+            operator: su_opp_placement_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_placement_type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_placement_type
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        su_opp_service_theme:
+          id: su_opp_service_theme
+          table: search_api_index_su_opportunities
+          field: su_opp_service_theme
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_service_theme_op
+            label: 'Service Theme'
+            description: ''
+            use_operator: false
+            operator: su_opp_service_theme_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_service_theme
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_service_theme
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
