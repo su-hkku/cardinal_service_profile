@@ -27,6 +27,7 @@ dependencies:
     - node.type.su_opportunity
   module:
     - ds
+    - field_formatter_class
     - layout_builder
     - layout_builder_restrictions
     - layout_library
@@ -95,32 +96,46 @@ content:
     region: location
     label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
   su_opp_open_to:
     type: entity_reference_label
     weight: 4
     region: open_to
     label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      ds:
+        ds_limit: ''
   su_opp_time_year:
     type: entity_reference_label
     weight: 3
     region: when
     label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      ds:
+        ds_limit: ''
   su_opp_type:
     type: entity_reference_label
     weight: 5
     region: type_list
     label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      ds:
+        ds_limit: ''
 hidden:
   body: true
   links: true
