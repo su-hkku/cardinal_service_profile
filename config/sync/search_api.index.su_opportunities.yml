@@ -2,6 +2,9 @@ uuid: 36aa6280-3e7e-4347-b640-e7eefc1427fe
 langcode: en
 status: true
 dependencies:
+  module:
+    - node
+    - search_api
   config:
     - field.storage.node.su_opp_dimension
     - field.storage.node.su_opp_location
@@ -12,9 +15,6 @@ dependencies:
     - field.storage.node.su_opp_time_year
     - field.storage.node.su_opp_type
     - search_api.server.database
-  module:
-    - node
-    - search_api
 id: su_opportunities
 name: Opportunities
 description: ''
@@ -150,6 +150,6 @@ tracker_settings:
   default:
     indexing_order: fifo
 options:
-  index_directly: false
+  index_directly: true
   cron_limit: 50
 server: database

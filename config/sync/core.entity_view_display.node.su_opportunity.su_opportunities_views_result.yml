@@ -72,9 +72,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
+          link: true
           wrapper: ''
           class: ''
-          link: false
 id: node.su_opportunity.su_opportunities_views_result
 targetEntityType: node
 bundle: su_opportunity
