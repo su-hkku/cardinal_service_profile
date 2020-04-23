@@ -94,7 +94,7 @@ content:
     type: entity_reference_label
     weight: 2
     region: location
-    label: hidden
+    label: above
     settings:
       link: false
     third_party_settings:
@@ -104,7 +104,7 @@ content:
     type: entity_reference_label
     weight: 4
     region: open_to
-    label: hidden
+    label: above
     settings:
       link: false
     third_party_settings:
@@ -116,7 +116,7 @@ content:
     type: entity_reference_label
     weight: 3
     region: when
-    label: hidden
+    label: above
     settings:
       link: false
     third_party_settings:
