@@ -17,7 +17,6 @@ class OpportunitiesFilterCest {
     ]);
     $filter_url = $node->toUrl()->toString();
     $this->createOpportunityNodes($I);
-    $I->runDrush('cron');
 
     $I->amOnPage($filter_url);
     $I->click('Layout');
@@ -29,7 +28,7 @@ class OpportunitiesFilterCest {
     $I->waitForAjaxToFinish();
     $I->click('Add block');
     $I->waitForAjaxToFinish();
-    $I->click('Opportunities Search API');
+    $I->click('Opportunities: All Filtered');
     $I->waitForAjaxToFinish();
     $I->click('Add block');
     $I->waitForAjaxToFinish();
