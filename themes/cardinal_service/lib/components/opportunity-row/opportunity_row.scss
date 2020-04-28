@@ -50,11 +50,9 @@
     }
   }
 
-  img {
-    object-fit: cover;
-    overflow: hidden;
-    height: calc(2 / 3 * 100%);
-    max-width: none;
+  .su-opportunity-img {
     width: 100%;
+    height: calc(2 / 3 * 100%);
+    overflow: hidden;
   }
 }
