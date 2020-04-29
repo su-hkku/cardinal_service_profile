@@ -1,71 +1,56 @@
 @charset 'UTF-8';
 
-.opportunity-header-content-container {
-  background-color: $su-color-cloud;
+.su-hero {
   margin-bottom: 9.6rem;
+}
 
-  .main-region {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.su-hero__media {
+  background-color: $su-color-cloud;
+}
+
+.node-su-opportunity-su-opp-type,
+.node-su-opportunity-title {
+  margin: 0 auto;
+  max-width: calc(100% - 40px);
+  width: calc(100% - 40px);
+  z-index: 20;
+
+  @include grid-media-min('sm') {
+    max-width: calc(100% - 60px);
+    width: calc(100% - 60px);
   }
 
-  .su-opp-header-image {
-    img {
-      height: 100%;
-      max-height: 500px;
-      object-fit: cover;
-      object-position: center center;
-      width: 100%;
-      z-index: 10;
-    }
+  @include grid-media-min('md') {
+    max-width: calc(100% - 100px);
+    width: calc(100% - 100px);
   }
 
-  .node-su-opportunity-su-opp-type,
-  .node-su-opportunity-title {
-    margin: 0 auto;
-    max-width: calc(100% - 40px);
-    position: absolute;
-    width: calc(100% - 40px);
-    z-index: 20;
-
-    @include grid-media-min('sm') {
-      max-width: calc(100% - 60px);
-      width: calc(100% - 60px);
-    }
-
-    @include grid-media-min('md') {
-      max-width: calc(100% - 100px);
-      width: calc(100% - 100px);
-    }
-
-    @include grid-media-min('lg') {
-      max-width: calc(100% - 160px);
-      width: calc(100% - 160px);
-    }
-
-    @include grid-media-min('xl') {
-      max-width: calc(100% - 200px);
-      width: calc(100% - 200px);
-    }
-
-    @include grid-media-min('2xl') {
-      max-width: 1500px;
-      width: calc(100% - 200px);
-    }
+  @include grid-media-min('lg') {
+    max-width: calc(100% - 160px);
+    width: calc(100% - 160px);
   }
 
-  .su-opportunity {
-    display: flex;
+  @include grid-media-min('xl') {
+    max-width: calc(100% - 200px);
+    width: calc(100% - 200px);
+  }
 
-    div::after {
-      content: ', ';
-      white-space: pre;
-    }
+  @include grid-media-min('2xl') {
+    max-width: 1500px;
+    width: calc(100% - 200px);
+  }
+}
 
-    div:last-child::after {
-      content: '';
-    }
+.su-opportunity div {
+  display: inline-block;
+
+  &::after {
+    content: ', ';
+    white-space: pre;
+  }
+
+  &:last-child::after {
+    content: '';
   }
 }
 
@@ -130,7 +115,6 @@
     box-sizing: border-box;
     height: fit-content;
     padding: 3.2rem;
-    position: relative;
 
     .node-su-opportunity-su-opp-solo-url {
       margin-bottom: 0;
