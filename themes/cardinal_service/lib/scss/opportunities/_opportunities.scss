@@ -2,42 +2,9 @@
 
 .su-hero {
   margin-bottom: 9.6rem;
-}
 
-.su-hero__media {
-  background-color: $su-color-cloud;
-}
-
-.node-su-opportunity-su-opp-type,
-.node-su-opportunity-title {
-  margin: 0 auto;
-  max-width: calc(100% - 40px);
-  width: calc(100% - 40px);
-  z-index: 20;
-
-  @include grid-media-min('sm') {
-    max-width: calc(100% - 60px);
-    width: calc(100% - 60px);
-  }
-
-  @include grid-media-min('md') {
-    max-width: calc(100% - 100px);
-    width: calc(100% - 100px);
-  }
-
-  @include grid-media-min('lg') {
-    max-width: calc(100% - 160px);
-    width: calc(100% - 160px);
-  }
-
-  @include grid-media-min('xl') {
-    max-width: calc(100% - 200px);
-    width: calc(100% - 200px);
-  }
-
-  @include grid-media-min('2xl') {
-    max-width: 1500px;
-    width: calc(100% - 200px);
+  .su-hero__media {
+    background-color: $su-color-cloud;
   }
 }
 
