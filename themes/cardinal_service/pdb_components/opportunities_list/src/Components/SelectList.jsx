@@ -38,7 +38,7 @@ export class SelectList extends Component {
       value: option.id,
       label: `${option.label} (${option.items.length})`,
       resultCount: option.items.length
-    }))
+    }));
 
     let value = [];
     if (this.props.defaultValue !== undefined) {
