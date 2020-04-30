@@ -35,5 +35,5 @@ libraries-override:
   # Replace an asset with another.
   pdb_react/react:
     js:
-      //cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.min.js: //unpkg.com/react@16/umd/react.production.min.js
-      //cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.min.js: //unpkg.com/react-dom@16/umd/react-dom.production.min.js
+      //cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.min.js: https://unpkg.com/react@16/umd/react.production.min.js
+      //cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.min.js: https://unpkg.com/react-dom@16/umd/react-dom.production.min.js
