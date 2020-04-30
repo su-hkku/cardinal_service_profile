@@ -48,7 +48,7 @@ export class SelectList extends Component {
       })
     }
 
-    const className = this.props.field.split('_').join('-')
+    const className = this.props.field.split('_').join('-');
     return (
       <div style={{width: 'calc(20% - 20px)'}}>
         <label
