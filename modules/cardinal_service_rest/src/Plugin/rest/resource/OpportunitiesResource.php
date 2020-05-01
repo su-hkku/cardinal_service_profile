@@ -98,6 +98,7 @@ class OpportunitiesResource extends ResourceBase {
         $nodes = $node_storage->getQuery()
           ->condition('status', 1)
           ->condition($field, $term->id())
+          ->accessCheck(FALSE)
           ->execute();
 
         if ($nodes) {

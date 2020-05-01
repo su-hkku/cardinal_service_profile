@@ -7,6 +7,7 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
+use Drupal\rest\ResourceResponse;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -97,7 +98,7 @@ class OpportunitiesResourceTest extends KernelTestBase {
     $this->assertEmpty($resource->permissions());
 
     $response = $resource->get();
-    $this->assertInstanceOf(JsonResponse::class, $response);
+    $this->assertInstanceOf(ResourceResponse::class, $response);
 
 
     $json_data = json_decode($response->getContent(), TRUE);
