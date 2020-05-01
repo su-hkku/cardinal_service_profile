@@ -38,7 +38,7 @@ export class SelectList extends Component {
       value: option.id,
       label: `${option.label} (${option.items.length})`,
       resultCount: option.items.length
-    }))
+    }));
 
     let value = [];
     if (this.props.defaultValue !== undefined) {
@@ -48,7 +48,7 @@ export class SelectList extends Component {
       })
     }
 
-    const className = this.props.field.split('_').join('-')
+    const className = this.props.field.split('_').join('-');
     return (
       <div style={{width: 'calc(20% - 20px)'}}>
         <label
