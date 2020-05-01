@@ -1,6 +1,5 @@
 const path = require("path");
 
-
 module.exports = function (_env, argv) {
   const isProduction = argv.mode === "production";
   const isDevelopment = !isProduction;

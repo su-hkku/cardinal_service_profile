@@ -12,6 +12,9 @@ export class SelectList extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  /**
+   * On selection event listener to build an array of selected values.
+   */
   onChange(selectedOptions) {
     if (selectedOptions === null) {
       this.props.onChange(this.props.field, []);
@@ -22,6 +25,9 @@ export class SelectList extends Component {
     this.props.onChange(this.props.field, selections);
   }
 
+  /**
+   * Callback to see if the option is enabled.
+   */
   filterOptions = (candidate, input) => {
     if (input) {
       return candidate.data.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
@@ -30,10 +36,12 @@ export class SelectList extends Component {
   };
 
   render() {
+    // No options available, don't display anything.
     if (this.props.options === undefined) {
       return <React.Fragment/>
     }
 
+    // Build the options array with properly formatted objects.
     const options = this.props.options.map(option => ({
       value: option.id,
       label: `${option.label} (${option.items.length})`,
@@ -41,6 +49,7 @@ export class SelectList extends Component {
     }));
 
     let value = [];
+    // Build the default value array with the matching objects.
     if (this.props.defaultValue !== undefined) {
       this.props.defaultValue.map(tid => {
         const option = options.find(opt => parseInt(opt.value) === parseInt(tid));

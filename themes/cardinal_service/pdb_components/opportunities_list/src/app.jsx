@@ -34,6 +34,9 @@ class OpportunitiesFilter extends Component {
     }
   }
 
+  /**
+   * Fetch the API data.
+   */
   componentDidMount() {
     const that = this;
     fetch('/api/opportunties')
@@ -46,6 +49,9 @@ class OpportunitiesFilter extends Component {
       });
   }
 
+  /**
+   * On submit, build the url and send the user there.
+   */
   onFormSubmit(e) {
     e.preventDefault();
     if (window.location.search.length === 0 && Object.keys(this.state.filters).length === 0) {
@@ -63,38 +69,62 @@ class OpportunitiesFilter extends Component {
     window.location = newLocation;
   }
 
+  /**
+   * Select list event action passed down to the select component.
+   */
   onSelectChange(fieldName, selectedValues) {
 
     const newState = {...this.state};
 
     newState.activeItems = _.cloneDeep(newState.allItems);
+    // First remove the old selected values from the filters.
     delete newState.filters[fieldName];
+    // Populate the filters with the newly chosen values.
     if (selectedValues !== undefined && selectedValues.length > 0) {
       newState.filters[fieldName] = selectedValues;
     }
 
+    // Loop through the items to figure out how many results each option will
+    // produce. This will look at each field, then check the other fields for
+    // similar entity IDs. It does like if we are on `Field B`: Field A (option
+    // 1 OR option 2) AND Field D (option 6).
     Object.keys(newState.activeItems).map(fieldName => {
+
+      // This will be the list of entity IDs that match all of the filtering
+      // criteria.
       let validEntities = [];
 
+      // For each field we are adjusting, we need to look at the filters to
+      // know what values are selected.
       Object.keys(newState.filters).map(filterFieldName => {
+        // For each field we want to consider the other filters, not this filter
+        // within this field.
         if (fieldName === filterFieldName) {
           return;
         }
 
         let filterGroup = [];
+        // Each filter we build a long list of entities that are available for
+        // each option. So this is a collection of several entities.
         newState.filters[filterFieldName].map(selectedTid => {
           const selectedItem = newState.allItems[filterFieldName].find(a => parseInt(a.id) == parseInt(selectedTid));
+          // This concats the valid entity ids and deduplicates it in one shot.
           filterGroup = [...new Set(filterGroup.concat(selectedItem.items))];
         })
 
+        // On the first filter, set the valid entities for the next filter.
         if (validEntities.length === 0) {
           validEntities = [...filterGroup];
         }
         else {
+          // Filter out entities that aren't similar to the previous filters.
           validEntities = validEntities.filter(x => filterGroup.includes(x));
         }
       })
 
+      // Now that we know what entity IDs are selected by the other filtered
+      // fields, we can change the current field available entity IDs so that
+      // we can display the count later.
       if (validEntities.length > 0) {
         newState.activeItems[fieldName].map(term => {
           term.items = validEntities.filter(x => term.items.includes(x));
@@ -119,10 +149,15 @@ class OpportunitiesFilter extends Component {
     )
   }
 
+  /**
+   * Show or hide the "More Filters" button.
+   */
   showHideMoreFilters() {
     const newState = {...this.state};
     newState.showMoreFilters = !this.state.showMoreFilters;
     if (!newState.showMoreFilters) {
+      // When a user hides the more filters, clear out those values to prevent
+      // confusion.
       const availableFields = this.fields.filter(field => typeof this.state.allItems[field.field] !== 'undefined' && this.state.allItems[field.field].length)
       const moreFilters = availableFields.slice(4);
       moreFilters.map(field => {
@@ -133,9 +168,13 @@ class OpportunitiesFilter extends Component {
   }
 
   render() {
+    // List of fields with available options.
     const availableFields = this.fields.filter(field => typeof this.state.allItems[field.field] !== 'undefined' && this.state.allItems[field.field].length)
+
     const mainFilters = availableFields.slice(0, 4);
     const moreFilters = availableFields.slice(4);
+
+    // Show the more filter if any of the more filters have values.
     const showMoreFilter = this.state.showMoreFilters || (moreFilters.length > 0 && moreFilters.filter(field => typeof this.state.filters[field.field] !== 'undefined').length > 0);
     const moreFiltersId = lodashUuid.uuid();
 

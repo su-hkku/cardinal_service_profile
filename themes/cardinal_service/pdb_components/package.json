@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "publish": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPLV2",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
