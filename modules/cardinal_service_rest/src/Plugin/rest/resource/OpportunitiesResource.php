@@ -2,11 +2,12 @@
 
 namespace Drupal\cardinal_service_rest\Plugin\rest\resource;
 
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\rest\Plugin\ResourceBase;
+use Drupal\rest\ResourceResponse;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Rest endpoint to provide data about what entities are tagged with terms.
@@ -76,7 +77,7 @@ class OpportunitiesResource extends ResourceBase {
   /**
    * Get request on the rest endpoint.
    *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   * @return \Drupal\rest\ResourceResponse
    *   Rest response.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
@@ -119,7 +120,11 @@ class OpportunitiesResource extends ResourceBase {
       $values = array_values($values);
     }
 
-    return new JsonResponse($data);
+    $response = new ResourceResponse($data);
+    $response->addCacheableDependency(CacheableMetadata::createFromRenderArray([
+      '#cache' => ['tags' => ['api:opportunities']],
+    ]));
+    return $response;
   }
 
 }
