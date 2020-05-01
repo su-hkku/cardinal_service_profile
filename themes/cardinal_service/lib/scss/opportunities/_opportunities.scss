@@ -8,16 +8,19 @@
   }
 }
 
-.su-opportunity div {
-  display: inline-block;
+.su-opportunity {
+  
+  div {
+    display: inline-block;
 
-  &::after {
-    content: ', ';
-    white-space: pre;
-  }
+    &::after {
+      content: ', ';
+      white-space: pre;
+    }
 
-  &:last-child::after {
-    content: '';
+    &:last-child::after {
+      content: '';
+    }
   }
 }
 
