@@ -121,10 +121,13 @@ class OpportunitiesResource extends ResourceBase {
       $values = array_values($values);
     }
 
-    $response = new ResourceResponse($data);
+    $response = new ResourceResponse();
+    $response->setContent(json_encode($data));
+    $response->addCacheableDependency($data);
     $response->addCacheableDependency(CacheableMetadata::createFromRenderArray([
       '#cache' => ['tags' => ['api:opportunities']],
     ]));
+
     return $response;
   }
 

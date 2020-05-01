@@ -97,10 +97,11 @@ class OpportunitiesResourceTest extends KernelTestBase {
     $resource = $rest_manager->createInstance('opportunities_resource');
     $this->assertEmpty($resource->permissions());
 
+    /** @var ResourceResponse $response */
     $response = $resource->get();
     $this->assertInstanceOf(ResourceResponse::class, $response);
 
-
+    
     $json_data = json_decode($response->getContent(), TRUE);
     $this->assertNotEmpty($json_data['su_opp_location']);
     $this->assertNotEmpty($json_data['su_opp_open_to']);
