@@ -2,19 +2,19 @@
 
 @import '../../scss/config';
 
-.pattern-preview__markup {
+.su-opportunity-result {
   @include card;
   position: relative;
-
-  h3 {
-    font-size: 2rem;
-  }
 
   .su-opportunity-body-content {
     display: grid;
 
     @include grid-media-min('md') {
       grid-template-columns: repeat(3, 33%);
+    }
+
+    h3 {
+      font-size: 2rem;
     }
   }
 
