@@ -104,7 +104,7 @@
         "drupal/google_analytics": "~2.1",
         "drupal/honeypot": "^1.27",
         "drupal/imagemagick": "~3.0@alpha",
-        "drupal/layout_builder_modal": "~1.0@alpha",
+        "drupal/layout_builder_modal": "~1.0",
         "drupal/layout_builder_restrictions": "^2.2",
         "drupal/layout_library": "^1.0-beta1",
         "drupal/link_title_formatter": "~1.1",
@@ -141,7 +141,9 @@
         "su-sws/stanford_fields": "dev-8.x-1.x",
         "su-sws/stanford_image_styles": "dev-8.x-1.x",
         "su-sws/stanford_ssp": "dev-8.x-1.x",
-        "su-sws/stanford_text_editor": "dev-8.x-1.x"
+        "su-sws/stanford_text_editor": "dev-8.x-1.x",
+        "drupal/pdb": "^1.0@alpha",
+        "drupal/search_api": "^1.16"
     },
     "autoload": {
         "psr-4": {

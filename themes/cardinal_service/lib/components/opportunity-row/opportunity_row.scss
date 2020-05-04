@@ -2,6 +2,7 @@
 
 @import '../../scss/config';
 
+<<<<<<< HEAD
 .su-opportunity-result {
   @include card;
   position: relative;
@@ -17,6 +18,14 @@
     &:last-child::after {
       content: '';
     }
+=======
+.pattern-preview__markup {
+  @include card;
+  position: relative;
+
+  h3 {
+    font-size: 2rem;
+>>>>>>> da86cd45b3d0a2c42b19d497c601f64b584ff345
   }
 
   .su-opportunity-body-content {
@@ -25,10 +34,13 @@
     @include grid-media-min('md') {
       grid-template-columns: repeat(3, 33%);
     }
+<<<<<<< HEAD
 
     h3 {
       font-size: 2rem;
     }
+=======
+>>>>>>> da86cd45b3d0a2c42b19d497c601f64b584ff345
   }
 
   .su-opportunity-row-location,
