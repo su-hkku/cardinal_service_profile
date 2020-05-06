@@ -1,6 +1,6 @@
 <div{{ attributes.addClass('su-opportunity-result') }}>
-<div class="flex-container su-card__contents">
-    <div class="flex-8-of-12">
+  <div class="flex-container su-card__contents">
+    <div class="{% if image %}flex-8-of-12{% endif %}">
       <div class="su-opportunity-type">
         <div>
           {{ type_list }}
@@ -9,31 +9,41 @@
       <h2>
         {{ title }}
       </h2>
+
       <div class="su-opportunity-body-content">
-        <div class="su-opportunity-row-location">
-          <div>
-            <h3>Location:</h3>
-            <p>{{ location }}</p>
+        {% if location %}
+          <div class="su-opportunity-row-location">
+            <div>
+              <h3>{{ 'Location'|t }}:</h3>
+              <p>{{ location }}</p>
+            </div>
           </div>
-        </div>
-        <div class="su-opportunity-row-duration">
-          <div>
-            <h3>When:</h3>
-            <p>{{ when }}</p>
+        {% endif %}
+        {% if when %}
+          <div class="su-opportunity-row-duration">
+            <div>
+              <h3>{{ 'When'|t }}:</h3>
+              <p>{{ when }}</p>
+            </div>
           </div>
-        </div>
-        <div class="su-opportunity-row-open-to">
-          <div>
-            <h3>Open to:</h3>
-            <p>{{ open_to }}</p>
+        {% endif %}
+        {% if open_to %}
+          <div class="su-opportunity-row-open-to">
+            <div>
+              <h3>{{ 'Open to'|t }}:</h3>
+              <p>{{ open_to }}</p>
+            </div>
           </div>
-        </div>
+        {% endif %}
       </div>
     </div>
-    <div class="flex-4-of-12">
-      <div class="su-opportunity-img">
-        {{ image }}
+
+    {% if image %}
+      <div class="flex-4-of-12">
+        <div class="su-opportunity-img">
+          {{ image }}
+        </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </div>
