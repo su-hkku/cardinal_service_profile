@@ -7,7 +7,7 @@ use Drupal\layout_builder\LayoutBuilderEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Class BlockEventsSubscriber
+ * Block event subscriber.
  *
  * @package Drupal\cardinal_service_blocks\EventSubscriber
  */

@@ -8,11 +8,13 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
 function cardinal_service_blocks_form_layout_builder_configure_block_alter(&$form, FormStateInterface $form_state, $form_id) {
   /** @var \Drupal\layout_builder\SectionComponent $component */
   $component = $form_state->getFormObject()->getCurrentComponent();
+
+  // We only want to modify views exposed filters.
   if (strpos($component->get('configuration')['id'], 'views_exposed_filter_block') !== 0) {
     return;
   }
@@ -26,14 +28,23 @@ function cardinal_service_blocks_form_layout_builder_configure_block_alter(&$for
   array_unshift($form['#submit'], '_cardinal_service_blocks_block_form_submit');
 }
 
+/**
+ * Views exposed form block configure submit handler.
+ *
+ * @param array $form
+ *   Complete form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Current form state.
+ */
 function _cardinal_service_blocks_block_form_submit(array &$form, FormStateInterface $form_state) {
   /** @var \Drupal\layout_builder\SectionComponent $section_component */
   $section_component = $form_state->getFormObject()->getCurrentComponent();
+  // Clear the settings first.
+  $section_component->unsetThirdPartySetting('cardinal_service_blocks', 'action_url');
+
+  // If a url is provided, store those settings.
   if ($url = $form_state->getValue(['settings', 'views_action_url'])) {
     $section_component->setThirdPartySetting('cardinal_service_blocks', 'action_url', $url);
-  }
-  else {
-    $section_component->unsetThirdPartySetting('cardinal_service_blocks', 'action_url');
   }
 }
 
