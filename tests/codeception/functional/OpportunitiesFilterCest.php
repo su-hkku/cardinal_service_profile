@@ -32,7 +32,9 @@ class OpportunitiesFilterCest {
     $I->waitForAjaxToFinish();
     $I->click('Add block');
     $I->waitForAjaxToFinish();
-    $I->wait(1);
+    
+    // Scroll up because the admin toolbar sometimes overlays the task links.
+    $I->scrollTo(['css' => '.su-brand-bar']);
     $I->click('Save layout');
     $I->canSeeNumberOfElements('.views-row', 10);
 
