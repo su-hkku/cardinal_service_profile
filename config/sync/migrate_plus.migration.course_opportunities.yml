@@ -28,7 +28,7 @@ source:
   fields:
     -
       name: course_id
-      label: Course ID
+      label: 'Course ID'
       selector: administrativeInformation/courseId
     -
       name: code
@@ -42,6 +42,14 @@ source:
       name: body
       label: Body
       selector: description
+    -
+      name: time_of_year
+      label: 'Time of Year'
+      selector: './/attributes/attribute/name[text()=''NQTR'']/following-sibling::description'
+    -
+      name: academic_career
+      label: 'Academic Career'
+      selector: administrativeInformation/academicCareer
   ids:
     course_id:
       type: string
@@ -60,6 +68,83 @@ process:
   type: constants/type
   body/value: body
   body/format: constants/basic_html
+  su_opp_time_year:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: time_of_year
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_time
+      entity_type: taxonomy_term
+      ignore_case: true
+    -
+      plugin: deduplicate_array
+  su_opp_deadline_time:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: time_of_year
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_deadline
+      entity_type: taxonomy_term
+      ignore_case: true
+    -
+      plugin: deduplicate_array
+  su_opp_commitment:
+    -
+      plugin: default_value
+      default_value: 'Quarter-long, Course'
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_commitment
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_type:
+    -
+      plugin: default_value
+      default_value: 'Courses for Credit'
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_type
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_open_to:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: academic_career
+    -
+      plugin: str_replace
+      search: ["UG", "GR"]
+      replace: ["Undergraduates", "Graduate Students"]
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_open_to
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_location:
+    -
+      plugin: default_value
+      default_value: 'United States of America (Stanford on-campus)'
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_location
+      entity_type: taxonomy_term
+      ignore_case: true
 destination:
   plugin: 'entity_reference_revisions:node'
   new_revisions: true
