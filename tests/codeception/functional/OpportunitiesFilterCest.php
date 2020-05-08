@@ -36,17 +36,18 @@ class OpportunitiesFilterCest {
     $I->canSeeNumberOfElements('.views-row', 10);
 
     $I->waitForElementVisible('.MuiFormControl-root', 5);
-    $I->click('.su_opp_type-select .MuiAutocomplete-popupIndicator');
-    $I->click('#su_opp_type-option-0');
+    $I->click('.su_opp_type-select');
+    $I->click('.MuiAutocomplete-listbox li[aria-disabled="false"]');
 
     $I->click('.su_opp_open_to-select');
-    $I->click('#su_opp_open_to-option-0');
+    $I->click('.MuiAutocomplete-listbox li[aria-disabled="false"]');
 
     $I->click('.su_opp_time_year-select');
-    $I->click('#su_opp_time_year-option-0');
+    $I->click('.MuiAutocomplete-listbox li[aria-disabled="false"]');
 
     $I->click('Search', '#opportunities-filter-list');
     $I->canSeeNumberOfElements('.views-row', [1, 10]);
+    $I->canSee('Showing Results For:');
   }
 
   protected function createOpportunityNodes(FunctionalTester $I) {
