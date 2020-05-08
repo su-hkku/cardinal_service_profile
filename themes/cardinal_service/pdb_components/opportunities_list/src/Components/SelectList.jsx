@@ -35,6 +35,7 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
   return (
     <Autocomplete
       disableCloseOnSelect
+      className={field + '-select'}
       id={field}
       options={options}
       getOptionLabel={option => option.label + ' (' + option.items.length + ')'}
@@ -47,6 +48,7 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
       renderOption={(option, {selected}) => (
         <React.Fragment>
           <Checkbox
+            className={'checkbox'}
             icon={icon}
             checkedIcon={checkedIcon}
             style={{marginRight: 8}}

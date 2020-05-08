@@ -34,20 +34,18 @@ class OpportunitiesFilterCest {
     $I->waitForAjaxToFinish();
     $I->click('Save layout');
     $I->canSeeNumberOfElements('.views-row', 10);
-    $I->waitForElement('.su-opp-type__indicators', 5);
-    $I->click('.su-opp-type__indicators');
-    $I->click('.su-opp-type__option');
 
-    $I->click('.su-opp-time-year');
-    $I->click('.su-opp-time-year__option');
+    $I->waitForElementVisible('.MuiFormControl-root', 5);
+    $I->click('.su_opp_type-select .MuiAutocomplete-popupIndicator');
+    $I->click('#su_opp_type-option-0');
 
-    $I->click('.su-opp-open-to');
-    $I->click('.su-opp-open-to__option');
+    $I->click('.su_opp_open_to-select');
+    $I->click('#su_opp_open_to-option-0');
 
-    $I->click('.su-opp-location');
-    $I->click('.su-opp-location__option');
+    $I->click('.su_opp_time_year-select');
+    $I->click('#su_opp_time_year-option-0');
 
-    $I->click('Apply Filters');
+    $I->click('Search', '#opportunities-filter-list');
     $I->canSeeNumberOfElements('.views-row', [1, 10]);
   }
 

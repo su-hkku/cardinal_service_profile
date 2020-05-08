@@ -87,7 +87,6 @@ class OpportunitiesResource extends ResourceBase {
     $data = [];
 
     $fields = $this->fieldManager->getFieldDefinitions(self::ENTITY_TYPE, self::BUNDLE);
-
     foreach ($fields as $field_name => $field_definition) {
       if (
         $field_definition instanceof FieldConfig &&
@@ -97,6 +96,7 @@ class OpportunitiesResource extends ResourceBase {
         $data[$field_name] = $this->getFieldTermsData($field_definition);
       }
     }
+
     $data = array_filter($data);
 
     $response = new ResourceResponse();
@@ -113,6 +113,7 @@ class OpportunitiesResource extends ResourceBase {
    * Get the available taxonomy terms with references to the entity using it.
    *
    * @param \Drupal\field\FieldConfigInterface $field
+   *   Taxonomy field config entity.
    *
    * @return array
    *   Array of structured term data.
@@ -132,6 +133,7 @@ class OpportunitiesResource extends ResourceBase {
       'vid' => $vid,
       'status' => 1,
     ]) as $term) {
+
       $nodes = $node_storage->getQuery()
         ->condition('status', 1)
         ->condition($field->getName(), $term->id())
@@ -146,6 +148,7 @@ class OpportunitiesResource extends ResourceBase {
         ];
       }
     }
+
     uasort($data, function ($item_a, $item_b) {
       return count($item_a['items']) > count($item_b['items']) ? -1 : 1;
     });
