@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -58,8 +58,11 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
         </React.Fragment>
       )}
       renderInput={(params) => (
-        <TextField {...params} label={label} variant="outlined"
-                   InputLabelProps={{style: {marginTop: 0}}}/>
+        <TextField
+          {...params}
+          label={label} variant="outlined"
+          InputLabelProps={{style: {marginTop: 0}}}
+        />
       )}
     />
   )
