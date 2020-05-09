@@ -26,6 +26,9 @@
     }
 
     .flex-3-of-12 {
+      .image,
+      picture,
+      source,
       img {
         display: none;
       }
