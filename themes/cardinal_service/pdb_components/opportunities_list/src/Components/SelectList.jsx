@@ -5,16 +5,23 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small"/>;
-const checkedIcon = <CheckBoxIcon fontSize="small"/>;
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export const SelectList = ({defaultValue, field, label, multiple, onChange, options}) => {
+export const SelectList = ({
+  defaultValue,
+  field,
+  label,
+  multiple,
+  onChange,
+  options,
+}) => {
   let defaultOptions = multiple ? [] : null;
   if (defaultValue !== undefined) {
-    defaultOptions = defaultValue.map(tid => {
-      return options.find(option => option.id === tid);
+    defaultOptions = defaultValue.map((tid) => {
+      return options.find((option) => option.id === tid);
     });
-    defaultOptions = multiple ? defaultOptions : defaultOptions[0]
+    defaultOptions = multiple ? defaultOptions : defaultOptions[0];
   }
 
   const onSelectionChange = (e, selectedItems) => {
@@ -24,13 +31,13 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
     }
 
     if (!multiple) {
-      onChange(field, [selectedItems.id])
+      onChange(field, [selectedItems.id]);
       return;
     }
 
-    const selectedOptions = selectedItems.map(item => item.id);
-    onChange(field, selectedOptions)
-  }
+    const selectedOptions = selectedItems.map((item) => item.id);
+    onChange(field, selectedOptions);
+  };
 
   return (
     <Autocomplete
@@ -38,20 +45,22 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
       className={field + '-select'}
       id={field}
       options={options}
-      getOptionLabel={option => option.label + ' (' + option.items.length + ')'}
-      getOptionDisabled={option => option.items.length <= 0}
-      style={{width: 300}}
+      getOptionLabel={(option) =>
+        option.label + ' (' + option.items.length + ')'
+      }
+      getOptionDisabled={(option) => option.items.length <= 0}
+      style={{ width: 300 }}
       multiple={multiple}
       onChange={onSelectionChange}
       getOptionSelected={(option, value) => option.id === value.id}
       value={defaultOptions}
-      renderOption={(option, {selected}) => (
+      renderOption={(option, { selected }) => (
         <React.Fragment>
           <Checkbox
             className={'checkbox'}
             icon={icon}
             checkedIcon={checkedIcon}
-            style={{marginRight: 8}}
+            style={{ marginRight: 8 }}
             checked={selected}
           />
           {option.label + ' (' + option.items.length + ')'}
@@ -60,11 +69,11 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
       renderInput={(params) => (
         <TextField
           {...params}
-          label={label} variant="outlined"
-          InputLabelProps={{style: {marginTop: 0}}}
+          label={label}
+          variant="outlined"
+          InputLabelProps={{ style: { marginTop: 0 } }}
         />
       )}
     />
-  )
-
-}
+  );
+};
