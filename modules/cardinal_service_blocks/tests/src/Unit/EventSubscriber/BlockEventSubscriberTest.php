@@ -8,13 +8,16 @@ use Drupal\layout_builder\SectionComponent;
 use Drupal\Tests\UnitTestCase;
 
 /**
- * Class BlockEventsSubscriberTest
+ * Class BlockEventSubscriberTest.
  *
  * @group cardinal_service_blocks
  * @coversDefaultClass \Drupal\cardinal_service_blocks\EventSubscriber\BlockEventSubscriber
  */
 class BlockEventSubscriberTest extends UnitTestCase {
 
+  /**
+   * The event subscriber should only listen to certain events.
+   */
   public function testSubscribedEvents() {
     $this->assertArrayEquals([
       'section_component.build.render_array' => [
@@ -24,6 +27,9 @@ class BlockEventSubscriberTest extends UnitTestCase {
     ], BlockEventSubscriber::getSubscribedEvents());
   }
 
+  /**
+   * The event subscriber should alter the build render array.
+   */
   public function testOnBuildRender() {
     $component = $this->createMock(SectionComponent::class);
     $component->method('getThirdPartySetting')->willReturn('http://foo.bar');
