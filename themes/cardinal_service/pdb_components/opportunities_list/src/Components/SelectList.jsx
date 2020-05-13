@@ -24,10 +24,25 @@ const Container = styled.div`
     }
   }
 
+  .MuiAutocomplete-root .MuiFormLabel-root.Mui-focused {
+    color: #b1040e;
+  }
+
+  .MuiAutocomplete-root .MuiFilledInput-underline:after {
+    border-bottom-color: #b1040e;
+  }
+
   .MuiFilledInput-root {
     border: 1px solid #d2d3d4;
     border-top-left-radius: unset;
     border-top-right-radius: unset;
+  }
+
+  .MuiIcon-root .MuiSvgIcon-root,
+  .MuiSvgIcon-fontSizeInherit {
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
   }
 `;
 
