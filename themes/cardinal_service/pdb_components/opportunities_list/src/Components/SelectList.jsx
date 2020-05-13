@@ -10,8 +10,24 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const Container = styled.div`
-  input {
+  input,
+  .MuiFilledInput-root,
+  .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
+    background-color: #fff;
     box-shadow: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: #fff;
+      box-shadow: none;
+    }
+  }
+
+  .MuiFilledInput-root {
+    border: 1px solid #d2d3d4;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
   }
 `;
 
@@ -51,6 +67,7 @@ export const SelectList = ({
       <Autocomplete
         open
         disableCloseOnSelect
+        ListboxProps={{ style: { fontSize: '18px' } }}
         className={field + '-select'}
         id={field}
         options={options}
