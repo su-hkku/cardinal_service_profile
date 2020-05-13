@@ -4,9 +4,16 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import styled from 'styled-components';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
+const Container = styled.div`
+  input {
+    box-shadow: none;
+  }
+`;
 
 export const SelectList = ({
   defaultValue,
@@ -40,40 +47,44 @@ export const SelectList = ({
   };
 
   return (
-    <Autocomplete
-      disableCloseOnSelect
-      className={field + '-select'}
-      id={field}
-      options={options}
-      getOptionLabel={(option) =>
-        option.label + ' (' + option.items.length + ')'
-      }
-      getOptionDisabled={(option) => option.items.length <= 0}
-      style={{ width: 300 }}
-      multiple={multiple}
-      onChange={onSelectionChange}
-      getOptionSelected={(option, value) => option.id === value.id}
-      value={defaultOptions}
-      renderOption={(option, { selected }) => (
-        <React.Fragment>
-          <Checkbox
-            className={'checkbox'}
-            icon={icon}
-            checkedIcon={checkedIcon}
-            style={{ marginRight: 8 }}
-            checked={selected}
+    <Container>
+      <Autocomplete
+        open
+        disableCloseOnSelect
+        className={field + '-select'}
+        id={field}
+        options={options}
+        getOptionLabel={(option) =>
+          option.label + ' (' + option.items.length + ')'
+        }
+        getOptionDisabled={(option) => option.items.length <= 0}
+        style={{ width: 300 }}
+        multiple={multiple}
+        onChange={onSelectionChange}
+        getOptionSelected={(option, value) => option.id === value.id}
+        value={defaultOptions}
+        renderOption={(option, { selected }) => (
+          <React.Fragment>
+            <Checkbox
+              className={'checkbox'}
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8 }}
+              checked={selected}
+            />
+            {option.label + ' (' + option.items.length + ')'}
+          </React.Fragment>
+        )}
+        renderInput={(params) => (
+          <TextField
+            autoFocus
+            {...params}
+            label={label}
+            variant="filled"
+            InputLabelProps={{ style: { marginTop: 0, fontSize: '20px' } }}
           />
-          {option.label + ' (' + option.items.length + ')'}
-        </React.Fragment>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label={label}
-          variant="outlined"
-          InputLabelProps={{ style: { marginTop: 0 } }}
-        />
-      )}
-    />
+        )}
+      />
+    </Container>
   );
 };
