@@ -90,13 +90,9 @@ content:
     region: content
   su_opp_commitment:
     weight: 28
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   su_opp_contact_email:
     weight: 20
@@ -123,13 +119,9 @@ content:
     region: content
   su_opp_dimension:
     weight: 24
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   su_opp_duration:
     weight: 12
@@ -178,33 +170,21 @@ content:
     region: content
   su_opp_pathway:
     weight: 25
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   su_opp_placement_type:
     weight: 26
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   su_opp_service_theme:
     weight: 23
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   su_opp_solo_url:
     weight: 9
@@ -216,13 +196,9 @@ content:
     region: content
   su_opp_sponsor:
     weight: 27
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   su_opp_submissions_open:
     weight: 10
