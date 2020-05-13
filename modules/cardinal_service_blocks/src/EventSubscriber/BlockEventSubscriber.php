@@ -11,7 +11,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  *
  * @package Drupal\cardinal_service_blocks\EventSubscriber
  */
-class BlockEventsSubscriber implements EventSubscriberInterface {
+class BlockEventSubscriber implements EventSubscriberInterface {
 
   /**
    * {@inheritDoc}
