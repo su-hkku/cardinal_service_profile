@@ -24,12 +24,15 @@ const Container = styled.div`
     }
   }
 
+  .MuiAutocomplete-root .MuiFormLabel-root,
   .MuiAutocomplete-root .MuiFormLabel-root.Mui-focused {
-    color: #b1040e;
+    font-weight: 600;
+    color: #4d4f53;
   }
 
   .MuiAutocomplete-root .MuiFilledInput-underline:after {
-    border-bottom-color: #b1040e;
+    border-bottom: 0px;
+    border-bottom-color: none;
   }
 
   .MuiFilledInput-root {
