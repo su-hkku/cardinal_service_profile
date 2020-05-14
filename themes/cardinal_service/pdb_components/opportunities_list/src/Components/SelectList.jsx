@@ -6,10 +6,14 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import styled from 'styled-components';
 
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
+const icon = <CheckBoxOutlineBlankIcon style={{ width: 18, height: 18 }} />;
+const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
 
 const Container = styled.div`
+  button {
+    padding: unset;
+  }
+
   input,
   .MuiFilledInput-root,
   .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
@@ -24,13 +28,13 @@ const Container = styled.div`
     }
   }
 
-  .MuiAutocomplete-root .MuiFormLabel-root,
-  .MuiAutocomplete-root .MuiFormLabel-root.Mui-focused {
+  .MuiFormLabel-root,
+  .MuiFormLabel-root.Mui-focused {
     font-weight: 600;
     color: #4d4f53;
   }
 
-  .MuiAutocomplete-root .MuiFilledInput-underline:after {
+  .MuiFilledInput-underline:after {
     border-bottom: 0px;
     border-bottom-color: none;
   }
@@ -39,13 +43,6 @@ const Container = styled.div`
     border: 1px solid #d2d3d4;
     border-top-left-radius: unset;
     border-top-right-radius: unset;
-  }
-
-  .MuiIcon-root .MuiSvgIcon-root,
-  .MuiSvgIcon-fontSizeInherit {
-    font-size: 18px;
-    height: 18px;
-    width: 18px;
   }
 `;
 
@@ -112,7 +109,6 @@ export const SelectList = ({
         )}
         renderInput={(params) => (
           <TextField
-            autoFocus
             {...params}
             label={label}
             variant="filled"
