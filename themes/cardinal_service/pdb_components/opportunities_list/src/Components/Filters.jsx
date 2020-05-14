@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { SelectList } from './SelectList';
 import { Slugs } from './Slugs';
+import styled from 'styled-components';
 import { StylesProvider } from '@material-ui/core/styles';
 
 const _ = require('lodash');
 const lodashUuid = require('lodash-uuid');
 const queryString = require('query-string');
+
+const FilterWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 
 export class Filters extends Component {
   initialFilters = {};
@@ -201,13 +208,7 @@ export class Filters extends Component {
       // <StylesProvider injectFirst>
       <div style={{ margin: '20px' }}>
         <form onSubmit={this.onFormSubmit}>
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'nowrap',
-              justifyContent: 'space-between',
-            }}
-          >
+          <FilterWrapper>
             {mainFilters.map((field) => this.getSelectElement(field))}
 
             {moreFilters.length > 0 && (
@@ -220,7 +221,7 @@ export class Filters extends Component {
                 {showMoreFilter ? 'Hide' : 'Show'} More Filters
               </a>
             )}
-          </div>
+          </FilterWrapper>
           <div
             id={this.moreFiltersId}
             role="region"

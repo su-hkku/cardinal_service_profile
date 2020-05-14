@@ -16,6 +16,14 @@ const Container = styled.div`
     padding: unset;
   }
 
+  .MuiAutocomplete-root {
+    width: 300px;
+
+    @media (max-width: 767px) {
+      width: auto;
+    }
+  }
+
   input,
   .MuiFilledInput-root,
   .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
@@ -49,6 +57,10 @@ const Container = styled.div`
     border: 1px solid #d2d3d4;
     border-top-left-radius: unset;
     border-top-right-radius: unset;
+  }
+
+  .MuiButtonBase-root {
+    color: #b1040e;
   }
 `;
 
@@ -86,7 +98,7 @@ export const SelectList = ({
   return (
     <Container>
       <Autocomplete
-        open
+        // open
         disableCloseOnSelect
         popupIcon={arrowIcon}
         ListboxProps={{ style: { fontSize: '18px' } }}
@@ -97,7 +109,7 @@ export const SelectList = ({
           option.label + ' (' + option.items.length + ')'
         }
         getOptionDisabled={(option) => option.items.length <= 0}
-        style={{ width: 300 }}
+        // style={{ width: 300 }}
         multiple={multiple}
         onChange={onSelectionChange}
         getOptionSelected={(option, value) => option.id === value.id}
