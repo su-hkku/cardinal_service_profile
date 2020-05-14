@@ -4,10 +4,12 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import styled from 'styled-components';
 
 const icon = <CheckBoxOutlineBlankIcon style={{ width: 18, height: 18 }} />;
 const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
+const arrowIcon = <ExpandMoreIcon fontSize="large" />;
 
 const Container = styled.div`
   button {
@@ -34,9 +36,13 @@ const Container = styled.div`
     color: #4d4f53;
   }
 
-  .MuiFilledInput-underline:after {
-    border-bottom: 0px;
-    border-bottom-color: none;
+  .MuiFilledInput-underline {
+    &:before,
+    &:after {
+      border-bottom: 0px;
+      border-bottom-color: none;
+      transition: none;
+    }
   }
 
   .MuiFilledInput-root {
@@ -82,6 +88,7 @@ export const SelectList = ({
       <Autocomplete
         open
         disableCloseOnSelect
+        popupIcon={arrowIcon}
         ListboxProps={{ style: { fontSize: '18px' } }}
         className={field + '-select'}
         id={field}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { SelectList } from './SelectList';
 import { Slugs } from './Slugs';
+import { StylesProvider } from '@material-ui/core/styles';
 
 const _ = require('lodash');
 const lodashUuid = require('lodash-uuid');
@@ -197,6 +198,7 @@ export class Filters extends Component {
         ).length > 0);
 
     return (
+      // <StylesProvider injectFirst>
       <div style={{ margin: '20px' }}>
         <form onSubmit={this.onFormSubmit}>
           <div
@@ -241,6 +243,7 @@ export class Filters extends Component {
           <Slugs filters={this.initialFilters} terms={this.state.allItems} />
         )}
       </div>
+      // </StylesProvider>
     );
   }
 }
