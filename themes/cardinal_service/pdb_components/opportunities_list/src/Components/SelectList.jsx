@@ -2,48 +2,63 @@ import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Chip from '@material-ui/core/Chip';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CloseIcon from '@material-ui/icons/Close';
 import styled from 'styled-components';
 
 const icon = <CheckBoxOutlineBlankIcon style={{ width: 18, height: 18 }} />;
 const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
-const arrowIcon = <ExpandMoreIcon fontSize="large" />;
+const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
+const chipIcon = <CloseIcon />;
 
 const Container = styled.div`
-  button {
-    padding: unset;
-  }
+  // button {
+  //   padding: unset;
+  // }
 
   .MuiAutocomplete-root {
-    width: 300px;
+    width: 100%;
+    min-width: 300px;
 
     @media (max-width: 767px) {
       width: auto;
     }
   }
 
-  input,
-  .MuiFilledInput-root,
-  .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
-    background-color: #fff;
-    box-shadow: none;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: #fff;
-      box-shadow: none;
-    }
+  // Automcomplete Label
+  .MuiFormLabel-root {
+    font-weight: 400;
+    color: #4d4f53;
   }
 
-  .MuiFormLabel-root,
+  .MuiFormLabel-root.MuiInputLabel-shrink,
   .MuiFormLabel-root.Mui-focused {
     font-weight: 600;
     color: #4d4f53;
   }
 
+  .MuiButtonBase-root {
+    color: #4d4f53;
+  }
+
+  // Autocomplete SelectList Input Slug
+  .MuiInputBase-input,
+  .MuiChip-root {
+    font-size: 16px;
+    line-height: normal;
+    margin: 10px 0;
+  }
+
+  .MuiChip-deleteIcon,
+  .MuiChip-deleteIcon:hover {
+    background: transparent;
+    color: #4d4f53;
+  }
+
+  // Autocomplete border-bottom
   .MuiFilledInput-underline {
     &:before,
     &:after {
@@ -59,8 +74,19 @@ const Container = styled.div`
     border-top-right-radius: unset;
   }
 
-  .MuiButtonBase-root {
-    color: #b1040e;
+  // Overwrite TextField styles
+  input,
+  .MuiFilledInput-root,
+  .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
+    background-color: #fff;
+    box-shadow: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: #fff;
+      box-shadow: none;
+    }
   }
 `;
 
@@ -101,6 +127,7 @@ export const SelectList = ({
         // open
         disableCloseOnSelect
         popupIcon={arrowIcon}
+        deleteIcon={chipIcon}
         ListboxProps={{ style: { fontSize: '18px' } }}
         className={field + '-select'}
         id={field}
@@ -109,7 +136,6 @@ export const SelectList = ({
           option.label + ' (' + option.items.length + ')'
         }
         getOptionDisabled={(option) => option.items.length <= 0}
-        // style={{ width: 300 }}
         multiple={multiple}
         onChange={onSelectionChange}
         getOptionSelected={(option, value) => option.id === value.id}

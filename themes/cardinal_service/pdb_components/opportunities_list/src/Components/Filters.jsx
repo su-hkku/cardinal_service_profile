@@ -12,6 +12,16 @@ const FilterWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  a {
+    width: 100%;
+  }
+`;
+
+const FilterOptions = styled.div`
+  input {
+    display: block;
+  }
 `;
 
 export class Filters extends Component {
@@ -206,11 +216,20 @@ export class Filters extends Component {
 
     return (
       // <StylesProvider injectFirst>
-      <div style={{ margin: '20px' }}>
+      <div style={{ margin: '20px 0' }}>
         <form onSubmit={this.onFormSubmit}>
           <FilterWrapper>
             {mainFilters.map((field) => this.getSelectElement(field))}
-
+            <FilterOptions>
+              <input
+                type="submit"
+                value="Search"
+                disabled={this.state.disabledSearch}
+              />
+              <a href={window.location.pathname}>Clear Filters</a>
+            </FilterOptions>
+          </FilterWrapper>
+          <div>
             {moreFilters.length > 0 && (
               <a
                 href="#"
@@ -221,7 +240,7 @@ export class Filters extends Component {
                 {showMoreFilter ? 'Hide' : 'Show'} More Filters
               </a>
             )}
-          </FilterWrapper>
+          </div>
           <div
             id={this.moreFiltersId}
             role="region"
@@ -232,12 +251,6 @@ export class Filters extends Component {
           >
             {moreFilters.map((field) => this.getSelectElement(field))}
           </div>
-          <input
-            type="submit"
-            value="Search"
-            disabled={this.state.disabledSearch}
-          />
-          <a href={window.location.pathname}>Clear Filters</a>
         </form>
 
         {Object.keys(this.initialFilters).length > 0 && (
