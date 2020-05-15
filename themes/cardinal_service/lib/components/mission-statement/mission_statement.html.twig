@@ -1,0 +1,20 @@
+<div{{ attributes.addClass('su-mission-statement') }}>
+  {% if image|render|striptags('<img> <source> <picture>')|trim %}
+    <div>
+      {{ image|render|striptags('<img> <source> <picture>')|trim|raw }}
+    </div>
+  {% endif %}
+
+  <div class="overlay">
+    <div class="overlay-text">
+      {{ overlay }}
+    </div>
+    <div class="overlay-cta">
+      {{ cta }}
+    </div>
+  </div>
+
+  <div class="lower-text">
+    {{ lower_text }}
+  </div>
+</div>

@@ -1,0 +1,32 @@
+mission_statement:
+  label: Mission Statement
+  description: 'Display text and a link over a background image.'
+  fields:
+    image:
+      type: image
+      label: Image
+      description: 'Title of the opportunity.'
+      preview:
+        theme: image
+        uri: http://placecorgi.com/800x1200
+    overlay:
+      type: text
+      label: Overlay Text
+      description: 'Centered text over top the image.'
+      preview: 'Stanford University'
+    cta:
+      type: text
+      label: Call To Action Link
+      description: 'Title of the opportunity.'
+      preview: 'Next Year'
+    lower_text:
+      type: text
+      label: 'Lower text area.'
+      description: 'Title of the opportunity.'
+      preview: '<ul><li>Everyone</li></ul>'
+  use: '@cardinal-service/mission-statement/mission_statement.html.twig'
+  libraries:
+    - opportunity_row:
+        css:
+          component:
+            ../../../dist/css/components/mission-statement/mission_statement.css: {}
