@@ -20,12 +20,9 @@ const Container = styled.div`
   // }
 
   .MuiAutocomplete-root {
-    width: 100%;
-    min-width: 300px;
-
-    @media (max-width: 767px) {
-      width: auto;
-    }
+    // @media (max-width: 767px) {
+    //   width: auto;
+    // }
   }
 
   // Automcomplete Label
@@ -49,7 +46,7 @@ const Container = styled.div`
   .MuiChip-root {
     font-size: 16px;
     line-height: normal;
-    margin: 10px 0;
+    margin: 5px 0;
   }
 
   .MuiChip-deleteIcon,

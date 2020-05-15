@@ -12,6 +12,7 @@ const FilterWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 36px;
 
   a {
     width: 100%;
@@ -21,6 +22,18 @@ const FilterWrapper = styled.div`
 const FilterOptions = styled.div`
   input {
     display: block;
+  }
+`;
+
+const MoreFilterWrap = styled.div`
+  margin-bottom: 18px;
+
+  &::before {
+    display: inline-block;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f1de';
+    margin-right: 18px;
   }
 `;
 
@@ -229,7 +242,7 @@ export class Filters extends Component {
               <a href={window.location.pathname}>Clear Filters</a>
             </FilterOptions>
           </FilterWrapper>
-          <div>
+          <MoreFilterWrap>
             {moreFilters.length > 0 && (
               <a
                 href="#"
@@ -240,7 +253,7 @@ export class Filters extends Component {
                 {showMoreFilter ? 'Hide' : 'Show'} More Filters
               </a>
             )}
-          </div>
+          </MoreFilterWrap>
           <div
             id={this.moreFiltersId}
             role="region"
