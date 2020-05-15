@@ -2,20 +2,41 @@ import React, { Component } from 'react';
 import { SelectList } from './SelectList';
 import { Slugs } from './Slugs';
 import styled from 'styled-components';
-import { StylesProvider } from '@material-ui/core/styles';
 
 const _ = require('lodash');
 const lodashUuid = require('lodash-uuid');
 const queryString = require('query-string');
 
+const FilterContainer = styled.div`
+  margin: 20px 0;
+
+  .flex-2-of-12 {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .flex-10-of-12,
+    .flex-2-of-12 {
+      flex: unset;
+      width: 100%;
+      max-width: unset;
+    }
+  }
+`;
+
 const FilterWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  column-gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
   margin-bottom: 36px;
 
   a {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -228,52 +249,52 @@ export class Filters extends Component {
         ).length > 0);
 
     return (
-      // <StylesProvider injectFirst>
-      <div style={{ margin: '20px 0' }}>
+      <FilterContainer>
         <form onSubmit={this.onFormSubmit}>
-          <div class="flex-9-of-12">
-            <FilterWrapper>
-              {mainFilters.map((field) => this.getSelectElement(field))}
-            </FilterWrapper>
-            <MoreFilterWrap>
-              {moreFilters.length > 0 && (
-                <a
-                  href="#"
-                  aria-controls={this.moreFiltersId}
-                  aria-expanded={showMoreFilter}
-                  onClick={this.showHideMoreFilters.bind(this)}
-                >
-                  {showMoreFilter ? 'Hide' : 'Show'} More Filters
-                </a>
-              )}
-            </MoreFilterWrap>
-            <FilterWrapper
-              id={this.moreFiltersId}
-              role="region"
-              style={{
-                display: showMoreFilter ? 'grid' : 'none',
-              }}
-            >
-              {moreFilters.map((field) => this.getSelectElement(field))}
-            </FilterWrapper>
-          </div>
-          <div class="flex-3-of-12">
-            <FilterOptions>
-              <input
-                type="submit"
-                value="Search"
-                disabled={this.state.disabledSearch}
-              />
-              <a href={window.location.pathname}>Clear Filters</a>
-            </FilterOptions>
+          <div class="flex-container">
+            <div class="flex-10-of-12">
+              <FilterWrapper>
+                {mainFilters.map((field) => this.getSelectElement(field))}
+              </FilterWrapper>
+              <MoreFilterWrap>
+                {moreFilters.length > 0 && (
+                  <a
+                    href="#"
+                    aria-controls={this.moreFiltersId}
+                    aria-expanded={showMoreFilter}
+                    onClick={this.showHideMoreFilters.bind(this)}
+                  >
+                    {showMoreFilter ? 'Hide' : 'Show'} More Filters
+                  </a>
+                )}
+              </MoreFilterWrap>
+              <FilterWrapper
+                id={this.moreFiltersId}
+                role="region"
+                style={{
+                  display: showMoreFilter ? 'grid' : 'none',
+                }}
+              >
+                {moreFilters.map((field) => this.getSelectElement(field))}
+              </FilterWrapper>
+            </div>
+            <div class="flex-2-of-12">
+              <FilterOptions>
+                <input
+                  type="submit"
+                  value="Search"
+                  disabled={this.state.disabledSearch}
+                />
+                <a href={window.location.pathname}>Clear Filters</a>
+              </FilterOptions>
+            </div>
           </div>
         </form>
 
         {Object.keys(this.initialFilters).length > 0 && (
           <Slugs filters={this.initialFilters} terms={this.state.allItems} />
         )}
-      </div>
-      // </StylesProvider>
+      </FilterContainer>
     );
   }
 }
