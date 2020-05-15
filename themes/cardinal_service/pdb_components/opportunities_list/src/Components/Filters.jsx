@@ -9,9 +9,9 @@ const lodashUuid = require('lodash-uuid');
 const queryString = require('query-string');
 
 const FilterWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 18px;
   margin-bottom: 36px;
 
   a {
@@ -231,8 +231,33 @@ export class Filters extends Component {
       // <StylesProvider injectFirst>
       <div style={{ margin: '20px 0' }}>
         <form onSubmit={this.onFormSubmit}>
-          <FilterWrapper>
-            {mainFilters.map((field) => this.getSelectElement(field))}
+          <div class="flex-9-of-12">
+            <FilterWrapper>
+              {mainFilters.map((field) => this.getSelectElement(field))}
+            </FilterWrapper>
+            <MoreFilterWrap>
+              {moreFilters.length > 0 && (
+                <a
+                  href="#"
+                  aria-controls={this.moreFiltersId}
+                  aria-expanded={showMoreFilter}
+                  onClick={this.showHideMoreFilters.bind(this)}
+                >
+                  {showMoreFilter ? 'Hide' : 'Show'} More Filters
+                </a>
+              )}
+            </MoreFilterWrap>
+            <FilterWrapper
+              id={this.moreFiltersId}
+              role="region"
+              style={{
+                display: showMoreFilter ? 'grid' : 'none',
+              }}
+            >
+              {moreFilters.map((field) => this.getSelectElement(field))}
+            </FilterWrapper>
+          </div>
+          <div class="flex-3-of-12">
             <FilterOptions>
               <input
                 type="submit"
@@ -241,28 +266,6 @@ export class Filters extends Component {
               />
               <a href={window.location.pathname}>Clear Filters</a>
             </FilterOptions>
-          </FilterWrapper>
-          <MoreFilterWrap>
-            {moreFilters.length > 0 && (
-              <a
-                href="#"
-                aria-controls={this.moreFiltersId}
-                aria-expanded={showMoreFilter}
-                onClick={this.showHideMoreFilters.bind(this)}
-              >
-                {showMoreFilter ? 'Hide' : 'Show'} More Filters
-              </a>
-            )}
-          </MoreFilterWrap>
-          <div
-            id={this.moreFiltersId}
-            role="region"
-            style={{
-              justifyContent: 'space-between',
-              display: showMoreFilter ? 'flex' : 'none',
-            }}
-          >
-            {moreFilters.map((field) => this.getSelectElement(field))}
           </div>
         </form>
 

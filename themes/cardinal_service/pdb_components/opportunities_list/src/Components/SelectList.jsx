@@ -20,9 +20,7 @@ const Container = styled.div`
   // }
 
   .MuiAutocomplete-root {
-    // @media (max-width: 767px) {
-    //   width: auto;
-    // }
+    width: 100%;
   }
 
   // Automcomplete Label
