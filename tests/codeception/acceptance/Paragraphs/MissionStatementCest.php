@@ -9,6 +9,7 @@ class MissionStatementCest {
    * The paragraph should display on a basic page.
    */
   public function testMissionStatement(AcceptanceTester $I) {
+    $I->logInWithRole('site_manager');
     $paragraph = $I->createEntity([
       'type' => 'cardinal_mission_statement',
       'su_mission_text' => 'This is the mission statement whether you choose to accept it or not.',
@@ -16,10 +17,7 @@ class MissionStatementCest {
         'uri' => 'http://google.com',
         'title' => 'Verify your identity',
       ],
-      'su_mission_lower_text' => [
-        'value' => 'This paragraph will self destruct at the end of this test',
-        'format' => 'stanford_minimal_html',
-      ],
+      'su_mission_lower_text' => 'This paragraph will self destruct at the end of this test',
     ], 'paragraph');
 
     $node = $I->createEntity([
@@ -40,7 +38,7 @@ class MissionStatementCest {
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee('This is the mission statement whether you choose to accept it or not');
     $I->canSeeLink('Verify your identity');
-    $I->canSeeLink('This paragraph will self destruct at the end of this test');
+    $I->canSee('This paragraph will self destruct at the end of this test');
   }
 
 }
