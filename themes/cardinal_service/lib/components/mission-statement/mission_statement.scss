@@ -5,12 +5,17 @@
 .su-mission-statement {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  position: relative;
 
   img,
   picture,
   source {
     width: 100vw;
+  }
+
+  .background {
+    background: $su-color-brown;
+    position: relative;
+    min-height: 300px;
   }
 
   .overlay {

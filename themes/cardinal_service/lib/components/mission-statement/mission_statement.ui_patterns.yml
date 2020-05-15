@@ -13,17 +13,17 @@ mission_statement:
       type: text
       label: Overlay Text
       description: 'Centered text over top the image.'
-      preview: 'Stanford University'
+      preview: 'Cardinal Service mission statement'
     cta:
       type: text
       label: Call To Action Link
       description: 'Title of the opportunity.'
-      preview: 'Next Year'
+      preview: '<a href="#">I am a call to action link</a>'
     lower_text:
       type: text
       label: 'Lower text area.'
       description: 'Title of the opportunity.'
-      preview: '<ul><li>Everyone</li></ul>'
+      preview: 'To learn more about the mission <a href="#">Click me</a>'
   use: '@cardinal-service/mission-statement/mission_statement.html.twig'
   libraries:
     - opportunity_row:
