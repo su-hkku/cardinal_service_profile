@@ -49,12 +49,8 @@ const FilterOptions = styled.div`
 const MoreFilterWrap = styled.div`
   margin-bottom: 18px;
 
-  &::before {
-    display: inline-block;
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    content: '\f1de';
-    margin-right: 18px;
+  .fa-sliders-h {
+    margin-right: 10px;
   }
 `;
 
@@ -264,6 +260,7 @@ export class Filters extends Component {
                     aria-expanded={showMoreFilter}
                     onClick={this.showHideMoreFilters.bind(this)}
                   >
+                    <i class="fas fa-sliders-h"></i>
                     {showMoreFilter ? 'Hide' : 'Show'} More Filters
                   </a>
                 )}

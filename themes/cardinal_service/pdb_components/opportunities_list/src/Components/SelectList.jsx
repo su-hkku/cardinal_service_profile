@@ -15,15 +15,11 @@ const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
 const chipIcon = <CloseIcon />;
 
 const Container = styled.div`
-  // button {
-  //   padding: unset;
-  // }
-
   .MuiAutocomplete-root {
     width: 100%;
   }
 
-  // Automcomplete Label
+  // Autocomplete Label
   .MuiFormLabel-root {
     font-weight: 400;
     color: #4d4f53;
