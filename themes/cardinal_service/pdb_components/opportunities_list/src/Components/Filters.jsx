@@ -50,6 +50,7 @@ const MoreFilterWrap = styled.div`
   margin-bottom: 18px;
 
   .fa-sliders-h {
+    font-size: 1.6rem;
     margin-right: 10px;
   }
 `;
