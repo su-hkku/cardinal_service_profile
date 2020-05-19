@@ -12,7 +12,6 @@ import styled from 'styled-components';
 const icon = <CheckBoxOutlineBlankIcon style={{ width: 18, height: 18 }} />;
 const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
 const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
-const chipIcon = <CloseIcon />;
 
 const Container = styled.div`
   .MuiAutocomplete-root {
@@ -90,8 +89,19 @@ const Container = styled.div`
   }
 
   // Autocomplete Height
-  .MuiFilledInput-root {
-    height: 48px;
+  .MuiAutocomplete-root {
+    margin: 4px 0;
+
+    .MuiAutocomplete-inputRoot {
+      padding-top: 0;
+    }
+
+    &.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot {
+      &[class*='MuiFilledInput-adornedStart'],
+      &[class*='Mui-focused'] {
+        padding-top: 24px;
+      }
+    }
   }
 `;
 
@@ -132,7 +142,6 @@ export const SelectList = ({
         // open
         disableCloseOnSelect
         popupIcon={arrowIcon}
-        deleteIcon={chipIcon}
         ListboxProps={{ style: { fontSize: '18px' } }}
         className={field + '-select'}
         id={field}
