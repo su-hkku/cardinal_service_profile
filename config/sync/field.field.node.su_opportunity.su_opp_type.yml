@@ -11,7 +11,7 @@ field_name: su_opp_type
 entity_type: node
 bundle: su_opportunity
 label: Type
-description: ''
+description: 'Also known as the "What are you looking for?" when a student is searching.'
 required: false
 translatable: false
 default_value: {  }
