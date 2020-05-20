@@ -10,18 +10,9 @@ const queryString = require('query-string');
 const FilterContainer = styled.div`
   margin: 20px 0;
 
-  .flex-2-of-12 {
+  .flex-md-2-of-12 {
     display: flex;
     justify-content: center;
-  }
-
-  @media (max-width: 768px) {
-    .flex-10-of-12,
-    .flex-2-of-12 {
-      flex: unset;
-      width: 100%;
-      max-width: unset;
-    }
   }
 `;
 
@@ -250,7 +241,7 @@ export class Filters extends Component {
         <h2>Search by</h2>
         <form onSubmit={this.onFormSubmit}>
           <div class="flex-container">
-            <div class="flex-10-of-12">
+            <div class="flex-md-10-of-12">
               <FilterWrapper>
                 {mainFilters.map((field) => this.getSelectElement(field))}
               </FilterWrapper>
@@ -277,7 +268,7 @@ export class Filters extends Component {
                 {moreFilters.map((field) => this.getSelectElement(field))}
               </FilterWrapper>
             </div>
-            <div class="flex-2-of-12">
+            <div class="flex-md-2-of-12">
               <FilterOptions>
                 <input
                   type="submit"
