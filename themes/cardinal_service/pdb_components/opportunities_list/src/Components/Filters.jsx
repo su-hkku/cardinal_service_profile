@@ -8,11 +8,15 @@ const lodashUuid = require('lodash-uuid');
 const queryString = require('query-string');
 
 const FilterContainer = styled.div`
-  margin: 20px 0;
+  padding: 36px;
 
   .flex-md-2-of-12 {
     display: flex;
     justify-content: center;
+  }
+
+  h2 {
+    margin-bottom: 36px;
   }
 `;
 

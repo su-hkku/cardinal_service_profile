@@ -1,12 +1,25 @@
 @charset 'UTF-8';
 
-.opportunity-filter-header-container {
+.opportunity-filter-hero-container {
+  h1 {
+    margin: 0;
+  }
+
+  .su-hero .su-hero__card {
+    @include grid-media-min('lg') {
+      max-width: 650px;
+      text-align: center;
+      opacity: 0.9;
+    }
+  }
+}
+
+.opportunity-filter-search-container {
   background-color: #f4f4f4;
   border-bottom: 1px solid #e5e5e5;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
   margin-bottom: 72px;
 
-  .node-stanford-page-title,
   .opportunties-list {
     @include centered-column;
   }
