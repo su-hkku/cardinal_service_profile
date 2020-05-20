@@ -89,7 +89,7 @@ content:
     label: hidden
     settings:
       view_mode: default
-      image_style: cta_1x_507x338
+      image_style: card_956x478
       link: false
     third_party_settings:
       field_formatter_class:

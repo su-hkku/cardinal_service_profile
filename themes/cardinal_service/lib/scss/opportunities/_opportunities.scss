@@ -217,6 +217,12 @@
 
 .view {
   &.related {
+    @include grid-media-max('md') {
+      .views-row {
+        margin-bottom: 20px;
+      }
+    }
+
     ul {
       list-style: none;
       padding: 0;
