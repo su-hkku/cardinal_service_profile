@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\cardinal_sercardinal_service_profilevice_profile\Unit\Config;
+namespace Drupal\Tests\cardinal_service_profile\Unit\Config;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\State\StateInterface;
