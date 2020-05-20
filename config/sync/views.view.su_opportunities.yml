@@ -829,6 +829,7 @@ display:
       empty: {  }
       header: {  }
       css_class: flex-container
+      block_hide_empty: true
     cache_metadata:
       max-age: 0
       contexts:

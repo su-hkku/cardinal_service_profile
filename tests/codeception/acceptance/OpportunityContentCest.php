@@ -55,6 +55,15 @@ class OpportunityContentCest {
   }
 
   /**
+   * The related opportunities block should appear on the opportunity page.
+   */
+  public function testRelatedOpportunities(AcceptanceTester $I) {
+    $this->testOpportunityContentCreation($I);
+    $this->testOpportunityContentCreation($I);
+    $I->canSee('Related Opportunities', 'h2');
+  }
+
+  /**
    * Create taxonomy terms for testing.
    */
   protected function createTaxonomyTerms(\AcceptanceTester $I, array $terms, $vocab) {

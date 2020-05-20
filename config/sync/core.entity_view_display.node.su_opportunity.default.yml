@@ -388,10 +388,10 @@ third_party_settings:
             region: main
             configuration:
               id: 'views_block:su_opportunities-related'
-              label: ''
+              label: 'Related Opportunities'
               provider: views
               label_display: visible
-              views_label: ''
+              views_label: 'Related Opportunities'
               items_per_page: none
               context_mapping: {  }
             additional: {  }
