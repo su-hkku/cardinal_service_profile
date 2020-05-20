@@ -247,6 +247,7 @@ export class Filters extends Component {
 
     return (
       <FilterContainer>
+        <h2>Search by</h2>
         <form onSubmit={this.onFormSubmit}>
           <div class="flex-container">
             <div class="flex-10-of-12">
