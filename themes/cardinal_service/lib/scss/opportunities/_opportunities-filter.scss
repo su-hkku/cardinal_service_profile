@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+.opportunity-filter-header-container {
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 72px;
+
+  .node-stanford-page-title,
+  .opportunties-list {
+    @include centered-column;
+  }
+}
