@@ -165,7 +165,7 @@
     .flex-lg-3-of-12 {
       display: inline-grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      grid-gap: 10px;
       order: 1;
       -ms-flex: none;
       -webkit-box-flex: none;
@@ -198,14 +198,13 @@
     }
 
     .form-item {
-
       &:nth-child(2),
       &:nth-child(3) {
         width: 50%;
         float: left;
       }
 
-      &:nth-child(1n+4) {
+      &:nth-child(1n + 4) {
         display: none;
       }
     }
