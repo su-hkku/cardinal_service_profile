@@ -2,6 +2,8 @@
 
 /**
  * Tests on the mission statement paragraph type.
+ *
+ * @group mission_statement
  */
 class MissionStatementCest {
 
@@ -37,7 +39,7 @@ class MissionStatementCest {
 
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee('This is the mission statement whether you choose to accept it or not');
-    $I->canSeeLink('Verify your identity');
+    $I->canSeeLink('Verify your identity', 'http://google.com');
     $I->canSee('This paragraph will self destruct at the end of this test');
   }
 
