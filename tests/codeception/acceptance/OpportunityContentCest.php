@@ -53,14 +53,18 @@ class OpportunityContentCest {
       'title' => 'Foo Bar',
       'su_opp_type' => $term->id(),
     ]);
+    $dimensions = $this->createTaxonomyTerms($I, [
+      'Foo Bar Baz',
+    ], 'su_opportunity_dimension');
     $node = $I->createEntity([
       'type' => 'su_opportunity',
       'title' => 'Bar Foo',
       'su_opp_type' => $term->id(),
+      'su_opp_dimension' => reset($dimensions)->id(),
     ]);
 
     $I->amOnPage($node->toUrl()->toString());
-    $I->canSee($term->getDescription());
+    $I->canSee(reset($dimensions)->getDescription());
     $I->canSee('Bar Foo', 'h1');
     $I->canSee('Related Opportunities', 'h2');
     $I->canSeeNumberOfElements('.flex-md-4-of-12.views-row .su-card', [1, 3]);
