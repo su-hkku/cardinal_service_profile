@@ -7,6 +7,7 @@ const SlugWrapper = styled.div`
   border: 1px solid #7a7b7e;
   border-radius: 30px;
   display: inline-block;
+  margin-bottom: 10px;
   margin-right: 18px;
   padding: 6px 20px;
   width: auto;
