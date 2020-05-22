@@ -8,6 +8,10 @@ const lodashUuid = require('lodash-uuid');
 const queryString = require('query-string');
 
 const FilterContainer = styled.div`
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 72px;
   padding: 36px;
 
   .flex-md-2-of-12 {
@@ -48,6 +52,10 @@ const MoreFilterWrap = styled.div`
     font-size: 1.6rem;
     margin-right: 10px;
   }
+`;
+
+const ResultsContainer = styled.div`
+  margin-bottom: 58px;
 `;
 
 export class Filters extends Component {
@@ -241,54 +249,64 @@ export class Filters extends Component {
         ).length > 0);
 
     return (
-      <FilterContainer>
-        <h2>Search by</h2>
-        <form onSubmit={this.onFormSubmit}>
-          <div class="flex-container">
-            <div class="flex-md-10-of-12">
-              <FilterWrapper>
-                {mainFilters.map((field) => this.getSelectElement(field))}
-              </FilterWrapper>
-              <MoreFilterWrap>
-                {moreFilters.length > 0 && (
-                  <a
-                    href="#"
-                    aria-controls={this.moreFiltersId}
-                    aria-expanded={showMoreFilter}
-                    onClick={this.showHideMoreFilters.bind(this)}
+      <div>
+        <FilterContainer>
+          <div class="centered-container">
+            <h2>Search by</h2>
+            <form onSubmit={this.onFormSubmit}>
+              <div class="flex-container">
+                <div class="flex-md-10-of-12">
+                  <FilterWrapper>
+                    {mainFilters.map((field) => this.getSelectElement(field))}
+                  </FilterWrapper>
+                  <MoreFilterWrap>
+                    {moreFilters.length > 0 && (
+                      <a
+                        href="#"
+                        aria-controls={this.moreFiltersId}
+                        aria-expanded={showMoreFilter}
+                        onClick={this.showHideMoreFilters.bind(this)}
+                      >
+                        <i class="fas fa-sliders-h"></i>
+                        {showMoreFilter ? 'Hide' : 'Show'} More Filters
+                      </a>
+                    )}
+                  </MoreFilterWrap>
+                  <FilterWrapper
+                    id={this.moreFiltersId}
+                    role="region"
+                    style={{
+                      display: showMoreFilter ? 'grid' : 'none',
+                    }}
                   >
-                    <i class="fas fa-sliders-h"></i>
-                    {showMoreFilter ? 'Hide' : 'Show'} More Filters
-                  </a>
-                )}
-              </MoreFilterWrap>
-              <FilterWrapper
-                id={this.moreFiltersId}
-                role="region"
-                style={{
-                  display: showMoreFilter ? 'grid' : 'none',
-                }}
-              >
-                {moreFilters.map((field) => this.getSelectElement(field))}
-              </FilterWrapper>
-            </div>
-            <div class="flex-md-2-of-12">
-              <FilterOptions>
-                <input
-                  type="submit"
-                  value="Search"
-                  disabled={this.state.disabledSearch}
-                />
-                <a href={window.location.pathname}>Clear Filters</a>
-              </FilterOptions>
-            </div>
+                    {moreFilters.map((field) => this.getSelectElement(field))}
+                  </FilterWrapper>
+                </div>
+                <div class="flex-md-2-of-12">
+                  <FilterOptions>
+                    <input
+                      type="submit"
+                      value="Search"
+                      disabled={this.state.disabledSearch}
+                    />
+                    <a href={window.location.pathname}>Clear Filters</a>
+                  </FilterOptions>
+                </div>
+              </div>
+            </form>
           </div>
-        </form>
-
-        {Object.keys(this.initialFilters).length > 0 && (
-          <Slugs filters={this.initialFilters} terms={this.state.allItems} />
-        )}
-      </FilterContainer>
+        </FilterContainer>
+        <ResultsContainer>
+          <div class="centered-container">
+            {Object.keys(this.initialFilters).length > 0 && (
+              <Slugs
+                filters={this.initialFilters}
+                terms={this.state.allItems}
+              />
+            )}
+          </div>
+        </ResultsContainer>
+      </div>
     );
   }
 }
