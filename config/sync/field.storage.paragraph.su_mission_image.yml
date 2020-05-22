@@ -1,18 +1,17 @@
-uuid: e30c0c21-45a7-4695-84d1-9f5c7f2b7188
+uuid: aaa7fd22-757f-493c-9043-91cd5d37de61
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - paragraphs
-    - viewfield
-    - views
-id: paragraph.su_news_view_field
-field_name: su_news_view_field
+id: paragraph.su_mission_image
+field_name: su_mission_image
 entity_type: paragraph
-type: viewfield
+type: entity_reference
 settings:
-  target_type: view
-module: viewfield
+  target_type: media
+module: core
 locked: false
 cardinality: 1
 translatable: true
