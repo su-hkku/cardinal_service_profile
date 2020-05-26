@@ -205,15 +205,40 @@
         height: 50px;
       }
 
-      .chosen-choices {
-        padding: 10px 5px;
+      .chosen-container {
+        .chosen-choices {
+          padding: 10px 5px;
+
+          &:after {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            content: '\f078';
+            position: absolute;
+            top: 15px;
+            right: 10px;
+          }
+        }
+
+        &.chosen-container-active {
+          .chosen-choices {
+            &:after {
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              content: '\f077';
+              position: absolute;
+              top: 15px;
+              right: 10px;
+            }
+          }
+        }
       }
 
       .search-choice {
-        border: none;
+        border: 0;
         border-radius: 5px;
         background-color: #e5e5e5;
         font-size: 16px;
+        width: 75%;
       }
 
       .edit-su-opp-open-to {
