@@ -193,10 +193,35 @@
   &.su-opportunities-filtered-all {
     label {
       margin-top: 0;
+      margin-bottom: 10px;
       max-width: 100%;
+      font-size: 18px;
+      line-height: 25px;
     }
 
     .form-item {
+      .edit-su-opp-dimension {
+        height: 50px;
+      }
+
+      .chosen-choices {
+        padding: 10px 5px;
+      }
+
+      .search-choice {
+        border: none;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        font-size: 16px;
+      }
+
+      .edit-su-opp-open-to {
+        height: 45px;
+      }
+
+      option {
+        margin-bottom: 1rem;
+      }
 
       &:nth-child(2),
       &:nth-child(3) {
@@ -204,7 +229,7 @@
         float: left;
       }
 
-      &:nth-child(1n+4) {
+      &:nth-child(1n + 4) {
         display: none;
       }
     }
