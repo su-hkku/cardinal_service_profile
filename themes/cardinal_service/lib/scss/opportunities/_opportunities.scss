@@ -192,6 +192,8 @@
 
 .views-exposed-filter-block {
   &.su-opportunities-filtered-all {
+    text-align: left;
+
     label {
       margin-top: 0;
       margin-bottom: 10px;
@@ -208,6 +210,8 @@
 
     .form-item {
       .chosen-container {
+        opacity: 1;
+
         .chosen-choices {
           font-family: Source Sans Pro;
           font-style: normal;
