@@ -196,7 +196,13 @@
       margin-bottom: 10px;
       max-width: 100%;
       font-size: 18px;
+      font-weight: bold;
       line-height: 25px;
+    }
+
+    .views-exposed-form {
+      display: flex;
+      flex-wrap: wrap;
     }
 
     .form-item {
@@ -247,10 +253,17 @@
         margin-bottom: 1rem;
       }
 
+      &:first-child {
+        width: 100%;
+      }
+
+      &:nth-child(2) {
+        margin-right: 35px;
+      }
+
       &:nth-child(2),
       &:nth-child(3) {
-        width: 50%;
-        float: left;
+        flex-grow: 1;
       }
 
       &:nth-child(1n + 4) {
@@ -259,7 +272,12 @@
     }
 
     .form-actions {
-      float: right;
+      display: flex;
+      width: 100%;
+
+      .form-submit {
+        margin-left: auto;
+      }
     }
   }
 }
