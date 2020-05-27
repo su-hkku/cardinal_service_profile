@@ -1,9 +1,9 @@
-minimum_single: 20
-minimum_multiple: 20
+minimum_single: 0
+minimum_multiple: 0
 disable_search_threshold: 0
 minimum_width: 150
 use_relative_width: false
-jquery_selector: 'select:visible'
+jquery_selector: select
 search_contains: false
 disable_search: false
 allow_single_deselect: false
@@ -12,6 +12,7 @@ placeholder_text_single: 'Choose an option'
 no_results_text: 'No results match'
 disabled_themes:
   seven: '0'
+  cardinal_service: '0'
   stanford_basic: '0'
 chosen_include: 2
 _core:
