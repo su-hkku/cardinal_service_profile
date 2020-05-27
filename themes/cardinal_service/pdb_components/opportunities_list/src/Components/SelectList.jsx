@@ -2,16 +2,15 @@ import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Chip from '@material-ui/core/Chip';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CloseIcon from '@material-ui/icons/Close';
 import styled from 'styled-components';
+import {makeStyles} from '@material-ui/core/styles';
 
-const icon = <CheckBoxOutlineBlankIcon style={{ width: 18, height: 18 }} />;
-const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
-const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
+const icon = <CheckBoxOutlineBlankIcon style={{width: 18, height: 18}}/>;
+const checkedIcon = <CheckBoxIcon style={{width: 18, height: 18}}/>;
+const arrowIcon = <ExpandMoreIcon style={{fontSize: 30}}/>;
 
 const Container = styled.div`
   .MuiAutocomplete-root {
@@ -105,19 +104,19 @@ const Container = styled.div`
   }
 `;
 
-export const SelectList = ({
-  defaultValue,
-  field,
-  label,
-  multiple,
-  onChange,
-  options,
-}) => {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    border: '5px solid red'
+  }
+}))
+
+export const SelectList = ({defaultValue, field, label, multiple, onChange, options}) => {
   let defaultOptions = multiple ? [] : null;
+
+  const myStyles = useStyles()
+
   if (defaultValue !== undefined) {
-    defaultOptions = defaultValue.map((tid) => {
-      return options.find((option) => option.id === tid);
-    });
+    defaultOptions = defaultValue.map((tid) => options.find((option) => option.id === tid));
     defaultOptions = multiple ? defaultOptions : defaultOptions[0];
   }
 
@@ -140,9 +139,10 @@ export const SelectList = ({
     <Container>
       <Autocomplete
         // open
+        classes={myStyles}
         disableCloseOnSelect
         popupIcon={arrowIcon}
-        ListboxProps={{ style: { fontSize: '18px' } }}
+        ListboxProps={{style: {fontSize: '18px'}}}
         className={field + '-select'}
         id={field}
         options={options}
@@ -154,13 +154,13 @@ export const SelectList = ({
         onChange={onSelectionChange}
         getOptionSelected={(option, value) => option.id === value.id}
         value={defaultOptions}
-        renderOption={(option, { selected }) => (
+        renderOption={(option, {selected}) => (
           <React.Fragment>
             <Checkbox
               className={'checkbox'}
               icon={icon}
               checkedIcon={checkedIcon}
-              style={{ marginRight: 8 }}
+              style={{marginRight: 8}}
               checked={selected}
             />
             {option.label + ' (' + option.items.length + ')'}
@@ -171,7 +171,7 @@ export const SelectList = ({
             {...params}
             label={label}
             variant="filled"
-            InputLabelProps={{ style: { marginTop: 0, fontSize: '20px' } }}
+            InputLabelProps={{style: {marginTop: 0, fontSize: '20px'}}}
           />
         )}
       />
