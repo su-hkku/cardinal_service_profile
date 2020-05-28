@@ -46,11 +46,12 @@ const Container = styled.div`
     }
   }
 
-  // Remove Autocomplete Rounded corners
+  // Remove Autocomplete Rounded corners and padding
   .MuiFilledInput-root {
     border: 1px solid #d2d3d4;
     border-top-left-radius: unset;
     border-top-right-radius: unset;
+    padding: 0;
   }
 `;
 
@@ -83,9 +84,7 @@ const useStyles = makeStyles({
   inputRoot: {
     border: '5px solid red',
     backgroundColor: '#fff',
-    paddingTop: '0',
-    paddingRight: '0',
-    paddingLeft: '0',
+    paddingTop: 0,
     fontWeight: '600',
     color: '#4d4f53',
 
