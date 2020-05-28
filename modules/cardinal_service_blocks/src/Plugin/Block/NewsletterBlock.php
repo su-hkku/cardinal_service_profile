@@ -50,7 +50,10 @@ class NewsletterBlock extends BlockBase implements ContainerFactoryPluginInterfa
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
-    return ['url' => ''];
+    return [
+      'url' => 'https://stanford.us1.list-manage.com/subscribe/post',
+      'intro' => ['value' => NULL, 'format' => NULL],
+    ];
   }
 
   /**
@@ -63,6 +66,12 @@ class NewsletterBlock extends BlockBase implements ContainerFactoryPluginInterfa
       '#default_value' => $this->configuration['url'],
       '#required' => TRUE,
     ];
+    $form['intro'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Intro Text'),
+      '#default_value' => $this->configuration['intro']['value'],
+      '#format' => $this->configuration['intro']['format'],
+    ];
     return $form;
   }
 
@@ -71,15 +80,29 @@ class NewsletterBlock extends BlockBase implements ContainerFactoryPluginInterfa
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
     $this->configuration['url'] = $form_state->getValue('url');
+    $this->configuration['intro'] = $form_state->getValue('intro');
   }
 
   /**
    * {@inheritdoc}
    */
   public function build() {
-    $form = $this->formBuilder->getForm(NewsletterForm::class);
-    $form['#action'] = $this->configuration['url'];
-    return $form;
+    $build = [];
+    if (!empty($this->configuration['intro']['value'])) {
+      $build['intro'] = [
+        '#type' => 'container',
+        '#attributes' => ['class' => ['centered-container']],
+        'text' => [
+          '#type' => 'processed_text',
+          '#text' => $this->configuration['intro']['value'],
+          '#format' => $this->configuration['intro']['format'],
+        ],
+      ];
+    }
+    $build['form'] = $this->formBuilder->getForm(NewsletterForm::class);
+    $build['form']['#action'] = $this->configuration['url'];
+
+    return $build;
   }
 
 }
