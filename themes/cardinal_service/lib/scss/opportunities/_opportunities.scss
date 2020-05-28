@@ -262,9 +262,13 @@
         width: 100%;
       }
 
+      &:nth-child(2) {
+        margin-right: 20px;
+      }
+
       &:nth-child(2),
       &:nth-child(3) {
-        flex-grow: 1;
+        flex-basis: calc(50% - 10px);
       }
 
       &:nth-child(1n + 4) {
@@ -279,6 +283,28 @@
 
       .form-submit {
         margin-left: auto;
+      }
+    }
+
+    @include grid-media-max('lg') {
+      .form-item {
+        &:nth-child(2) {
+          margin-right: 0;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          flex-basis: unset;
+          width: 100%;
+        }
+      }
+
+      .form-actions {
+        justify-content: center;
+
+        .form-submit {
+          margin-left: unset;
+        }
       }
     }
   }
