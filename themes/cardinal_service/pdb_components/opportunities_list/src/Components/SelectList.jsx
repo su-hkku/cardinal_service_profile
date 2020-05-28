@@ -13,10 +13,6 @@ const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
 const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
 
 const Container = styled.div`
-  // .MuiAutocomplete-root {
-  //   width: 100%;
-  // }
-
   // Autocomplete Label
   .MuiFormLabel-root {
     font-weight: 400;
@@ -37,15 +33,10 @@ const Container = styled.div`
   .MuiInputBase-input,
   .MuiChip-root {
     font-size: 16px;
+    font-weight: 400;
     line-height: normal;
     margin: 5px 0;
   }
-
-  // .MuiChip-deleteIcon,
-  // .MuiChip-deleteIcon:hover {
-  //   background: transparent;
-  //   color: #4d4f53;
-  // }
 
   // Autocomplete border-bottom
   .MuiFilledInput-underline {
@@ -61,50 +52,9 @@ const Container = styled.div`
     border-top-left-radius: unset;
     border-top-right-radius: unset;
   }
-
-  // Autocomplete dropdown arrow
-  // .MuiAutocomplete-endAdornment {
-  //   top: 10px;
-  // }
-
-  //Autocomplete Clear X
-  // .MuiAutocomplete-clearIndicator {
-  //   display: none;
-  // }
-
-  // Overwrite TextField styles
-  // input,
-  // .MuiFilledInput-root,
-  // .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
-  //   background-color: #fff;
-  //   box-shadow: none;
-
-  //   &:hover,
-  //   &:active,
-  //   &:focus {
-  //     background-color: #fff;
-  //     box-shadow: none;
-  //   }
-  // }
-
-  // Autocomplete Height
-  // .MuiAutocomplete-root {
-  //   margin: 4px 0;
-
-  //   .MuiAutocomplete-inputRoot {
-  //     padding-top: 0;
-  //   }
-
-  //   &.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot {
-  //     &[class*='MuiFilledInput-adornedStart'],
-  //     &[class*='Mui-focused'] {
-  //       padding-top: 24px;
-  //     }
-  //   }
-  // }
 `;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     width: '100%',
     margin: '4px 0',
@@ -129,9 +79,15 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+
   inputRoot: {
+    border: '5px solid red',
     backgroundColor: '#fff',
     paddingTop: '0',
+    paddingRight: '0',
+    paddingLeft: '0',
+    fontWeight: '600',
+    color: '#4d4f53',
 
     '&:hover': {
       backgroundColor: '#fff',
@@ -146,20 +102,20 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#fff',
     },
   },
+
+  inputFocused: {
+    backgroundColor: '#fff',
+    paddingTop: '24px',
+  },
+
   endAdornment: {
     top: '10px',
   },
+
   clearIndicator: {
     display: 'none',
   },
-}));
-
-// const textStyles = makeStyles((theme) => ({
-//   root: {
-//     backgroundColor: '#fff',
-//     boxShadow: 'none',
-//   },
-// }));
+});
 
 export const SelectList = ({
   defaultValue,
@@ -172,7 +128,6 @@ export const SelectList = ({
   let defaultOptions = multiple ? [] : null;
 
   const myStyles = useStyles();
-  // const textStyles = textStyles();
 
   if (defaultValue !== undefined) {
     defaultOptions = defaultValue.map((tid) =>
@@ -199,7 +154,6 @@ export const SelectList = ({
   return (
     <Container>
       <Autocomplete
-        // open
         classes={myStyles}
         disableCloseOnSelect
         popupIcon={arrowIcon}
@@ -229,11 +183,15 @@ export const SelectList = ({
         )}
         renderInput={(params) => (
           <TextField
-            // classes={textStyles}
             {...params}
             label={label}
             variant="filled"
-            InputLabelProps={{ style: { marginTop: 0, fontSize: '20px' } }}
+            InputLabelProps={{
+              style: {
+                marginTop: 0,
+                fontSize: '20px',
+              },
+            }}
           />
         )}
       />
