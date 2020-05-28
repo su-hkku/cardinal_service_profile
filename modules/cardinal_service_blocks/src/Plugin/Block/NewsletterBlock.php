@@ -5,6 +5,7 @@ namespace Drupal\cardinal_service_blocks\Plugin\Block;
 use Drupal\cardinal_service_blocks\Form\NewsletterForm;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormBuilderInterface;
+use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -51,7 +52,7 @@ class NewsletterBlock extends BlockBase implements ContainerFactoryPluginInterfa
    */
   public function defaultConfiguration() {
     return [
-      'url' => 'https://stanford.us1.list-manage.com/subscribe/post',
+      'url' => 'https://stanford.us1.list-manage.com/subscribe/post?u=a77525a849b0888cf8d90460f',
       'intro' => ['value' => NULL, 'format' => NULL],
     ];
   }
@@ -99,9 +100,9 @@ class NewsletterBlock extends BlockBase implements ContainerFactoryPluginInterfa
         ],
       ];
     }
-    $build['form'] = $this->formBuilder->getForm(NewsletterForm::class);
-    $build['form']['#action'] = $this->configuration['url'];
-
+    $form_state = new FormState();
+    $form_state->addBuildInfo('action_url', $this->configuration['url']);
+    $build['form'] = $this->formBuilder->buildForm(NewsletterForm::class, $form_state);
     return $build;
   }
 
