@@ -6,16 +6,16 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import styled from 'styled-components';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const icon = <CheckBoxOutlineBlankIcon style={{width: 18, height: 18}}/>;
-const checkedIcon = <CheckBoxIcon style={{width: 18, height: 18}}/>;
-const arrowIcon = <ExpandMoreIcon style={{fontSize: 30}}/>;
+const icon = <CheckBoxOutlineBlankIcon style={{ width: 18, height: 18 }} />;
+const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
+const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
 
 const Container = styled.div`
-  .MuiAutocomplete-root {
-    width: 100%;
-  }
+  // .MuiAutocomplete-root {
+  //   width: 100%;
+  // }
 
   // Autocomplete Label
   .MuiFormLabel-root {
@@ -41,11 +41,11 @@ const Container = styled.div`
     margin: 5px 0;
   }
 
-  .MuiChip-deleteIcon,
-  .MuiChip-deleteIcon:hover {
-    background: transparent;
-    color: #4d4f53;
-  }
+  // .MuiChip-deleteIcon,
+  // .MuiChip-deleteIcon:hover {
+  //   background: transparent;
+  //   color: #4d4f53;
+  // }
 
   // Autocomplete border-bottom
   .MuiFilledInput-underline {
@@ -63,60 +63,121 @@ const Container = styled.div`
   }
 
   // Autocomplete dropdown arrow
-  .MuiAutocomplete-endAdornment {
-    top: 10px;
-  }
+  // .MuiAutocomplete-endAdornment {
+  //   top: 10px;
+  // }
 
   //Autocomplete Clear X
-  .MuiAutocomplete-clearIndicator {
-    display: none;
-  }
+  // .MuiAutocomplete-clearIndicator {
+  //   display: none;
+  // }
 
   // Overwrite TextField styles
-  input,
-  .MuiFilledInput-root,
-  .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
-    background-color: #fff;
-    box-shadow: none;
+  // input,
+  // .MuiFilledInput-root,
+  // .MuiAutocomplete-root .MuiFilledInput-root.Mui-focused {
+  //   background-color: #fff;
+  //   box-shadow: none;
 
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: #fff;
-      box-shadow: none;
-    }
-  }
+  //   &:hover,
+  //   &:active,
+  //   &:focus {
+  //     background-color: #fff;
+  //     box-shadow: none;
+  //   }
+  // }
 
   // Autocomplete Height
-  .MuiAutocomplete-root {
-    margin: 4px 0;
+  // .MuiAutocomplete-root {
+  //   margin: 4px 0;
 
-    .MuiAutocomplete-inputRoot {
-      padding-top: 0;
-    }
+  //   .MuiAutocomplete-inputRoot {
+  //     padding-top: 0;
+  //   }
 
-    &.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot {
-      &[class*='MuiFilledInput-adornedStart'],
-      &[class*='Mui-focused'] {
-        padding-top: 24px;
-      }
-    }
-  }
+  //   &.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot {
+  //     &[class*='MuiFilledInput-adornedStart'],
+  //     &[class*='Mui-focused'] {
+  //       padding-top: 24px;
+  //     }
+  //   }
+  // }
 `;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    border: '5px solid red'
-  }
-}))
+    width: '100%',
+    margin: '4px 0',
 
-export const SelectList = ({defaultValue, field, label, multiple, onChange, options}) => {
+    '& input': {
+      backgroundColor: '#fff',
+      boxShadow: 'none',
+    },
+
+    focused: {
+      backgroundColor: '#fff',
+      boxShadow: 'none',
+
+      '&:hover': {
+        backgroundColor: '#fff',
+        boxShadow: 'none',
+      },
+
+      '&:focus': {
+        backgroundColor: '#fff',
+        boxShadow: 'none',
+      },
+    },
+  },
+  inputRoot: {
+    backgroundColor: '#fff',
+    paddingTop: '0',
+
+    '&:hover': {
+      backgroundColor: '#fff',
+    },
+
+    '&:focus': {
+      backgroundColor: '#fff',
+    },
+
+    '&[class*="Mui-focused"]': {
+      paddingTop: '24px',
+      backgroundColor: '#fff',
+    },
+  },
+  endAdornment: {
+    top: '10px',
+  },
+  clearIndicator: {
+    display: 'none',
+  },
+}));
+
+// const textStyles = makeStyles((theme) => ({
+//   root: {
+//     backgroundColor: '#fff',
+//     boxShadow: 'none',
+//   },
+// }));
+
+export const SelectList = ({
+  defaultValue,
+  field,
+  label,
+  multiple,
+  onChange,
+  options,
+}) => {
   let defaultOptions = multiple ? [] : null;
 
-  const myStyles = useStyles()
+  const myStyles = useStyles();
+  // const textStyles = textStyles();
 
   if (defaultValue !== undefined) {
-    defaultOptions = defaultValue.map((tid) => options.find((option) => option.id === tid));
+    defaultOptions = defaultValue.map((tid) =>
+      options.find((option) => option.id === tid)
+    );
     defaultOptions = multiple ? defaultOptions : defaultOptions[0];
   }
 
@@ -142,7 +203,7 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
         classes={myStyles}
         disableCloseOnSelect
         popupIcon={arrowIcon}
-        ListboxProps={{style: {fontSize: '18px'}}}
+        ListboxProps={{ style: { fontSize: '18px' } }}
         className={field + '-select'}
         id={field}
         options={options}
@@ -154,13 +215,13 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
         onChange={onSelectionChange}
         getOptionSelected={(option, value) => option.id === value.id}
         value={defaultOptions}
-        renderOption={(option, {selected}) => (
+        renderOption={(option, { selected }) => (
           <React.Fragment>
             <Checkbox
               className={'checkbox'}
               icon={icon}
               checkedIcon={checkedIcon}
-              style={{marginRight: 8}}
+              style={{ marginRight: 8 }}
               checked={selected}
             />
             {option.label + ' (' + option.items.length + ')'}
@@ -168,10 +229,11 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
         )}
         renderInput={(params) => (
           <TextField
+            // classes={textStyles}
             {...params}
             label={label}
             variant="filled"
-            InputLabelProps={{style: {marginTop: 0, fontSize: '20px'}}}
+            InputLabelProps={{ style: { marginTop: 0, fontSize: '20px' } }}
           />
         )}
       />
