@@ -13,11 +13,6 @@ const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
 const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
 
 const Container = styled.div`
-  // Autocomplete Input
-  .MuiAutocomplete-root {
-    margin: 4px 0;
-  }
-
   // Autocomplete TextField padding
   .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon
     .MuiAutocomplete-inputRoot[class*='MuiFilledInput-root'] {
