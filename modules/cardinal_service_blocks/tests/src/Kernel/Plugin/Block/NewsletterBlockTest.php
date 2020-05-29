@@ -25,7 +25,7 @@ class NewsletterBlockTest extends KernelTestBase {
 
   public function testBlock() {
     $block = NewsletterBlock::create(\Drupal::getContainer(), [], '', ['provider' => 'foo']);
-    $this->assertEquals('https://stanford.us1.list-manage.com/subscribe/post', $block->defaultConfiguration()['url']);
+    $this->assertEquals('https://stanford.us1.list-manage.com/subscribe/post?u=a77525a849b0888cf8d90460f', $block->defaultConfiguration()['url']);
 
     $form = [];
     $form_state = new FormState();
