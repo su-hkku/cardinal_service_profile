@@ -13,18 +13,30 @@ const checkedIcon = <CheckBoxIcon style={{ width: 18, height: 18 }} />;
 const arrowIcon = <ExpandMoreIcon style={{ fontSize: 30 }} />;
 
 const Container = styled.div`
-  // Autocomplete Label
-  .MuiFormLabel-root {
-    font-weight: 400;
-    color: #4d4f53;
+  // Autocomplete Input
+  .MuiAutocomplete-root {
+    margin: 4px 0;
   }
 
+  // Autocomplete TextField padding
+  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon
+    .MuiAutocomplete-inputRoot[class*='MuiFilledInput-root'] {
+    padding: 0;
+
+    &[class*='MuiFilledInput-adornedStart'],
+    &[class*='Mui-focused'] {
+      padding-top: 24px;
+    }
+  }
+
+  // Autocomplete Label
   .MuiFormLabel-root.MuiInputLabel-shrink,
   .MuiFormLabel-root.Mui-focused {
     font-weight: 600;
     color: #4d4f53;
   }
 
+  // Autocomplete Chervon color
   .MuiButtonBase-root {
     color: #4d4f53;
   }
@@ -35,10 +47,11 @@ const Container = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
-    margin: 5px 0;
+    max-width: 80%;
+    margin: 5px;
   }
 
-  // Autocomplete border-bottom
+  // Autocomplete Border-bottom
   .MuiFilledInput-underline {
     &:before,
     &:after {
@@ -46,12 +59,11 @@ const Container = styled.div`
     }
   }
 
-  // Remove Autocomplete Rounded corners and padding
+  // Autocomplete unset rounded corners and padding
   .MuiFilledInput-root {
     border: 1px solid #d2d3d4;
     border-top-left-radius: unset;
     border-top-right-radius: unset;
-    padding: 0;
   }
 `;
 
@@ -64,20 +76,20 @@ const useStyles = makeStyles({
       backgroundColor: '#fff',
       boxShadow: 'none',
     },
+  },
 
-    focused: {
+  focused: {
+    backgroundColor: '#fff',
+    boxShadow: 'none',
+
+    '&:hover': {
       backgroundColor: '#fff',
       boxShadow: 'none',
+    },
 
-      '&:hover': {
-        backgroundColor: '#fff',
-        boxShadow: 'none',
-      },
-
-      '&:focus': {
-        backgroundColor: '#fff',
-        boxShadow: 'none',
-      },
+    '&:focus': {
+      backgroundColor: '#fff',
+      boxShadow: 'none',
     },
   },
 
