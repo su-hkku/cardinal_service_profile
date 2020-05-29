@@ -74,9 +74,10 @@ class NewsletterForm extends FormBase {
       '#title_display' => 'invisible',
       '#attributes' => ['placeholder' => 'Email Address'],
     ];
-    $form['inputs']['submit'] = [
+    $form['inputs']['signup_submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Sign-Up'),
+      '#name' => 'signup_submit',
       '#ajax' => [
         'callback' => '::ajaxSubmit',
       ],
@@ -113,6 +114,8 @@ class NewsletterForm extends FormBase {
       return $response->addCommand(new ReplaceCommand($selector, $message));
     }
     catch (\Exception $e) {
+      $this->logger('cardinal_service')
+        ->error($this->t('Error submitting newsletter form: @message', ['@message' => $e->getMessage()]));
       $message = $this->getFormMessage('error', $this->t('Unable to sign up for email newsletter at this time. Please try again later.'));
     }
 

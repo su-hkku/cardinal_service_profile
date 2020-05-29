@@ -52,7 +52,7 @@ class NewsletterBlock extends BlockBase implements ContainerFactoryPluginInterfa
    */
   public function defaultConfiguration() {
     return [
-      'url' => 'https://stanford.us1.list-manage.com/subscribe/post?u=a77525a849b0888cf8d90460f',
+      'url' => 'https://stanford.us1.list-manage.com/subscribe/post?u=a77525a849b0888cf8d90460f&id=807864fbe3',
       'intro' => ['value' => NULL, 'format' => NULL],
     ];
   }
