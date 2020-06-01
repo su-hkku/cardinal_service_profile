@@ -41,6 +41,14 @@
       .MuiAutocomplete-root {
         background-color: #fff;
         margin-bottom: 25px;
+
+        .MuiAutocomplete-endAdornment {
+          margin-right: 0;
+        }
+
+        &:not([class*='Mui-focused']) .MuiInputBase-input:not([value='']) {
+          padding-top: 25px;
+        }
       }
     }
 
