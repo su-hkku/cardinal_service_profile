@@ -8,6 +8,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\RendererInterface;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -95,8 +96,6 @@ class NewsletterForm extends FormBase {
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
    *   Ajax response commands.
-   *
-   * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function ajaxSubmit(array &$form, FormStateInterface $form_state) {
     $selector = '.cardinal-service-blocks-newsletter';
@@ -117,7 +116,7 @@ class NewsletterForm extends FormBase {
       $message = $this->getFormMessage('success', $this->t('Thank you for signing up to receive the newsletter emails.'));
       return $response->addCommand(new ReplaceCommand($selector, $message));
     }
-    catch (\Exception $e) {
+    catch (\Exception | GuzzleException $e) {
       $this->logger('cardinal_service')
         ->error($this->t('Error submitting newsletter form: @message', ['@message' => $e->getMessage()]));
       $message = $this->getFormMessage('error', $this->t('Unable to sign up for email newsletter at this time. Please try again later.'));
