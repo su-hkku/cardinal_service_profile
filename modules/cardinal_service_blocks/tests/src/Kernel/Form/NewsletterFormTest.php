@@ -9,6 +9,7 @@ use Drupal\KernelTests\KernelTestBase;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class NewsletterFormTest
@@ -24,6 +25,13 @@ class NewsletterFormTest extends KernelTestBase {
    * @var bool
    */
   protected $failGuzzle = FALSE;
+
+  /**
+   * The guzzle response body.
+   *
+   * @var string
+   */
+  protected $responseBody = '';
 
   /**
    * {@inheritDoc}
@@ -63,7 +71,13 @@ class NewsletterFormTest extends KernelTestBase {
     // Successful ajax.
     $commands = $form_object->ajaxSubmit($form, $form_state)->getCommands();
     $this->assertContains('su-alert--success', $commands[0]['data']);
-    $this->assertContains('Thanks', $commands[0]['data']);
+    $this->assertContains('Thank you', $commands[0]['data']);
+
+    // Form Submission Failure
+    $this->responseBody = '<div>There are errors below</div>';
+    $commands = $form_object->ajaxSubmit($form, $form_state)->getCommands();
+    $this->assertContains('su-alert--error', $commands[0]['data']);
+    $this->assertContains('Unable to sign up', $commands[0]['data']);
 
     // Failing guzzle.
     $this->failGuzzle = TRUE;
@@ -80,6 +94,10 @@ class NewsletterFormTest extends KernelTestBase {
       $request = $this->createMock(RequestInterface::class);
       throw new ClientException('Failed', $request);
     }
+
+    $response = $this->createMock(ResponseInterface::class);
+    $response->method('getBody')->willReturnReference($this->responseBody);
+    return $response;
   }
 
 }

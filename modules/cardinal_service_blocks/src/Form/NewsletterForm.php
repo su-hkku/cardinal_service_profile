@@ -109,8 +109,12 @@ class NewsletterForm extends FormBase {
     }
 
     try {
-      $this->guzzle->request('POST', $form_state->getBuildInfo()['action_url'], ['form_params' => ['MERGE0' => $form_state->getValue('email')]]);
-      $message = $this->getFormMessage('success', $this->t('Thanks for signing up'));
+      $post_response = $this->guzzle->request('POST', $form_state->getBuildInfo()['action_url'], ['form_params' => ['MERGE0' => $form_state->getValue('email')]]);
+      if (strpos((string) $post_response->getBody(), 'errors below') !== FALSE) {
+        throw new \Exception($this->t('Errors occurred in in the form submission.'));
+      }
+
+      $message = $this->getFormMessage('success', $this->t('Thank you for signing up to receive the newsletter emails.'));
       return $response->addCommand(new ReplaceCommand($selector, $message));
     }
     catch (\Exception $e) {
