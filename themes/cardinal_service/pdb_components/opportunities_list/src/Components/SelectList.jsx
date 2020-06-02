@@ -47,6 +47,7 @@ const Container = styled.div`
   // Autocomplete SelectList Input Slug
   .MuiChip-root {
     margin: 5px;
+    max-width: 80%;
   }
 
   .MuiAutocomplete-input,
