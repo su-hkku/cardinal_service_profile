@@ -46,10 +46,14 @@ const Container = styled.div`
 
   // Autocomplete SelectList Input Slug
   .MuiChip-root {
+    margin: 5px;
+  }
+
+  .MuiAutocomplete-input,
+  .MuiChip-root {
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
-    margin: 5px;
   }
 
   // Autocomplete Border-bottom
