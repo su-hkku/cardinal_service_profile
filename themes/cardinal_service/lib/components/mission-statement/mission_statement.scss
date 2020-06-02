@@ -11,38 +11,59 @@
   picture,
   source {
     height: 100%;
-    max-height: 520px;
+    max-height: 768px;
     object-fit: cover;
     object-position: center center;
     width: 100%;
-    // width: 100vw;
   }
 
   .background {
     position: relative;
-    min-height: 300px;
 
     &::before {
-      background: $su-color-black;
+      background: linear-gradient(180deg, rgba(47, 36, 36, 0) 0%, #2f2424 90%);
       content: '';
       display: flex;
       height: 100%;
-      opacity: 0.5;
       position: absolute;
       width: 100%;
       z-index: 1;
+
+      @include grid-media-max('sm') {
+        background: linear-gradient(
+          180deg,
+          rgba(47, 36, 36, 0) 10%,
+          #2f2424 100%
+        );
+      }
     }
   }
 
   .overlay {
     color: #fff;
-    left: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px;
     position: absolute;
     text-align: center;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
     z-index: 2;
+
+    @include grid-media-max('sm') {
+      position: relative;
+      background: #2f2424;
+      padding: 3.2rem;
+
+      .overlay-text {
+        font-size: 26px;
+      }
+
+      .overlay-cta {
+        text-align: center;
+      }
+    }
   }
 
   .overlay-text {
@@ -50,21 +71,20 @@
     font-style: normal;
     font-weight: bold;
     font-size: 46px;
-    line-height: 58px;
-    margin-bottom: 36px;
-    max-width: 1426px;
+    margin-bottom: 30px;
   }
 
   .overlay-cta {
-    position: absolute;
-    right: 10%;
+    text-align: right;
 
     a {
       @extend %button-base;
-      @include padding(1rem 2rem 1.15rem);
+      @include padding(20px 36px);
 
       background-color: #eaab00;
       color: $su-color-black;
+      font-weight: bold;
+      font-size: 18px;
 
       &:hover,
       &:focus {
@@ -75,18 +95,14 @@
       &:focus {
         box-shadow: $su-focus-shadow;
       }
-    }
-  }
 
-  .lower-text {
-    background: $su-color-cardinal-red;
-    color: $su-color-white;
-    text-align: center;
-    padding: 24px;
-
-    p {
-      margin: 0;
-      padding: 0;
+      &::after {
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 600;
+        font-size: 18px;
+        content: '\f054';
+        margin-right: 5px;
+      }
     }
   }
 }
