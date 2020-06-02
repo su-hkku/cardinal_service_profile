@@ -72,6 +72,10 @@
     font-weight: bold;
     font-size: 46px;
     margin-bottom: 30px;
+
+    @include grid-media-max('md') {
+      font-size: 36px;
+    }
   }
 
   .overlay-cta {
@@ -79,7 +83,7 @@
 
     a {
       @extend %button-base;
-      @include padding(20px 36px);
+      @include padding(2rem 3.6rem);
 
       background-color: #eaab00;
       color: $su-color-black;
@@ -100,8 +104,7 @@
         font-family: 'Font Awesome 5 Free';
         font-weight: 600;
         font-size: 18px;
-        content: '\f054';
-        margin-right: 5px;
+        content: '\a0\f054';
       }
     }
   }
