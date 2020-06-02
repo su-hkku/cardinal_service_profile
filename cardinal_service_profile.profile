@@ -257,7 +257,7 @@ function cardinal_service_profile_config_pages_presave(ConfigPagesInterface $ent
  * @param array $context
  *   An optional context array containing data related to the link.
  */
-function stanford_profile_xmlsitemap_link_alter(array &$link, array $context) {
+function cardinal_service_profile_xmlsitemap_link_alter(array &$link, array $context) {
 
   // Get node/[:id] from loc.
   $node_id = $link['loc'];
