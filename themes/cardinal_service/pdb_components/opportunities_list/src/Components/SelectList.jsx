@@ -37,12 +37,18 @@ const Container = styled.div`
   }
 
   // Autocomplete SelectList Input Slug
-  .MuiInputBase-input,
+  .MuiAutocomplete-inputRoot[class*='MuiFilledInput-root']
+    .MuiAutocomplete-input {
+    margin: 0;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  // Autocomplete SelectList Input Slug
   .MuiChip-root {
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
-    max-width: 80%;
     margin: 5px;
   }
 
