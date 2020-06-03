@@ -31,14 +31,6 @@
       position: absolute;
       width: 100%;
       z-index: 1;
-
-      @include grid-media-max('sm') {
-        background: linear-gradient(
-          180deg,
-          rgba(47, 36, 36, 0) 10%,
-          #2f2424 100%
-        );
-      }
     }
   }
 
@@ -50,35 +42,18 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 45px;
+    max-width: 1026px;
     position: absolute;
     text-align: left;
     z-index: 2;
-
-    @include grid-media-max('sm') {
-      position: relative;
-      background: #2f2424;
-      padding: 3.2rem;
-
-      .overlay-text {
-        font-size: 26px;
-      }
-
-      .overlay-cta {
-        text-align: center;
-      }
-    }
   }
 
   .overlay-text {
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: bold;
-    font-size: 46px;
+    font-size: 40px;
     margin-bottom: 30px;
-
-    @include grid-media-max('md') {
-      font-size: 36px;
-    }
   }
 
   .overlay-cta {
@@ -109,6 +84,37 @@
         font-size: 18px;
         content: '\a0\f054';
       }
+    }
+  }
+
+  @include grid-media-max('lg') {
+    .overlay-text {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @include grid-media-max('md') {
+    .background {
+      background: linear-gradient(
+        180deg,
+        rgba(47, 36, 36, 0) 10%,
+        #2f2424 100%
+      );
+      padding-bottom: 0;
+    }
+    .overlay {
+      position: relative;
+      background: #2f2424;
+      padding: 3.2rem;
+    }
+
+    .overlay-text {
+      font-size: 26px;
+    }
+
+    .overlay-cta {
+      text-align: center;
     }
   }
 }
