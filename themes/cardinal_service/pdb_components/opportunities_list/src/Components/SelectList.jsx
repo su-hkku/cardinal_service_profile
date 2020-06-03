@@ -31,26 +31,12 @@ const Container = styled.div`
     color: #4d4f53;
   }
 
-  // Autocomplete Chervon color
-  .MuiButtonBase-root {
-    color: #4d4f53;
-  }
-
   // Autocomplete SelectList Input Slug
   .MuiAutocomplete-inputRoot[class*='MuiFilledInput-root']
     .MuiAutocomplete-input {
     margin: 0;
     max-width: 100%;
     padding: 15px;
-  }
-
-  // Autocomplete SelectList Input Slug
-  .MuiChip-root {
-    margin: 5px;
-    max-width: 80%;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
   }
 
   // Autocomplete Border-bottom
@@ -93,8 +79,9 @@ const useStyles = makeStyles({
 
   inputRoot: {
     outline: '1px solid #d2d3d4',
-    borderRadius: 'unset',
     backgroundColor: '#fff',
+    borderRadius: 'unset',
+    borderBottomColor: '#2e2d29',
     paddingTop: 0,
     fontWeight: '600',
     color: '#4d4f53',
@@ -110,6 +97,14 @@ const useStyles = makeStyles({
     '&[class*="Mui-focused"]': {
       paddingTop: '24px',
       backgroundColor: '#fff',
+    },
+  },
+
+  popupIndicator: {
+    color: '#4d4f53',
+
+    '&:hover': {
+      color: '#4d4f53',
     },
   },
 
@@ -162,6 +157,15 @@ export const SelectList = ({
         classes={myStyles}
         disableCloseOnSelect
         popupIcon={arrowIcon}
+        ChipProps={{
+          style: {
+            margin: '5px',
+            maxWidth: '80%',
+            fontSize: '16px',
+            fontWeight: '400',
+            lineHeight: 'normal',
+          },
+        }}
         ListboxProps={{ style: { fontSize: '18px' } }}
         className={field + '-select'}
         id={field}
