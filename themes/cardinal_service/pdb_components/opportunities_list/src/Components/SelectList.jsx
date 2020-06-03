@@ -48,10 +48,6 @@ const Container = styled.div`
   .MuiChip-root {
     margin: 5px;
     max-width: 80%;
-  }
-
-  .MuiAutocomplete-input,
-  .MuiChip-root {
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -64,13 +60,6 @@ const Container = styled.div`
       border-bottom-color: #2e2d29;
     }
   }
-
-  // Autocomplete unset rounded corners and padding
-  .MuiFilledInput-root {
-    border: 1px solid #d2d3d4;
-    border-top-left-radius: unset;
-    border-top-right-radius: unset;
-  }
 `;
 
 const useStyles = makeStyles({
@@ -81,6 +70,9 @@ const useStyles = makeStyles({
     '& input': {
       backgroundColor: '#fff',
       boxShadow: 'none',
+      fontSize: '16px',
+      fontWeight: '400',
+      lineHeight: 'normal',
     },
   },
 
@@ -100,7 +92,8 @@ const useStyles = makeStyles({
   },
 
   inputRoot: {
-    border: '5px solid red',
+    outline: '1px solid #d2d3d4',
+    borderRadius: 'unset',
     backgroundColor: '#fff',
     paddingTop: 0,
     fontWeight: '600',
@@ -118,11 +111,6 @@ const useStyles = makeStyles({
       paddingTop: '24px',
       backgroundColor: '#fff',
     },
-  },
-
-  inputFocused: {
-    backgroundColor: '#fff',
-    paddingTop: '24px',
   },
 
   endAdornment: {
