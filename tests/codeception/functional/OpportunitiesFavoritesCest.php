@@ -9,17 +9,28 @@ use Faker\Factory;
  */
 class OpportunitiesFavoritesCest {
 
+  /**
+   * Favorited opportunities will show in a list on the user's page.
+   */
   public function testFavoriting(AcceptanceTester $I) {
     $faker = Factory::create();
-    $node = $I->createEntity(['type' => 'su_opportunity', 'title' => $faker->text(200)]);
+    $node = $I->createEntity([
+      'type' => 'su_opportunity',
+      'title' => $faker->text(),
+    ]);
+
     $I->logInWithRole('stanford_student');
+
     $I->amOnPage($node->toUrl()->toString());
     $I->click('.flag a');
     $I->waitForAjaxToFinish();
+
     $I->amOnPage('/user');
     $I->canSee($node->label());
+
     $I->amOnPage($node->toUrl()->toString());
     $I->click('.flag a');
+
     $I->amOnPage('/user');
     $I->dontSee($node->label());
   }
