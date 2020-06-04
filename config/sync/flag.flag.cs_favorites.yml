@@ -1,0 +1,30 @@
+uuid: dba3626c-289a-4967-ab1e-5097fb56cb07
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: cs_favorites
+label: Favorites
+bundles:
+  - su_opportunity
+entity_type: node
+global: false
+weight: 0
+flag_short: Favorite
+flag_long: ''
+flag_message: ''
+unflag_short: Unfavorite
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

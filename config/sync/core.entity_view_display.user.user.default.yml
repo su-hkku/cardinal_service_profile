@@ -4,25 +4,71 @@ status: true
 dependencies:
   config:
     - field.field.user.user.su_display_name
+    - views.view.su_opportunities
   module:
+    - jumpstart_ui
+    - layout_builder
+    - layout_library
     - user
+    - views
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: jumpstart_ui_one_column
+        layout_settings:
+          extra_classes: ''
+          centered: centered-container
+          columns: default
+          label: ''
+        components:
+          d680f58b-4965-4c5a-af9d-fc308d637493:
+            uuid: d680f58b-4965-4c5a-af9d-fc308d637493
+            region: main
+            configuration:
+              id: 'field_block:user:user:su_display_name'
+              label: 'Display Name'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: entity_title_heading
+                settings:
+                  tag: h1
+                third_party_settings:
+                  field_formatter_class:
+                    class: ''
+              context_mapping:
+                entity: '@user.current_user_context:current_user'
+                view_mode: view_mode
+            additional: {  }
+            weight: 0
+            third_party_settings: {  }
+          295d4717-1745-4840-baab-73983774bd8b:
+            uuid: 295d4717-1745-4840-baab-73983774bd8b
+            region: main
+            configuration:
+              id: 'views_block:su_opportunities-user_favorites'
+              label: ''
+              provider: views
+              label_display: '0'
+              views_label: ''
+              items_per_page: none
+              context_mapping: {  }
+            additional: {  }
+            weight: 1
+            third_party_settings: {  }
+        third_party_settings: {  }
+  layout_library:
+    enable: false
 id: user.user.default
 targetEntityType: user
 bundle: user
 mode: default
-content:
-  member_for:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  su_display_name:
-    weight: 6
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
+content: {  }
 hidden:
+  member_for: true
   search_api_excerpt: true
+  su_display_name: true

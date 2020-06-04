@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.su_opportunities_views_result
     - core.entity_view_mode.node.su_vertical_card
+    - flag.flag.cs_favorites
     - node.type.su_opportunity
     - taxonomy.vocabulary.su_opportunity_dimension
     - taxonomy.vocabulary.su_opportunity_location
@@ -15,6 +16,7 @@ dependencies:
     - taxonomy.vocabulary.su_opportunity_time
     - taxonomy.vocabulary.su_opportunity_type
   module:
+    - flag
     - node
     - taxonomy
     - text
@@ -1064,6 +1066,115 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  user_favorites:
+    display_plugin: block
+    id: user_favorites
+    display_title: 'User Favorites'
+    position: 4
+    display_options:
+      display_extenders: {  }
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            su_opportunity: su_opportunity
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+      defaults:
+        filters: false
+        filter_groups: false
+        relationships: false
+        empty: false
+        sorts: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      relationships:
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Flags
+          required: true
+          flag: cs_favorites
+          user_scope: current
+          entity_type: node
+          plugin_id: flag_relationship
+      display_description: ''
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No favorite opportunities yet.'
+            format: stanford_html
+          plugin_id: text
+      sorts:
+        last_updated:
+          id: last_updated
+          table: flag_counts
+          field: last_updated
+          relationship: flag_relationship
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          plugin_id: date
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          order: ASC
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
