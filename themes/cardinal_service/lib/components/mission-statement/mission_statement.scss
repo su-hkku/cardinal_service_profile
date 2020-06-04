@@ -41,7 +41,7 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
     max-width: 1035px;
     position: absolute;
     text-align: left;
@@ -110,11 +110,26 @@
     }
 
     .overlay-text {
-      font-size: 26px;
+      font-size: 24px;
     }
 
     .overlay-cta {
       text-align: center;
+    }
+  }
+
+  @include grid-media-max('sm') {
+    .background::before {
+      background: #2f2424;
+      opacity: 0.3;
+    }
+
+    .overlay {
+      padding-bottom: 5rem;
+    }
+
+    .overlay-text {
+      margin-bottom: 35px;
     }
   }
 }
