@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {SelectList} from './SelectList';
-import {Slugs} from './Slugs';
+import React, { Component } from 'react';
+import { SelectList } from './SelectList';
+import { Slugs } from './Slugs';
 import styled from 'styled-components';
 
 const _ = require('lodash');
@@ -14,7 +14,7 @@ const FilterContainer = styled.div`
   margin-bottom: 72px;
   padding: 36px;
 
-  .flex-md-2-of-12 {
+  .flex-lg-2-of-12 {
     display: flex;
     justify-content: center;
   }
@@ -123,13 +123,14 @@ export class Filters extends Component {
     const query = queryString.stringify(this.state.filters, {arrayFormat: 'bracket'});
     const location = this.props.submitUrl ?? window.location.pathname;
     window.location = `${location}?${query}`;
+
   }
 
   /**
    * Select list event action passed down to the select component.
    */
   onSelectChange(fieldName, selectedValues) {
-    const newState = {...this.state};
+    const newState = { ...this.state };
     if (fieldName !== undefined) {
       newState.disabledSearch = false;
     }
@@ -174,8 +175,7 @@ export class Filters extends Component {
         // On the first filter, set the valid entities for the next filter.
         if (validEntities.length === 0) {
           validEntities = [...filterGroup];
-        }
-        else {
+        } else {
           // Filter out entities that aren't similar to the previous filters.
           validEntities = validEntities.filter((x) => filterGroup.includes(x));
         }
@@ -213,7 +213,7 @@ export class Filters extends Component {
    */
   showHideMoreFilters(e) {
     e.preventDefault();
-    const newState = {...this.state};
+    const newState = { ...this.state };
     newState.showMoreFilters = !this.state.showMoreFilters;
     if (!newState.showMoreFilters) {
       // When a user hides the more filters, clear out those values to prevent
@@ -252,8 +252,9 @@ export class Filters extends Component {
             {this.props.header}
             <form onSubmit={this.onFormSubmit}>
               <div class="flex-container">
-                <div class="flex-md-10-of-12">
+                <div class="flex-lg-10-of-12">
                   <FilterWrapper useGrid={this.props.useGrid}>
+
                     {mainFilters.map((field) => this.getSelectElement(field))}
                   </FilterWrapper>
                   {this.props.showMoreFilters &&
@@ -283,7 +284,7 @@ export class Filters extends Component {
                   </React.Fragment>
                   }
                 </div>
-                <div class="flex-md-2-of-12">
+                <div class="flex-lg-2-of-12">
                   <FilterOptions>
                     <input
                       type="submit"
@@ -291,9 +292,9 @@ export class Filters extends Component {
                       disabled={this.state.disabledSearch}
                     />
 
-                    {Object.keys(this.initialFilters).length > 0 &&
-                    <a href={window.location.pathname}>Clear Filters</a>
-                    }
+                    {Object.keys(this.initialFilters).length > 0 && (
+                      <a href={window.location.pathname}>Clear Filters</a>
+                    )}
                   </FilterOptions>
                 </div>
               </div>
