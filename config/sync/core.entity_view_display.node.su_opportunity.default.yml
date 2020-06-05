@@ -43,7 +43,7 @@ third_party_settings:
       -
         layout_id: defaults
         layout_settings:
-          extra_classes: opportunity-header-content-container
+          extra_classes: ''
           centered: centered-container
           columns: default
           label: ''
