@@ -208,3 +208,28 @@
     }
   }
 }
+
+.flag {
+
+  a {
+    text-decoration: none;
+    font-size: 0;
+    color: $su-color-cardinal-red;
+
+    &:focus,
+    &:hover {
+      color: $su-color-black;
+    }
+
+    &:before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 400;
+      font-size: 20px;
+      content: "\f004";
+    }
+  }
+
+  &.action-unflag a:before {
+    font-weight: 900;
+  }
+}
