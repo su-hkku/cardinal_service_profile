@@ -1109,6 +1109,8 @@ display:
         relationships: false
         empty: false
         sorts: false
+        style: false
+        row: false
       filter_groups:
         operator: AND
         groups:
@@ -1169,6 +1171,17 @@ display:
           exposed: false
           expose:
             label: ''
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: su_opportunities_views_result
     cache_metadata:
       max-age: -1
       contexts:
