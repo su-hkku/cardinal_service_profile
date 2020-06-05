@@ -163,7 +163,7 @@ class NewsletterForm extends FormBase {
    * @codeCoverageIgnore
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Nothing to do since the form will submit off site or viat ajax.
+    // Nothing to do since the form will submit off site or via ajax.
   }
 
 }
