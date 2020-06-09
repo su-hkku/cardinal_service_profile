@@ -21,6 +21,7 @@
 
       input {
         max-width: 650px;
+        min-width: 375px;
       }
     }
     .su-button {
@@ -28,10 +29,26 @@
     }
   }
 
-  @include grid-media-max('sm') {
+  @include grid-media-max('xs') {
+    padding-bottom: 55px;
+
     .flex-container {
       padding-right: 20px;
       padding-left: 20px;
+    }
+
+    .su-signup-form {
+      display: block;
+
+      .mc-field-group {
+        margin-right: 0;
+        margin-bottom: 20px;
+
+        input {
+          max-width: 100%;
+          min-width: 200px;
+        }
+      }
     }
   }
 }
