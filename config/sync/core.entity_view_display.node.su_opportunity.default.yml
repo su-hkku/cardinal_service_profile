@@ -41,7 +41,7 @@ third_party_settings:
     enabled: true
     sections:
       -
-        layout_id: defaults
+        layout_id: jumpstart_ui_one_column_overlay
         layout_settings:
           extra_classes: ''
           centered: centered-container
