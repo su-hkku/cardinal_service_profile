@@ -1,55 +1,25 @@
 @charset 'UTF-8';
 
-.signup-block {
+.newsletter-block {
   background-color: #b6b1a9;
   padding-top: 55px;
   padding-bottom: 100px;
-
+  text-align: center;
 
   .flex-container {
     text-align: center;
     justify-content: center;
   }
 
-  .su-signup-form {
-    display: flex;
-    justify-content: center;
-
-    .mc-field-group {
-      flex-basis: 650px;
-      margin-right: 18px;
-
-      input {
-        max-width: 650px;
-        min-width: 375px;
-      }
-    }
-
-    .su-button {
-      font-weight: 600;
-    }
+  .form-item {
+    margin: 0;
   }
 
-  @include grid-media-max('xs') {
+  .su-button {
+    font-weight: 600;
+  }
+
+  @include grid-media-max('md') {
     padding-bottom: 55px;
-
-    .flex-container {
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-
-    .su-signup-form {
-      display: block;
-
-      .mc-field-group {
-        margin-right: 0;
-        margin-bottom: 20px;
-
-        input {
-          max-width: 100%;
-          min-width: 200px;
-        }
-      }
-    }
   }
 }
