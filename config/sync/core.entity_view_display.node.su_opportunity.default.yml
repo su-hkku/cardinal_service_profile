@@ -68,7 +68,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 2
+            weight: 3
             third_party_settings: {  }
           98885d7b-0d6b-4b0b-acb2-03ee07f54423:
             uuid: 98885d7b-0d6b-4b0b-acb2-03ee07f54423
@@ -94,7 +94,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 1
+            weight: 2
             third_party_settings: {  }
           66b8f249-b528-4087-855e-1f93b9591e71:
             uuid: 66b8f249-b528-4087-855e-1f93b9591e71
@@ -106,6 +106,19 @@ third_party_settings:
               id: 'extra_field_block:node:su_opportunity:flag_cs_favorites'
             additional: {  }
             weight: 0
+            third_party_settings: {  }
+          bbd6e005-e9c7-4599-8155-53e68653cf10:
+            uuid: bbd6e005-e9c7-4599-8155-53e68653cf10
+            region: main
+            configuration:
+              id: 'extra_field_block:node:su_opportunity:flag_cs_favorites'
+              label: 'Flag: Favorites'
+              provider: layout_builder
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 1
             third_party_settings: {  }
         third_party_settings: {  }
       -

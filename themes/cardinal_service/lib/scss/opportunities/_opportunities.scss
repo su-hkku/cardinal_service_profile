@@ -221,7 +221,7 @@
       color: $su-color-black;
     }
 
-    &:before {
+    &::before {
       font-family: "Font Awesome 5 Free";
       font-weight: 400;
       font-size: 20px;
@@ -229,7 +229,9 @@
     }
   }
 
-  &.action-unflag a:before {
-    font-weight: 900;
+  &.action-unflag {
+    a::before {
+      font-weight: 900;
+    }
   }
 }
