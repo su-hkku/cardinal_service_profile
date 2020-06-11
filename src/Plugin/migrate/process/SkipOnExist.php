@@ -12,7 +12,7 @@ use Drupal\migrate\Row;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class SkipOnExist.
+ * Migrate process plugin to query the other migrations for identical keys.
  *
  * @MigrateProcessPlugin(
  *   id = "skip_on_exist"
@@ -67,7 +67,6 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
    * {@inheritDoc}
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    static $here = FALSE;
     $source_ids = $row->getSourceIdValues();
     $migration_names = $this->getMigrationConfigs($source_ids);
 
@@ -83,13 +82,23 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
       }
 
       $count = $query->countQuery()->execute()->fetchField();
+
       if ((int) $count > 0) {
         throw new MigrateSkipRowException();
       }
     }
   }
 
-  protected function getMigrationConfigs($source_ids) {
+  /**
+   * List the migrations that have tables and same number of columns.
+   *
+   * @param array $source_ids
+   *   Keyed array of source ids from the current migration.
+   *
+   * @return string[]
+   *   List of migration names.
+   */
+  protected function getMigrationConfigs(array $source_ids) {
     if (!empty($this->migrations)) {
       return $this->migrations;
     }
@@ -111,9 +120,7 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
       $this->migrations[] = $name;
     }
 
-
     return $this->migrations;
-
   }
 
 }
