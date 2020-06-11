@@ -49,53 +49,49 @@ function cardinal_service_profile_node_presave(NodeInterface $node) {
 }
 
 /**
- * Implements hook_ENTITY_TYPE_insert().
+ * Implements hook_preprocess_hook().
  */
-function cardinal_service_profile_flagging_insert($entity) {
-  $session = \Drupal::request()->getSession();
-  if (\Drupal::currentUser()->isAnonymous()) {
-    // Set a setting that can be retrieved when the user logs in.
-    $session->set('flagging_anonymous_session_id', $session->getId());
+function cardinal_service_profile_preprocess_flag(&$variables) {
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    return;
   }
+
+  unset($variables['attributes']['class']);
+  $current_url = \Drupal::request()->getRequestUri();
+  $separator = strpos($current_url, '?') !== FALSE ? '&' : '?';
+  $current_url .= $separator . 'flag_type=' . $variables['flaggable']->getEntityTypeId() . '&flag_id=' . $variables['flaggable']->id() . '&flag=' . $variables['flag']->id();
+  $current_url = urlencode($current_url);
+  $variables['attributes']['href'] = "/saml_login?destination=$current_url";
 }
 
 /**
  * Implements hook_user_login().
  */
 function cardinal_service_profile_user_login($account) {
-  $session = \Drupal::request()->getSession();
-  $anonymous_session_id = $session->get('flagging_anonymous_session_id');
-  // The user didn't have anything flagged, we can bail.
-  if (empty($anonymous_session_id)) {
+  $request_queries = \Drupal::request()->query;
+  if (!$request_queries->has('destination')) {
     return;
   }
 
-  $flag_storage = \Drupal::entityTypeManager()->getStorage('flagging');
-  /** @var \Drupal\flag\FlaggingInterface[] $favorites */
-  $favorites = $flag_storage->loadByProperties(['session_id' => $anonymous_session_id]);
+  $url = parse_url($request_queries->get('destination'));
+  if (empty($url['query'])) {
+    return;
+  }
 
+  parse_str($url['query'], $params);
+  if (!(isset($params['flag_type']) && isset($params['flag_id']) && isset($params['flag']))) {
+    return;
+  }
 
-  // Loop through the favorites from the session when the user was anonymous
-  // and either migrate them to the user or delete them.
-  foreach ($favorites as $favorite) {
+  $flag = [
+    'flag_id' => $params['flag'],
+    'entity_type' => $params['flag_type'],
+    'entity_id' => $params['flag_id'],
+    'uid' => $account->id(),
+  ];
 
-    $entity_type = $favorite->getFlaggableType();
-    $entity_id = $favorite->getFlaggableId();
-
-    // The user has already flagged this favorite item, we can delete the flag
-    // from the anonymous user.
-    if ($flag_storage->loadByProperties([
-      'entity_type' => $entity_type,
-      'entity_id' => $entity_id,
-      'uid' => $account->id(),
-    ])) {
-      $favorite->delete();
-      continue;
-    }
-
-    // Move the favorite to target the newly logged in user.
-    $favorite->setOwner($account);
-    $favorite->set('session_id', NULL);
-    $favorite->save();
+  $flagging_storage = \Drupal::entityTypeManager()->getStorage('flagging');
+  if (empty($flagging_storage->loadByProperties($flag))) {
+    $flagging_storage->create($flag)->save();
   }
 }
