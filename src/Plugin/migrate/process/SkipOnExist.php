@@ -70,12 +70,18 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
     $source_ids = $row->getSourceIdValues();
     $migration_names = $this->getMigrationConfigs($source_ids);
 
+    // Check each migration table for the identical source id values that also
+    // have a destination ID. The destination id indicates an entity exists.
     foreach ($migration_names as $name) {
       $query = $this->database->select("migrate_map_$name", 'm')
         ->fields('m')
         ->condition('destid1', 0, '>');
 
       $i = 1;
+      // The migration table consist of `sourceid1`, `sourceid2` etc for the
+      // number of keys as defined in the migration configuration. We'll check
+      // each of those source values against existing tables to determine if the
+      // item already exists.
       foreach ($source_ids as $key_value) {
         $query->condition("sourceid$i", $key_value);
         $i++;
@@ -83,6 +89,7 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
 
       $count = $query->countQuery()->execute()->fetchField();
 
+      // The query returned at least 1 item, then we will skip this row.
       if ((int) $count > 0) {
         throw new MigrateSkipRowException();
       }
@@ -99,9 +106,12 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
    *   List of migration names.
    */
   protected function getMigrationConfigs(array $source_ids) {
+    // We've already loaded the migrations.
     if (!empty($this->migrations)) {
       return $this->migrations;
     }
+
+    // Load all the config entities for migrations.
     $prefix = 'migrate_plus.migration.';
     $config_names = $this->configFactory->listAll($prefix);
     $schema = $this->database->schema();
@@ -109,6 +119,8 @@ class SkipOnExist extends ProcessPluginBase implements ContainerFactoryPluginInt
     foreach ($config_names as $name) {
       $name = str_replace($prefix, '', $name);
 
+      // Check if the migration table actually exists and if the table has a
+      // field that matches the number of source ids. ie `sourceid3`.
       if (
         (isset($this->configuration['migrate_exclude']) && in_array($name, $this->configuration['migrate_exclude'])) ||
         !$schema->tableExists("migrate_map_$name") ||
