@@ -65,7 +65,6 @@ const MoreFilterBtn = styled.button`
     background: transparent;
         color: #2e2d29;
         box-shadow: none;
-        outline: none;
   }
 `
 
