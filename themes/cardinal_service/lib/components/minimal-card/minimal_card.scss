@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+
+@import '../../scss/config';
+
+.su-minimal-card {
+  @include card;
+  @include margin(0 0 2em 0);
+  position: relative;
+}
