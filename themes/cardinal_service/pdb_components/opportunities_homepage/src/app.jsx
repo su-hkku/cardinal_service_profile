@@ -14,9 +14,7 @@ const nodeFields = [
 ];
 
 const blockUuid = Object.keys(drupalSettings.pdb.configuration).find(
-  (uuid) =>
-    typeof drupalSettings.pdb.configuration[uuid]
-      .opportunity_homepage_submit !== 'undefined'
+  (uuid) => typeof drupalSettings.pdb.configuration[uuid].opportunity_homepage_submit !== 'undefined'
 );
 
 ReactDOM.render(
@@ -24,9 +22,7 @@ ReactDOM.render(
     bundle={nodeBundle}
     mainFiltersCount={3}
     fields={nodeFields}
-    submitUrl={
-      drupalSettings.pdb.configuration[blockUuid].opportunity_homepage_submit
-    }
+    submitUrl={drupalSettings.pdb.configuration[blockUuid].opportunity_homepage_submit}
   />,
   document.getElementById('opportunities-homepage')
 );
