@@ -1,0 +1,43 @@
+uuid: f093e35d-08e6-41e8-9062-65f5b607e139
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.user_dashboard
+id: user_dashboard-layout_builder-0
+label: 'Layout Builder'
+variant: layout_builder
+variant_settings:
+  id: layout_builder
+  uuid: 768a034e-c154-42a6-8716-fff89ca5b02a
+  label: null
+  weight: 0
+  sections:
+    -
+      layout_id: jumpstart_ui_two_column
+      layout_settings:
+        extra_classes: ''
+        centered: centered-container
+        orientation: equal
+        label: ''
+      components:
+        c4c889de-d686-4d07-b52f-62fd125395a8:
+          uuid: c4c889de-d686-4d07-b52f-62fd125395a8
+          region: left
+          configuration:
+            id: 'views_block:su_opportunities-count_favorites_opps'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+          additional: {  }
+          weight: 0
+          third_party_settings: {  }
+      third_party_settings: {  }
+page: user_dashboard
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

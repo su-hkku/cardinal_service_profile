@@ -1,0 +1,12 @@
+uuid: f24d7745-d8fa-46fc-aff9-41a6342ffc85
+langcode: en
+status: true
+dependencies: {  }
+id: user_dashboard
+label: User
+description: ''
+use_admin_theme: false
+path: /user
+access_logic: and
+access_conditions: {  }
+parameters: {  }
