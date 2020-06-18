@@ -8,7 +8,7 @@ field_plugin_method: null
 cck_plugin_method: null
 migration_tags: {  }
 migration_group: courses
-label: 'Education Courses'
+label: 'Identity Courses'
 source:
   urls: 'https://explorecourses.stanford.edu/search?q=CARDCOURSES%3a%3aidentity&view=xml-20140630&filter-term-Winter=on&academicYear=&filter-term-Summer=on&filter-term-Autumn=on&filter-term-Spring=on&page=0&filter-coursestatus-Active=on&collapse='
 process:
@@ -23,5 +23,9 @@ process:
       bundle: su_opportunity_service_theme
       entity_type: taxonomy_term
       ignore_case: true
+  skip:
+    plugin: skip_on_exist
+    migrate_exclude:
+      - cardcourses_identity
 destination: null
 migration_dependencies: {  }

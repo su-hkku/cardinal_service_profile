@@ -280,13 +280,13 @@
   color: #8c1515; }
   .flag a:focus, .flag a:hover {
     color: #2e2d29; }
-  .flag a:before {
+  .flag a::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 400;
     font-size: 20px;
     content: "\f004"; }
 
-.flag.action-unflag a:before {
+.flag.action-unflag a::before {
   font-weight: 900; }
 
 .su-hero-left h1 {
@@ -344,12 +344,31 @@
 .su-hero-height .su-hero,
 .su-hero-height .su-hero__media,
 .su-hero-height .su-page-banner,
+.su-hero-height .su-page-banner > div,
 .su-hero-height .contextual-region {
   height: 100%; }
 
 @media only screen and (min-width: 0) {
   .su-hero-height .node-stanford-page-su-page-banner {
     margin-bottom: 0; } }
+
+.newsletter-block {
+  background-color: #b6b1a9;
+  padding-top: 55px;
+  padding-bottom: 100px;
+  text-align: center; }
+  .newsletter-block .flex-container {
+    text-align: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .newsletter-block .form-item {
+    margin: 0; }
+  .newsletter-block .su-button {
+    font-weight: 600; }
+  @media (max-width: 991px) {
+    .newsletter-block {
+      padding-bottom: 55px; } }
 
 
 /*# sourceMappingURL=base.css.map*/
