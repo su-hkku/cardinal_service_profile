@@ -28,7 +28,6 @@ dependencies:
     - node.type.su_opportunity
   module:
     - datetime
-    - datetime_range
     - link
     - media_library
     - path
@@ -71,7 +70,7 @@ content:
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -96,13 +95,13 @@ content:
     type: datetime_default
     region: content
   su_opp_commitment:
-    weight: 29
+    weight: 27
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   su_opp_contact_email:
-    weight: 21
+    weight: 19
     settings:
       size: 60
       placeholder: ''
@@ -110,7 +109,7 @@ content:
     type: email_default
     region: content
   su_opp_contact_name:
-    weight: 20
+    weight: 18
     settings:
       size: 60
       placeholder: ''
@@ -118,7 +117,7 @@ content:
     type: string_textfield
     region: content
   su_opp_contact_phone:
-    weight: 22
+    weight: 20
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -126,7 +125,7 @@ content:
     region: content
   su_opp_deadline_time:
     type: options_select
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings:
@@ -149,19 +148,13 @@ content:
           entity_type: node
           bundle: su_opportunity
   su_opp_dimension:
-    weight: 25
+    weight: 23
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  su_opp_duration:
-    weight: 13
-    settings: {  }
-    third_party_settings: {  }
-    type: daterange_default
-    region: content
   su_opp_eligibility:
-    weight: 15
+    weight: 14
     settings:
       rows: 5
       placeholder: ''
@@ -170,13 +163,13 @@ content:
     region: content
   su_opp_image:
     type: media_library_widget
-    weight: 14
+    weight: 13
     settings:
       media_types: {  }
     third_party_settings: {  }
     region: content
   su_opp_learn_more:
-    weight: 23
+    weight: 21
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -184,7 +177,7 @@ content:
     type: link_default
     region: content
   su_opp_location:
-    weight: 19
+    weight: 17
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -194,25 +187,25 @@ content:
     type: entity_reference_autocomplete
     region: content
   su_opp_open_to:
-    weight: 18
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   su_opp_pathway:
-    weight: 26
+    weight: 24
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   su_opp_placement_type:
-    weight: 27
+    weight: 25
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   su_opp_service_theme:
-    weight: 24
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -226,25 +219,19 @@ content:
     type: link_default
     region: content
   su_opp_sponsor:
-    weight: 28
+    weight: 26
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
-  su_opp_submissions_open:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   su_opp_time_year:
-    weight: 17
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   su_opp_type:
-    weight: 16
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -269,7 +256,7 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -278,4 +265,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  su_opp_duration: true
+  su_opp_submissions_open: true
