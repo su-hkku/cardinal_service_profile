@@ -2,7 +2,7 @@
   <div class="flex-container su-card__contents">
     <div class="{% if image|render|striptags('<drupal-render-placeholder> <img> <picture> <source>')|trim  %}flex-9-of-12{% endif %}">
       <div class="su-opportunity-type">
-        <div  aria-describedby="{{ 'Opportunity Type'|t }}">
+        <div  aria-labelledby="{{ 'Opportunity Type'|t }}">
           {{ type_list }}
         </div>
       </div>
