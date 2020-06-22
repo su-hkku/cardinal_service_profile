@@ -1,0 +1,17 @@
+uuid: d95eb203-a191-449b-9be6-d34b560575f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - stanford_migrate
+title: 'Importer: Opportunities'
+id: stanford_migrate_opportunities
+weight: 0
+module: stanford_migrate
+callback: stanford_migrate_ultimate_cron_task
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
