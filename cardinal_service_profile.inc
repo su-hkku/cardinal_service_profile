@@ -6,6 +6,7 @@
  */
 
 use Drupal\node\NodeInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -93,5 +94,23 @@ function cardinal_service_profile_user_login($account) {
   $flagging_storage = \Drupal::entityTypeManager()->getStorage('flagging');
   if (empty($flagging_storage->loadByProperties($flag))) {
     $flagging_storage->create($flag)->save();
+  }
+}
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function cardinal_service_profile_views_pre_build(ViewExecutable $view) {
+  // On the user dashboard, add a contextual argument to the news view to
+  // display the announcement news items.
+  if (
+    $view->id() == 'stanford_news' &&
+    \Drupal::routeMatch()->getRouteName() == 'entity.user.canonical'
+  ) {
+    $terms = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadByProperties(['name' => 'Announcements']);
+    $view->setArguments(array_keys($terms));
+    $view->empty = [];
   }
 }

@@ -1,12 +1,12 @@
-uuid: f24d7745-d8fa-46fc-aff9-41a6342ffc85
+uuid: 05e33e97-28cd-41d2-93bb-817d0bac1ef3
 langcode: en
 status: true
 dependencies: {  }
-id: user_dashboard
-label: User
+id: saved_opportunities
+label: 'Saved Opportunities'
 description: ''
 use_admin_theme: false
-path: /user
+path: /user/opportunities
 access_logic: and
 access_conditions: {  }
 parameters: {  }

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.user.user.su_display_name
+    - views.view.stanford_news
     - views.view.su_opportunities
   module:
     - jumpstart_ui
@@ -46,11 +47,20 @@ third_party_settings:
             additional: {  }
             weight: 0
             third_party_settings: {  }
-          295d4717-1745-4840-baab-73983774bd8b:
-            uuid: 295d4717-1745-4840-baab-73983774bd8b
-            region: main
+        third_party_settings: {  }
+      -
+        layout_id: jumpstart_ui_two_column
+        layout_settings:
+          extra_classes: ''
+          centered: centered-container
+          orientation: equal
+          label: ''
+        components:
+          32c0c477-bf52-4385-bdfe-8f5300038477:
+            uuid: 32c0c477-bf52-4385-bdfe-8f5300038477
+            region: left
             configuration:
-              id: 'views_block:su_opportunities-user_favorites'
+              id: 'views_block:su_opportunities-count_favorites_opps'
               label: ''
               provider: views
               label_display: '0'
@@ -58,7 +68,30 @@ third_party_settings:
               items_per_page: none
               context_mapping: {  }
             additional: {  }
-            weight: 1
+            weight: 0
+            third_party_settings: {  }
+        third_party_settings: {  }
+      -
+        layout_id: defaults
+        layout_settings:
+          extra_classes: ''
+          centered: centered-container
+          columns: default
+          label: ''
+        components:
+          c8b4da1b-be8e-4bb0-9062-1734a798e71f:
+            uuid: c8b4da1b-be8e-4bb0-9062-1734a798e71f
+            region: main
+            configuration:
+              id: 'views_block:stanford_news-term_block'
+              label: Announcements
+              provider: views
+              label_display: visible
+              views_label: Announcements
+              items_per_page: none
+              context_mapping: {  }
+            additional: {  }
+            weight: 0
             third_party_settings: {  }
         third_party_settings: {  }
   layout_library:
