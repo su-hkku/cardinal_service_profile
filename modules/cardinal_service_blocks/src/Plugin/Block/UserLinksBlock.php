@@ -101,6 +101,8 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
    */
   public function getCacheTags() {
     $tags = parent::getCacheTags();
+    // Add the cache tag for the user so that if the user entity changes, the
+    // block will invalidate.
     if ($this->currentUser->isAuthenticated()) {
       $tags = Cache::mergeTags($tags, ['user:' . $this->currentUser->id()]);
     }
@@ -151,13 +153,16 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   protected function getUserName() {
+    /** @var \Drupal\user\UserInterface $user */
     $user = $this->entityTypeManager->getStorage('user')
       ->load($this->currentUser->id());
 
-    if ($user) {
-      return $user->get('su_display_name')->getString() ?: $user->label();
+    $name = $this->currentUser->getDisplayName();
+    // Use the display name field if its available and populated.
+    if ($user && $user->hasField('su_display_name')) {
+      $name = $user->get('su_display_name')->getString() ?: $user->label();
     }
-    return $this->currentUser->getDisplayName();
+    return $name;
   }
 
   /**
@@ -171,13 +176,15 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
     if (!$this->pathMatcher->isFrontPage()) {
       $destination = $this->requestStack->getCurrentRequest()->getRequestUri();
       // Only add the destination if the user was on the list of opportunities.
+      // All other login urls will push the user to their dashboard upon logging
+      // in.
       if (strpos($destination, '/opportunities') === 0) {
         $options = [
           'query' => ['destination' => htmlspecialchars($destination)],
         ];
       }
     }
-
+    // Different routes for saml and core.
     $route = $this->moduleHandler->moduleExists('simplesamlphp_auth') ? 'simplesamlphp_auth.saml_login' : 'user.login';
     return Url::fromRoute($route, [], $options);
   }
