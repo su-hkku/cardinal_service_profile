@@ -26,12 +26,14 @@ class OpportunitiesFavoritesCest {
     $I->waitForAjaxToFinish();
 
     $I->amOnPage('/user');
+    $I->canSee('1 Saved Item(s)');
+    $I->click('Opportunities');
     $I->canSee($node->label());
 
     $I->amOnPage($node->toUrl()->toString());
     $I->click('.flag a');
 
-    $I->amOnPage('/user');
+    $I->amOnPage('/user/opportunities');
     $I->dontSee($node->label());
   }
 

@@ -71,15 +71,20 @@ function cardinal_service_profile_preprocess_flag(&$variables) {
  */
 function cardinal_service_profile_user_login($account) {
   $request_queries = \Drupal::request()->query;
+  // User logged in without a destination parameter, nothing to do.
   if (!$request_queries->has('destination')) {
     return;
   }
 
+  // The destination exists, but it doesn't contain any query parameters that
+  // might be flag params, nothing to do.
   $url = parse_url($request_queries->get('destination'));
   if (empty($url['query'])) {
     return;
   }
 
+  // The destination query doesn't contain all the appropriate parameters,
+  // nothing to do.
   parse_str($url['query'], $params);
   if (!(isset($params['flag_type']) && isset($params['flag_id']) && isset($params['flag']))) {
     return;
@@ -92,6 +97,9 @@ function cardinal_service_profile_user_login($account) {
     'uid' => $account->id(),
   ];
 
+  // Look for an existing flag for the current user. If a flag entity exists,
+  // the user has already saved it. If the flag entity doesn't exist, create it
+  // so it's saved for the user.
   $flagging_storage = \Drupal::entityTypeManager()->getStorage('flagging');
   if (empty($flagging_storage->loadByProperties($flag))) {
     $flagging_storage->create($flag)->save();
