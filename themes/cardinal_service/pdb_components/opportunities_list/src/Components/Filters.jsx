@@ -63,8 +63,8 @@ const MoreFilterBtn = styled.button`
   &:hover,
   &:focus {
     background: transparent;
-        color: #2e2d29;
-        box-shadow: none;
+    color: #2e2d29;
+    box-shadow: none;
   }
 `
 
