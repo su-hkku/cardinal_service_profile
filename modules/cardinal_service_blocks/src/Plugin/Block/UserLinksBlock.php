@@ -5,6 +5,7 @@ namespace Drupal\cardinal_service_blocks\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Path\PathMatcherInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountProxyInterface;
@@ -52,6 +53,13 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
   protected $requestStack;
 
   /**
+   * Module handler service.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $moduleHandler;
+
+  /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -62,19 +70,21 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
       $container->get('current_user'),
       $container->get('path.matcher'),
       $container->get('entity_type.manager'),
-      $container->get('request_stack')
+      $container->get('request_stack'),
+      $container->get('module_handler')
     );
   }
 
   /**
    * {@inheritDoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $current_user, PathMatcherInterface $path_matcher, EntityTypeManagerInterface $entity_manager, RequestStack $request_stack) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountProxyInterface $current_user, PathMatcherInterface $path_matcher, EntityTypeManagerInterface $entity_manager, RequestStack $request_stack, ModuleHandlerInterface $module_handler) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->currentUser = $current_user;
     $this->pathMatcher = $path_matcher;
     $this->entityTypeManager = $entity_manager;
     $this->requestStack = $request_stack;
+    $this->moduleHandler = $module_handler;
   }
 
   /**
@@ -82,7 +92,20 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
    */
   public function getCacheContexts() {
     $context = parent::getCacheContexts();
+    // Make the block cache different for each page since the login link has a
+    // destination parameter.
     return Cache::mergeContexts($context, ['url.path', 'url.query_args']);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public function getCacheTags() {
+    $tags = parent::getCacheTags();
+    if ($this->currentUser->isAuthenticated()) {
+      $tags = Cache::mergeTags($tags, ['user:' . $this->currentUser->id()]);
+    }
+    return $tags;
   }
 
   /**
@@ -148,11 +171,16 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
     $options = [];
     if (!$this->pathMatcher->isFrontPage()) {
       $destination = $this->requestStack->getCurrentRequest()->getRequestUri();
-      $options = [
-        'query' => ['destination' => htmlspecialchars($destination)],
-      ];
+      // Only add the destination if the user was on the list of opportunities.
+      if (strpos($destination, '/opportunities') === 0) {
+        $options = [
+          'query' => ['destination' => htmlspecialchars($destination)],
+        ];
+      }
     }
-    return Url::fromRoute('simplesamlphp_auth.saml_login', [], $options);
+
+    $route = $this->moduleHandler->moduleExists('simplesamlphp_auth') ? 'simplesamlphp_auth.saml_login' : 'user.login';
+    return Url::fromRoute($route, [], $options);
   }
 
 
