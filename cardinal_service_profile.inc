@@ -7,6 +7,7 @@
 
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -113,4 +114,24 @@ function cardinal_service_profile_views_pre_build(ViewExecutable $view) {
     $view->setArguments(array_keys($terms));
     $view->empty = [];
   }
+}
+
+/**
+ * Implements hook_entity_form_display_alter().
+ */
+function cardinal_service_profile_entity_form_display_alter(EntityFormDisplayInterface &$form_display, array $context) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  // Make sure we are editing the form only for editing users.
+  if (
+    \Drupal::currentUser()->hasPermission('administer account settings') ||
+    !isset($context['entity_type']) ||
+    $context['entity_type'] !== 'user' ||
+    $route_name !== 'entity.user.edit_form'
+  ) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Entity\EntityDisplayRepository $entity_display_repo */
+  $entity_display_repo = \Drupal::service('entity_display.repository');
+  $form_display = $entity_display_repo->getFormDisplay($context['entity_type'], $context['bundle'], 'authenticated_edit') ?: $form_display;
 }

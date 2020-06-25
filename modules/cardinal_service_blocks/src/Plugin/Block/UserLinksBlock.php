@@ -135,6 +135,10 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
           'title' => $this->t('Dashboard'),
           'url' => $user_dashboard,
         ],
+        'edit' => [
+          'title' => $this->t('Edit Profile'),
+          'url' => Url::fromRoute('entity.user.edit_form', ['user' => $this->currentUser->id()]),
+        ],
         'logout' => [
           'title' => $this->t('Log Out'),
           'url' => Url::fromRoute('user.logout'),

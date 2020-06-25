@@ -104,7 +104,7 @@ class UserLinksBlockTest extends KernelTestBase {
     \Drupal::currentUser()->setAccount($this->createUser([]));
     $build = $this->block->build();
     $this->assertEqual($build['#type'], 'dropbutton');
-    $this->assertCount(3, $build['#links']);
+    $this->assertCount(4, $build['#links']);
   }
 
 }
