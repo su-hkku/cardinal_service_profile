@@ -13,7 +13,6 @@ use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-
 /**
  * Provides a 'User links' block.
  *
@@ -182,6 +181,5 @@ class UserLinksBlock extends BlockBase implements ContainerFactoryPluginInterfac
     $route = $this->moduleHandler->moduleExists('simplesamlphp_auth') ? 'simplesamlphp_auth.saml_login' : 'user.login';
     return Url::fromRoute($route, [], $options);
   }
-
 
 }
