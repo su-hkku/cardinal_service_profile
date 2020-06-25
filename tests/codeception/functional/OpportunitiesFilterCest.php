@@ -49,7 +49,7 @@ class OpportunitiesFilterCest {
     $I->click('.MuiAutocomplete-listbox li[aria-disabled="false"]');
 
     $I->click('Search', '#opportunities-filter-list');
-    $I->canSeeNumberOfElements('.views-row', [1, 10]);
+    $I->canSeeNumberOfElements('.views-row', [1, 99]);
     $I->canSeeNumberOfElements('.su-opportunity-result', [1, 10]);
     $I->canSee('Showing Results For:');
   }
