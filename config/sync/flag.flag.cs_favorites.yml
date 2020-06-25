@@ -11,10 +11,10 @@ bundles:
 entity_type: node
 global: false
 weight: 0
-flag_short: Favorite
+flag_short: '<span class="visually-hidden">Favorite. Click to favorite</span>'
 flag_long: ''
 flag_message: ''
-unflag_short: Unfavorite
+unflag_short: 'Saved <span class="visually-hidden">Click to Unfavorite</span>'
 unflag_long: ''
 unflag_message: ''
 unflag_denied_text: ''

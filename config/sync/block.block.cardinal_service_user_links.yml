@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - cardinal_service_blocks
+    - system
   theme:
     - cardinal_service
 id: cardinal_service_user_links
@@ -17,4 +18,9 @@ settings:
   label: 'User Links block'
   provider: cardinal_service_blocks
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: true
+    context_mapping: {  }

@@ -213,7 +213,6 @@
 
   a {
     text-decoration: none;
-    font-size: 0;
     color: $su-color-cardinal-red;
 
     &:focus,
@@ -226,6 +225,7 @@
       font-weight: 400;
       font-size: 20px;
       content: "\f004";
+      margin-right: 3px;
     }
   }
 
