@@ -43,46 +43,59 @@
     &::before {
       font-family: 'Font Awesome 5 Free';
       font-weight: 900;
-      content: '\f2bd\00a0';
+      content: '\f2bd';
       color: #4D4F53;
+      margin-right: 5px;
     }
   }
 }
 
-.dropbutton-toggle {
-  button {
-    box-shadow: none;
-    color: transparent;
+.dropbutton-multiple {
+  li.dropbutton-toggle {
+    height: 26px;
     display: flex;
-    height: unset;
-    justify-content: flex-end;
+    align-items: center;
 
-    &:hover,
-    &:focus {
-      background: transparent;
-      color: transparent;
+    button {
       box-shadow: none;
-    }
+      color: transparent;
+      display: flex;
+      height: unset;
+      justify-content: center;
 
-    &::before {
-      color: #4D4F53;
-      content: '\f078';
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
+      &:hover,
+      &:focus {
+        background: transparent;
+        color: transparent;
+        box-shadow: none;
+      }
+
+      &::before {
+        color: #4D4F53;
+        content: '\f078';
+        font-size: 16px;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+      }
+    }
+  }
+
+  &.open {
+    li.dropbutton-toggle {
+      button {
+        &::before {
+          color: #4D4F53;
+          content: '\f077';
+          font-size: 16px;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+        }
+      }
     }
   }
 }
 
-.dropbutton-multiple.open {
-  button {
-    &::before {
-      color: #4D4F53;
-      content: '\f077';
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
-    }
-  }
-}
+
 
 .secondary-action {
   //position: absolute;
