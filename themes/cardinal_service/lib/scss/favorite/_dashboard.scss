@@ -32,7 +32,7 @@
   }
 
   .name,
-  a {
+  > a:first-child {
     text-decoration: none;
     color: #4D4F53;
 
