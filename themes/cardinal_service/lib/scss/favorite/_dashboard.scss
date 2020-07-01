@@ -31,7 +31,11 @@
     margin-bottom: 0;
   }
 
-  .name,
+  .dropbutton-widget {
+    display: flex;
+  }
+
+  .dropbutton-widget,
   > a:first-child {
     text-decoration: none;
     color: #4D4F53;
@@ -47,22 +51,36 @@
 
 .dropbutton-toggle {
   button {
-    color: #4D4F53;
     box-shadow: none;
+    color: transparent;
+    display: flex;
+    height: unset;
+    justify-content: flex-end;
 
     &:hover,
     &:focus {
       background: transparent;
-      color: #4D4F53;
+      color: transparent;
       box-shadow: none;
     }
 
-    //&::before {
-    //  font-family: 'Font Awesome 5 Free';
-    //  font-weight: 900;
-    //  content: '\f078';
-    //  color: #4D4F53;
-    //}
+    &::before {
+      color: #4D4F53;
+      content: '\f078';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
+  }
+}
+
+.dropbutton-multiple.open {
+  button {
+    &::before {
+      color: #4D4F53;
+      content: '\f077';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
   }
 }
 
