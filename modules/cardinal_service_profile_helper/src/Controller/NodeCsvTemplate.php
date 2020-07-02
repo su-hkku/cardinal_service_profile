@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\cardinal_service_profile\Controller;
+namespace Drupal\cardinal_service_profile_helper\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityFieldManagerInterface;

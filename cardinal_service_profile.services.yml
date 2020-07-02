@@ -1,8 +1,4 @@
 services:
-  cardinal_service_profile.route_subscriber:
-    class: Drupal\cardinal_service_profile\Routing\RouteSubscriber
-    tags:
-      - { name: event_subscriber }
   plugin.manager.install_tasks:
     class: Drupal\cardinal_service_profile\InstallTaskManager
     parent: default_plugin_manager

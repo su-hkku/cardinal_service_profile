@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\cardinal_service_profile\Routing;
+namespace Drupal\cardinal_service_profile_helper\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
