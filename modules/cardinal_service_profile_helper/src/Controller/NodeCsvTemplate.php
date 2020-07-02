@@ -93,7 +93,7 @@ class NodeCsvTemplate extends ControllerBase {
     });
     $csv_headers = ['title'];
     /** @var \Drupal\field\FieldConfigInterface $field */
-    foreach ($fields as $field_name => $field) {
+    foreach ($fields as $field) {
       $csv_headers = array_merge($csv_headers, $this->getCsvHeadersForField($field));
     }
 
