@@ -62,6 +62,7 @@ module:
   file_mdm_exif: 0
   file_mdm_font: 0
   filter: 0
+  flag: 0
   focal_point: 0
   google_analytics: 0
   hal: 0
@@ -140,6 +141,7 @@ module:
   stanford_person: 0
   stanford_person_importer: 0
   stanford_profile_drush: 0
+  stanford_profile_helper: 0
   stanford_profile_styles: 0
   stanford_ssp: 0
   stanford_text_editor: 0
