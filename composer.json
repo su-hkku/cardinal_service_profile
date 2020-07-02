@@ -90,7 +90,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Drupal\\Tests\\cardinal_service_profile_helper\\": "modules/cardinal_service_profile_helper/tests/src",
+            "Drupal\\Tests\\cardinal_service_profile\\": "tests/src",
+            "Drupal\\Tests\\cardinal_service_profile_helper\\": "modules/cardinal_service_profile_helper/tests/src"
         }
     },
     "extra": {
