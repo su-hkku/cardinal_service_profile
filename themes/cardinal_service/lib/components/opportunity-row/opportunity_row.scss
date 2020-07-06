@@ -4,8 +4,13 @@
 
 .su-opportunity-result {
   @include card;
+  @include modular-spacing(padding, 2);
   @include margin(0 0 2em 0);
   position: relative;
+
+  .su-card__contents {
+    padding: 0;
+  }
 
   .su-opp-type {
     margin-bottom: 12px;
@@ -90,14 +95,16 @@
   }
 
   .su-opportunity-img {
+    @include modular-spacing(margin-bottom, -1);
+
     .su-opp-image {
       margin-bottom: 0;
     }
   }
 
   .flag {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
   }
 }
