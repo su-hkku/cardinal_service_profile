@@ -41,10 +41,16 @@
   }
 
   .su-opportunity-body-content {
-    display: grid;
+    display: block;
 
     @include grid-media-min('md') {
-      grid-template-columns: repeat(3, 33%);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1px 1px;
+      grid-template-areas:
+        "application-deadline application-deadline application-deadline"
+        "location when open-to";
     }
 
     h4 {
@@ -52,9 +58,12 @@
     }
   }
 
+  .su-opportunity-row-application-deadline,
   .su-opportunity-row-location,
   .su-opportunity-row-duration,
   .su-opportunity-row-open-to {
+    @include modular-spacing('padding-bottom', 1);
+
     > div {
       margin-left: 30px;
     }
@@ -76,19 +85,33 @@
     }
   }
 
+  .su-opportunity-row-application-deadline {
+    grid-area: application-deadline;
+
+    &::before {
+      content: '\f0f3';
+    }
+  }
+
   .su-opportunity-row-location {
+    grid-area: location;
+
     &::before {
       content: '\f3c5';
     }
   }
 
   .su-opportunity-row-duration {
+    grid-area: when;
+
     &::before {
       content: '\f073';
     }
   }
 
   .su-opportunity-row-open-to {
+    grid-area: open-to;
+
     &::before {
       content: '\f500';
     }
