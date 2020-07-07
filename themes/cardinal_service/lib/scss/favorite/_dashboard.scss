@@ -30,23 +30,23 @@
     .dropbutton {
       position: absolute;
       width: max-content;
-      border: 1px solid #E5E5E5;
+      border: 1px solid #e5e5e5;
       border-radius: 20px;
       padding: 6px 20px;
-      margin: .2em 0;
+      margin: 0.2em 0;
       background-color: #fff;
     }
 
     .name {
       display: inline-block;
       text-decoration: none;
-      color: #4D4F53;
+      color: #4d4f53;
 
       &::before {
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
         content: '\f2bd';
-        color: #4D4F53;
+        color: #4d4f53;
         margin-right: 8px;
       }
     }
@@ -58,48 +58,52 @@
 }
 
 .dropbutton-multiple {
-  li.dropbutton-toggle {
-    position: unset;
-    top: unset;
-    right: unset;
-    bottom: unset;
-    width: 1.5em;
-    display: inline-block;
-
-    button {
-      box-shadow: none;
-      color: transparent;
-
-      &:hover,
-      &:focus {
-        background: transparent;
-        color: transparent;
-        box-shadow: none;
-      }
-
-      &::before {
-        color: #4D4F53;
-        content: '\f078';
-        font-size: 16px;
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-      }
-    }
-
-    .dropbutton-arrow {
+  li {
+    &.dropbutton-toggle {
       position: unset;
+      top: unset;
+      right: unset;
+      bottom: unset;
+      width: 1.5em;
+      display: inline-block;
+
+      button {
+        box-shadow: none;
+        color: transparent;
+
+        &:hover,
+        &:focus {
+          background: transparent;
+          color: transparent;
+          box-shadow: none;
+        }
+
+        &::before {
+          color: #4d4f53;
+          content: '\f078';
+          font-size: 16px;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+        }
+
+        .dropbutton-arrow {
+          position: unset;
+        }
+      }
     }
   }
 
   &.open {
-    li.dropbutton-toggle {
-      button {
-        &::before {
-          color: #4D4F53;
-          content: '\f077';
-          font-size: 16px;
-          font-family: 'Font Awesome 5 Free';
-          font-weight: 900;
+    li {
+      &.dropbutton-toggle {
+        button {
+          &::before {
+            color: #4d4f53;
+            content: '\f077';
+            font-size: 16px;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+          }
         }
       }
     }
@@ -136,7 +140,7 @@
 
         a,
         a:hover {
-          color: #B1040E;
+          color: #b1040e;
           font-weight: bold;
         }
 
@@ -158,6 +162,6 @@
 
 .su-opportunities-user-favorite-opps {
   footer {
-      text-align: center;
+    text-align: center;
   }
 }
