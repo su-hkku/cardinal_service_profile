@@ -38,6 +38,7 @@
     }
 
     .name {
+      display: inline-block;
       text-decoration: none;
       color: #4D4F53;
 
@@ -46,30 +47,28 @@
         font-weight: 900;
         content: '\f2bd';
         color: #4D4F53;
-        margin-right: 5px;
+        margin-right: 8px;
       }
     }
 
     .secondary-action {
-      margin-left: 24px;
+      margin-left: 27px;
     }
   }
 }
 
 .dropbutton-multiple {
   li.dropbutton-toggle {
-    height: 26px;
-    width: 26px;
-    display: flex;
-    align-items: center;
-    padding: 6px 0;
+    position: unset;
+    top: unset;
+    right: unset;
+    bottom: unset;
+    width: 1.5em;
+    display: inline-block;
 
     button {
       box-shadow: none;
       color: transparent;
-      display: flex;
-      height: unset;
-      justify-content: center;
 
       &:hover,
       &:focus {
