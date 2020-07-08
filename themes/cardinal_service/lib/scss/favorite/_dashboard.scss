@@ -14,13 +14,26 @@
   }
 }
 
-.role--anonymous {
-  .user-links {
+.user-links {
+  width: 25%;
+  height: fit-content;
+  z-index: 101;
+
+  > a {
+    position: absolute;
     width: max-content;
     border: 1px solid #e5e5e5;
     border-radius: 20px;
     padding: 6px 20px;
     margin: 0.2em 0;
+    text-decoration: none;
+    color: #4d4f53;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      cursor: pointer;
+    }
 
     &::before {
       font-family: 'Font Awesome 5 Free';
@@ -29,24 +42,7 @@
       color: #4d4f53;
       margin-right: 8px;
     }
-
-    a {
-      text-decoration: none;
-      color: #4d4f53;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
   }
-}
-
-.user-links {
-  width: 25%;
-  height: fit-content;
-  z-index: 101;
 
   .name,
   .dropbutton-toggle {
@@ -84,11 +80,9 @@
       margin-left: 27px;
     }
   }
-}
 
-.dropbutton-multiple {
-  li {
-    &.dropbutton-toggle {
+  .dropbutton-multiple {
+    .dropbutton-toggle {
       position: unset;
       top: unset;
       right: unset;
@@ -120,24 +114,19 @@
         }
       }
     }
-  }
 
-  &.open {
-    li {
-      &.dropbutton-toggle {
+    &.open {
+      .dropbutton-toggle {
         button {
           &::before {
-            color: #4d4f53;
             content: '\f077';
-            font-size: 16px;
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
           }
         }
       }
     }
   }
 }
+
 
 .su-opportunities-count-favorites-opps {
   @include modular-spacing('padding-bottom', 9);
