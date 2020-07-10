@@ -1,0 +1,34 @@
+spotlight_quote:
+  label: Spotlight Quote
+  description: "A quote element."
+  fields:
+    text:
+      type: text
+      label: "Quote Text"
+      description: "The contents of the quote."
+      preview: "This is the actual quote. Lorem ipsur adipisicing elit, sed do eiusmod tempor incididunt ut labore et..."
+    bio:
+      type: text
+      label: "Author's Bio"
+      description: ""
+      preview: "Jane Doe's title<br/>Jane Doe's company"
+    title:
+      type: text
+      label: "Title"
+      description: "Display the title instead of the authors name"
+    name:
+      type: text
+      label: "Author's Name"
+      description: "The author of the quote"
+      preview: "Jane Doe"
+    image:
+      type: text
+      label: "Image"
+      description: "The uri path to the image"
+
+  use: '@cardinal-service/spotlight-quote/spotlight_quote.html.twig'
+  libraries:
+    - opportunity_row:
+        css:
+          component:
+            ../../../dist/css/components/spotlight-quote/spotlight_quote.css: {}

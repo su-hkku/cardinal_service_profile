@@ -152,6 +152,7 @@ module:
   taxonomy_menu: 0
   telephone: 0
   text: 0
+  text_summary_formatter: 0
   token: 0
   toolbar: 0
   ui_patterns: 0
