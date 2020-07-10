@@ -94,29 +94,32 @@
     button {
       box-shadow: none;
       color: transparent;
+      background: transparent;
 
-      &:hover,
-      &:focus {
+      &:hover {
         background: transparent;
-        color: transparent;
-        box-shadow: none;
       }
 
-      &::before {
-        color: #4d4f53;
-        content: '\f078';
-        font-size: 16px;
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
+      &:focus {
+        outline: -webkit-focus-ring-color auto 1px;
       }
 
       .dropbutton-arrow {
         position: unset;
+        display: unset;
+
+        &::before {
+          color: #4d4f53;
+          content: '\f078';
+          font-size: 16px;
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+        }
       }
     }
 
     &.open {
-      button {
+      .dropbutton-arrow {
         &::before {
           content: '\f077';
         }
