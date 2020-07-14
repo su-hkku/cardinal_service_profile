@@ -37,7 +37,7 @@ function cardinal_service_profile_help($route_name, RouteMatchInterface $route_m
           ->toString(),
         '@opportunities' => Link::createFromRoute(t('Opportunities'), 'csv_importer.template', ['node_type' => 'su_opportunity'])
           ->toString(),
-        '@stories' => Link::createFromRoute(t('Stories'), 'csv_importer.template', ['node_type' => 'su_spotlight'])
+        '@stories' => Link::createFromRoute(t('Spotlight'), 'csv_importer.template', ['node_type' => 'su_spotlight'])
           ->toString(),
         '@news' => Link::createFromRoute(t('News'), 'csv_importer.template', ['node_type' => 'stanford_news'])
           ->toString(),
