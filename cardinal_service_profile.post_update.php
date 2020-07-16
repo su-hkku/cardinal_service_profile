@@ -34,7 +34,6 @@ function cardinal_service_profile_post_update_spotlight1() {
     'settings' => ['display_summary' => TRUE],
   ])->save();
 
-
   $nodes = \Drupal::entityTypeManager()
     ->getStorage('node')
     ->loadByProperties(['type' => 'su_spotlight']);
