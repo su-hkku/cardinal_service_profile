@@ -159,27 +159,6 @@ third_party_settings:
           columns: flex-8-of-12
           label: ''
         components:
-          946db47d-0d71-4fa6-8897-4fc518e02512:
-            uuid: 946db47d-0d71-4fa6-8897-4fc518e02512
-            region: main
-            configuration:
-              id: 'field_block:node:su_spotlight:su_spotlight_quote'
-              label: 'Quote Summary'
-              provider: layout_builder
-              label_display: '0'
-              formatter:
-                label: hidden
-                type: text_summary_formatter
-                settings: {  }
-                third_party_settings:
-                  field_formatter_class:
-                    class: su-quote-summary
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-            additional: {  }
-            weight: 2
-            third_party_settings: {  }
           bc090378-a6c5-438c-9b39-68be99e5f961:
             uuid: bc090378-a6c5-438c-9b39-68be99e5f961
             region: main
@@ -201,8 +180,8 @@ third_party_settings:
             additional: {  }
             weight: 3
             third_party_settings: {  }
-          b4890322-95e1-4464-b156-87a7f0ff6f81:
-            uuid: b4890322-95e1-4464-b156-87a7f0ff6f81
+          6b5cd2a7-d6f8-426c-bd89-bcf5b6b94757:
+            uuid: 6b5cd2a7-d6f8-426c-bd89-bcf5b6b94757
             region: main
             configuration:
               id: 'field_block:node:su_spotlight:su_spotlight_quote'
@@ -211,16 +190,16 @@ third_party_settings:
               label_display: '0'
               formatter:
                 label: hidden
-                type: text_default
+                type: text_summary_formatter
                 settings: {  }
                 third_party_settings:
                   field_formatter_class:
-                    class: spotlight-quote
+                    class: ''
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 1
+            weight: 4
             third_party_settings: {  }
         third_party_settings: {  }
   layout_library:
