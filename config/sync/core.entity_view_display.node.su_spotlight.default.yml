@@ -173,7 +173,7 @@ third_party_settings:
                 settings: {  }
                 third_party_settings:
                   field_formatter_class:
-                    class: ''
+                    class: su-quote-summary
               context_mapping:
                 entity: layout_builder.entity
                 view_mode: view_mode

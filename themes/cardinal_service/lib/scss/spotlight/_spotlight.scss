@@ -129,13 +129,17 @@
   font-size: 1.6em;
   font-weight: 400;
   line-height: 1.5em;
-  margin: 2em 0;
+  margin-top: 2em;
 
-  &::before {
+  p::before {
     content: open-quote;
   }
 
-  &::after {
+  p::after {
     content: close-quote;
   }
+}
+
+.su-quote-summary {
+  margin-bottom:2em;
 }
