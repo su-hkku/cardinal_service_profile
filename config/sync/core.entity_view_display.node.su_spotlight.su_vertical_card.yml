@@ -1,6 +1,6 @@
 uuid: 923c3a19-8f3d-4d77-b107-0a254f72c963
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.su_vertical_card

@@ -18,7 +18,7 @@ function cardinal_service_profile_removed_post_updates() {
 /**
  * Move field data for spotlights.
  */
-function cardinal_service_profile_post_update_spotlight1() {
+function cardinal_service_profile_post_update_spotlight() {
   FieldStorageConfig::create([
     'uuid' => '5e126799-c3f1-4b09-bb97-006e8ac0aad2',
     'entity_type' => 'node',
@@ -37,6 +37,7 @@ function cardinal_service_profile_post_update_spotlight1() {
   $nodes = \Drupal::entityTypeManager()
     ->getStorage('node')
     ->loadByProperties(['type' => 'su_spotlight']);
+
   /** @var \Drupal\node\NodeInterface $node */
   foreach ($nodes as $node) {
     if ($body = $node->get('body')->getValue()) {
