@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.su_spotlight.su_opp_pathway
     - field.field.node.su_spotlight.su_opp_service_theme
     - field.field.node.su_spotlight.su_spotlight_background_image
+    - field.field.node.su_spotlight.su_spotlight_context
     - field.field.node.su_spotlight.su_spotlight_feature_image
     - field.field.node.su_spotlight.su_spotlight_graduation_year
     - field.field.node.su_spotlight.su_spotlight_major
@@ -180,17 +181,17 @@ third_party_settings:
             additional: {  }
             weight: 3
             third_party_settings: {  }
-          6b5cd2a7-d6f8-426c-bd89-bcf5b6b94757:
-            uuid: 6b5cd2a7-d6f8-426c-bd89-bcf5b6b94757
+          3dfd8da7-9421-45ee-84db-8c1f4df497fb:
+            uuid: 3dfd8da7-9421-45ee-84db-8c1f4df497fb
             region: main
             configuration:
-              id: 'field_block:node:su_spotlight:su_spotlight_quote'
-              label: Quote
+              id: 'field_block:node:su_spotlight:su_spotlight_context'
+              label: Caption/Context
               provider: layout_builder
               label_display: '0'
               formatter:
                 label: hidden
-                type: text_summary_formatter
+                type: basic_string
                 settings: {  }
                 third_party_settings:
                   field_formatter_class:
@@ -248,6 +249,13 @@ content:
       link: false
     third_party_settings: {  }
     region: content
+  su_spotlight_context:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: main
   su_spotlight_feature_image:
     type: entity_reference_entity_view
     weight: 102

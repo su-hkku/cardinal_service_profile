@@ -18,12 +18,12 @@ field_name: su_spotlight_quote
 entity_type: node
 bundle: su_spotlight
 label: Quote
-description: 'Add a summary to be used as the caption of the quote. This will provide some contextual information about the quote.'
+description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: true
+  display_summary: false
   required_summary: false
 field_type: text_with_summary

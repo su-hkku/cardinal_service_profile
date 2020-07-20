@@ -502,7 +502,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="{{ view_node }}">Read more about {{ su_spotlight_student_name }} story</a>'
+            text: '<a href="{{ view_node }}">Read more about {{ su_spotlight_student_name }}''s story</a>'
             make_link: false
             path: ''
             absolute: false

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.su_spotlight.su_opp_pathway
     - field.field.node.su_spotlight.su_opp_service_theme
     - field.field.node.su_spotlight.su_spotlight_background_image
+    - field.field.node.su_spotlight.su_spotlight_context
     - field.field.node.su_spotlight.su_spotlight_feature_image
     - field.field.node.su_spotlight.su_spotlight_graduation_year
     - field.field.node.su_spotlight.su_spotlight_major
@@ -61,6 +62,7 @@ hidden:
   su_opp_pathway: true
   su_opp_service_theme: true
   su_spotlight_background_image: true
+  su_spotlight_context: true
   su_spotlight_feature_image: true
   su_spotlight_graduation_year: true
   su_spotlight_major: true
