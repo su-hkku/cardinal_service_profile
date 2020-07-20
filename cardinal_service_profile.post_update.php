@@ -51,6 +51,11 @@ function cardinal_service_profile_post_update_spotlight() {
   }
 }
 
+/**
+ * Create the quote field on spotlight nodes.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function _cardinal_service_create_quote_field() {
   FieldStorageConfig::create([
     'uuid' => '5e126799-c3f1-4b09-bb97-006e8ac0aad2',
@@ -68,6 +73,11 @@ function _cardinal_service_create_quote_field() {
   ])->save();
 }
 
+/**
+ * Create the context field on spotlight nodes.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
 function _cardinal_service_create_context_field() {
   FieldStorageConfig::create([
     'uuid' => '7bf4acd8-9984-4dc0-b544-112575255a5b',
