@@ -1,0 +1,23 @@
+uuid: 0e804c06-efa8-4e86-b3c6-c806af72e3fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.resources_list.su_resource_list
+    - paragraphs.paragraphs_type.resources_list
+  module:
+    - viewfield
+id: paragraph.resources_list.default
+targetEntityType: paragraph
+bundle: resources_list
+mode: default
+content:
+  su_resource_list:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+hidden:
+  created: true
+  status: true
