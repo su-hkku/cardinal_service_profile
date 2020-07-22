@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * @group cardinal_service_rest
  * @coversDefaultClass \Drupal\cardinal_service_rest\Plugin\rest\resource\TermsUsedResource
  */
-class OpportunitiesResourceTest extends KernelTestBase {
+class TermsUsedResourceTest extends KernelTestBase {
 
   protected static $modules = [
     'system',
@@ -98,7 +98,7 @@ class OpportunitiesResourceTest extends KernelTestBase {
   public function testResourceResponse() {
     /** @var \Drupal\rest\Plugin\Type\ResourcePluginManager $rest_manager */
     $rest_manager = \Drupal::service('plugin.manager.rest');
-    $resource = $rest_manager->createInstance('opportunities_resource');
+    $resource = $rest_manager->createInstance('terms_used_resource');
     $this->assertEmpty($resource->permissions());
 
     /** @var ResourceResponse $response */
