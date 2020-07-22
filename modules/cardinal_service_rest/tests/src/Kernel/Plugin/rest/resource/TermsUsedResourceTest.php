@@ -102,7 +102,7 @@ class TermsUsedResourceTest extends KernelTestBase {
     $this->assertEmpty($resource->permissions());
 
     /** @var ResourceResponse $response */
-    $response = $resource->get();
+    $response = $resource->get('su_opportunity');
     $this->assertInstanceOf(ResourceResponse::class, $response);
 
     $json_data = json_decode($response->getContent(), TRUE);
