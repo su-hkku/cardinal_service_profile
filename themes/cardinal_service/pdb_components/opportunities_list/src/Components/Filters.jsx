@@ -110,7 +110,7 @@ export class Filters extends Component {
   componentDidMount() {
     const that = this;
 
-    fetch('/api/opportunities')
+    fetch('/api/terms-used/' + this.props.bundle)
       .then((response) => response.json())
       .then((jsonData) => {
         that.setState(

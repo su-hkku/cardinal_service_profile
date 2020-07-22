@@ -10,10 +10,15 @@ dependencies:
     - field.storage.node.su_spotlight_quote
     - field.storage.node.su_spotlight_student_name
     - node.type.su_spotlight
+    - taxonomy.vocabulary.spotlight_person
+    - taxonomy.vocabulary.su_opportunity_dimension
+    - taxonomy.vocabulary.su_opportunity_pathway
+    - taxonomy.vocabulary.su_opportunity_service_theme
   module:
     - datetime
     - node
     - stanford_media
+    - taxonomy
     - text
     - ui_patterns_views
     - user
@@ -42,10 +47,11 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
+          contextual_filters_or: false
       exposed_form:
         type: basic
         options:
@@ -782,6 +788,767 @@ display:
         - 'config:field.storage.node.su_spotlight_major'
         - 'config:field.storage.node.su_spotlight_quote'
         - 'config:field.storage.node.su_spotlight_student_name'
+  list:
+    display_plugin: block
+    id: list
+    display_title: 'All Stories'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      fields:
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_summary_or_trimmed
+          settings:
+            trim_length: 600
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        su_spotlight_feature_image:
+          id: su_spotlight_feature_image
+          table: node__su_spotlight_feature_image
+          field: su_spotlight_feature_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: media_image_formatter
+          settings:
+            view_mode: default
+            image_style: spotlight_image_370x370_
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        su_spotlight_student_name:
+          id: su_spotlight_student_name
+          table: node__su_spotlight_student_name
+          field: su_spotlight_student_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        su_spotlight_graduation_year:
+          id: su_spotlight_graduation_year
+          table: node__su_spotlight_graduation_year
+          field: su_spotlight_graduation_year
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: 'y'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        su_spotlight_major:
+          id: su_spotlight_major
+          table: node__su_spotlight_major
+          field: su_spotlight_major
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<div>''{{ su_spotlight_graduation_year }}, {{ su_spotlight_major }}</div>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: 'Content: Link to Content URL'
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: ''
+          output_url_as_text: true
+          absolute: true
+          entity_type: node
+          plugin_id: entity_link
+        view_node_1:
+          id: view_node_1
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: 'Content: Link to Content Title'
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: 'View {{ su_spotlight_student_name|striptags|trim }}''s Story'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: View
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+      defaults:
+        fields: false
+        style: false
+        row: false
+        pager: false
+        filters: false
+        filter_groups: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: ui_patterns
+        options:
+          default_field_elements: 1
+          inline:
+            body: 0
+            su_spotlight_feature_image: 0
+            su_spotlight_student_name: 0
+            su_spotlight_graduation_year: 0
+            su_spotlight_major: 0
+            view_node: 0
+            view_node_1: 0
+          separator: ''
+          hide_empty: 1
+          pattern: card
+          pattern_mapping:
+            'views_row:su_spotlight_feature_image':
+              destination: card_image
+              weight: 0
+              plugin: views_row
+              source: su_spotlight_feature_image
+            'views_row:body':
+              destination: card_super_headline
+              weight: 1
+              plugin: views_row
+              source: body
+            'views_row:su_spotlight_student_name':
+              destination: card_headline
+              weight: 2
+              plugin: views_row
+              source: su_spotlight_student_name
+            'views_row:su_spotlight_major':
+              destination: card_body
+              weight: 3
+              plugin: views_row
+              source: su_spotlight_major
+            'views_row:view_node_1':
+              destination: card_cta_label
+              weight: 4
+              plugin: views_row
+              source: view_node_1
+            'views_row:view_node':
+              destination: card_link
+              weight: 5
+              plugin: views_row
+              source: view_node
+          pattern_variant: postcard
+      pager:
+        type: none
+        options:
+          offset: 0
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            su_spotlight: su_spotlight
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        su_opp_dimension_target_id:
+          id: su_opp_dimension_target_id
+          table: node__su_opp_dimension
+          field: su_opp_dimension_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_dimension_target_id_op
+            label: Dimension
+            description: ''
+            use_operator: false
+            operator: su_opp_dimension_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_dimension
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_dimension
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        su_opp_pathway_target_id:
+          id: su_opp_pathway_target_id
+          table: node__su_opp_pathway
+          field: su_opp_pathway_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_pathway_target_id_op
+            label: Pathway
+            description: ''
+            use_operator: false
+            operator: su_opp_pathway_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_pathway
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_pathway
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        su_opp_service_theme_target_id:
+          id: su_opp_service_theme_target_id
+          table: node__su_opp_service_theme
+          field: su_opp_service_theme_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_service_theme_target_id_op
+            label: 'Service Theme'
+            description: ''
+            use_operator: false
+            operator: su_opp_service_theme_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_service_theme
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: su_opportunity_service_theme
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        su_spotlight_person_type_target_id:
+          id: su_spotlight_person_type_target_id
+          table: node__su_spotlight_person_type
+          field: su_spotlight_person_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_spotlight_person_type_target_id_op
+            label: By
+            description: ''
+            use_operator: false
+            operator: su_spotlight_person_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_spotlight_person_type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: spotlight_person
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      exposed_block: true
+      block_category: 'Spotlights (Views)'
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.su_spotlight_feature_image'
+        - 'config:field.storage.node.su_spotlight_graduation_year'
+        - 'config:field.storage.node.su_spotlight_major'
+        - 'config:field.storage.node.su_spotlight_student_name'
   opportunity_spotlight_ref:
     display_plugin: block
     id: opportunity_spotlight_ref
@@ -827,7 +1594,7 @@ display:
           plugin_id: numeric
       defaults:
         arguments: false
-      block_category: 'Spotlight Views'
+      block_category: 'Spotlights (Views)'
     cache_metadata:
       max-age: -1
       contexts:

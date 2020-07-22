@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  * Class OpportunitiesResourceTest.
  *
  * @group cardinal_service_rest
- * @coversDefaultClass \Drupal\cardinal_service_rest\Plugin\rest\resource\OpportunitiesResource
+ * @coversDefaultClass \Drupal\cardinal_service_rest\Plugin\rest\resource\TermsUsedResource
  */
 class OpportunitiesResourceTest extends KernelTestBase {
 

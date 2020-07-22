@@ -16,18 +16,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Rest endpoint to provide data about what entities are tagged with terms.
  *
  * @RestResource(
- *   id = "opportunities_resource",
- *   label = @Translation("Opportunities Resource"),
+ *   id = "terms_used_resource",
+ *   label = @Translation("Terms In Use Resource"),
  *   uri_paths = {
- *     "canonical" = "/api/opportunities"
+ *     "canonical" = "/api/terms-used/{node_type}"
  *   }
  * )
  */
-class OpportunitiesResource extends ResourceBase {
+class TermsUsedResource extends ResourceBase {
 
   const ENTITY_TYPE = 'node';
-
-  const BUNDLE = 'su_opportunity';
 
   /**
    * Entity Type manager service.
@@ -77,16 +75,19 @@ class OpportunitiesResource extends ResourceBase {
   /**
    * Get request on the rest endpoint.
    *
+   * @param string $node_type
+   *   Node type bundle id.
+   *
    * @return \Drupal\rest\ResourceResponse
    *   Rest response.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function get() {
+  public function get($node_type) {
     $data = [];
 
-    $fields = $this->fieldManager->getFieldDefinitions(self::ENTITY_TYPE, self::BUNDLE);
+    $fields = $this->fieldManager->getFieldDefinitions(self::ENTITY_TYPE, $node_type);
     foreach ($fields as $field_name => $field_definition) {
       if (
         $field_definition instanceof FieldConfig &&

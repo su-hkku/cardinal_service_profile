@@ -1,0 +1,29 @@
+uuid: 652b182c-4932-4b00-9152-1524abae5e7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_spotlight_person_type
+    - node.type.su_spotlight
+    - taxonomy.vocabulary.spotlight_person
+id: node.su_spotlight.su_spotlight_person_type
+field_name: su_spotlight_person_type
+entity_type: node
+bundle: su_spotlight
+label: 'Person Type'
+description: 'What category is the person who wrote the story.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      spotlight_person: spotlight_person
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
