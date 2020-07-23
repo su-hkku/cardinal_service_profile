@@ -21,11 +21,11 @@ class ResourcesCest {
       'name' => 'Foo',
     ], 'taxonomy_term');
     $foo_aud = $I->createEntity([
-      'vid' => 'resource_audience',
+      'vid' => 'cs_resource_audience',
       'name' => 'Foo',
     ], 'taxonomy_term');
     $bar_aud = $I->createEntity([
-      'vid' => 'resource_audience',
+      'vid' => 'cs_resource_audience',
       'name' => 'Bar',
     ], 'taxonomy_term');
 
@@ -45,7 +45,7 @@ class ResourcesCest {
     ]);
 
     $paragraph = $I->createEntity([
-      'type' => 'resources_list',
+      'type' => 'stanford_resources_list',
       'su_resource_list' => [
         'target_id' => 'cs_resources',
         'display_id' => 'audience',

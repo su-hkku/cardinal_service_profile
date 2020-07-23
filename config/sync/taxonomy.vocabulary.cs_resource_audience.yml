@@ -1,8 +1,8 @@
-uuid: 33ee0274-09d0-47ef-927c-1e16c9904931
+uuid: bbed52c0-297e-4687-8361-c5a7f51aa921
 langcode: en
 status: true
 dependencies: {  }
 name: 'Resource Audience'
-vid: resource_audience
+vid: cs_resource_audience
 description: ''
 weight: 0

@@ -1,17 +1,17 @@
-uuid: 976b0377-ed2a-4b3e-b564-b46622a7263f
+uuid: ac46a9ce-270b-4b30-8e78-449bf3f8a42e
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.su_resource_list
-    - paragraphs.paragraphs_type.resources_list
+    - paragraphs.paragraphs_type.stanford_resource_list
   module:
     - viewfield
-id: paragraph.resources_list.su_resource_list
+id: paragraph.stanford_resource_list.su_resource_list
 field_name: su_resource_list
 entity_type: paragraph
-bundle: resources_list
-label: 'Resource List'
+bundle: stanford_resource_list
+label: List
 description: ''
 required: false
 translatable: false

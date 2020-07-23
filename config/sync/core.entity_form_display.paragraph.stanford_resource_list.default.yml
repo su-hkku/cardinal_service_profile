@@ -1,15 +1,15 @@
-uuid: 0e804c06-efa8-4e86-b3c6-c806af72e3fc
+uuid: ea7f102f-9c3d-4cd1-860c-f36a343d3962
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.resources_list.su_resource_list
-    - paragraphs.paragraphs_type.resources_list
+    - field.field.paragraph.stanford_resource_list.su_resource_list
+    - paragraphs.paragraphs_type.stanford_resource_list
   module:
     - viewfield
-id: paragraph.resources_list.default
+id: paragraph.stanford_resource_list.default
 targetEntityType: paragraph
-bundle: resources_list
+bundle: stanford_resource_list
 mode: default
 content:
   su_resource_list:

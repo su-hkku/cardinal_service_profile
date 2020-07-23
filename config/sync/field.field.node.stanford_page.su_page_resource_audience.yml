@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.su_page_resource_audience
     - node.type.stanford_page
-    - taxonomy.vocabulary.resource_audience
+    - taxonomy.vocabulary.cs_resource_audience
 id: node.stanford_page.su_page_resource_audience
 field_name: su_page_resource_audience
 entity_type: node
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      resource_audience: resource_audience
+      cs_resource_audience: cs_resource_audience
     sort:
       field: name
       direction: asc
