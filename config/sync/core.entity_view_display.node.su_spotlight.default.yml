@@ -304,3 +304,4 @@ hidden:
   su_opp_pathway: true
   su_opp_service_theme: true
   su_spotlight_opportunity: true
+  su_spotlight_person_type: true
