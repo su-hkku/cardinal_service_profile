@@ -45,7 +45,7 @@ class ResourcesCest {
     ]);
 
     $paragraph = $I->createEntity([
-      'type' => 'stanford_resources_list',
+      'type' => 'stanford_resource_list',
       'su_resource_list' => [
         'target_id' => 'cs_resources',
         'display_id' => 'audience',
