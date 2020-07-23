@@ -5,7 +5,6 @@ dependencies:
   config:
     - taxonomy.vocabulary.cs_resource_audience
   module:
-    - path
     - text
 id: taxonomy_term.cs_resource_audience.default
 targetEntityType: taxonomy_term
@@ -28,11 +27,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
+  status:
+    type: boolean_checkbox
     weight: 2
     region: content
-    settings: {  }
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
-  status: true
+  path: true
