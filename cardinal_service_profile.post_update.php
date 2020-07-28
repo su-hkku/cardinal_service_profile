@@ -98,19 +98,19 @@ function _cardinal_service_create_context_field() {
  * Combine graduation year and major into a text field for spotlights.
  */
 function cardinal_service_profile_post_update_csd_233() {
-    FieldStorageConfig::create([
-      'uuid' => '8a5eaa06-a940-4765-b76c-3352f060ca3e',
-      'entity_type' => 'node',
-      'type' => 'string',
-      'field_name' => 'su_spotlight_grad_area',
-    ])->save();
-    FieldConfig::create([
-      'uuid' => '350b870c-00b0-44c8-8537-f3ea98588872',
-      'field_name' => 'su_spotlight_grad_area',
-      'label' => 'Graduation Year and Area',
-      'entity_type' => 'node',
-      'bundle' => 'su_spotlight',
-    ])->save();
+  FieldStorageConfig::create([
+    'uuid' => '8a5eaa06-a940-4765-b76c-3352f060ca3e',
+    'entity_type' => 'node',
+    'type' => 'string',
+    'field_name' => 'su_spotlight_grad_area',
+  ])->save();
+  FieldConfig::create([
+    'uuid' => '350b870c-00b0-44c8-8537-f3ea98588872',
+    'field_name' => 'su_spotlight_grad_area',
+    'label' => 'Graduation Year and Area',
+    'entity_type' => 'node',
+    'bundle' => 'su_spotlight',
+  ])->save();
   $nodes = \Drupal::entityTypeManager()
     ->getStorage('node')
     ->loadByProperties(['type' => 'su_spotlight']);
@@ -127,5 +127,9 @@ function cardinal_service_profile_post_update_csd_233() {
       $year_major = "'$year, $major";
     }
     $node->set('su_spotlight_grad_area', $year_major)->save();
+  }
+
+  foreach ($term_storage->loadByProperties(['vid' => 'su_school_majors']) as $term) {
+    $term->delete();
   }
 }
