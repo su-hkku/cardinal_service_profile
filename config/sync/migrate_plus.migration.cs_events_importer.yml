@@ -78,6 +78,10 @@ source:
       name: image
       label: Image
       selector: imageUrl
+    -
+      name: event_status
+      label: 'Event Status'
+      selector: eventStatus
   ids:
     event_id:
       type: string
@@ -95,6 +99,11 @@ source:
     image_alt: ''
     link_text: 'Learn More'
 process:
+  canceled:
+    plugin: skip_on_value
+    source: event_status
+    method: row
+    value: 'CANCELED'
   status: constants/status
   type: constants/type
   title: title
