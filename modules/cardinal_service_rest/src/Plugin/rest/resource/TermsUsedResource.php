@@ -135,11 +135,16 @@ class TermsUsedResource extends ResourceBase {
       'status' => 1,
     ]) as $term) {
 
-      $nodes = $node_storage->getQuery()
+      $query = $node_storage->getQuery()
         ->condition('status', 1)
         ->condition('type', $field->getTargetBundle())
-        ->condition($field->getName(), $term->id())
-        ->accessCheck(FALSE)
+        ->condition($field->getName(), $term->id());
+
+      if ($field->getTargetBundle() == 'su_spotlight') {
+        $query->condition('body', '', '!=');
+      }
+
+      $nodes = $query->accessCheck(FALSE)
         ->execute();
 
       if ($nodes) {
