@@ -65,7 +65,7 @@ third_party_settings:
         layout_settings:
           extra_classes: ''
           centered: centered-container
-          orientation: equal
+          orientation: right
           label: ''
         components:
           fcd2a988-e62a-4a12-8a88-5db19895ab61:
