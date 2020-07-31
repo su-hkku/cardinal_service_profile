@@ -1003,7 +1003,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      exposed_block: true
+      exposed_block: false
       filters:
         status:
           value: '1'
