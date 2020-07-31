@@ -84,7 +84,8 @@
         "drupal/views_bulk_edit": "^2.4",
         "drupal/views_taxonomy_term_name_depth": "^7.0",
         "su-sws/stanford_profile": "dev-8.x-1.x",
-        "drupal/hotjar": "^2.0"
+        "drupal/hotjar": "^2.0",
+        "drupal/color_field": "dev-2.x"
     },
     "autoload": {
         "psr-4": {
