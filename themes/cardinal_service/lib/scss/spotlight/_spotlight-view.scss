@@ -1,0 +1,106 @@
+@charset 'UTF-8';
+
+.su-spotlights-opportunity-spotlight-ref {
+  .su-quote {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 3.2rem;
+  }
+
+  .su-quote__img {
+    border: none;
+  }
+
+  blockquote {
+    font-family: Roboto Slab;
+
+    .su-quote__quote {
+      @include modular-typography(3);
+      margin: 0;
+    }
+  }
+
+  .story-available {
+    .su-quote__body {
+      display: flex;
+      flex-direction: column;
+
+      blockquote {
+        order: 1;
+        margin: 0;
+        @include modular-spacing('margin-bottom', 0);
+      }
+
+      .views-field-su-spotlight-context {
+        order: 2;
+        @include modular-typography(0);
+        @include modular-spacing('margin-bottom', 3);
+        font-style: italic;
+      }
+
+      .su-quote__heading {
+        order: 3;
+        @include modular-typography(1);
+      }
+
+      .su-quote__bio {
+        order: 4;
+      }
+
+      .views-field-body {
+        order: 5;
+        @include modular-spacing('margin-top', 4);
+      }
+    }
+  }
+
+  .no-story {
+    .su-quote {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .su-quote__img {
+      order: 2;
+      height: fit-content;
+
+      img {
+        position: absolute;
+        bottom: 3.2rem;
+        height: 90px;
+        width: 90px;
+      }
+    }
+
+    .su-quote__body {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+
+      blockquote {
+        order: 1;
+      }
+
+      .views-field-su-spotlight-context {
+        order: 2;
+      }
+
+      .su-quote__heading {
+        order: 3;
+        @include modular-typography(0);
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .su-quote__bio {
+        order: 4;
+        @include modular-typography(0);
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
