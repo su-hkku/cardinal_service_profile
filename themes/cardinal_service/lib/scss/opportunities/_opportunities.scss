@@ -5,16 +5,19 @@
   @include modular-spacing('padding-left', 5);
   @include modular-spacing('padding-right', 5);
   background: $su-color-cloud;
-  max-height: 100%;
-  display: flex;
 
   .left-region {
-    align-self: flex-end;
     margin-bottom: -2.5rem;
   }
 
   .main-region {
-    align-self: flex-end;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .node-su-opportunity-flag-cs-favorites {
+    flex-grow: 1;
   }
 
   .flag {
