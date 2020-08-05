@@ -7,6 +7,10 @@ dependencies:
     - field.field.node.stanford_page.layout_selection
     - field.field.node.stanford_page.su_page_banner
     - field.field.node.stanford_page.su_page_components
+    - field.field.node.stanford_page.su_page_resource_audience
+    - field.field.node.stanford_page.su_page_resource_dimension
+    - field.field.node.stanford_page.su_page_resource_icon
+    - field.field.node.stanford_page.su_page_resource_type
     - node.type.stanford_page
     - system.menu.main
   module:
@@ -25,9 +29,10 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          extra_classes: ''
+          extra_classes: 'su-hero-height su-hero-left'
           centered: null
           columns: default
+          label: ''
         components:
           da20ed40-0f0f-4103-bda1-29d84c24975f:
             uuid: da20ed40-0f0f-4103-bda1-29d84c24975f
