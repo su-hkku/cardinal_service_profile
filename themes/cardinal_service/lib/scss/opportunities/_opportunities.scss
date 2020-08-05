@@ -1,10 +1,10 @@
 @charset 'UTF-8';
 
 .opportunity-header-content-container {
+  background: $su-color-cloud;
   @include modular-spacing('padding-top', 4);
   @include modular-spacing('padding-left', 5);
   @include modular-spacing('padding-right', 5);
-  background: $su-color-cloud;
 
   .left-region {
     margin-bottom: -2.5rem;
@@ -30,10 +30,6 @@
   }
 
   @include grid-media-max('lg') {
-    @include modular-spacing('padding-top', 4);
-    @include modular-spacing('padding-left', 4);
-    @include modular-spacing('padding-right', 4);
-
     .left-region {
       display: none;
       margin: 0;
@@ -46,11 +42,13 @@
   }
 }
 
-.node-su-opportunity-body,
-.su-spotlights-opportunity-spotlight-ref,
-.node-su-opportunity-su-opp-eligibility,
-.node-su-opportunity-su-opp-solo-url {
-  @include modular-spacing('margin-bottom', 6);
+.flex-lg-3-of-12 {
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: fit-content;
+  @include modular-spacing('padding', 1);
 }
 
 .node-su-opportunity-su-opp-solo-url {
@@ -58,23 +56,21 @@
   justify-content: center;
 }
 
-.opportunity {
-  .flex-lg-3-of-12 {
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13), 0 3px 6px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    height: fit-content;
-    padding: 3.2rem;
+.opportunity-body-content-container {
+  @include modular-spacing('margin-top', 5);
 
-    div:last-child {
+  .flex-lg-3-of-12 {
+    .node-su-opportunity-su-opp-solo-url {
       margin-bottom: 0;
     }
   }
-}
 
-.opportunity-body-content-container {
-  @include modular-spacing('margin-top', 5);
+  .node-su-opportunity-body,
+  .su-spotlights-opportunity-spotlight-ref,
+  .node-su-opportunity-su-opp-eligibility,
+  .node-su-opportunity-su-opp-solo-url {
+    @include modular-spacing('margin-bottom', 6);
+  }
 
   .node-su-opportunity-su-opp-location,
   .node-su-opportunity-su-opp-duration,
@@ -170,6 +166,7 @@
   }
 }
 
+// Homepage Opportunity Filter Styles
 .views-exposed-filter-block {
   &.su-opportunities-filtered-all {
     label {
@@ -195,6 +192,7 @@
   }
 }
 
+// Related Opportunities Styling
 .view {
   &.related {
     @include grid-media-max('md') {
