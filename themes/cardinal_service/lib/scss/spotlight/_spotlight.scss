@@ -36,7 +36,9 @@
 
 .node-su-spotlight-title {
   h1 {
+    @include modular-spacing('margin-bottom', 4);
     @include modular-typography(4);
+    text-align: center;
     margin: 0;
   }
 }
