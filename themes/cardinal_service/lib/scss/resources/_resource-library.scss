@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+.cs-resources {
+  .flex-3-of-12 {
+    background: $su-color-white;
+    border: 1px solid $su-color-cool-grey-15;
+    box-shadow: 0 3px 6px rgba($su-color-black, 0.13), 0 3px 6px rgba($su-color-black, 0.1);
+    box-sizing: border-box;
+    @include modular-spacing('margin-bottom', 3);
+  }
+
+  .views-field-su-page-resource-icon {
+    height: 218px;
+    background: $cs-color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .views-field-title {
+    @include modular-spacing('padding', 2);
+  }
+}
