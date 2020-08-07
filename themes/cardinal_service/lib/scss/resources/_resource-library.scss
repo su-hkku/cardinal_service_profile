@@ -1,11 +1,16 @@
 @charset 'UTF-8';
 
 .cs-resources {
+  a {
+    @include link($su-color-white, $su-color-black);
+  }
+
   .flex-3-of-12 {
     background: $su-color-white;
     border: 1px solid $su-color-cool-grey-15;
     box-shadow: 0 3px 6px rgba($su-color-black, 0.13), 0 3px 6px rgba($su-color-black, 0.1);
     box-sizing: border-box;
+    height: fit-content;
     @include modular-spacing('margin-bottom', 3);
   }
 
@@ -25,3 +30,46 @@
     @include modular-spacing('padding', 2);
   }
 }
+
+.color-2596d1 {
+  .views-field-title {
+    background: $cs-color-blue;
+  }
+}
+
+.color-fb9b2b {
+  .views-field-title {
+    background: $cs-color-gold;
+  }
+}
+
+.color-643666 {
+  .views-field-title {
+    background: $cs-color-purple;
+  }
+}
+
+.color-175e54 {
+  .views-field-title {
+    background: $su-color-palo-alto;
+  }
+}
+
+.color-199969 {
+  .views-field-title {
+    background: $cs-color-bright-green;
+  }
+}
+
+.color-b1040e {
+  .views-field-title {
+    background: $su-color-bright-red;
+  }
+}
+
+[class*="color-"][class*="program-"] {
+  .views-field-title {
+    background: $su-color-cardinal-red;
+  }
+}
+
