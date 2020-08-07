@@ -1,6 +1,10 @@
 @charset 'UTF-8';
 
 .su-spotlights-list {
+  .views-row {
+    @include modular-spacing('margin-bottom', 2);
+  }
+
   .su-card {
     @include modular-spacing('padding', 3);
 
