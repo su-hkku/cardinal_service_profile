@@ -159,10 +159,10 @@ third_party_settings:
             region: main
             configuration:
               id: 'views_block:cs_resources-3_related'
-              label: ''
+              label: 'Related Resources'
               provider: views
               label_display: visible
-              views_label: ''
+              views_label: 'Related Resources'
               items_per_page: none
               context_mapping: {  }
             additional: {  }
