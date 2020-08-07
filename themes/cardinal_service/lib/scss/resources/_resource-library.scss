@@ -2,10 +2,17 @@
 
 .cs-resources {
   a {
-    @include link($su-color-white, $su-color-black);
+    color: $su-color-white;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 
-  .flex-3-of-12 {
+  .views-row {
     background: $su-color-white;
     border: 1px solid $su-color-cool-grey-15;
     box-shadow: 0 3px 6px rgba($su-color-black, 0.13), 0 3px 6px rgba($su-color-black, 0.1);
@@ -31,45 +38,57 @@
   }
 }
 
-.color-2596d1 {
-  .views-field-title {
-    background: $cs-color-blue;
+.resource-color {
+  &.color-2596d1 {
+    .views-field-title {
+      background: $cs-color-blue;
+    }
+  }
+
+  &.color-fb9b2b {
+    .views-field-title {
+      background: $cs-color-gold;
+    }
+  }
+
+  &.color-643666 {
+    .views-field-title {
+      background: $cs-color-purple;
+    }
+  }
+
+  &.color-175e54 {
+    .views-field-title {
+      background: $su-color-palo-alto;
+    }
+  }
+
+  &.color-199969 {
+    .views-field-title {
+      background: $cs-color-bright-green;
+    }
+  }
+
+  &.color-b1040e {
+    .views-field-title {
+      background: $su-color-bright-red;
+    }
+  }
+
+  &[class*="color-"][class*="program-"][class*="--"] {
+    .views-field-title {
+      background: $su-color-cardinal-red;
+    }
   }
 }
 
-.color-fb9b2b {
-  .views-field-title {
-    background: $cs-color-gold;
+// Individual Resource Page Styles
+
+.cs-resources-3-related {
+  text-align: center;
+
+  .cs-resources {
+    display: flex;
+    justify-content: space-around;
   }
 }
-
-.color-643666 {
-  .views-field-title {
-    background: $cs-color-purple;
-  }
-}
-
-.color-175e54 {
-  .views-field-title {
-    background: $su-color-palo-alto;
-  }
-}
-
-.color-199969 {
-  .views-field-title {
-    background: $cs-color-bright-green;
-  }
-}
-
-.color-b1040e {
-  .views-field-title {
-    background: $su-color-bright-red;
-  }
-}
-
-[class*="color-"][class*="program-"] {
-  .views-field-title {
-    background: $su-color-cardinal-red;
-  }
-}
-
