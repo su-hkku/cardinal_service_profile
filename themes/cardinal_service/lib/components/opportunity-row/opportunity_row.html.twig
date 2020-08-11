@@ -11,38 +11,49 @@
       </h3>
 
       <div class="su-opportunity-body-content">
-        {% if application_deadline|render %}
           <div class="su-opportunity-row-application-deadline">
             <div>
               <h4>{{ 'Application Deadline'|t }}:</h4>
+              {% if application_deadline|render %}
               <div>{{ application_deadline }}</div>
+              {% else %}
+                <div>{{ 'N/A'|t }}</div>
+              {% endif %}
             </div>
           </div>
-        {% endif %}
-        {% if location|render %}
+
           <div class="su-opportunity-row-location">
             <div>
               <h4>{{ 'Location'|t }}:</h4>
+              {% if location|render %}
               <div>{{ location }}</div>
+              {% else %}
+              <div>{{ 'N/A'|t }}</div>
+              {% endif %}
             </div>
           </div>
-        {% endif %}
-        {% if when|render %}
+
           <div class="su-opportunity-row-duration">
             <div>
               <h4>{{ 'When'|t }}:</h4>
+              {% if when|render %}
               <div>{{ when }}</div>
+              {% else %}
+                <div>{{ 'N/A'|t }}</div>
+              {% endif %}
             </div>
           </div>
-        {% endif %}
-        {% if open_to|render %}
+
           <div class="su-opportunity-row-open-to">
             <div>
               <h4>{{ 'Open to'|t }}:</h4>
+              {% if open_to|render %}
               <div>{{ open_to }}</div>
+              {% else %}
+                <div>{{ 'N/A'|t }}</div>
+              {% endif %}
             </div>
           </div>
-        {% endif %}
       </div>
     </div>
 

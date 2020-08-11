@@ -166,6 +166,11 @@
   }
 }
 
+// Homepage Opportunities Filter Style
+.su-hero {
+  @include modular-spacing('margin-bottom', 3);
+}
+
 // Related Opportunities Styling
 .view {
   &.related {

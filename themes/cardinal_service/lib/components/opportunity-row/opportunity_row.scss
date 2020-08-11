@@ -20,9 +20,19 @@
     }
   }
 
-  a {
-    @include link($su-color-bright-red);
-    text-decoration: none;
+  h3 {
+    @include modular-typography(3);
+    font-weight: 700;
+
+    a {
+      @include link($su-color-bright-red);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
   }
 
   @include grid-media-max('lg') {
@@ -70,6 +80,7 @@
 
     &::before {
       font-family: 'Font Awesome\ 5 Free';
+      @include modular-typography(0);
       font-weight: 900;
       position: absolute;
     }
