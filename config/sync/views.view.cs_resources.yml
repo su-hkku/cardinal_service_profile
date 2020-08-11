@@ -4,19 +4,14 @@ status: true
 dependencies:
   config:
     - field.storage.node.su_page_resource_dimension
-    - field.storage.node.su_page_resource_icon
     - field.storage.taxonomy_term.su_dimension_color
-    - field.storage.taxonomy_term.su_resource_type_icon
-    - image.style.medium
     - node.type.stanford_page
     - taxonomy.vocabulary.cs_resource_audience
     - taxonomy.vocabulary.cs_resource_type
     - taxonomy.vocabulary.su_opportunity_dimension
   module:
     - color_field
-    - image
     - node
-    - stanford_media
     - taxonomy
     - user
     - views_field_view
@@ -1104,15 +1099,6 @@ display:
           admin_label: 'su_page_resource_dimension: Taxonomy term'
           required: false
           plugin_id: standard
-        su_page_resource_type:
-          id: su_page_resource_type
-          table: node__su_page_resource_type
-          field: su_page_resource_type
-          relationship: none
-          group_type: group
-          admin_label: 'su_page_resource_type: Taxonomy term'
-          required: false
-          plugin_id: standard
       defaults:
         relationships: false
         fields: false
@@ -1125,135 +1111,6 @@ display:
         header: false
         css_class: false
       fields:
-        su_resource_type_icon:
-          id: su_resource_type_icon
-          table: taxonomy_term__su_resource_type_icon
-          field: su_resource_type_icon
-          relationship: su_page_resource_type
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: medium
-            image_link: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        su_page_resource_icon:
-          id: su_page_resource_icon
-          table: node__su_page_resource_icon
-          field: su_page_resource_icon
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '{{ su_resource_type_icon }}'
-          hide_empty: false
-          empty_zero: true
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: media_image_formatter
-          settings:
-            view_mode: default
-            image_style: medium
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -1496,6 +1353,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.su_page_resource_dimension'
-        - 'config:field.storage.node.su_page_resource_icon'
         - 'config:field.storage.taxonomy_term.su_dimension_color'
-        - 'config:field.storage.taxonomy_term.su_resource_type_icon'
