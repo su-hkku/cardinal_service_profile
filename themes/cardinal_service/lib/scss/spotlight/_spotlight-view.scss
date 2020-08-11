@@ -15,7 +15,7 @@
   }
 
   blockquote {
-    font-family: Roboto Slab;
+    font-family: Roboto Slab, 'sans-serif';
     margin: 0;
 
     .su-quote__quote {
@@ -38,12 +38,13 @@
       .views-field-su-spotlight-context {
         order: 2;
         @include modular-typography(0);
-        @include modular-spacing('margin-bottom', 3);
+        @include modular-spacing('margin-bottom', 1);
         font-style: italic;
       }
 
       .su-quote__heading {
         order: 3;
+        margin: 0;
         @include modular-typography(1);
       }
 
@@ -51,9 +52,9 @@
         order: 4;
       }
 
-      .views-field-body {
+      .su-link--action {
         order: 5;
-        @include modular-spacing('margin-top', 4);
+        @include modular-spacing('margin-top', 2);
       }
     }
 
