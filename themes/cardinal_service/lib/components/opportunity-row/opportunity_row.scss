@@ -64,7 +64,14 @@
     }
 
     h4 {
+      @include modular-typography(0);
+      font-weight: 700;
       margin-bottom: 0.5rem;
+    }
+
+    > div > div {
+      @include modular-typography(0);
+      font-weight: normal;
     }
   }
 
@@ -80,7 +87,7 @@
 
     &::before {
       font-family: 'Font Awesome\ 5 Free';
-      @include modular-typography(0);
+      @include modular-typography(-1);
       font-weight: 900;
       position: absolute;
     }
