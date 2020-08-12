@@ -7,8 +7,8 @@
   @include modular-spacing('padding-right', 5);
 
   .left-region {
-    margin-top: 2.5rem;
-    margin-bottom: -2.5rem;
+    position: relative;
+    top: 3rem;
 
     img {
       height: 100%;
