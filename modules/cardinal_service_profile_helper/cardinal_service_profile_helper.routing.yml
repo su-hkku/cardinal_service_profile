@@ -1,4 +1,12 @@
-csv_importer.template:
+cardinal_service.csv_importer:
+  path: '/admin/content/import'
+  defaults:
+    _form: '\Drupal\cardinal_service_profile_helper\Form\CsvImporterForm'
+    _title: 'CSV Importer'
+  requirements:
+    _permission: 'administer nodes'
+
+cardinal_service.csv_template:
   path: '/admin/content/csv-template/{node_type}'
   defaults:
     _controller: '\Drupal\cardinal_service_profile_helper\Controller\NodeCsvTemplate::getTemplate'
