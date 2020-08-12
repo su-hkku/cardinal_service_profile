@@ -17,7 +17,7 @@
               {% if application_deadline|render %}
               <div>{{ application_deadline }}</div>
               {% else %}
-                <div>{{ 'N/A'|t }}</div>
+                <div><em>{{ 'N/A'|t }}</em></div>
               {% endif %}
             </div>
           </div>
@@ -28,7 +28,7 @@
               {% if location|render %}
               <div>{{ location }}</div>
               {% else %}
-              <div>{{ 'N/A'|t }}</div>
+                <div><em>{{ 'N/A'|t }}</em></div>
               {% endif %}
             </div>
           </div>
@@ -39,7 +39,7 @@
               {% if when|render %}
               <div>{{ when }}</div>
               {% else %}
-                <div>{{ 'N/A'|t }}</div>
+                <div><em>{{ 'N/A'|t }}</em></div>
               {% endif %}
             </div>
           </div>
@@ -50,7 +50,7 @@
               {% if open_to|render %}
               <div>{{ open_to }}</div>
               {% else %}
-                <div>{{ 'N/A'|t }}</div>
+                <div><em>{{ 'N/A'|t }}</em></div>
               {% endif %}
             </div>
           </div>
