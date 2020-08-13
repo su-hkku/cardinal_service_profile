@@ -7,7 +7,7 @@ cardinal_service.csv_importer:
     _permission: 'administer nodes'
 
 cardinal_service.csv_template:
-  path: '/admin/content/csv-template/{node_type}'
+  path: '/admin/content/csv-template/{migration}'
   defaults:
     _controller: '\Drupal\cardinal_service_profile_helper\Controller\NodeCsvTemplate::getTemplate'
     _title: 'Import CSV'
@@ -15,5 +15,5 @@ cardinal_service.csv_template:
     _permission: 'administer nodes'
   options:
     parameters:
-      node_type:
-        type: entity:node_type
+      migration:
+        type: entity:migration

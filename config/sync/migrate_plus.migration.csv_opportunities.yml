@@ -11,7 +11,7 @@ migration_group: opportunities
 label: 'CSV Opportunities'
 source:
   plugin: csv
-  path: '/var/www/ace-gryphon/test-migrate.csv'
+  path: '/tmp/foo.csv'
   constants:
     status: 1
     type: su_opportunity
@@ -26,17 +26,17 @@ source:
       label: ID
       selector: id
     -
-      name: title
-      label: Title
-      selector: TITLE
-    -
       name: status
       label: Status
       selector: status
     -
+      name: title
+      label: Title
+      selector: title
+    -
       name: url
-      label: URL
-      selector: url
+      label: Learn More Link URL
+      selector: learn_more_url
     -
       name: submission_open
       label: 'Submission Open Date'
@@ -50,8 +50,8 @@ source:
       label: Sponsor
       selector: sponsor
     -
-      name: teaser
-      label: Teaser
+      name: summary
+      label: Summary
       selector: summary
     -
       name: body
@@ -59,15 +59,15 @@ source:
       selector: body
     -
       name: image
-      label: Image
-      selector: image
+      label: Image URL
+      selector: image_url
     -
       name: eligibility
       label: Eligibility
       selector: eligibility
     -
       name: type
-      label: Type
+      label: Type of Opportunity
       selector: type
     -
       name: time_of_year
@@ -99,7 +99,7 @@ source:
       selector: service_theme
     -
       name: program
-      label: 'CS Program'
+      label: 'Program'
       selector: program
   ids: [id]
 process:
@@ -117,7 +117,7 @@ process:
     default_value: 1
     strict: true
   type: constants/type
-  body/summary: teaser
+  body/summary: summary
   body/value: body
   body/format: constants/basic_html
   su_opp_contact_email: contact_email
