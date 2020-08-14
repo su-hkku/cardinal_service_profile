@@ -1,18 +1,18 @@
-uuid: 1fcd14aa-ad05-4e88-822b-038eaf66169a
+uuid: e492b3b9-8e7a-414c-ab20-bc1616e1fb4e
 langcode: en
 status: true
 dependencies:
   module:
+    - config_pages
     - field_permissions
     - file
     - image
-    - taxonomy
 third_party_settings:
   field_permissions:
     permission_type: public
-id: taxonomy_term.su_resource_type_icon
-field_name: su_resource_type_icon
-entity_type: taxonomy_term
+id: config_pages.su_upload_logo_image
+field_name: su_upload_logo_image
+entity_type: config_pages
 type: image
 settings:
   uri_scheme: public

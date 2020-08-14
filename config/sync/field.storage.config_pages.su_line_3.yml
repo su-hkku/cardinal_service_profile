@@ -1,20 +1,21 @@
-uuid: fba13019-17f0-4ea7-8aa1-c57e018e65c2
+uuid: 6fc96ed8-9559-4bff-926c-ee5c82457811
 langcode: en
 status: true
 dependencies:
   module:
+    - config_pages
     - field_permissions
-    - media
-    - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.su_page_resource_icon
-field_name: su_page_resource_icon
-entity_type: node
-type: entity_reference
+id: config_pages.su_line_3
+field_name: su_line_3
+entity_type: config_pages
+type: string
 settings:
-  target_type: media
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1
