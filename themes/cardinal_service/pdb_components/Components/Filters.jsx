@@ -69,7 +69,7 @@ const MoreFilterBtn = styled.button`
 `
 
 const ResultsContainer = styled.div`
-  margin-bottom: 58px;
+  margin-bottom: 18px;
 `;
 
 export class Filters extends Component {

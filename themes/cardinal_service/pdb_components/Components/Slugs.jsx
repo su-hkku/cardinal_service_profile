@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-bottom: 36px;
+
+  h2 {
+  margin: 10px;
+  }
+`;
 
 const SlugWrapper = styled.div`
   display: inline-block;
-  margin-bottom: 10px;
   margin-right: 18px;
-  padding: 6px 20px;
   width: auto;
   color: #7A7B7E;
   font-size: 24px;

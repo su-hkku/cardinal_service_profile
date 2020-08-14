@@ -156,7 +156,6 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
   return (
     <Container className="filter-select-container">
       <Autocomplete
-        open
         classes={myStyles}
         disableCloseOnSelect
         label={label}

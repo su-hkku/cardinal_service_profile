@@ -1,0 +1,19 @@
+.sort-links a {
+  &:nth-child(1),
+  &:nth-child(2) {
+    text-decoration: none;
+  }
+
+  &:nth-child(2) {
+    margin-left: 10px;
+  }
+
+  &.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .fas {
+    margin: 0 10px;
+  }
+}
