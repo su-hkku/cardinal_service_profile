@@ -24,6 +24,10 @@ source:
       label: ID
       selector: id
     -
+      name: existing_nid
+      label: 'Existing Content ID Number'
+      selector: existing_id
+    -
       name: status
       label: Status
       selector: status
@@ -74,6 +78,7 @@ source:
   ids:
     - id
 process:
+  nid: existing_id
   title: title
   revision_translation_affected:
     -
