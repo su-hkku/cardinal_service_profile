@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   margin-bottom: 36px;
 
   h2 {
-  margin: 10px;
+  margin-bottom: 10px;
   }
 `;
 
