@@ -218,7 +218,11 @@ class CsvImporterForm extends FormBase {
   protected function getMigration($migration_id) {
     try {
       $migrations = stanford_migrate_migration_list();
-      return $migrations['opportunities'][$migration_id];
+      foreach ($migrations as $group) {
+        if (isset($group[$migration_id])) {
+          return $group[$migration_id];
+        }
+      }
     }
     catch (\Exception $e) {
       return FALSE;

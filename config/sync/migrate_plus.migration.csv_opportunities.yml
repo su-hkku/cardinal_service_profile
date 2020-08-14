@@ -23,7 +23,7 @@ source:
   fields:
     -
       name: id
-      label: ID
+      label: 'ID *Required'
       selector: id
     -
       name: existing_nid
@@ -35,24 +35,8 @@ source:
       selector: status
     -
       name: title
-      label: Title
+      label: 'Title *Required'
       selector: title
-    -
-      name: url
-      label: 'Learn More Link URL'
-      selector: learn_more_url
-    -
-      name: submission_open
-      label: 'Submission Open Date'
-      selector: open_date
-    -
-      name: application_deadline
-      label: 'Application Deadline'
-      selector: application_deadline_date
-    -
-      name: sponsor
-      label: Sponsor
-      selector: sponsor
     -
       name: summary
       label: Summary
@@ -62,6 +46,18 @@ source:
       label: Body
       selector: body
     -
+      name: url
+      label: 'Learn More Link URL'
+      selector: learn_more_url
+    -
+      name: application_deadline
+      label: 'Application Deadline'
+      selector: application_deadline_date
+    -
+      name: time_of_year
+      label: 'Time of the Year'
+      selector: time
+    -
       name: image
       label: 'Image URL'
       selector: image_url
@@ -70,13 +66,9 @@ source:
       label: Eligibility
       selector: eligibility
     -
-      name: type
+      name: opportunity_type
       label: 'Type of Opportunity'
-      selector: type
-    -
-      name: time_of_year
-      label: 'Time of the Year'
-      selector: time
+      selector: opportunity_type
     -
       name: open_to
       label: 'Open To'
@@ -105,10 +97,26 @@ source:
       name: program
       label: Program
       selector: program
+    -
+      name: pathway
+      label: Pathway
+      selector: pathway
+    -
+      name: placement_type
+      label: 'Placement Type'
+      selector: placement_type
+    -
+      name: sponsor
+      label: Sponsor
+      selector: sponsor
+    -
+      name: time_commitment
+      label: 'Time Commitment'
+      selector: time_commitment
   ids:
     - id
 process:
-  nid: existing_id
+  nid: existing_nid
   title: title
   revision_translation_affected:
     -
@@ -132,6 +140,8 @@ process:
   su_opp_eligibility/value: eligibility
   su_opp_eligibility/format: constants/basic_html
   su_opp_solo_url/uri: url
+  su_opp_learn_more/uri: url
+  su_opp_learn_more/title: constants/learn_more_link_title
   su_opp_dimension:
     source: program
     plugin: entity_generate
@@ -167,16 +177,6 @@ process:
       plugin: callback
       source: constants/apply_link_title
       callable: ucfirst
-  su_opp_learn_more/uri: learn_more
-  su_opp_learn_more/title:
-    -
-      plugin: skip_on_empty
-      source: learn_more
-      method: process
-    -
-      plugin: callback
-      source: constants/learn_more_link_title
-      callable: ucwords
   su_opp_location:
     -
       plugin: skip_on_empty
@@ -184,7 +184,7 @@ process:
       method: process
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: ;
     -
       plugin: callback
       callable: trim
@@ -202,7 +202,7 @@ process:
       method: process
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: ;
     -
       plugin: callback
       callable: trim
@@ -222,7 +222,7 @@ process:
       method: process
     -
       plugin: explode
-      delimiter: ', '
+      delimiter: ;
     -
       plugin: callback
       callable: trim
@@ -270,6 +270,9 @@ process:
       method: process
       source: application_deadline
     -
+      plugin: callback
+      callable: strtotime
+    -
       plugin: format_date
       from_format: U
       to_format: 'Y-m-d\TH:i:s'
@@ -277,48 +280,96 @@ process:
       to_timezone: UTC
       settings:
         validate_format: false
-  su_opp_submissions_open:
+  su_opp_pathway:
     -
       plugin: skip_on_empty
+      source: pathway
       method: process
-      source: submission_open
     -
-      plugin: format_date
-      from_format: U
-      to_format: 'Y-m-d\TH:i:s'
-      from_timezone: America/Los_Angeles
-      to_timezone: UTC
-      settings:
-        validate_format: false
-  su_opp_duration/value:
+      plugin: explode
+      delimiter: ;
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_pathway
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_placement_type:
     -
       plugin: skip_on_empty
+      source: placement_type
       method: process
-      source: start
     -
-      plugin: format_date
-      from_format: U
-      to_format: 'Y-m-d\TH:i:s'
-      from_timezone: America/Los_Angeles
-      to_timezone: UTC
-      settings:
-        validate_format: false
-  su_opp_duration/end_value:
+      plugin: explode
+      delimiter: ;
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_placement_type
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_type:
     -
       plugin: skip_on_empty
+      source: opportunity_type
       method: process
-      source: start
     -
-      plugin: format_date
-      from_format: U
-      to_format: 'Y-m-d\TH:i:s'
-      from_timezone: America/Los_Angeles
-      to_timezone: UTC
-      settings:
-        validate_format: false
+      plugin: explode
+      delimiter: ;
     -
-      plugin: default_value
-      default_value: '@su_opp_duration/value'
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_type
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_sponsor:
+    -
+      plugin: skip_on_empty
+      source: sponsor
+      method: process
+    -
+      plugin: explode
+      delimiter: ;
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_sponsor
+      entity_type: taxonomy_term
+      ignore_case: true
+  su_opp_commitment:
+    -
+      plugin: skip_on_empty
+      source: time_commitment
+      method: process
+    -
+      plugin: explode
+      delimiter: ;
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_commitment
+      entity_type: taxonomy_term
+      ignore_case: true
 destination:
   plugin: 'entity_reference_revisions:node'
   new_revisions: true

@@ -21,7 +21,7 @@ source:
   fields:
     -
       name: id
-      label: ID
+      label: 'ID *Required'
       selector: id
     -
       name: existing_nid
@@ -33,7 +33,7 @@ source:
       selector: status
     -
       name: title
-      label: Title
+      label: 'Title *Required'
       selector: title
     -
       name: student_name
@@ -78,7 +78,7 @@ source:
   ids:
     - id
 process:
-  nid: existing_id
+  nid: existing_nid
   title: title
   revision_translation_affected:
     -
@@ -93,7 +93,7 @@ process:
     default_value: 1
     strict: true
   type: constants/type
-  body/value: body
+  body/value: story
   body/format: constants/basic_html
   su_spotlight_context: caption
   su_spotlight_grad_area: name_subtitle
