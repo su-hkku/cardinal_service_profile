@@ -7,11 +7,11 @@ class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags: {  }
-migration_group: opportunities
+migration_group: csv_importers
 label: 'CSV Opportunities'
 source:
   plugin: csv
-  path: '/tmp/foo.csv'
+  path: /tmp/foo.csv
   constants:
     status: 1
     type: su_opportunity
@@ -35,7 +35,7 @@ source:
       selector: title
     -
       name: url
-      label: Learn More Link URL
+      label: 'Learn More Link URL'
       selector: learn_more_url
     -
       name: submission_open
@@ -59,7 +59,7 @@ source:
       selector: body
     -
       name: image
-      label: Image URL
+      label: 'Image URL'
       selector: image_url
     -
       name: eligibility
@@ -67,7 +67,7 @@ source:
       selector: eligibility
     -
       name: type
-      label: Type of Opportunity
+      label: 'Type of Opportunity'
       selector: type
     -
       name: time_of_year
@@ -99,9 +99,10 @@ source:
       selector: service_theme
     -
       name: program
-      label: 'Program'
+      label: Program
       selector: program
-  ids: [id]
+  ids:
+    - id
 process:
   title: title
   revision_translation_affected:
