@@ -5,12 +5,27 @@ h3,
 h4,
 h5 {
   a {
-    @include link($su-color-bright-red);
+    @include link($su-color-bright-red, $su-color-black);
     text-decoration: none;
 
     &:hover,
     &:focus {
       text-decoration: underline;
     }
+  }
+}
+
+.button {
+  padding: 1rem 2rem 1.15rem;
+  background-color: $su-color-bright-red;
+  color: $su-color-white;
+  text-decoration: none;
+  transition: background-color 0.25s ease-in-out,color 0.25s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: $su-color-black;
+    color: $su-color-white;
+    text-decoration: underline;
   }
 }
