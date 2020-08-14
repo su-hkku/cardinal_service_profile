@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.su_opportunity.su_opp_dimension
     - field.field.node.su_opportunity.su_opp_duration
     - field.field.node.su_opportunity.su_opp_eligibility
+    - field.field.node.su_opportunity.su_opp_event_date
     - field.field.node.su_opportunity.su_opp_image
     - field.field.node.su_opportunity.su_opp_learn_more
     - field.field.node.su_opportunity.su_opp_location
@@ -201,7 +202,7 @@ third_party_settings:
                 type: datetime_custom
                 settings:
                   timezone_override: ''
-                  date_format: 'F j, Y'
+                  date_format: 'F j, Y | g:i A'
                 third_party_settings:
                   field_formatter_class:
                     class: ''
@@ -489,6 +490,7 @@ hidden:
   su_opp_contact_phone: true
   su_opp_duration: true
   su_opp_eligibility: true
+  su_opp_event_date: true
   su_opp_image: true
   su_opp_learn_more: true
   su_opp_location: true
