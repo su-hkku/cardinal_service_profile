@@ -57,6 +57,18 @@ class CsvImporterForm extends FormBase {
     );
   }
 
+  /**
+   * CsvImporterForm constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   Entity Type Manager Service.
+   * @param \Drupal\Core\File\FileSystemInterface $fileSystem
+   *   File system service.
+   * @param \Drupal\Core\Cache\CacheBackendInterface $cache
+   *   Caching service.
+   * @param \Drupal\Core\Database\Connection $database
+   *   Database connection service.
+   */
   public function __construct(EntityTypeManagerInterface $entityTypeManager, FileSystemInterface $fileSystem, CacheBackendInterface $cache, Connection $database) {
     $this->entityTypeManager = $entityTypeManager;
     $this->fileSystem = $fileSystem;
@@ -114,27 +126,32 @@ class CsvImporterForm extends FormBase {
     /** @var \Drupal\file\FileInterface $file */
     $file = $this->entityTypeManager->getStorage('file')
       ->load($form_state->getValue(['csv', 0]));
-    if (!file_exists($file->getFileUri())) {
+    if (!$file || !file_exists($file->getFileUri())) {
       $form_state->setError($form['csv'], $this->t('Unable to load file'));
       return;
     }
     $finput = fopen($file->getFileUri(), 'r');
     $header = fgetcsv($finput);
     fclose($finput);
+    $migration = $this->getMigration($form_state->getValue('migration'));
 
-    if ($migration = $this->getMigration($form_state->getValue('migration'))) {
-      $migration_fields = $migration->getSourceConfiguration()['fields'];
-      array_walk($migration_fields, function (&$field) {
-        $field = $field['selector'];
-      });
+    if (!$migration) {
+      $form_state->setError($form['migration'], $this->t('No migration by that name. Please check the configuration.'));
+      return;
+    }
 
-      foreach ($header as $key => $header_value) {
-        if (!isset($migration_fields[$key]) || $migration_fields[$key] != $header_value) {
-          $form_state->setError($form['csv'], $this->t('Invalid headers order.'));
-          return;
-        }
+    $migration_fields = $migration->getSourceConfiguration()['fields'];
+    array_walk($migration_fields, function (&$field) {
+      $field = $field['selector'];
+    });
+
+    foreach ($header as $key => $header_value) {
+      if (!isset($migration_fields[$key]) || $migration_fields[$key] != $header_value) {
+        $form_state->setError($form['csv'], $this->t('Invalid headers order.'));
+        return;
       }
     }
+
   }
 
   /**
@@ -171,6 +188,7 @@ class CsvImporterForm extends FormBase {
       $count = $this->getNodeCount() - $before_count;
       $this->messenger()
         ->addStatus($this->t('Imported %count items.', ['%count' => $count]));
+      // @codeCoverageIgnoreStart
     }
     catch (\Exception $e) {
       $this->logger('cardinal_service')
@@ -178,19 +196,20 @@ class CsvImporterForm extends FormBase {
       $this->messenger()
         ->addError($this->t('Unable to import CSV. Review the logs for more information'));
     }
+    // @codeCoverageIgnoreEnd
   }
 
   /**
    * Get a list of links for the available importers.
    *
-   * @return \Drupal\Core\StringTranslation\TranslatableMarkup
+   * @return array
    *   Help text markup.
    */
   protected function getHelpText() {
     $replacements = [
-      '@opportunities' => Link::createFromRoute(t('Opportunities'), 'cardinal_service.csv_template', ['migration' => 'csv_opportunities'])
+      '@opportunities' => Link::createFromRoute($this->t('Opportunities'), 'cardinal_service.csv_template', ['migration' => 'csv_opportunities'])
         ->toString(),
-      '@stories' => Link::createFromRoute(t('Spotlight'), 'cardinal_service.csv_template', ['migration' => 'csv_spotlight'])
+      '@stories' => Link::createFromRoute($this->t('Spotlight'), 'cardinal_service.csv_template', ['migration' => 'csv_spotlight'])
         ->toString(),
     ];
     $help[] = [
@@ -218,15 +237,18 @@ class CsvImporterForm extends FormBase {
   protected function getMigration($migration_id) {
     try {
       $migrations = stanford_migrate_migration_list();
+
       foreach ($migrations as $group) {
         if (isset($group[$migration_id])) {
           return $group[$migration_id];
         }
       }
+      // @codeCoverageIgnoreStart
     }
     catch (\Exception $e) {
       return FALSE;
     }
+    //@codeCoverageIgnoreEnd
   }
 
   /**
