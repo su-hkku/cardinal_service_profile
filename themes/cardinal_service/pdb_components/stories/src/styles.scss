@@ -1,0 +1,10 @@
+#stories-filters {
+  .main-filters {
+    display: flex;
+    flex-direction: row;
+
+    .filter-select-container {
+      flex-grow: 1;
+    }
+  }
+}
