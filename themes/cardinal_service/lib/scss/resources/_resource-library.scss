@@ -7,7 +7,7 @@
     div:nth-child(3n+2) {
       margin: 0 20px;
 
-      @include grid-media-max('xs'){
+      @include grid-media-max('xs') {
         margin: 0;
       }
     }
