@@ -55,6 +55,16 @@ const Container = styled.div`
       background-color: rgba(0, 108, 184, 0.04)
     }
   }
+
+  // Chip Icon Delete
+  .MuiChip-deleteIcon {
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      color: #f4f4f4;
+    }
+  }
 `;
 
 const useStyles = makeStyles({
