@@ -1,13 +1,15 @@
 @charset 'UTF-8';
 
 .cs-resources {
-  justify-content: unset;
+  &.all-list {
+    justify-content: unset;
 
-  div:nth-child(3n+2) {
-    margin: 0 20px;
+    div:nth-child(3n+2) {
+      margin: 0 20px;
 
-    @include grid-media-max('xs'){
-      margin: 0;
+      @include grid-media-max('xs'){
+        margin: 0;
+      }
     }
   }
 
