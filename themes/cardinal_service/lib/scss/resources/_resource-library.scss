@@ -4,21 +4,30 @@
   justify-content: unset;
 
   div:nth-child(3n+2) {
-    margin: 0 18px;
+    margin: 0 20px;
 
     @include grid-media-max('xs'){
       margin: 0;
     }
   }
 
+  h3 {
+    margin: 0;
+  }
+
   a {
     @include link($su-color-bright-red);
     text-decoration: none;
+    word-wrap: break-word;
 
     &:hover,
     &:focus {
       cursor: pointer;
       text-decoration: underline;
+    }
+
+    &::after {
+      background-color: $su-color-bright-red;
     }
   }
 
