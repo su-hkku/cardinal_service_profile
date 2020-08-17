@@ -26,7 +26,7 @@ const FilterContainer = styled.div`
 
 const FilterWrapper = styled.div`
   display: ${props => props.useGrid ? 'grid': 'block'};
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-bottom: 36px;
 

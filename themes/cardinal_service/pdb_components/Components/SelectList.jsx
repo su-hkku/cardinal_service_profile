@@ -201,7 +201,10 @@ export const SelectList = ({defaultValue, field, label, multiple, onChange, opti
               className={'checkbox'}
               icon={icon}
               checkedIcon={checkedIcon}
-              style={{ marginRight: 8 }}
+              style={{
+                marginRight: 8
+              }}
+              disableRipple
               checked={selected}
             />
             {option.label + ' (' + option.items.length + ')'}
