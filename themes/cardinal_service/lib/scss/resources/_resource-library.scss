@@ -1,6 +1,16 @@
 @charset 'UTF-8';
 
 .cs-resources {
+  justify-content: unset;
+
+  div:nth-child(3n+2) {
+    margin: 0 18px;
+
+    @include grid-media-max('xs'){
+      margin: 0;
+    }
+  }
+
   a {
     @include link($su-color-bright-red);
     text-decoration: none;
