@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   margin-bottom: 36px;
 
-  h2 {
-  margin-bottom: 10px;
+  h4 {
+    margin-bottom: 3px;
   }
 `;
 
@@ -14,13 +14,13 @@ const SlugWrapper = styled.div`
   margin-right: 18px;
   width: auto;
   color: #7A7B7E;
-  font-size: 24px;
+  font-size: 22px;
 `;
 
 export const Slugs = ({ filters, terms }) => {
   return (
     <Wrapper>
-      <h2>Showing Results For:</h2>
+      <h4>Showing Results For:</h4>
       {Object.keys(filters).map((fieldName) => {
         if (typeof terms[fieldName] !== 'undefined') {
           return filters[fieldName].map((tid) => (
