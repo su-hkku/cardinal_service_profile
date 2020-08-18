@@ -2,7 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin-bottom: 36px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 36px;
+  }
+
+  @media (min-width: 1500px) {
+    margin-bottom: 38px;
+  }
 
   h4 {
     margin-bottom: 3px;
@@ -14,7 +22,15 @@ const SlugWrapper = styled.div`
   margin-right: 18px;
   width: auto;
   color: #7A7B7E;
-  font-size: 22px;
+  font-size: 20px;
+
+  @media (min-width: 768px) {
+    font-size: 22.5px;
+  }
+
+  @media (min-width: 1500px) {
+    font-size: 23.75px;
+  }
 `;
 
 export const Slugs = ({ filters, terms }) => {
