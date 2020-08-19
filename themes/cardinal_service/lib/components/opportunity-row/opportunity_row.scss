@@ -22,16 +22,9 @@
 
   h3 {
     @include modular-typography(3);
-    font-weight: 700;
 
     a {
-      @include link($su-color-bright-red);
-      text-decoration: none;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
+      font-weight: 700;
     }
   }
 
