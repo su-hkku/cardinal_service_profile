@@ -130,6 +130,7 @@ class CsvImporterForm extends FormBase {
       $form_state->setError($form['csv'], $this->t('Unable to load file'));
       return;
     }
+
     $finput = fopen($file->getFileUri(), 'r');
     $header = fgetcsv($finput);
     fclose($finput);
@@ -146,6 +147,7 @@ class CsvImporterForm extends FormBase {
     });
 
     foreach ($header as $key => $header_value) {
+      $header_value = preg_replace('/ .*?$/', '', $header_value);
       if (!isset($migration_fields[$key]) || $migration_fields[$key] != $header_value) {
         $form_state->setError($form['csv'], $this->t('Invalid headers order.'));
         return;
@@ -218,7 +220,7 @@ class CsvImporterForm extends FormBase {
       '#suffix' => '</p>',
     ];
     $help[] = [
-      '#markup' => $this->t('Before uploading, remove the words in the parentheses (including the parentheses) from the header row. For multiple value fields, separate each value with a semicolon.'),
+      '#markup' => $this->t('Leave the "existing_id" column empty unless you wish to update an existing piece of content. Be aware, this will overwrite all existing field information. For multiple value fields, separate each value with a semicolon.'),
       '#prefix' => '<p>',
       '#suffix' => '</p>',
     ];

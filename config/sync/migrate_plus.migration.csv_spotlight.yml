@@ -103,7 +103,7 @@ process:
   su_opp_open_to:
     -
       plugin: skip_on_empty
-      source: program
+      source: open_to
       method: process
     -
       plugin: explode
