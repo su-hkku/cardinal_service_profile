@@ -75,6 +75,10 @@ source:
       name: program
       label: 'Opportunity''s Program'
       selector: program
+    -
+      name: image
+      label: 'Image URL'
+      selector: image_url
   ids:
     - id
 process:
