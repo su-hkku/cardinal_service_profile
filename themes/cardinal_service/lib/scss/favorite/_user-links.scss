@@ -88,6 +88,13 @@
       display: inline-block;
       text-decoration: none;
       color: #4d4f53;
+      width: 100px;
+      height: 22px;
+      overflow: hidden;
+
+      @include grid-media-max('sm') {
+        height: 20px;
+      }
 
       &::before {
         font-family: 'Font Awesome 5 Free';
@@ -147,5 +154,11 @@
         }
       }
     }
+  }
+}
+
+@include grid-media-max('xs') {
+  .su-multi-menu {
+    padding-top: 10px;
   }
 }
