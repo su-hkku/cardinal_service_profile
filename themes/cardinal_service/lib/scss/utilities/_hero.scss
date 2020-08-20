@@ -65,6 +65,12 @@
   .su-page-banner > div,
   .contextual-region {
     height: 100%;
+
+    @include grid-media-max('sm') {
+      .node-stanford-page-su-page-banner {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
