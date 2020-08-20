@@ -125,13 +125,22 @@ process:
     value:
       - Bill Lane Center Internships
       - Freeman Spogli Institute Global Policy Internships
-      - Global Studies
-      - King Center Undergraduate Research
+      - Stanford Global Studies
+      - King Center on Global Development
       - Schneider Fellowships
       - Seed Internships
       - Stanford Arts
       - Stanford Energy Internships in California and the West (SEICW)
-  title: title
+  title:
+    -
+      plugin: str_replace
+      source: title
+      regex: true
+      search: '/^Schneider Summer Fellowships:*?$/'
+      replace: ''
+    -
+      plugin: skip_on_empty
+      method: row
   revision_translation_affected:
     -
       plugin: default_value
@@ -317,6 +326,21 @@ process:
       plugin: skip_on_equal
       compare: '@su_opp_submissions_open'
       method: process
+  su_opp_deadline_time:
+    -
+      plugin: default_value
+      default_value:
+        - Autumn
+        - Winter
+        - Spring
+        - Summer
+    -
+      plugin: entity_lookup
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_deadline
+      entity_type: taxonomy_term
+      ignore_case: true
   su_opp_duration/value:
     -
       plugin: skip_on_empty
