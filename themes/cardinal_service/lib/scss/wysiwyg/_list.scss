@@ -5,9 +5,7 @@ ol {
     > li {
       display: grid;
       grid-template-columns: auto 1fr;
-      grid-template-areas:
-        "num-list ."
-        ". nested-list";
+      grid-template-areas: "num-list ." ". nested-list";
       grid-gap: 0 25px;
       list-style: none;
       counter-increment: inst;
