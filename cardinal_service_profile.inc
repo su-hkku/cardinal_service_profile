@@ -260,14 +260,21 @@ function _cardinal_service_profile_field_mapped(NodeInterface $node, FieldDefini
 
   if ($migration_name = _cardinal_service_node_imported($node)) {
     $migration_config = \Drupal::config("migrate_plus.migration.$migration_name");
+    $migration_group = \Drupal::config('migrate_plus.migration_group.' . $migration_config->get('migration_group'));
+
     $processing = FALSE;
     foreach (array_keys($columns) as $column) {
       $processing = !$processing ? $migration_config->get("process.$field_name/$column") : TRUE;
+      $processing = $processing ?: $migration_group->get("shared_configuration.process.$field_name/$column");
     }
 
     // The field or a column of the field was mapped with data from migrate.
     // Mark it as forbidden.
-    if ($processing || $migration_config->get("process.$field_name")) {
+    if (
+      $processing ||
+      $migration_config->get("process.$field_name") ||
+      $migration_group->get("shared_configuration.process.$field_name")
+    ) {
       return TRUE;
     }
   }
