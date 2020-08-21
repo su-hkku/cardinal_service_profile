@@ -370,6 +370,21 @@ process:
     -
       plugin: default_value
       default_value: '@su_opp_duration/value'
+  su_opp_sponsor:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: sponsor
+    -
+      plugin: explode
+      delimiter: ', '
+    -
+      plugin: entity_generate
+      value_key: name
+      bundle_key: vid
+      bundle: su_opportunity_sponsor
+      entity_type: taxonomy_term
+      ignore_case: true
 destination:
   plugin: 'entity_reference_revisions:node'
   new_revisions: true
