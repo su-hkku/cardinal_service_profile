@@ -10,9 +10,7 @@ use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Link;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Url;
 use Drupal\field\FieldConfigInterface;
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
@@ -221,7 +219,6 @@ function cardinal_service_profile_form_alter(&$form, FormStateInterface $form_st
     }
   }
 }
-
 
 /**
  * Implements hook_entity_field_access().
