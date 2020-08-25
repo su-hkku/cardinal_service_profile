@@ -2,8 +2,11 @@
 
 table {
   &.cs-table--span3 {
-    td:first-child {
-      width: 25%;
+    th,
+    td {
+      &:first-child {
+        width: 25%;
+      }
     }
   }
 }
