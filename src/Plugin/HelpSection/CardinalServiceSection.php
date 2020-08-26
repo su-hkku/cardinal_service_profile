@@ -23,7 +23,7 @@ class CardinalServiceSection extends HelpSectionPluginBase {
    */
   public function listTopics() {
     $links = [];
-    $profile_path = self::getProfilePath();
+    $profile_path = $this::getProfilePath();
 
     foreach (glob("$profile_path/help/*.md") as $help_file) {
       $help_html = MarkdownExtra::defaultTransform(file_get_contents($help_file));
@@ -37,6 +37,8 @@ class CardinalServiceSection extends HelpSectionPluginBase {
 
   /**
    * Get the path to the CS profile.
+   *
+   * @codeCoverageIgnore Unit tests wont work with the function call.
    *
    * @return string
    *   Path to the CS profile
