@@ -6,12 +6,21 @@ use Drupal\Core\Controller\ControllerBase;
 use Michelf\MarkdownExtra;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Class Documentation.
+ *
+ * @package Drupal\cardinal_service_profile_helper\Controller
+ */
 class Documentation extends ControllerBase {
 
   /**
-   * @param null $document
+   * Controller callback to get the help document contents.
+   *
+   * @param string $document
+   *   Help file name.
    *
    * @return array
+   *   Help markdown markup converted to html.
    */
   public function getDocumentation($document) {
     // Invalid path.
@@ -52,4 +61,3 @@ class Documentation extends ControllerBase {
   }
 
 }
-
