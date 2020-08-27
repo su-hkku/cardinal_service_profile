@@ -5,7 +5,7 @@ namespace Drupal\cardinal_service_profile\Plugin\Validation\Constraint;
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Class ResourceFields
+ * Resource fields constraint.
  *
  * @Constraint(
  *   id = "ResourceFields",
