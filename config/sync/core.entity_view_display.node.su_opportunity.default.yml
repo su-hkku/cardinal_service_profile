@@ -123,7 +123,7 @@ third_party_settings:
                   link: false
                 third_party_settings:
                   field_delimiter:
-                    delimiter: ','
+                    delimiter: ',&nbsp;'
                   field_formatter_class:
                     class: ''
                   ds:
@@ -149,7 +149,7 @@ third_party_settings:
                   link: false
                 third_party_settings:
                   field_delimiter:
-                    delimiter: ','
+                    delimiter: ',&nbsp;'
                   field_formatter_class:
                     class: ''
                   ds:
@@ -175,7 +175,7 @@ third_party_settings:
                   link: false
                 third_party_settings:
                   field_delimiter:
-                    delimiter: ''
+                    delimiter: ',&nbsp;'
                   field_formatter_class:
                     class: ''
                   ds:
@@ -201,7 +201,7 @@ third_party_settings:
                   link: false
                 third_party_settings:
                   field_delimiter:
-                    delimiter: ''
+                    delimiter: ',&nbsp;'
                   field_formatter_class:
                     class: ''
                   ds:
