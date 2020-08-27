@@ -55,6 +55,7 @@
       width: fit-content;
       display: inline-block;
     }
+
     .su-opp-type {
       display: flex;
       flex-direction: row;
@@ -215,16 +216,13 @@
 
 // Related Opportunities Styling
 .su-opportunities-related {
-  .block__title,
-  footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  .block__title {
+    text-align: center;
   }
 }
 
 .view {
-  &.related {
+  &[class*="su-opportunities"] {
     .views-row {
       @include modular-spacing('margin-bottom', 2);
     }
@@ -236,6 +234,12 @@
 
     li {
       margin: 0;
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
     }
   }
 }
