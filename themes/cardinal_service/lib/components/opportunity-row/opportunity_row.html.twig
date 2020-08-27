@@ -1,3 +1,11 @@
+{% if time_commitment|render|striptags|trim is not empty %}
+  {% set time_commitment = (time_commitment ~ " in ")|trim %}
+{% endif %}
+
+{% if service_theme|render|striptags|trim is not empty %}
+  {% set service_theme = service_theme %}
+{% endif %}
+
 {% set date_label = 'Application Deadline'|t %}
 {% set date = 'N/A' %}
 
@@ -35,6 +43,11 @@
       <h3>
         {{ title }}
       </h3>
+      <div class="su-opportunity-row-time-commitment-service-theme">
+        <div>
+          <div>{{ time_commitment }} </div>
+        </div>
+      </div>
 
       <div class="su-opportunity-body-content {% if image %}{% else %}flex-9-of-12{% endif %}">
         <div class="su-opportunity-row-application-deadline">
