@@ -17,10 +17,6 @@
   @include modular-spacing('padding-left', 5);
   @include modular-spacing('padding-right', 5);
 
-  .su-opp-type {
-    font-weight: 600;
-  }
-
   .left-region {
     position: relative;
     top: 3rem;
@@ -33,20 +29,51 @@
 
   .main-region {
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+    @include modular-spacing('margin-bottom', 3);
 
-  .node-su-opportunity-flag-cs-favorites {
-    flex-grow: 1;
-  }
+    h1 {
+      @include modular-spacing('margin-bottom', -1);
+    }
 
-  .flag {
-    display: flex;
-    justify-content: flex-end;
+    .node-su-opportunity-flag-cs-favorites {
+      flex-grow: 1;
+    }
 
-    .fa-heart::before {
-      font-size: 28px;
+    .flag {
+      display: flex;
+      justify-content: flex-end;
+
+      .fa-heart::before {
+        font-size: 28px;
+      }
+    }
+
+    .node-su-opportunity-su-opp-dimension,
+    .node-su-opportunity-su-opp-type,
+    .node-su-opportunity-su-opp-commitment,
+    .node-su-opportunity-su-opp-service-theme {
+      width: fit-content;
+      display: inline-block;
+    }
+    .su-opp-type {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .su-opp-dimension {
+      div:last-child {
+        &::after {
+          content: ", ";
+        }
+      }
+    }
+
+    .su-opp-commitment {
+      div:last-child {
+        &::after {
+          content: " in ";
+        }
+      }
     }
   }
 
