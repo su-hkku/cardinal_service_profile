@@ -1,5 +1,16 @@
 @charset 'UTF-8';
 
+.opportunity {
+  .flex-lg-3-of-12 {
+    background: $su-color-white;
+    border: 1px solid $su-color-cool-grey-15;
+    box-shadow: 0 3px 6px rgba($su-color-black, 0.13), 0 3px 6px rgba($su-color-black, 0.1);
+    box-sizing: border-box;
+    height: fit-content;
+    @include modular-spacing('padding', 1);
+  }
+}
+
 .opportunity-header-content-container {
   background: $su-color-cloud;
   @include modular-spacing('padding-top', 4);
@@ -59,18 +70,11 @@
 }
 
 .opportunity-body-content-container {
-  .flex-lg-3-of-12 {
-    background: $su-color-white;
-    border: 1px solid $su-color-cool-grey-15;
-    box-shadow: 0 3px 6px rgba($su-color-black, 0.13), 0 3px 6px rgba($su-color-black, 0.1);
-    box-sizing: border-box;
-    height: fit-content;
-    @include modular-spacing('padding', 1);
-  }
-
   @include modular-spacing('margin-top', 5);
 
   .flex-lg-3-of-12 {
+    @include modular-spacing('margin-bottom', 4);
+
     .node-su-opportunity-su-opp-solo-url {
       margin-bottom: 0;
     }
