@@ -2,7 +2,7 @@
 {% set service_theme = service_theme|render|striptags('<drupal-render-placeholder>')|trim|convert_encoding('UTF-8', 'HTML-ENTITIES') %}
 
 {% if service_theme|render|striptags|trim is not empty %}
-  {% set time_commitment = (time_commitment ~ ' in '|t)|striptags|trim %}
+  {% set time_commitment = (time_commitment ~ ' in '|t) %}
 {% endif %}
 
 {% set date_label = 'Application Deadline'|t %}
