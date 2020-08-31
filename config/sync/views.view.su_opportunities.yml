@@ -2053,7 +2053,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<a class="su-button" href="/opportunities">See All Opportunities</a>'
+            value: ''
             format: stanford_html
           plugin_id: text
     cache_metadata:
