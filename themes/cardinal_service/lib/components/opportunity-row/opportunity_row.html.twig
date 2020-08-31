@@ -42,7 +42,7 @@
       <h3>
         {{ title }}
       </h3>
-      {% if time_commitment|render|striptags|trim is not empty || service_theme|render|striptags|trim is not empty%}
+      {% if time_commitment|render|striptags|trim is not empty or service_theme|render|striptags|trim is not empty %}
         <div class="su-opportunity-row-time-commitment-service-theme">
           <div>
             <div>{{ time_commitment }}{{ service_theme }}</div>
