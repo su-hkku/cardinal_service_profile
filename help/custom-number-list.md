@@ -5,5 +5,3 @@
 3. Create a Numbered list.
 4. From the Styles dropdown, select Circle Number List. A preview should display within the WYSIWYG.
 5. Save.
-
-![Custom Number list wysiwyg example](./images/circle-number-list.png)

@@ -8,5 +8,3 @@ The Minimal Card is a paragraph type which displays a vertical image and call to
 4. Input link.
 5. Input link text.
 6. Save.
-
-![Three minimal cards in a row example](./images/minimal-cards.png)

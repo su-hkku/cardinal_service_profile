@@ -9,8 +9,5 @@ The Resource List is a paragraph type used to display filtered resources from th
     - Program Filtered corresponds to the Program taxonomy
 5. Expand the Advanced Options section to reveal the Arguments and Number of items field.
     - Within the Arguments field, you can input multiple taxonomy terms. For example, if I wanted only Resources related to Cardinal Quarter, I would input the following:
-    ![Authoring experience for resource list paragraph](./images/resources-list-paragraph.png)
     - Within the Number of items field, you can specify the amount of resources you would like to display. The default limit is 3 for the Resource List.
 6. Save.
-
-![Resource list example](./images/resources.png)

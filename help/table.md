@@ -7,5 +7,3 @@ The ¼ Table style adjusted the first column of the table to span ¼ of the tabl
 3. Create a Table
 4. From the Styles dropdown, select ¼ Table. A preview should display within the WYSIWYG.
 5. Save.
-
-![1/4 Table style example](./images/1-4-table.png)

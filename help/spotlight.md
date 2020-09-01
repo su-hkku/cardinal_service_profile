@@ -9,12 +9,9 @@ The spotlight content types can be used in two ways:
 3. For Spotlight Quote-only:
     - Input the Author Name in Title field
     - Leave the Caption and Story text fields empty
-![Spotlight Quote Only example](./images/spotlight-quote.png)
-When relating the spotlight to a specific opportunity, this is how a quote-only spotlight will appear.
 
 4. For Spotlight Stories
     - Input Title
     - Input Author Name
     - Input Caption (optional)
     - Input Story
-![Spotlight with Story example](./images/spotlight-story.png)
