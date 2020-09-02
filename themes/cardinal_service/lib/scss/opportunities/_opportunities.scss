@@ -29,7 +29,6 @@
 
   .main-region {
     min-height: 100%;
-    @include modular-spacing('margin-bottom', 3);
 
     h1 {
       @include modular-spacing('margin-bottom', -1);
@@ -220,6 +219,8 @@
 
 // Related Opportunities Styling
 .su-opportunities-related {
+  @include modular-spacing('margin-top', 9);
+
   .block__title {
     text-align: center;
   }
