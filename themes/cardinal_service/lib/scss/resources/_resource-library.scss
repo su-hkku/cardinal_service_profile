@@ -105,6 +105,10 @@
     text-align: center;
   }
 
+  .views-row {
+    @include modular-spacing('margin-bottom', 7);
+  }
+
   .cs-resources {
     display: flex;
     justify-content: space-around;
