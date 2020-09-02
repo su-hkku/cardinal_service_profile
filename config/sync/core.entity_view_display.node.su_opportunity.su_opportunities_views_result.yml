@@ -240,6 +240,7 @@ hidden:
   su_opp_duration: true
   su_opp_eligibility: true
   su_opp_learn_more: true
+  su_opp_not_eligible: true
   su_opp_pathway: true
   su_opp_placement_type: true
   su_opp_solo_url: true

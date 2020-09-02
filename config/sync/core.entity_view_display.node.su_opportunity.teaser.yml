@@ -70,6 +70,7 @@ hidden:
   su_opp_image: true
   su_opp_learn_more: true
   su_opp_location: true
+  su_opp_not_eligible: true
   su_opp_open_to: true
   su_opp_pathway: true
   su_opp_placement_type: true
