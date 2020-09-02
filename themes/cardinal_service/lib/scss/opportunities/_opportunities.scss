@@ -54,6 +54,10 @@
     .node-su-opportunity-su-opp-service-theme {
       width: fit-content;
       display: inline-block;
+
+      div {
+        display: inline;
+      }
     }
 
     .su-opp-type {
