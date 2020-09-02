@@ -145,7 +145,7 @@ shared_configuration:
         plugin: format_date
         source: start_date
         from_format: 'M j, Y'
-        to_format: 'Y-m-d'
+        to_format: Y-m-d
     su_opp_application_deadline:
       -
         plugin: skip_on_empty
@@ -153,7 +153,7 @@ shared_configuration:
         method: process
       -
         plugin: format_date
-        from_format: 'Y-m-d'
+        from_format: Y-m-d
         to_format: 'Y-m-d\T07:00:00'
     su_opp_commitment:
       -
