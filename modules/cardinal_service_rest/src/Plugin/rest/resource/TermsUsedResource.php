@@ -176,6 +176,7 @@ class TermsUsedResource extends ResourceBase {
    *
    * @return array
    *   Array of taxonomy term ids.
+   *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
