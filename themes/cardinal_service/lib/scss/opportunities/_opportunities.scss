@@ -30,6 +30,10 @@
   .main-region {
     min-height: 100%;
 
+    > div:last-child {
+      @include modular-spacing('margin-bottom', 3);
+    }
+
     h1 {
       @include modular-spacing('margin-bottom', -1);
     }
@@ -55,7 +59,7 @@
       display: inline-block;
 
       div {
-        display: inline;
+        display: inline-block;
       }
     }
 
