@@ -22,7 +22,7 @@
 
   h3 {
     @include modular-typography(3);
-    @include modular-spacing('margin-bottom', -1);
+    @include modular-spacing('margin-bottom', -2);
 
     a {
       font-weight: 700;
@@ -31,9 +31,14 @@
 
   .su-opportunity-type,
   .su-opportunity-row-time-commitment-service-theme {
-    @include modular-spacing('margin-bottom', 2);
     @include modular-typography(1);
     font-weight: normal;
+  }
+
+  .su-opportunity-header {
+    > div:last-child {
+      @include modular-spacing('margin-bottom', 2);
+    }
   }
 
   @include grid-media-max('lg') {
