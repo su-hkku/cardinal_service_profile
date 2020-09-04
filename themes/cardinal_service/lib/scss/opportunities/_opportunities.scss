@@ -106,6 +106,17 @@
 
 .opportunity-body-content-container {
   @include modular-spacing('margin-top', 5);
+  justify-content: space-evenly;
+
+  .left-region {
+    @include flex-column(7);
+  }
+
+  .body,
+  p {
+    @include big-paragraph;
+    max-width: 70ch;
+  }
 
   .flex-lg-3-of-12 {
     @include modular-spacing('margin-bottom', 4);
