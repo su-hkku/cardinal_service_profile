@@ -163,6 +163,7 @@
   .node-su-opportunity-su-opp-duration,
   .node-su-opportunity-su-opp-application-deadline,
   .node-su-opportunity-su-opp-open-to,
+  .node-su-opportunity-su-opp-sponsor,
   .node-su-opportunity-su-opp-contact-email {
     word-wrap: break-word;
     margin-bottom: 2.31rem;
@@ -205,6 +206,12 @@
   .node-su-opportunity-su-opp-open-to {
     &::before {
       content: '\f500';
+    }
+  }
+
+  .node-su-opportunity-su-opp-sponsor {
+    &::before {
+      content: '\f1cd';
     }
   }
 
