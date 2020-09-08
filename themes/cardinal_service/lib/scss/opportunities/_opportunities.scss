@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import '../utilities/index';
+
 .opportunity {
   .flex-lg-3-of-12 {
     background: $su-color-white;
@@ -103,6 +105,9 @@
       flex: none;
     }
   }
+
+  @include grid-media-max('xl') {
+  }
 }
 
 .node-su-opportunity-su-opp-solo-url {
@@ -131,6 +136,20 @@
     .node-su-opportunity-su-opp-solo-url {
       margin-bottom: 0;
     }
+  }
+
+  .su-opp-not-eligible {
+    @include modular-spacing('margin-bottom', 2);
+    @include caption();
+    font-style: italic;
+    color: $su-color-digital-red;
+  }
+
+  .su-opp-course-code {
+    @include modular-spacing('margin-bottom', -1);
+    @include modular-typography(0);
+    text-transform: capitalize;
+    font-weight: 700;
   }
 
   .node-su-opportunity-body,
