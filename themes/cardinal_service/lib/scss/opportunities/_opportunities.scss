@@ -79,7 +79,7 @@
     .su-opp-commitment {
       div:last-child {
         &::after {
-          content: " in ";
+          content: ", ";
         }
       }
     }
@@ -205,8 +205,11 @@
 
   .su-opportunities-dimension-description {
     border-top: 1px solid $su-color-cool-grey;
-    @include modular-typography(0);
-    font-weight: 400;
+
+    p {
+      @include modular-typography(0);
+      font-weight: 400;
+    }
   }
 
   .flex-lg-3-of-12 {
