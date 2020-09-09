@@ -198,13 +198,15 @@
   }
 
   .node-su-opportunity-su-opp-solo-url {
-    @include modular-spacing('margin-bottom', 1);
+    @include modular-spacing('margin-bottom', 4);
     display: flex;
     justify-content: center;
   }
 
   .su-opportunities-dimension-description {
     border-top: 1px solid $su-color-cool-grey;
+    @include modular-typography(0);
+    font-weight: 400;
   }
 
   .flex-lg-3-of-12 {
