@@ -918,7 +918,7 @@ display:
             reduce: false
           is_grouped: true
           group_info:
-            label: Dimension
+            label: Program
             description: ''
             identifier: su_opp_dimension_target_id
             optional: true
@@ -1725,8 +1725,8 @@ display:
         title: 'Administer Opportunities'
         description: ''
         expanded: false
-        parent: 'admin_toolbar_tools.extra_links:node.add.su_opportunity'
-        weight: 0
+        parent: system.admin_content
+        weight: 10
         context: '0'
         menu_name: admin
       pager:
