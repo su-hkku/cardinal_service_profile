@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import '../utilities/index';
+
 .opportunity {
   .flex-lg-3-of-12 {
     background: $su-color-white;
@@ -74,14 +76,6 @@
       flex-direction: row;
     }
 
-    .su-opp-dimension {
-      div:last-child {
-        &::after {
-          content: ", ";
-        }
-      }
-    }
-
     .su-opp-commitment {
       div:last-child {
         &::after {
@@ -133,6 +127,20 @@
     }
   }
 
+  .su-opp-not-eligible {
+    @include modular-spacing('margin-bottom', 2);
+    @include caption;
+    font-style: italic;
+    color: $su-color-digital-red;
+  }
+
+  .su-opp-course-code {
+    @include modular-spacing('margin-bottom', -1);
+    @include modular-typography(0);
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+
   .node-su-opportunity-body,
   .su-spotlights-opportunity-spotlight-ref,
   .node-su-opportunity-su-opp-eligibility,
@@ -141,9 +149,10 @@
   }
 
   .node-su-opportunity-su-opp-location,
-  .node-su-opportunity-su-opp-duration,
+  .su-opportunities-duration-range,
   .node-su-opportunity-su-opp-application-deadline,
   .node-su-opportunity-su-opp-open-to,
+  .node-su-opportunity-su-opp-sponsor,
   .node-su-opportunity-su-opp-contact-email {
     word-wrap: break-word;
     margin-bottom: 2.31rem;
@@ -160,6 +169,7 @@
       margin-left: 30px;
     }
 
+    .field-content,
     .su-opportunity {
       margin-left: 30px;
     }
@@ -171,7 +181,7 @@
     }
   }
 
-  .node-su-opportunity-su-opp-duration {
+  .su-opportunities-duration-range {
     &::before {
       content: '\f073';
     }
@@ -186,6 +196,12 @@
   .node-su-opportunity-su-opp-open-to {
     &::before {
       content: '\f500';
+    }
+  }
+
+  .node-su-opportunity-su-opp-sponsor {
+    &::before {
+      content: '\f1cd';
     }
   }
 
@@ -249,7 +265,7 @@
 }
 
 .view {
-  &[class*="su-opportunities"] {
+  &[class*="su-opportunities"]:not(.duration-range) {
     .views-row {
       @include modular-spacing('margin-bottom', 7);
 
