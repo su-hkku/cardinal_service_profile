@@ -270,7 +270,7 @@ export class Filters extends Component {
       <div>
         <FilterContainer>
           <div className="centered-container" id="filter-wrapper">
-            <div className={`${this.props.attributes}`}>
+            <div {...this.props.wrapperAttributes}>
               {this.props.header}
               <form onSubmit={this.onFormSubmit}>
                 <div className="flex-container">
@@ -325,7 +325,7 @@ export class Filters extends Component {
           </div>
         </FilterContainer>
         <ResultsContainer className="centered-container" >
-          <div className={`${this.props.attributes}`}>
+          <div {...this.props.wrapperAttributes}>
             {Object.keys(this.initialFilters).length > 0 && (
               <Slugs
                 filters={this.initialFilters}
