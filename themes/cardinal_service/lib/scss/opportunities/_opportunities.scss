@@ -258,6 +258,7 @@
 // Related Opportunities Styling
 .su-opportunities-related {
   @include modular-spacing('margin-top', 9);
+  @include modular-spacing('margin-bottom', 9);
 
   .block__title {
     text-align: center;
@@ -266,15 +267,12 @@
 
 .view {
   &[class*="su-opportunities"]:not(.duration-range) {
-    .views-row {
-      @include modular-spacing('margin-bottom', 7);
-
-      &[class*="flex-"] {
-        .contextual-region {
-          height: 100%;
-        }
+    &[class*="flex-"] {
+      .contextual-region {
+        height: 100%;
       }
     }
+
 
     ul {
       list-style: none;
@@ -286,6 +284,7 @@
     }
 
     footer {
+      @include modular-spacing('margin-top', 7);
       width: 100%;
       display: flex;
       justify-content: space-around;
