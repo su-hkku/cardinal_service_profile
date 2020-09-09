@@ -16,9 +16,10 @@ const nodeFields = [
 
 const getSortUrl = (field) => {
   let currentHref = window.location.href.replace(/sort.*?$/, '').replace(/&+$/, '');
+  currentHref = currentHref.replace('#filter-wrapper', '');
   const separator = currentHref.indexOf('?') === -1 ? '?' : '&';
   const direction = sortOrderIsAsc(field) ? 'DESC' : 'ASC';
-  return `${currentHref}${separator}sort_by=${field}&sort_order=${direction}`
+  return `${currentHref}${separator}sort_by=${field}&sort_order=${direction}#filter-wrapper`
 }
 
 const sortedByField = (field) => {
@@ -34,11 +35,12 @@ ReactDOM.render(
     showMoreFilters
     useGrid
     bundle={nodeBundle}
-    mainFiltersCount={3}
+    mainFiltersCount={7}
     fields={nodeFields}
     header={<h2>Search by</h2>}
+    wrapperAttributes={{className: "flex-10-of-12"}}
   >
-    <div className="centered-container sort-links">
+    <div className="flex-10-of-12 sort-links">
       <a
         href={getSortUrl('su_opp_application_deadline_value')}
         className={sortedByField('su_opp_application_deadline_value') ? 'active':''}
