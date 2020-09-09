@@ -9,7 +9,7 @@
   }
 
   .grid-list-item {
-    width: calc(33% - 20px);
+    width: calc(33% - 40px);
 
     @include grid-media-max('sm') {
       width: 100%;

@@ -263,31 +263,32 @@
   }
 }
 
-.view {
-  &[class*="su-opportunities"] {
-    .views-row {
-      @include modular-spacing('margin-bottom', 7);
+.views-block.su-opportunities-related {
+  @include modular-spacing('margin-bottom', 9);
 
+  .view {
+    &[class*="su-opportunities"] {
       &[class*="flex-"] {
         .contextual-region {
           height: 100%;
         }
       }
-    }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
 
-    li {
-      margin: 0;
-    }
+      li {
+        margin: 0;
+      }
 
-    footer {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
+      footer {
+        @include modular-spacing('margin-top', 7);
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
     }
   }
 }
