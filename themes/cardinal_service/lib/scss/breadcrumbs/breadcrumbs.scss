@@ -10,8 +10,12 @@
       @include modular-spacing('padding-top', -2);
       @include modular-spacing('padding-top', -3);
 
-      li:not(:first-child)::before {
-        content: "/";
+      li {
+        font-size: 14px;
+
+        &:not(:first-child)::before {
+          content: "/";
+        }
       }
     }
   }
