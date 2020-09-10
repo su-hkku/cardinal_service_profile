@@ -288,3 +288,9 @@
     }
   }
 }
+
+.su-opportunities-filtered-all {
+  .pager {
+    @include modular-spacing('margin-bottom', 9);
+  }
+}
