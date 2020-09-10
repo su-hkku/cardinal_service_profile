@@ -149,7 +149,7 @@ content:
     region: program
     label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
   su_opp_event_date:
     type: datetime_custom
