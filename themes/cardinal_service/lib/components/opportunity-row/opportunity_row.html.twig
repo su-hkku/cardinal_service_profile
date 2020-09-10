@@ -3,11 +3,11 @@
 {% set time_commitment = time_commitment|render|striptags('<drupal-render-placeholder>')|trim|convert_encoding('UTF-8', 'HTML-ENTITIES') %}
 {% set service_theme = service_theme|render|striptags('<drupal-render-placeholder>')|trim|convert_encoding('UTF-8', 'HTML-ENTITIES') %}
 
-{% if program|render|striptags|trim is not empty and type_list|render|striptags|trim is not empty %}
+{% if program is not empty and type_list is not empty %}
   {% set program = (program ~ ', '|t) %}
 {% endif %}
 
-{% if time_commitment|render|striptags|trim is not empty and service_theme|render|striptags|trim is not empty %}
+{% if time_commitment is not empty and service_theme is not empty %}
   {% set time_commitment = (time_commitment ~ ' in '|t) %}
 {% endif %}
 
