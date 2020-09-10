@@ -17,7 +17,13 @@
         $("html, body").animate({scrollTop: 0}, "slow");
       });
 
+      if($('body').is('.section-opportunities')){
+        $('.node-su-opportunity-su-opp-dimension').siblings('.node-su-opportunity-su-opp-type').before('<span>, </span>');
+        $('.node-su-opportunity-su-opp-commitment').siblings('.node-su-opportunity-su-opp-service-theme').before('<span> in </span>');
+      }
     }
   };
+
+
 })(jQuery, Drupal);
 
