@@ -469,7 +469,7 @@ third_party_settings:
                 label: above
                 type: entity_reference_label
                 settings:
-                  link: true
+                  link: false
                 third_party_settings:
                   field_delimiter:
                     delimiter: ''
