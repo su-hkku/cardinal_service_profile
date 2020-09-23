@@ -57,17 +57,6 @@ function cardinal_service_preprocess_field(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function cardinal_service_preprocess_page(&$variables) {
-  $resource = FALSE;
-  if (isset($variables['node']) && $variables['node'] instanceof Node) {
-    if (
-      $variables['node']->bundle() == 'stanford_page' &&
-      $variables['node']->get('su_page_resource_type')->count()
-    ) {
-      $resource = TRUE;
-    }
-  }
-  $variables['attributes']['class'][] = $resource ? '' : 'not-resource-basic-page';
-
   $variables['page']['content']['go_to_top'] = [
     '#type' => 'html_tag',
     '#tag' => 'a',
@@ -108,5 +97,30 @@ function cardinal_service_preprocess_pattern_quote(&$variables) {
     if (!empty($variables[$field])) {
       $variables[$field] = trim(strip_tags(render($variables[$field]), $keep_tags));
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function cardinal_service_preprocess_node(&$variables) {
+  if (isset($variables['page']) && $variables['page']) {
+    switch ($variables['node']->bundle()) {
+      case 'stanford_page':
+        if (!$variables['node']->get('su_page_resource_type')->count()) {
+          $variables['attributes']['class'][] = 'not-resource';
+        }
+        $variables['#attached']['library'][] = 'cardinal_service/resources';
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function cardinal_service_preprocess_views_view(&$variables) {
+  if ($variables['id'] == 'cs_resources') {
+    $variables['#attached']['library'][] = 'cardinal_service/resources';
   }
 }
