@@ -1128,6 +1128,8 @@ display:
         sorts: false
         header: false
         pager: false
+        style: false
+        row: false
       arguments:
         uid:
           id: uid
@@ -1166,10 +1168,10 @@ display:
           entity_field: uid
           plugin_id: numeric
       fields:
-        nid:
-          id: nid
+        title:
+          id: title
           table: node_field_data
-          field: nid
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
@@ -1215,10 +1217,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: number_integer
+          type: string
           settings:
-            thousand_separator: ''
-            prefix_suffix: true
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1230,7 +1231,7 @@ display:
           separator: ', '
           field_api_classes: false
           entity_type: node
-          entity_field: nid
+          entity_field: title
           plugin_id: field
       filters:
         status:
@@ -1268,6 +1269,15 @@ display:
           items_per_page: 1
           offset: 0
       block_category: 'Resources (Views)'
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:

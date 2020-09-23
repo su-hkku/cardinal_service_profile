@@ -7,8 +7,13 @@
   }
 }
 
-.su-opportunities-count-favorites-opps {
+.su-opportunities-count-favorites-opps,
+.cs-resources-count-favorites-resources {
   @include modular-spacing('margin-bottom', 9);
+
+  header {
+    width: 100%;
+  }
 
   .su-card {
     .flex-container {
@@ -60,8 +65,10 @@
   }
 }
 
-.su-opportunities-user-favorite-opps {
+.su-opportunities-user-favorite-opps,
+.cs-resources-user-favorite-resources {
   footer {
+    width: 100%;
     text-align: center;
   }
 }
