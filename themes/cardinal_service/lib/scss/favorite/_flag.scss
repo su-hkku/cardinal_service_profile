@@ -15,4 +15,14 @@
   .js-flag-message {
     display: none;
   }
+
+  &.flag-cs-resources {
+    .not-resource-basic-page & {
+      display: none;
+    }
+
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
 }
