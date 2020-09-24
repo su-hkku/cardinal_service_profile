@@ -36,6 +36,10 @@ svg {
   position: relative;
   margin-right: 20px;
 
+  .su-card__contents & {
+    margin-right: 0;
+  }
+
   &::after {
     position: absolute;
     bottom: 5px;
