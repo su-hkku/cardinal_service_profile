@@ -21,3 +21,13 @@ svg {
     bottom: 12px;
   }
 }
+
+
+.su-link--external {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 10px;
+  }
+}
