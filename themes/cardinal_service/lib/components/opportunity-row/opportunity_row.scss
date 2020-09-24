@@ -32,7 +32,7 @@
 
   .su-opportunity-row-program-type-list,
   .su-opportunity-row-time-commitment-service-theme {
-    @include modular-typography(1);
+    font-size: 21px;
     font-weight: normal;
   }
 
@@ -75,10 +75,16 @@
       }
     }
 
-    @include grid-media-min('md') {
+    @include grid-media-min('lg') {
       display: grid;
       grid-template-columns: 1.65fr 1.2fr 1fr 1.5fr;
       grid-gap: 10px;
+
+      .su-opportunity-row-application-deadline {
+        > div {
+          max-width: 25ch;
+        }
+      }
     }
 
     h4 {
@@ -122,10 +128,6 @@
   }
 
   .su-opportunity-row-application-deadline {
-    > div {
-      max-width: 25ch;
-    }
-
     &::before {
       content: '\f0f3';
     }

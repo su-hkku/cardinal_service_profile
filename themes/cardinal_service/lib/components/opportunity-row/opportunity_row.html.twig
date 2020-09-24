@@ -45,11 +45,11 @@
     <div class="{% if image %}flex-8-of-12{% else %}flex-12-of-12{% endif %}">
       <div class="su-opportunity-header">
         {% if program is not empty or type_list is not empty %}
-        <div class="su-opportunity-row-program-type-list">
-          <div aria-label="{{ 'Opportunity Program and Type'|t }}">
-            <div>{{ program }}{{ type_list }}</div>
+          <div class="su-opportunity-row-program-type-list">
+            <div aria-label="{{ 'Opportunity Program and Type'|t }}">
+              <div>{{ program }}{{ type_list }}</div>
+            </div>
           </div>
-        </div>
         {% endif %}
         <h3>
           {{ title }}
