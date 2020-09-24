@@ -7,10 +7,16 @@
   }
 }
 
-.su-opportunities-count-favorites-opps,
+.su-opportunities-count-favorites-opps {
+  @include modular-spacing('margin-bottom', 4);
+}
+
 .cs-resources-count-favorites-resources {
   @include modular-spacing('margin-bottom', 9);
+}
 
+.su-opportunities-count-favorites-opps,
+.cs-resources-count-favorites-resources {
   header {
     width: 100%;
   }
