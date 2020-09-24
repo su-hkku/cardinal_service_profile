@@ -22,7 +22,6 @@ svg {
   }
 }
 
-
 .su-link--external {
   position: relative;
   margin-right: 25px;
@@ -30,5 +29,15 @@ svg {
   &::after {
     position: absolute;
     bottom: 10px;
+  }
+}
+
+.su-link--action {
+  position: relative;
+  margin-right: 20px;
+
+  &::after {
+    position: absolute;
+    bottom: 5px;
   }
 }
