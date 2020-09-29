@@ -23,15 +23,15 @@
       grid-template-rows: 1fr 1fr;
       gap: 18px;
       grid-template-areas:
-        "opp-type opp-type"
-        "open-to service-theme";
+      "opp-type opp-type"
+      "open-to service-theme";
 
       > div {
         &:first-child {
           grid-area: opp-type;
         }
 
-        &:nth-child(2){
+        &:nth-child(2) {
           grid-area: open-to;
         }
 
