@@ -21,7 +21,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      gap: 18px;
+      grid-gap: 18px;
       grid-template-areas:
       "opp-type opp-type"
       "open-to service-theme";
