@@ -44,7 +44,8 @@
     @include modular-spacing('margin-bottom', 4);
     font-weight: normal;
 
-    p, a {
+    p,
+    a {
       font-size: 21px;
     }
   }
