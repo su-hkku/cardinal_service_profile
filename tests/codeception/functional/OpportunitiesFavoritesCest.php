@@ -12,7 +12,7 @@ class OpportunitiesFavoritesCest {
   /**
    * Favorited opportunities will show in a list on the user's page.
    */
-  public function testFavoriting(FunctionalTester $I) {
+  public function testFavoriting(AcceptanceTester $I) {
     $faker = Factory::create();
     $node = $I->createEntity([
       'type' => 'su_opportunity',

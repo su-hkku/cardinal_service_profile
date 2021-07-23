@@ -31,9 +31,12 @@ class ExtLinkCest {
     }
 
     $I->click('Save');
+    $I->waitForAjaxToFinish();
+    $I->runDrush('cache-rebuild');
 
     // Validate email links.
     $I->amOnPage('/');
+    $I->waitForAjaxToFinish();
     $mails = $I->grabMultiple('a.mailto svg.mailto');
     $I->assertEquals(count($mails), 3);
 
