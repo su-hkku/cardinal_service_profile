@@ -5,7 +5,7 @@ version: 2
 defaults: &defaults
   docker:
     - image: pookmish/drupal8ci:latest
-    - image: selenium/standalone-chrome:latest
+    - image: selenium/standalone-chrome:3.141.59-20210607
     - image: circleci/mysql:5.7
       environment:
         MYSQL_DATABASE: drupal
