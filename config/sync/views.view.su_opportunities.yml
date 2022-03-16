@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.su_opportunities_grid_result
     - core.entity_view_mode.node.su_opportunities_views_result
     - core.entity_view_mode.node.su_vertical_card
     - core.entity_view_mode.node.teaser
@@ -3079,7 +3080,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: su_opportunities_views_result
+          view_mode: su_opportunities_grid_result
       defaults:
         use_ajax: false
         pager: false
