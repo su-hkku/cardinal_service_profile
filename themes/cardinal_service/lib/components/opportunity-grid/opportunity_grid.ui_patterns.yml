@@ -44,6 +44,11 @@ opportunity_grid:
       label: 'Course Date'
       description: 'Date of the event.'
       preview: 'Month Date, Year'
+    sponsoring_unit:
+      type: text
+      label: 'Sponsoring Unit'
+      description: 'Unit sponsoring the opportunity.'
+      preview: 'Cardinal Service'
     location:
       type: text
       label: Location

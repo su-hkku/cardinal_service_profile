@@ -83,6 +83,8 @@ third_party_settings:
         - su_opp_event_date
       course_date:
         - su_opp_course_date
+      sponsoring_unit:
+        - su_opp_sponsor
       location:
         - su_opp_location
       when:
@@ -114,7 +116,7 @@ content:
   flag_cs_favorites:
     settings: {  }
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: favorite
   su_opp_application_deadline:
     type: datetime_custom
@@ -164,7 +166,7 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 11
+    weight: 12
     region: program
   su_opp_event_date:
     type: datetime_custom
@@ -197,7 +199,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 8
+    weight: 9
     region: location
   su_opp_open_to:
     type: entity_reference_label
@@ -211,7 +213,7 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 10
+    weight: 11
     region: open_to
   su_opp_service_theme:
     type: entity_reference_label
@@ -227,6 +229,20 @@ content:
         ds_limit: ''
     weight: 4
     region: service_theme
+  su_opp_sponsor:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      field_delimiter:
+        delimiter: ','
+      field_formatter_class:
+        class: ''
+      ds:
+        ds_limit: ''
+    weight: 8
+    region: sponsoring_unit
   su_opp_summary:
     type: text_default
     label: hidden
@@ -248,7 +264,7 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 9
+    weight: 10
     region: when
   su_opp_type:
     type: entity_reference_label
@@ -262,7 +278,7 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 12
+    weight: 13
     region: type_list
 hidden:
   body: true
@@ -280,5 +296,4 @@ hidden:
   su_opp_pathway: true
   su_opp_placement_type: true
   su_opp_solo_url: true
-  su_opp_sponsor: true
   su_opp_submissions_open: true
