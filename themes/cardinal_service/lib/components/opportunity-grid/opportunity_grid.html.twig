@@ -46,14 +46,22 @@
 {% set image = image|render_clean('<img> <picture> <source>') %}
 
 <div{{ attributes.addClass('su-opportunity-grid-result') }}>
-  <div class="flex-container su-card__contents">
-    <div class="flex-12-of-12">
+  <div class="su-card__contents">
+    <div>
       <div class="su-opportunity-header">
-        {% if image %}
+
           <div class="su-opportunity-img">
-            {{ image|raw }}
+            {% if image %}
+              {{ image|raw }}
+            {% else %}
+              {#
+                The fallback image should NOT be hard-coded; need to revise the
+                implementation as this was just for a demo.
+              #}
+              <img src="/sites/cardinalservice/files/styles/opportunity_result_image/public/media/image/cardinal-service-opportunity-default-image_0.jpg?h=04d92ac6&amp;itok=8tDa4f0D" width="300" height="200" alt="cardinal-service-opportunity-default-image" loading="lazy">
+            {% endif %}
           </div>
-        {% endif %}
+
         {% if program is not empty or type_list is not empty %}
           <div class="su-opportunity-grid-program-type-list">
             <div aria-label="{{ 'Opportunity Program and Type'|t }}">

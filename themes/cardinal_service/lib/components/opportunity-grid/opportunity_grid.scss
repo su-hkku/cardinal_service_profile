@@ -4,15 +4,23 @@
 
 // These styles probably belong somewhere else since they're adjusting the view
 // and not the component.
-.su-opportunities.filtered-all {
-  .views-infinite-scroll-content-wrapper {
+@include grid-media-min('lg') {
+  .su-opportunities.filtered-all {
+    .views-infinite-scroll-content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
 
+      .views-row {
+        @include flex-column(4);
+      }
+    }
   }
 }
 
+
 .su-opportunity-grid-result {
-  @include card;
-  @include modular-spacing(padding, 2);
+  @include modular-spacing(padding, 0);
   @include margin(0 0 2em 0);
   position: relative;
 
@@ -26,7 +34,12 @@
     .su-opp-image {
       margin-bottom: 0;
     }
+
+    img {
+      width: 100%;
+    }
   }
+
 
   .su-opp-type {
     margin-bottom: 12px;
@@ -39,7 +52,6 @@
   h3 {
     @include modular-typography(2);
     @include modular-spacing('margin-bottom', -2);
-    max-width: 50ch;
 
     a {
       font-weight: 700;
@@ -62,21 +74,6 @@
 
   .su-opportunity-header {
     @include modular-spacing('margin-bottom', 2);
-  }
-
-  @include grid-media-max('lg') {
-    .flex-8-of-12 {
-      @include flex-column(12);
-    }
-
-    .flex-4-of-12 {
-      .image,
-      picture,
-      source,
-      img {
-        display: none;
-      }
-    }
   }
 
   .su-opportunity-body-content {
