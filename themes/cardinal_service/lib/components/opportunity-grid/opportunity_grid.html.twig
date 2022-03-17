@@ -45,10 +45,15 @@
 
 {% set image = image|render_clean('<img> <picture> <source>') %}
 
-<div{{ attributes.addClass('su-opportunity-result') }}>
+<div{{ attributes.addClass('su-opportunity-grid-result') }}>
   <div class="flex-container su-card__contents">
-    <div class="{% if image %}flex-8-of-12{% else %}flex-12-of-12{% endif %}">
+    <div class="flex-12-of-12">
       <div class="su-opportunity-header">
+        {% if image %}
+          <div class="su-opportunity-img">
+            {{ image|raw }}
+          </div>
+        {% endif %}
         {% if program is not empty or type_list is not empty %}
           <div class="su-opportunity-grid-program-type-list">
             <div aria-label="{{ 'Opportunity Program and Type'|t }}">
@@ -75,50 +80,23 @@
         {% endif %}
       </div>
     </div>
-
-    {% if image %}
-      <div class="flex-4-of-12">
-        <div class="su-opportunity-img">
-          {{ image|raw }}
-        </div>
-      </div>
-    {% endif %}
   </div>
 
   <div class="su-opportunity-body-content">
-    <div class="su-opportunity-grid-application-deadline">
-      <div>
-        <h4>{{ date_label }}:</h4>
-        <div>{{ date }}</div>
-      </div>
-    </div>
-
     <div class="su-opportunity-grid-sponsoring-unit">
-      <div>
-        <h4>{{ 'Sponsored by'|t }}:</h4>
-        <div>{{ sponsoring_unit }}</div>
-      </div>
+      <h4>{{ 'Sponsored by'|t }}:</h4> <div>{{ sponsoring_unit }}</div>
     </div>
 
     <div class="su-opportunity-grid-location">
-      <div>
-        <h4>{{ 'Location'|t }}:</h4>
-        <div>{{ location }}</div>
-      </div>
-    </div>
-
-    <div class="su-opportunity-grid-duration">
-      <div>
-        <h4>{{ 'When'|t }}:</h4>
-        <div>{{ when }}</div>
-      </div>
+      <h4>{{ 'Location'|t }}:</h4> <div>{{ location }}</div>
     </div>
 
     <div class="su-opportunity-grid-open-to">
-      <div>
-        <h4>{{ 'Open to'|t }}:</h4>
-        <div>{{ open_to }}</div>
-      </div>
+      <h4>{{ 'Open to'|t }}:</h4> <div>{{ open_to }}</div>
+    </div>
+
+    <div class="su-opportunity-grid-application-deadline">
+      <h4>{{ date_label }}:</h4> <div>{{ date }}</div>
     </div>
   </div>
   {{ favorite }}

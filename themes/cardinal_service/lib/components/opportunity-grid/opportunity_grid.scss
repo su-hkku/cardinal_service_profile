@@ -2,7 +2,15 @@
 
 @import '../../scss/config';
 
-.su-opportunity-result {
+// These styles probably belong somewhere else since they're adjusting the view
+// and not the component.
+.su-opportunities.filtered-all {
+  .views-infinite-scroll-content-wrapper {
+
+  }
+}
+
+.su-opportunity-grid-result {
   @include card;
   @include modular-spacing(padding, 2);
   @include margin(0 0 2em 0);
@@ -10,6 +18,14 @@
 
   .su-card__contents {
     padding: 0;
+  }
+
+  .su-opportunity-img {
+    @include modular-spacing(margin-bottom, -1);
+
+    .su-opp-image {
+      margin-bottom: 0;
+    }
   }
 
   .su-opp-type {
@@ -21,7 +37,7 @@
   }
 
   h3 {
-    @include modular-typography(3);
+    @include modular-typography(2);
     @include modular-spacing('margin-bottom', -2);
     max-width: 50ch;
 
@@ -32,7 +48,6 @@
 
   .su-opportunity-grid-program-type-list,
   .su-opportunity-grid-time-commitment-service-theme {
-    font-size: 18px;
     font-weight: normal;
   }
 
@@ -41,13 +56,8 @@
   }
 
   .su-opportunity-grid-summary {
-    @include modular-spacing('margin-bottom', 4);
+    @include modular-spacing('margin-bottom', 2);
     font-weight: normal;
-
-    p,
-    a {
-      font-size: 21px;
-    }
   }
 
   .su-opportunity-header {
@@ -80,13 +90,10 @@
     }
 
     @include grid-media-min('lg') {
-      display: grid;
-      grid-template-columns: 1.65fr 1.2fr 1fr 1.5fr;
-      grid-gap: 10px;
 
       .su-opportunity-grid-application-deadline {
         > div {
-          max-width: 25ch;
+
         }
       }
     }
@@ -108,17 +115,12 @@
   .su-opportunity-grid-location,
   .su-opportunity-grid-duration,
   .su-opportunity-grid-open-to {
-    @include modular-spacing('padding-bottom', 1);
-
-    > div {
-      margin-left: 30px;
+    > h4 {
+      display: inline;
     }
 
-    &::before {
-      font-family: 'Font Awesome\ 5 Free';
-      @include modular-typography(-1);
-      font-weight: 900;
-      position: absolute;
+    div {
+      display: inline;
     }
 
     ul {
@@ -128,38 +130,6 @@
     }
 
     li {
-      margin-bottom: 0;
-    }
-  }
-
-  .su-opportunity-grid-application-deadline {
-    &::before {
-      content: '\f0f3';
-    }
-  }
-
-  .su-opportunity-grid-location {
-    &::before {
-      content: '\f3c5';
-    }
-  }
-
-  .su-opportunity-grid-duration {
-    &::before {
-      content: '\f073';
-    }
-  }
-
-  .su-opportunity-grid-open-to {
-    &::before {
-      content: '\f500';
-    }
-  }
-
-  .su-opportunity-img {
-    @include modular-spacing(margin-bottom, -1);
-
-    .su-opp-image {
       margin-bottom: 0;
     }
   }
