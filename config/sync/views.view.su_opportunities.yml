@@ -3007,7 +3007,7 @@ display:
         type: infinite_scroll
         options:
           offset: 0
-          items_per_page: 25
+          items_per_page: 30
           total_pages: null
           id: 0
           tags:
@@ -3024,6 +3024,7 @@ display:
           views_infinite_scroll:
             button_text: 'Load More'
             automatically_load_content: false
+            initially_load_all_pages: false
       sorts:
         changed:
           id: changed

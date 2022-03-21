@@ -27,10 +27,6 @@
   {% set date = course_date %}
 {% endif %}
 
-{% if sponsoring_unit|render_clean is empty %}
-  {% set sponsoring_unit = 'N/A' %}
-{% endif %}
-
 {% if location|render_clean is empty %}
   {% set location = 'N/A' %}
 {% endif %}
@@ -58,7 +54,7 @@
                 The fallback image should NOT be hard-coded; need to revise the
                 implementation as this was just for a demo.
               #}
-              <img src="/sites/cardinalservice/files/styles/opportunity_result_image/public/media/image/cardinal-service-opportunity-default-image_0.jpg?h=04d92ac6&amp;itok=8tDa4f0D" width="300" height="200" alt="cardinal-service-opportunity-default-image" loading="lazy">
+              <img src="/sites/cardinalservice/files/styles/opportunity_result_image/public/media/image/stonework_3x2_45opacity_0.jpg?h=93a6bf23&itok=W9mdeQeX" loading="lazy">
             {% endif %}
           </div>
 
@@ -83,7 +79,7 @@
 
         {% if summary %}
           <div class="su-opportunity-grid-summary">
-            {{ summary }}
+            {{ summary|render_clean }}
           </div>
         {% endif %}
       </div>
@@ -91,9 +87,11 @@
   </div>
 
   <div class="su-opportunity-body-content">
-    <div class="su-opportunity-grid-sponsoring-unit">
-      <h4>{{ 'Sponsored by'|t }}:</h4> <div>{{ sponsoring_unit }}</div>
-    </div>
+    {% if sponsoring_unit|render_clean is not empty %}
+      <div class="su-opportunity-grid-sponsoring-unit">
+        <h4>{{ 'Sponsored by'|t }}:</h4> <div>{{ sponsoring_unit }}</div>
+      </div>
+    {% endif %}
 
     <div class="su-opportunity-grid-location">
       <h4>{{ 'Location'|t }}:</h4> <div>{{ location }}</div>
@@ -101,6 +99,10 @@
 
     <div class="su-opportunity-grid-open-to">
       <h4>{{ 'Open to'|t }}:</h4> <div>{{ open_to }}</div>
+    </div>
+
+    <div class="su-opportunity-grid-duration">
+      <h4>{{ 'When'|t }}:</h4> <div>{{ when }}</div>
     </div>
 
     <div class="su-opportunity-grid-application-deadline">

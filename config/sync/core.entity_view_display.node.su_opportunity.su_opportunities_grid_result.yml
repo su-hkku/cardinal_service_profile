@@ -70,7 +70,7 @@ third_party_settings:
       title:
         - node_title
       summary:
-        - su_opp_summary
+        - body
       image:
         - su_opp_image
       time_commitment:
@@ -113,6 +113,16 @@ targetEntityType: node
 bundle: su_opportunity
 mode: su_opportunities_grid_result
 content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 320
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: summary
   flag_cs_favorites:
     settings: {  }
     third_party_settings: {  }
@@ -243,15 +253,6 @@ content:
         ds_limit: ''
     weight: 8
     region: sponsoring_unit
-  su_opp_summary:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    weight: 1
-    region: summary
   su_opp_time_year:
     type: entity_reference_label
     label: hidden
@@ -259,7 +260,7 @@ content:
       link: false
     third_party_settings:
       field_delimiter:
-        delimiter: ''
+        delimiter: ','
       field_formatter_class:
         class: ''
       ds:
@@ -281,7 +282,6 @@ content:
     weight: 13
     region: type_list
 hidden:
-  body: true
   links: true
   search_api_excerpt: true
   su_opp_contact_email: true
@@ -297,3 +297,4 @@ hidden:
   su_opp_placement_type: true
   su_opp_solo_url: true
   su_opp_submissions_open: true
+  su_opp_summary: true
