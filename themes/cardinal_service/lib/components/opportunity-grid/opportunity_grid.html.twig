@@ -12,19 +12,15 @@
   {% set time_commitment = time_commitment|merge({'#markup': time_commitment['#markup'] ~ ' in '}) %}
 {% endif %}
 
-{% set date_label = 'Application Deadline'|t %}
-{% set date = 'N/A' %}
-
-{% if application_deadline|render_clean is not empty %}
-  {% set date = application_deadline %}
-{% endif %}
-
 {% if event_date|render_clean is not empty %}
   {% set date_label = 'Event Date'|t %}
   {% set date = event_date %}
 {% elseif course_date|render_clean is not empty %}
   {% set date_label = 'Course Date'|t %}
   {% set date = course_date %}
+{% elseif application_deadline|render_clean is not empty %}
+  {% set date_label = 'Application Deadline'|t %}
+  {% set date = application_deadline %}
 {% endif %}
 
 {% if location|render_clean is empty %}
@@ -105,9 +101,13 @@
       <h4>{{ 'When'|t }}:</h4> <div>{{ when }}</div>
     </div>
 
-    <div class="su-opportunity-grid-application-deadline">
-      <h4>{{ date_label }}:</h4> <div>{{ date }}</div>
-    </div>
+    {% if date is not empty %}
+      <div class="su-opportunity-grid-application-deadline">
+        <h4>{{ date_label }}:</h4>
+        <div>{{ date }}</div>
+      </div>
+    {% endif %}
+
   </div>
   {{ favorite }}
 </div>
