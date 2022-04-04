@@ -7,7 +7,7 @@ dependencies:
     - media.type.image
     - node.type.su_opportunity
   content:
-    - 'media:image:ad82e1cd-17b1-4e42-97a9-83cf4af185f1'
+    - 'media:image:8f553f0f-1859-45a8-a2a1-851010f36218'
 id: node.su_opportunity.su_opp_image
 field_name: su_opp_image
 entity_type: node
@@ -18,7 +18,7 @@ required: false
 translatable: false
 default_value:
   -
-    target_uuid: ad82e1cd-17b1-4e42-97a9-83cf4af185f1
+    target_uuid: 8f553f0f-1859-45a8-a2a1-851010f36218
     weight: 0
 default_value_callback: ''
 settings:
