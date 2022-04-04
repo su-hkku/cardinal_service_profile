@@ -40,8 +40,8 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_library
+    - smart_trim
     - stanford_media
-    - text
     - user
 third_party_settings:
   layout_builder:
@@ -114,10 +114,22 @@ bundle: su_opportunity
 mode: su_opportunities_grid_result
 content:
   body:
-    type: text_summary_or_trimmed
+    type: smart_trim
     label: hidden
     settings:
-      trim_length: 320
+      trim_length: 50
+      trim_type: words
+      trim_suffix: ...
+      wrap_output: false
+      wrap_class: trimmed
+      more_link: false
+      more_class: more-link
+      more_text: More
+      more_aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
+        trim_zero: false
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -196,6 +208,7 @@ content:
       view_mode: default
       link: false
       image_style: opportunity_result_image
+      remove_alt: false
     third_party_settings:
       field_formatter_class:
         class: ''
