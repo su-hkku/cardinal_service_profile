@@ -1,4 +1,4 @@
-uuid: bfa7a5eb-d9ed-4cba-83c1-5ae2ee80730a
+uuid: 9d03b1ac-4c51-4f47-ba20-87fe9b184962
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
 id: minimally_branded_subtheme_messages
 theme: minimally_branded_subtheme
 region: content
-weight: -5
+weight: -3
 provider: null
 plugin: system_messages_block
 settings:

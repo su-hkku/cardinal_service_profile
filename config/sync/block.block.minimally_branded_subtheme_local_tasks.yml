@@ -1,4 +1,4 @@
-uuid: 75a66db9-107b-46e6-80b5-a24bb25b40a6
+uuid: 64977239-42d9-4e4b-8b09-b6beed04e747
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
 id: minimally_branded_subtheme_local_tasks
 theme: minimally_branded_subtheme
 region: content
-weight: -3
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:
