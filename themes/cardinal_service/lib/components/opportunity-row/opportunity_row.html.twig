@@ -41,7 +41,7 @@
 
 {% set image = image|render_clean('<img> <picture> <source>') %}
 
-<div{{ attributes.addClass('su-opportunity-result') }}>
+<div{{ attributes.addClass(['su-opportunity-result', 'su-opportunity-row-result']) }}>
   <div class="flex-container su-card__contents">
     <div class="{% if image %}flex-8-of-12{% else %}flex-12-of-12{% endif %}">
       <div class="su-opportunity-header">
