@@ -5,14 +5,16 @@
 // These styles probably belong somewhere else since they're adjusting the view
 // and not the component.
 @include grid-media-min('lg') {
-  .su-opportunities.filtered-all {
-    .views-infinite-scroll-content-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+  .su-opportunities {
+    .filtered-all {
+      .views-infinite-scroll-content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-      .views-row {
-        @include flex-column(4);
+        .views-row {
+          @include flex-column(4);
+        }
       }
     }
   }
@@ -84,15 +86,6 @@
       .su-opportunity-grid-time-commitment-service-theme,
       .su-opportunity-grid-summary {
         max-width: 70ch;
-      }
-    }
-
-    @include grid-media-min('lg') {
-
-      .su-opportunity-grid-application-deadline {
-        > div {
-
-        }
       }
     }
 
