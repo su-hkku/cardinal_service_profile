@@ -107,7 +107,7 @@
         "drupal/smart_trim": "^1.7",
         "drupal/views_field_view": "^1.0@beta",
         "michelf/php-markdown": "^1.9",
-        "su-sws/stanford_profile": "^8.3"
+        "su-sws/stanford_profile": "8.x-dev"
     },
     "config": {
         "sort-packages": true
