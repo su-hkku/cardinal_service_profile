@@ -6,7 +6,7 @@
 // and not the component.
 @include grid-media-min('lg') {
   .su-opportunities {
-    .filtered-all {
+    &.filtered-all {
       .views-infinite-scroll-content-wrapper {
         display: flex;
         flex-wrap: wrap;
@@ -73,6 +73,7 @@
     @include modular-spacing('margin-bottom', 2);
     font-weight: normal;
     font-size: 21px;
+    line-height: 1.3;
   }
 
   .su-opportunity-header {
