@@ -106,7 +106,7 @@
         "drupal/node_title_help_text": "^1.2",
         "drupal/views_field_view": "^1.0@beta",
         "michelf/php-markdown": "^1.9",
-        "seboettg/citeproc-php": "dev-master#e42d7e2f820e1eb9cc0541ccbf493c9fbf3f6708",
+        "seboettg/citeproc-php": "2.4.1",
         "su-sws/stanford_profile": "8.4.4"
     },
     "config": {
