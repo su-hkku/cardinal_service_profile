@@ -225,16 +225,45 @@
     },
     "autoload": {
         "psr-4": {
-            "Drupal\\cardinal_service_profile\\": "src/"
+            "Drupal\\cardinal_service_profile\\": "src/",
+            "Drupal\\cardinal_service_profile_helper\\": "modules/cardinal_service_profile_helper/src",
+            "Drupal\\stanford_events_importer\\": "modules/stanford_events/modules/stanford_events_importer/src",
+            "Drupal\\stanford_image_styles_preview\\": "modules/stanford_image_styles/modules/stanford_image_styles_preview/src",
+            "Drupal\\stanford_intranet\\": "modules/stanford_intranet/src",
+            "Drupal\\stanford_news\\": "modules/stanford_news/src",
+            "Drupal\\stanford_notifications\\": "modules/stanford_notifications/src",
+            "Drupal\\stanford_person_importer\\": "modules/stanford_person/modules/stanford_person_importer/src",            
+            "Drupal\\stanford_profile_admin\\": "modules/stanford_profile_admin/src",
+            "Drupal\\stanford_profile_drush\\": "modules/stanford_profile_drush/src",
+            "Drupal\\stanford_profile_helper\\": "modules/stanford_profile_helper/src",
+            "Drupal\\stanford_publication\\": "modules/stanford_publication/src",
+            "Drupal\\stanford_text_editor\\": "modules/stanford_text_editor/src"            
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Drupal\\Tests\\cardinal_service_profile\\": "tests/src",
-            "Drupal\\Tests\\cardinal_service_profile_helper\\": "modules/cardinal_service_profile_helper/tests/src"
+            "Drupal\\Tests\\cardinal_service_profile_helper\\": "modules/cardinal_service_profile_helper/tests/src",
+            "Drupal\\Tests\\jumpstart_ui\\": "modules/jumpstart_ui/tests/src",
+            "Drupal\\Tests\\stanford_events_importer\\": "modules/stanford_events/modules/stanford_events_importer/tests/src",
+            "Drupal\\Tests\\stanford_image_styles_preview\\": "modules/stanford_image_styles/modules/stanford_image_styles_preview/tests/src",
+            "Drupal\\Tests\\stanford_intranet\\": "modules/stanford_intranet/tests/src",
+            "Drupal\\Tests\\stanford_news\\": "modules/stanford_news/tests/src",
+            "Drupal\\Tests\\stanford_notifications\\": "modules/stanford_notifications/tests/src",
+            "Drupal\\Tests\\stanford_person_importer\\": "modules/stanford_person/modules/stanford_person_importer/tests/src",
+            "Drupal\\Tests\\stanford_profile_admin\\": "modules/stanford_profile_admin/tests/src",
+            "Drupal\\Tests\\stanford_profile_drush\\": "modules/stanford_profile_drush/tests/src",
+            "Drupal\\Tests\\stanford_profile_helper\\": "modules/stanford_profile_helper/tests/src",
+            "Drupal\\Tests\\stanford_publication\\": "modules/stanford_publication/tests/src",
+            "Drupal\\Tests\\stanford_text_editor\\": "modules/stanford_text_editor/tests/src"
         }
     },
     "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        },
         "patches": {
             "drupal/default_content":{
                 "https://www.drupal.org/project/default_content/issues/3160146": "https://git.drupalcode.org/project/default_content/-/merge_requests/15.patch"
