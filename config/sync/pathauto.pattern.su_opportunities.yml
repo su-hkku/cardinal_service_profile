@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: '/opportunities/[node:title]'
 selection_criteria:
   159363c6-ee86-4f66-b7ae-3e6e482028f5:
-    id: entity_bundle:node
+    id: 'entity_bundle:node'
     negate: false
     uuid: 159363c6-ee86-4f66-b7ae-3e6e482028f5
     context_mapping:
