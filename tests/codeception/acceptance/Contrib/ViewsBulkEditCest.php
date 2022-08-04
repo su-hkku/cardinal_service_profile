@@ -16,6 +16,20 @@ class ViewsBulkEditCest {
   protected $nodes;
 
   /**
+   * Faker generator.
+   *
+   * @var \Faker\Generator
+   */
+  protected $faker;
+
+  /**
+   * Test constructor.
+   */
+  public function __construct() {
+    $this->faker = Factory::create();
+  }
+
+  /**
    * Rollback all migrations.
    */
   public function _before(AcceptanceTester $I) {
