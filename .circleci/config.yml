@@ -101,8 +101,8 @@ workflows:
   tests:
     jobs:
       # - run-coverage
-      - run-d9-codeception
-        context: github-auth
+      - run-d9-codeception:
+          context: github-auth
   daily:
     jobs:
       - run-merge-upstream
