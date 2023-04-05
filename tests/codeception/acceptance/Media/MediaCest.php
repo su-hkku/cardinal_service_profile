@@ -18,9 +18,6 @@ class MediaCest {
    */
   protected $faker;
 
-  /**
-   * Test constructor.
-   */
   public function __construct() {
     $this->faker = Factory::create();
   }
