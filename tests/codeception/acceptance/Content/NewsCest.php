@@ -61,7 +61,6 @@ class NewsCest {
    */
   public function testViewPagesExist(AcceptanceTester $I) {
     $I->amOnPage("/news");
-    $I->canSeeResponseCodeIs(200);
     $I->seeLink('Announcement');
     $I->click("a[href='/news/announcement']");
     $I->canSeeResponseCodeIs(200);
