@@ -25,6 +25,12 @@ class PersonCest {
    * Test that the default content has installed and is unpublished.
    */
   public function testDefaultContentExists(AcceptanceTester $I) {
+    // Rollback any migrations to empty /admin/content page.
+    try {
+      $I->runDrush('migrate:rollback --all');
+    } catch (\Throwable $e){
+      // Do nothing.
+    }
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/content');
     $I->see('Haley Jackson');
