@@ -10,13 +10,13 @@ use Drupal\file\Entity\File;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\media\Entity\Media;
 use Drupal\media\Entity\MediaType;
-use Drupal\stanford_profile\EventSubscriber\EventSubscriber as StanfordEventSubscriber;
+use Drupal\cardinal_service_profile\EventSubscriber\EventSubscriber as StanfordEventSubscriber;
 
 /**
  * Class EventSubscriberTest.
  *
  * @group stanford_profile
- * @coversDefaultClass \Drupal\stanford_profile\EventSubscriber\EventSubscriber
+ * @coversDefaultClass \Drupal\cardinal_service_profile\EventSubscriber\EventSubscriber
  */
 class EventSubscriberTest extends KernelTestBase {
 
