@@ -29,8 +29,6 @@ dependencies:
     - taxonomy.vocabulary.su_opportunity_sponsor
     - taxonomy.vocabulary.su_opportunity_time
     - taxonomy.vocabulary.su_opportunity_type
-  content:
-    - 'taxonomy_term:su_opportunity_sponsor:6d9d6060-fb9d-445f-8528-1edf12858597'
   module:
     - datetime
     - datetime_range
@@ -715,6 +713,7 @@ display:
           batch: true
           batch_size: 10
           form_step: true
+          ajax_loader: false
           buttons: false
           action_title: Action
           clear_on_exposed: true
