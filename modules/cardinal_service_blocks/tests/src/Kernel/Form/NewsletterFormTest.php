@@ -42,7 +42,7 @@ class NewsletterFormTest extends KernelTestBase {
     'block',
   ];
 
-  protected function setUp() {
+  public function setup(): void {
     parent::setUp();
 
     $client = $this->createMock(ClientInterface::class);

@@ -42,7 +42,7 @@ class UserLinksBlockTest extends KernelTestBase {
   /**
    * {@inheritDoc}
    */
-  protected function setUp() {
+  public function setup(): void {
     parent::setUp();
     $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('user');

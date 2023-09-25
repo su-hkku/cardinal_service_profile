@@ -32,7 +32,7 @@ class NodeCsvTemplateTest extends KernelTestBase {
   /**
    * {@inheritDoc}
    */
-  protected function setUp() {
+  public function setup(): void {
     parent::setUp();
     $this->migration = $this->createMock(MigrationInterface::class);
     $this->migration->method('id')->willReturn('page');

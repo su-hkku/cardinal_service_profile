@@ -33,7 +33,7 @@ class TermsUsedResourceTest extends KernelTestBase {
     'text',
   ];
 
-  protected function setUp() {
+  public function setup(): void {
     parent::setUp();
     $this->installEntitySchema('node');
     $this->installEntitySchema('user');
