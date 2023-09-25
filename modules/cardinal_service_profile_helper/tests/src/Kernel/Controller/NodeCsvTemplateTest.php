@@ -52,7 +52,7 @@ class NodeCsvTemplateTest extends KernelTestBase {
     $response = $controller->getTemplate($this->migration);
 
     $this->assertEquals('text/csv', $response->headers->get('Content-Type'));
-    $this->assertEqual('title (title),field_foo (field_foo),field_bar (field_bar),field_baz (field_baz)', file_get_contents('temporary://page.csv'));
+    $this->assertEquals('title (title),field_foo (field_foo),field_bar (field_bar),field_baz (field_baz)', file_get_contents('temporary://page.csv'));
   }
 
 }
