@@ -38,10 +38,10 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: ''
           extra_classes: ''
           centered: null
           columns: default
+          label: ''
         components:
           2c1cda4e-0623-4550-a253-c15a7940f185:
             uuid: 2c1cda4e-0623-4550-a253-c15a7940f185
@@ -59,10 +59,10 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: ''
           extra_classes: 'su-hero-height su-hero-left'
           centered: null
           columns: default
+          label: ''
         components:
           da20ed40-0f0f-4103-bda1-29d84c24975f:
             uuid: da20ed40-0f0f-4103-bda1-29d84c24975f
@@ -88,10 +88,10 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: 'page description'
           extra_classes: ''
           centered: centered-container
           columns: default
+          label: 'page description'
         components:
           f27015ee-a2c3-4acc-a68d-9af1b6e538a1:
             uuid: f27015ee-a2c3-4acc-a68d-9af1b6e538a1
@@ -119,10 +119,10 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_two_column
         layout_settings:
-          context_mapping: {  }
           extra_classes: ''
           centered: centered-container
           orientation: right
+          context_mapping: {  }
         components:
           582a6898-7096-40c2-bb65-99a556ada919:
             uuid: 582a6898-7096-40c2-bb65-99a556ada919
@@ -221,10 +221,10 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: ''
           extra_classes: ''
           centered: centered-container
           columns: default
+          label: ''
         components:
           848fd51a-0aca-4b1c-b6ba-b13a309d418e:
             uuid: 848fd51a-0aca-4b1c-b6ba-b13a309d418e
