@@ -28,7 +28,6 @@ class TermsUsedResourceTest extends KernelTestBase {
     'cardinal_service_rest',
     'rest',
     'field',
-    'entity_reference',
     'serialization',
     'text',
   ];
