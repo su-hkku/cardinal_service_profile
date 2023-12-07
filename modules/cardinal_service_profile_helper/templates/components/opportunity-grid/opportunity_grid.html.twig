@@ -3,7 +3,6 @@
 {% set time_commitment = time_commitment|render_clean %}
 {% set service_theme = service_theme|render_clean %}
 
-
 {# Add comma "," after program if type is not empty. #}
 {% if program is not empty and type_list is not empty %}
 	{% set program = program|merge({'#markup': program['#markup'] ~ ', '}) %}
