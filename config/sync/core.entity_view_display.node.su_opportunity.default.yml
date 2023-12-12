@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.su_opportunity.body
+    - field.field.node.su_opportunity.su_open_opportunities
     - field.field.node.su_opportunity.su_opp_application_deadline
     - field.field.node.su_opportunity.su_opp_commitment
     - field.field.node.su_opportunity.su_opp_contact_email
@@ -214,6 +215,22 @@ third_party_settings:
                   ds:
                     ds_limit: ''
             weight: 6
+            additional: {  }
+            third_party_settings: {  }
+          2c9b001e-1862-484a-9be5-9ab107a894c7:
+            uuid: 2c9b001e-1862-484a-9be5-9ab107a894c7
+            region: main
+            configuration:
+              id: 'field_block:node:su_opportunity:su_open_opportunities'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 8
             additional: {  }
             third_party_settings: {  }
         third_party_settings: {  }
@@ -541,6 +558,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 10
+    region: main
+  su_open_opportunities:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
     region: main
   su_opp_commitment:
     type: entity_reference_label
