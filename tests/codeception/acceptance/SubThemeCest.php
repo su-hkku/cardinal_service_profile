@@ -58,7 +58,7 @@ class SubThemeCest {
    *   Tester.
    */
   public function _after(AcceptanceTester $I) {
-    $I->runDrush('config:set system.theme default stanford_basic -y');
+    $I->runDrush('config:set system.theme default cardinal_service -y');
     try {
       $I->runDrush('theme:uninstall ' . strtolower($this->themeName));
     }
