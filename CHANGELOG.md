@@ -1,5 +1,47 @@
 # Cardinal Service Profile
 
+11.1.0
+-------------------------------------------------------------------------------
+- Exclude page title on login page
+- Add permission to view algolia config settings
+- D8CORE-7215 Test to Display the topic menu label on list pages (#758)
+- Update address fields for local footer test (#757)
+- Update imagemagick config from db update
+- Added "fields" to page cache query ignore for jsonapi
+- D8CORE-7111 Add local footer social icons for mastodon and google scholar (#756)
+- Increase jsonapi page limit to 500 for nodes
+- Adjust graphql settings for easier type checking
+- Updated DS config for module update
+- D8CORE-7205 Trim all html before sending index data to Algolia
+- Fixed Inheritance issues (#313)
+- Replaced transliterate_filenames module functionality
+- Add and configure graphql compose module (#751)
+- Drupal 11.2.0 upgrade (#752)
+- Removing plugin
+- removing migrate custom plugin
+- Fixing style issues.
+- CS-1-8 - UI for Open Opportunities
+- CS-108 - adding field and migrations and plugin to support importing open opportunities.
+- D8CORE-7055: added an aria-hidden is true (#745)
+- hiding type from form.
+- Added application deadline.
+- D8CORE-7096 Update algolia search results styles and structure (#747)
+- Added placement type.
+- Update github actions (#748)
+- Current working version.
+- Strip more html from algolia indexed items
+- Fixed absolute urls for algolia results
+- Tweaking to configs.
+- Updated feed.
+- Initial commit.
+- D8CORE-7074 Implement Search API Algolia (#743)
+- D8CORE-6726: Overrode the colorbox formatter template to remove aria-label (#746)
+- Update alert styles (#744)
+- Added cron job config
+- D8CORE-2761: reduced padding on filterby menu (#728)
+- Updated config split settings
+
+
 11.0.5
 -------------------------------------------------------------------------------
 - D8CORE-7066 Adjust site contact fields & language (#741)
