@@ -15,7 +15,7 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: simple_xml
   urls:
-    - 'https://haas-2023-solo-backdrop.pantheonsite.io/data/cardinalservice.xml'
+    - 'https://solo.stanford.edu/data/opportunities.xml?type=236'
   constants:
     status: 1
     type: su_opportunity
@@ -25,7 +25,7 @@ source:
     apply_link_title: Apply
     learn_more_link_title: 'Learn More'
     image_alt: ''
-  item_selector: /CSPrograms/CSProgram
+  item_selector: /OPPORTUNITIES/OPPORTUNITY
   fields:
     -
       name: id
@@ -38,75 +38,87 @@ source:
     -
       name: title
       label: Title
-      selector: ProgramName
+      selector: TITLE
     -
       name: url
       label: URL
-      selector: CanonicalLink
+      selector: URL
+    -
+      name: submission_open
+      label: 'Submission Open Date'
+      selector: SUBMISSIONS_OPEN
     -
       name: application_deadline
       label: 'Application Deadline'
-      selector: ApplicationDeadline
+      selector: APPLICATION_DEADLINE
+    -
+      name: start
+      label: Start
+      selector: DURATION/START
+    -
+      name: end
+      label: End
+      selector: DURATION/END
     -
       name: sponsor
       label: Sponsor
-      selector: SponsoredBy
+      selector: SPONSOR
     -
       name: teaser
       label: Teaser
-      selector: Summary
+      selector: TEASER
     -
       name: body
       label: Body
-      selector: Description
+      selector: DESCRIPTION
     -
       name: image
       label: Image
-      selector: Image
+      selector: IMAGE
     -
       name: eligibility
       label: Eligibility
-      selector: Eligibility
+      selector: ELIGIBILITY
+    -
+      name: type
+      label: Type
+      selector: TYPE
     -
       name: time_of_year
       label: 'Time of the Year'
-      selector: TimeCommitment
+      selector: TIME_OF_YEAR
     -
       name: open_to
       label: 'Open To'
-      selector: OpenTo
+      selector: OPEN_TO
     -
       name: location
       label: Location
-      selector: Location
+      selector: LOCATION
     -
       name: contact_name
       label: 'Contact Name'
-      selector: ContactName
+      selector: CONTACT_NAME
     -
       name: contact_email
       label: 'Contact Email'
-      selector: Email
+      selector: CONTACT_EMAIL
+    -
+      name: contact_phone
+      label: 'Contact Phone Number'
+      selector: CONTACT_PHONE
     -
       name: learn_more
       label: 'Learn More Link'
-      selector: Link
+      selector: LEARN_MORE
     -
       name: service_theme
       label: 'Service Theme'
-      selector: ServiceTheme
+      selector: SERVICE_THEME
     -
       name: dimension
       label: 'CS Dimension'
-      selector: CardinalServiceDimension
-    -
-      name: when
-      label: When
-      selector: When
-    -
-      name: placement_type
-      label: 'Placement Type'
-      selector: PlacementType
+      selector: CARDINAL_SERVICE
   ids:
     id:
       type: string
@@ -155,6 +167,14 @@ process:
   su_opp_summary/format: constants/minimal_html
   su_opp_contact_email: contact_email
   su_opp_contact_name: contact_name
+  su_opp_contact_phone:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: contact_phone
+    -
+      plugin: callback
+      callable: strip_tags
   su_opp_eligibility/value: eligibility
   su_opp_eligibility/format: constants/basic_html
   su_open_opportunities/value: open_opportunities
@@ -281,15 +301,6 @@ process:
       plugin: deduplicate_array
   su_opp_time_year:
     -
-      source: when
-      plugin: entity_generate
-      value_key: name
-      bundle_key: vid
-      bundle: su_opportunity_time
-      entity_type: taxonomy_term
-      ignore_case: true
-  su_opp_commitment:
-    -
       plugin: explode
       source: time_of_year
       delimiter: ', '
@@ -297,7 +308,7 @@ process:
       plugin: entity_generate
       value_key: name
       bundle_key: vid
-      bundle: su_opportunity_commitment
+      bundle: su_opportunity_time
       entity_type: taxonomy_term
       ignore_case: true
   image_file:
@@ -328,11 +339,49 @@ process:
         field_media_image/target_id: '@image_file'
         field_media_image/alt: constants/image_alt
         field_media_image/title: constants/image_alt
-  su_opp_deadline_time:
+  su_opp_submissions_open:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: submission_open
+    -
+      plugin: format_date
+      from_format: U
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: America/Los_Angeles
+      to_timezone: UTC
+      settings:
+        validate_format: false
+  su_opp_application_deadline:
     -
       plugin: skip_on_empty
       method: process
       source: application_deadline
+    -
+      plugin: format_date
+      from_format: U
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: America/Los_Angeles
+      to_timezone: UTC
+      settings:
+        validate_format: false
+    -
+      plugin: skip_on_equal
+      value: '@su_opp_submissions_open'
+      method: process
+    -
+      plugin: skip_on_time_compare
+      compare: '>'
+      value: 'now +2years'
+      method: process
+  su_opp_deadline_time:
+    -
+      plugin: default_value
+      default_value:
+        - Autumn
+        - Winter
+        - Spring
+        - Summer
     -
       plugin: entity_lookup
       value_key: name
@@ -340,6 +389,35 @@ process:
       bundle: su_opportunity_deadline
       entity_type: taxonomy_term
       ignore_case: true
+  su_opp_duration/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: start
+    -
+      plugin: format_date
+      from_format: U
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: America/Los_Angeles
+      to_timezone: UTC
+      settings:
+        validate_format: false
+  su_opp_duration/end_value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: start
+    -
+      plugin: format_date
+      from_format: U
+      to_format: 'Y-m-d\TH:i:s'
+      from_timezone: America/Los_Angeles
+      to_timezone: UTC
+      settings:
+        validate_format: false
+    -
+      plugin: default_value
+      default_value: '@su_opp_duration/value'
   su_opp_sponsor:
     -
       plugin: skip_on_empty
@@ -355,21 +433,6 @@ process:
       bundle: su_opportunity_sponsor
       entity_type: taxonomy_term
       ignore_case: true
-  su_opp_placement_type:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: placement_type
-    -
-      plugin: explode
-      delimiter: ', '
-    -
-      plugin: entity_generate
-      value_key: name
-      bundle_key: vid
-      bundle: su_opportunity_placement_type
-      entity_type: taxonomy_term
-      ignore_case: true
 destination:
   plugin: 'entity:node'
   overwrite_properties:
@@ -380,9 +443,9 @@ destination:
     - body/format
     - su_opp_contact_email
     - su_opp_contact_name
+    - su_opp_contact_phone
     - su_opp_eligibility/value
     - su_opp_eligibility/format
-    - su_opp_deadline_time
     - su_opp_solo_url/uri
     - su_opp_dimension
     - su_opp_service_theme
@@ -393,9 +456,13 @@ destination:
     - su_opp_open_to
     - su_opp_time_year
     - su_opp_image/target_id
+    - su_opp_submissions_open
+    - su_opp_application_deadline
+    - su_opp_deadline_time
+    - su_opp_duration/value
+    - su_opp_duration/end_value
     - su_opp_sponsor
     - su_opp_summary/value
     - su_opp_summary/format
-    - su_opp_placement_type
 migration_dependencies:
   required: {  }
