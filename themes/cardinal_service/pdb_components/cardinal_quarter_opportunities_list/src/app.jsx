@@ -19,7 +19,9 @@ const getSortUrl = (field) => {
   currentHref = currentHref.replace('#filter-wrapper', '');
   const separator = currentHref.indexOf('?') === -1 ? '?' : '&';
   const direction = sortOrderIsAsc(field) ? 'DESC' : 'ASC';
-  return `${currentHref}${separator}sort_by=${field}&sort_order=${direction}#filter-wrapper`
+  const url = `${currentHref}${separator}sort_by=${field}&sort_order=${direction}#filter-wrapper`;
+  console.log(`URL: ${url}`);
+  return url;
 }
 
 const sortedByField = (field) => {
@@ -64,5 +66,5 @@ ReactDOM.render(
       </a>
     </div>
   </Filters>,
-  document.getElementById('opportunities-filter-list')
+  document.getElementById('cardinal-quarter-opportunities-filter-list')
 );
