@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Filters} from '../../Components/Filters';
 import './styles.scss';
 
-const nodeBundle = 'su_cardinal_quarter_opportunities';
+const nodeBundle = 'su_opportunity';
 const nodeFields = [
   {field: 'su_opp_type', label: 'Type of Opportunity', multiple: true},
   {field: 'su_opp_open_to', label: 'Open To', multiple: true},
@@ -19,9 +19,7 @@ const getSortUrl = (field) => {
   currentHref = currentHref.replace('#filter-wrapper', '');
   const separator = currentHref.indexOf('?') === -1 ? '?' : '&';
   const direction = sortOrderIsAsc(field) ? 'DESC' : 'ASC';
-  const url = `${currentHref}${separator}sort_by=${field}&sort_order=${direction}#filter-wrapper`;
-  console.log(`URL: ${url}`);
-  return url;
+  return `${currentHref}${separator}sort_by=${field}&sort_order=${direction}#filter-wrapper`
 }
 
 const sortedByField = (field) => {
@@ -37,7 +35,7 @@ ReactDOM.render(
     showMoreFilters
     useGrid
     bundle={nodeBundle}
-    mainFiltersCount={7}
+    mainFiltersCount={3}
     fields={nodeFields}
     header={<h2>Search by</h2>}
     wrapperAttributes={{className: "flex-12-of-12"}}
@@ -48,7 +46,7 @@ ReactDOM.render(
         href={getSortUrl('su_opp_application_deadline_value')}
         className={sortedByField('su_opp_application_deadline_value') ? 'active':''}
       >
-        <span className="visually-hidden">Sort By </span>
+        <span className="visually-hidden">Sort By Victor</span>
         Date
         <i style={{marginLeft: '10px'}} className={sortOrderIsAsc('su_opp_application_deadline_value') ? 'fas fa-chevron-up' : 'fas fa-chevron-down'} />
       </a>

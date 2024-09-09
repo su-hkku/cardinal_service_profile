@@ -815,7 +815,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var nodeBundle = 'su_cardinal_quarter_opportunities';
+var nodeBundle = 'su_opportunity';
 var nodeFields = [{
   field: 'su_opp_type',
   label: 'Type of Opportunity',
@@ -851,9 +851,7 @@ var getSortUrl = function getSortUrl(field) {
   currentHref = currentHref.replace('#filter-wrapper', '');
   var separator = currentHref.indexOf('?') === -1 ? '?' : '&';
   var direction = sortOrderIsAsc(field) ? 'DESC' : 'ASC';
-  var url = "".concat(currentHref).concat(separator, "sort_by=").concat(field, "&sort_order=").concat(direction, "#filter-wrapper");
-  console.log("URL: ".concat(url));
-  return url;
+  return "".concat(currentHref).concat(separator, "sort_by=").concat(field, "&sort_order=").concat(direction, "#filter-wrapper");
 };
 
 var sortedByField = function sortedByField(field) {
@@ -868,7 +866,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   showMoreFilters: true,
   useGrid: true,
   bundle: nodeBundle,
-  mainFiltersCount: 7,
+  mainFiltersCount: 2,
   fields: nodeFields,
   header: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Search by"),
   wrapperAttributes: {
@@ -886,7 +884,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   className: sortedByField('su_opp_application_deadline_value') ? 'active' : ''
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
   className: "visually-hidden"
-}, "Sort By "), "Date", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+}, "Sort By Victor"), "Date", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
   style: {
     marginLeft: '10px'
   },

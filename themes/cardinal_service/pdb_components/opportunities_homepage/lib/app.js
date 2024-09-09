@@ -96918,7 +96918,7 @@ __webpack_require__.r(__webpack_exports__);
 var nodeBundle = 'su_opportunity';
 var nodeFields = [{
   field: 'su_opp_type',
-  label: 'Type of Opportunity',
+  label: 'Type of Opportunity crime',
   multiple: true
 }, {
   field: 'su_opp_open_to',
