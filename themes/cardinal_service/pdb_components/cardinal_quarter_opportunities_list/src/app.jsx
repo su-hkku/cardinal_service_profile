@@ -35,7 +35,7 @@ ReactDOM.render(
     showMoreFilters
     useGrid
     bundle={nodeBundle}
-    mainFiltersCount={3}
+    mainFiltersCount={7}
     fields={nodeFields}
     header={<h2>Search by</h2>}
     wrapperAttributes={{className: "flex-12-of-12"}}

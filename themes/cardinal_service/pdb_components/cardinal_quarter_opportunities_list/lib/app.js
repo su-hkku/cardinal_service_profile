@@ -866,7 +866,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   showMoreFilters: true,
   useGrid: true,
   bundle: nodeBundle,
-  mainFiltersCount: 2,
+  mainFiltersCount: 3,
   fields: nodeFields,
   header: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Search by"),
   wrapperAttributes: {
