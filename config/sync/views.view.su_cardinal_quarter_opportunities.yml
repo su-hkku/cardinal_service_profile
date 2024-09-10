@@ -303,7 +303,7 @@ display:
             identifier: su_opp_time_year
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               administrator: '0'
@@ -398,65 +398,6 @@ display:
           hierarchy: true
           limit: true
           error_message: true
-        su_opp_placement_type_target_id:
-          id: su_opp_placement_type_target_id
-          table: node__su_opp_placement_type
-          field: su_opp_placement_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: su_opp_placement_type_target_id_op
-            label: 'Placement Type (su_opp_placement_type)'
-            description: ''
-            use_operator: false
-            operator: su_opp_placement_type_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: su_opp_placement_type_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              administrator: '0'
-              anonymous: '0'
-              stanford_faculty: '0'
-              stanford_staff: '0'
-              stanford_student: '0'
-              contributor: '0'
-              site_manager: '0'
-              site_editor: '0'
-              site_builder: '0'
-              site_developer: '0'
-              layout_builder_user: '0'
-              cs_limited_opp_editor: '0'
-              su_site_embedder: '0'
-              decoupled_site_users: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: su_opportunity_placement_type
-          type: select
-          hierarchy: true
-          limit: true
-          error_message: true
         su_opp_sponsor_target_id:
           id: su_opp_sponsor_target_id
           table: node__su_opp_sponsor
@@ -480,7 +421,7 @@ display:
             identifier: su_opp_sponsor
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               administrator: '0'
@@ -512,6 +453,65 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: su_opportunity_sponsor
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        su_opp_placement_type_target_id:
+          id: su_opp_placement_type_target_id
+          table: node__su_opp_placement_type
+          field: su_opp_placement_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: su_opp_placement_type_target_id_op
+            label: 'Placement Type (su_opp_placement_type)'
+            description: ''
+            use_operator: false
+            operator: su_opp_placement_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: su_opp_placement_type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              administrator: '0'
+              anonymous: '0'
+              stanford_faculty: '0'
+              stanford_staff: '0'
+              stanford_student: '0'
+              contributor: '0'
+              site_manager: '0'
+              site_editor: '0'
+              site_builder: '0'
+              site_developer: '0'
+              layout_builder_user: '0'
+              cs_limited_opp_editor: '0'
+              su_site_embedder: '0'
+              decoupled_site_users: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: su_opportunity_placement_type
           type: select
           hierarchy: true
           limit: true
@@ -2129,7 +2129,8 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - flag.flag.cs_favorites
   dimension_description:
     id: dimension_description
     display_title: 'Dimension Description'
@@ -3466,4 +3467,5 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - flag.flag.cs_favorites
