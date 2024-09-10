@@ -817,32 +817,24 @@ __webpack_require__.r(__webpack_exports__);
 
 var nodeBundle = 'su_opportunity';
 var nodeFields = [{
-  field: 'su_opp_type',
-  label: 'Type of Opportunity',
+  field: 'su_opp_placement_type',
+  label: 'Placement Type',
   multiple: true
 }, {
-  field: 'su_opp_open_to',
-  label: 'Open To',
+  field: 'su_opp_time_year',
+  label: 'Participation Quarter',
   multiple: true
 }, {
   field: 'su_opp_service_theme',
   label: 'Service Theme',
   multiple: true
 }, {
-  field: 'su_opp_deadline_time',
-  label: 'Application Deadline',
-  multiple: true
-}, {
   field: 'su_opp_location',
   label: 'Location',
   multiple: true
 }, {
-  field: 'su_opp_dimension',
-  label: 'Programs',
-  multiple: true
-}, {
-  field: 'su_opp_commitment',
-  label: 'Time Commitment',
+  field: 'su_opp_sponsor',
+  label: 'Sponsor Unit',
   multiple: true
 }];
 
@@ -866,7 +858,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   showMoreFilters: true,
   useGrid: true,
   bundle: nodeBundle,
-  mainFiltersCount: 3,
+  mainFiltersCount: 5,
   fields: nodeFields,
   header: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Search by"),
   wrapperAttributes: {

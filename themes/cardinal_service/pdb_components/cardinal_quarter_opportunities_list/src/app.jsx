@@ -5,13 +5,11 @@ import './styles.scss';
 
 const nodeBundle = 'su_opportunity';
 const nodeFields = [
-  {field: 'su_opp_type', label: 'Type of Opportunity', multiple: true},
-  {field: 'su_opp_open_to', label: 'Open To', multiple: true},
+  {field: 'su_opp_placement_type', label: 'Placement Type', multiple: true},
+  {field: 'su_opp_time_year', label: 'Participation Quarter', multiple: true},
   {field: 'su_opp_service_theme', label: 'Service Theme', multiple: true},
-  {field: 'su_opp_deadline_time', label: 'Application Deadline', multiple: true},
   {field: 'su_opp_location', label: 'Location', multiple: true},
-  {field: 'su_opp_dimension', label: 'Programs', multiple: true},
-  {field: 'su_opp_commitment', label: 'Time Commitment', multiple: true}
+  {field: 'su_opp_sponsor', label: 'Sponsor Unit', multiple: true},
 ];
 
 const getSortUrl = (field) => {
@@ -35,7 +33,7 @@ ReactDOM.render(
     showMoreFilters
     useGrid
     bundle={nodeBundle}
-    mainFiltersCount={7}
+    mainFiltersCount={5}
     fields={nodeFields}
     header={<h2>Search by</h2>}
     wrapperAttributes={{className: "flex-12-of-12"}}
