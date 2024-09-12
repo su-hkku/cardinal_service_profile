@@ -30,6 +30,7 @@ dependencies:
     - taxonomy.vocabulary.su_opportunity_time
     - taxonomy.vocabulary.su_opportunity_type
   content:
+    - 'taxonomy_term:su_opportunity_dimension:807a8530-cd23-4145-98b1-56839efcc8a3'
     - 'taxonomy_term:su_opportunity_sponsor:6d9d6060-fb9d-445f-8528-1edf12858597'
   module:
     - datetime
@@ -219,6 +220,52 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        su_opp_dimension_target_id:
+          id: su_opp_dimension_target_id
+          table: node__su_opp_dimension
+          field: su_opp_dimension_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            - 301
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: su_opportunity_dimension
+          type: textfield
+          hierarchy: false
+          limit: true
+          error_message: true
         term_node_tid_depth_4:
           id: term_node_tid_depth_4
           table: node_field_data
@@ -2129,8 +2176,7 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - flag.flag.cs_favorites
+      tags: {  }
   dimension_description:
     id: dimension_description
     display_title: 'Dimension Description'
@@ -3467,5 +3513,4 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - flag.flag.cs_favorites
+      tags: {  }
