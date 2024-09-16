@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.su_opportunities_grid_result
+    - core.entity_view_mode.node.cardinal_quarter_grid_results
     - core.entity_view_mode.node.su_opportunities_views_result
     - core.entity_view_mode.node.su_vertical_card
     - core.entity_view_mode.node.teaser
@@ -57,7 +57,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Opportunities Filtered'
+      title: 'Cardinal Quarter Opportunities Filtered'
       fields:
         title:
           id: title
@@ -606,6 +606,7 @@ display:
     display_plugin: page
     position: 6
     display_options:
+      enabled: false
       title: 'Administer Opportunities'
       fields:
         views_bulk_operations_bulk_form:
@@ -1758,7 +1759,7 @@ display:
         - 'config:field.storage.node.su_opp_type'
   context_filtered_opps:
     id: context_filtered_opps
-    display_title: 'Filtered Opportunities (program/audience)'
+    display_title: 'Filtered QC Opportunities (program/audience)'
     display_plugin: block
     position: 2
     display_options:
@@ -1944,7 +1945,7 @@ display:
       tags: {  }
   count_favorites_opps:
     id: count_favorites_opps
-    display_title: 'Count of Favorites Opportunities'
+    display_title: 'Count of Favorites CQ Opportunities'
     display_plugin: block
     position: 4
     display_options:
@@ -3042,7 +3043,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: su_opportunities_grid_result
+          view_mode: cardinal_quarter_grid_results
       defaults:
         use_ajax: false
         pager: false
@@ -3074,6 +3075,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
+      enabled: false
       pager:
         type: some
         options:
@@ -3267,7 +3269,7 @@ display:
       tags: {  }
   user_favorite_opps:
     id: user_favorite_opps
-    display_title: 'Saved Opportunities'
+    display_title: 'Saved QC Opportunities'
     display_plugin: block
     position: 4
     display_options:
