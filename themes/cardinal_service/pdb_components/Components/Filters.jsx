@@ -82,7 +82,6 @@ export class Filters extends Component {
 
   constructor(props) {
     super(props);
-    this.props.apiParams = props.apiParams || ""
     this.state = {
       allItems: {},
       activeItems: {},

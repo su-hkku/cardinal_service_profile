@@ -276,7 +276,10 @@ var Filters = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var that = this;
-      fetch('/api/terms-used/' + this.props.bundle).then(function (response) {
+      var params = this.props.apiParams ? "?" + queryString.stringify(this.props.apiParams, {
+        arrayFormat: 'bracket'
+      }) : "";
+      fetch('/api/terms-used/' + this.props.bundle + params).then(function (response) {
         return response.json();
       }).then(function (jsonData) {
         that.setState({
