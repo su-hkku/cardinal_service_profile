@@ -35,6 +35,7 @@ ReactDOM.render(
     bundle={nodeBundle}
     mainFiltersCount={5}
     fields={nodeFields}
+    name='cardinalQuarter'
     header={<h2>Search by</h2>}
     wrapperAttributes={{className: "flex-12-of-12"}}
   >

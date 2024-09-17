@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {SelectList} from './SelectList';
 import {Slugs} from './Slugs';
 import styled from 'styled-components';
@@ -117,6 +117,7 @@ export class Filters extends Component {
     fetch('/api/terms-used/' + this.props.bundle)
       .then((response) => response.json())
       .then((jsonData) => {
+        console.log(jsonData);
         that.setState(
           {
             allItems: _.cloneDeep(jsonData),
@@ -149,6 +150,8 @@ export class Filters extends Component {
    */
   onSelectChange(fieldName, selectedValues) {
     const newState = {...this.state};
+    console.log('fieldname: ' + fieldName);
+    console.log('Selected value: ' + selectedValues);
     if (fieldName !== undefined) {
       newState.disabledSearch = false;
     }
@@ -166,8 +169,7 @@ export class Filters extends Component {
     // similar entity IDs. It does like if we are on `Field B`: Field A (option
     // 1 OR option 2) AND Field D (option 6).
     Object.keys(newState.activeItems).map((fieldName) => {
-      // This will be the list of entity IDs that match all of the filtering
-      // criteria.
+      // The list of entity IDs that match all the filtering criteria.
       let validEntities = [];
 
       // For each field we are adjusting, we need to look at the filters to
@@ -339,4 +341,5 @@ export class Filters extends Component {
       </div>
     );
   }
+
 }

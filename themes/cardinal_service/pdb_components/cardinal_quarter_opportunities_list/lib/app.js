@@ -279,6 +279,7 @@ var Filters = /*#__PURE__*/function (_Component) {
       fetch('/api/terms-used/' + this.props.bundle).then(function (response) {
         return response.json();
       }).then(function (jsonData) {
+        console.log(jsonData);
         that.setState({
           allItems: _.cloneDeep(jsonData),
           activeItems: _.cloneDeep(jsonData)
@@ -315,6 +316,9 @@ var Filters = /*#__PURE__*/function (_Component) {
     value: function onSelectChange(fieldName, selectedValues) {
       var newState = _objectSpread({}, this.state);
 
+      console.log('fieldname: ' + fieldName);
+      console.log('Selected value: ' + selectedValues);
+
       if (fieldName !== undefined) {
         newState.disabledSearch = false;
       }
@@ -332,8 +336,7 @@ var Filters = /*#__PURE__*/function (_Component) {
 
 
       Object.keys(newState.activeItems).map(function (fieldName) {
-        // This will be the list of entity IDs that match all of the filtering
-        // criteria.
+        // The list of entity IDs that match all the filtering criteria.
         var validEntities = []; // For each field we are adjusting, we need to look at the filters to
         // know what values are selected.
 
@@ -860,6 +863,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   bundle: nodeBundle,
   mainFiltersCount: 5,
   fields: nodeFields,
+  name: "cardinalQuarter",
   header: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Search by"),
   wrapperAttributes: {
     className: "flex-12-of-12"
