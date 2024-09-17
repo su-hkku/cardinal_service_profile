@@ -40,8 +40,8 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_library
-    - smart_trim
     - stanford_media
+    - text
     - user
 third_party_settings:
   layout_builder:
@@ -64,35 +64,15 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
-        wrappers:
-          title: div
-          summary: div
-          image: div
-          time_commitment: div
-          service_theme: div
-          application_deadline: div
-          event_date: div
-          course_date: div
-          sponsoring_unit: div
-          location: div
-          when: div
-          open_to: div
-          program: div
-          type_list: div
-          favorite: div
         pattern:
           field_templates: default
     regions:
       title:
         - node_title
       summary:
-        - body
+        - su_opp_summary
       image:
         - su_opp_image
-      time_commitment:
-        - su_opp_commitment
-      service_theme:
-        - su_opp_service_theme
       application_deadline:
         - su_opp_application_deadline
       event_date:
@@ -107,10 +87,6 @@ third_party_settings:
         - su_opp_time_year
       open_to:
         - su_opp_open_to
-      program:
-        - su_opp_dimension
-      type_list:
-        - su_opp_type
       favorite:
         - flag_cs_favorites
     fields:
@@ -129,35 +105,10 @@ targetEntityType: node
 bundle: su_opportunity
 mode: cardinal_quarter_grid_results
 content:
-  body:
-    type: smart_trim
-    label: hidden
-    settings:
-      trim_length: 50
-      trim_type: words
-      trim_suffix: ...
-      wrap_output: false
-      wrap_class: trimmed
-      more:
-        display_link: false
-        target_blank: false
-        link_trim_only: false
-        class: more-link
-        text: More
-        aria_label: 'Read more about [node:title]'
-      summary_handler: full
-      trim_options:
-        text: false
-        trim_zero: false
-    third_party_settings:
-      field_formatter_class:
-        class: ''
-    weight: 1
-    region: summary
   flag_cs_favorites:
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 10
     region: favorite
   su_opp_application_deadline:
     type: datetime_custom
@@ -168,22 +119,8 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 5
-    region: application_deadline
-  su_opp_commitment:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      field_delimiter:
-        delimiter: ','
-      field_formatter_class:
-        class: ''
-      ds:
-        ds_limit: ''
     weight: 3
-    region: time_commitment
+    region: application_deadline
   su_opp_course_date:
     type: datetime_custom
     label: hidden
@@ -193,22 +130,8 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 7
+    weight: 5
     region: course_date
-  su_opp_dimension:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      field_delimiter:
-        delimiter: ','
-      field_formatter_class:
-        class: ''
-      ds:
-        ds_limit: ''
-    weight: 12
-    region: program
   su_opp_event_date:
     type: datetime_custom
     label: hidden
@@ -218,7 +141,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 6
+    weight: 4
     region: event_date
   su_opp_image:
     type: media_image_formatter
@@ -241,7 +164,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 9
+    weight: 7
     region: location
   su_opp_open_to:
     type: entity_reference_label
@@ -255,22 +178,8 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 11
+    weight: 9
     region: open_to
-  su_opp_service_theme:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      field_delimiter:
-        delimiter: ','
-      field_formatter_class:
-        class: ''
-      ds:
-        ds_limit: ''
-    weight: 4
-    region: service_theme
   su_opp_sponsor:
     type: entity_reference_label
     label: hidden
@@ -283,8 +192,15 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 8
+    weight: 6
     region: sponsoring_unit
+  su_opp_summary:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: summary
   su_opp_time_year:
     type: entity_reference_label
     label: hidden
@@ -297,36 +213,26 @@ content:
         class: ''
       ds:
         ds_limit: ''
-    weight: 10
+    weight: 8
     region: when
-  su_opp_type:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: false
-    third_party_settings:
-      field_delimiter:
-        delimiter: ','
-      field_formatter_class:
-        class: ''
-      ds:
-        ds_limit: ''
-    weight: 13
-    region: type_list
 hidden:
+  body: true
   links: true
   search_api_excerpt: true
+  su_opp_commitment: true
   su_opp_contact_email: true
   su_opp_contact_name: true
   su_opp_contact_phone: true
   su_opp_course_code: true
   su_opp_deadline_time: true
+  su_opp_dimension: true
   su_opp_duration: true
   su_opp_eligibility: true
   su_opp_learn_more: true
   su_opp_not_eligible: true
   su_opp_pathway: true
   su_opp_placement_type: true
+  su_opp_service_theme: true
   su_opp_solo_url: true
   su_opp_submissions_open: true
-  su_opp_summary: true
+  su_opp_type: true

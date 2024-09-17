@@ -5,7 +5,7 @@ cardinal_quarter_grid:
     title:
       type: text
       label: Title
-      description: 'Title of the opportunity.'
+      description: 'Title of the Cardinal Quarter.'
       preview: 'Opportunity Title'
     summary:
       type: text
@@ -15,15 +15,10 @@ cardinal_quarter_grid:
     image:
       type: image
       label: Image
-      description: 'Image of the opportunity.'
+      description: 'Image.'
       preview:
         theme: image
         uri: http://placecorgi.com/800x1200
-    time_commitment:
-      type: text
-      label: 'Time Commitment'
-      description: 'Time Commitment'
-      preview: 'One-time event'
     service_theme:
       type: text
       label: 'Service Theme'
@@ -79,7 +74,7 @@ cardinal_quarter_grid:
       label: 'Favorite Link'
       description: 'A link for the user to favorite the content'
       preview: '<div class="flag flag-cs-favorites action-flag"><a href="#">Favorite</a></div>'
-  use: '@cardinal-service/opportunity-grid/opportunity_grid.html.twig'
+  use: '@cardinal-service/cardinal-quarter-grid/cardinal_quarter_grid.html.twig'
   libraries:
     - opportunity_grid:
         css:
