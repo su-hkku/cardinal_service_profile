@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from 'react';
+import React, {Component} from 'react';
 import {SelectList} from './SelectList';
 import {Slugs} from './Slugs';
 import styled from 'styled-components';
@@ -150,8 +150,6 @@ export class Filters extends Component {
    */
   onSelectChange(fieldName, selectedValues) {
     const newState = {...this.state};
-    console.log('fieldname: ' + fieldName);
-    console.log('Selected value: ' + selectedValues);
     if (fieldName !== undefined) {
       newState.disabledSearch = false;
     }
