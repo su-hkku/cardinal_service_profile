@@ -118,7 +118,6 @@ export class Filters extends Component {
     fetch('/api/terms-used/' + this.props.bundle + params)
       .then((response) => response.json())
       .then((jsonData) => {
-        console.log(jsonData);
         that.setState(
           {
             allItems: _.cloneDeep(jsonData),
