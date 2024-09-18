@@ -276,7 +276,10 @@ var Filters = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       var that = this;
-      fetch('/api/terms-used/' + this.props.bundle).then(function (response) {
+      var params = this.props.apiParams ? "?" + queryString.stringify(this.props.apiParams, {
+        arrayFormat: 'bracket'
+      }) : "";
+      fetch('/api/terms-used/' + this.props.bundle + params).then(function (response) {
         return response.json();
       }).then(function (jsonData) {
         console.log(jsonData);
@@ -814,6 +817,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/Filters */ "./Components/Filters.jsx");
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles.scss */ "./cardinal_quarter_opportunities_list/src/styles.scss");
 /* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! query-string */ "./node_modules/query-string/index.js");
+/* harmony import */ var query_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(query_string__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -867,6 +873,9 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
   header: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Search by"),
   wrapperAttributes: {
     className: "flex-12-of-12"
+  },
+  apiParams: {
+    su_opp_dimension: ["301"]
   }
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
   className: "flex-12-of-12 sort-links"

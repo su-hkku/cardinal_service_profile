@@ -113,8 +113,9 @@ export class Filters extends Component {
    */
   componentDidMount() {
     const that = this;
+    const params = this.props.apiParams ? "?" + queryString.stringify(this.props.apiParams, {arrayFormat: 'bracket'}) : ""
 
-    fetch('/api/terms-used/' + this.props.bundle)
+    fetch('/api/terms-used/' + this.props.bundle + params)
       .then((response) => response.json())
       .then((jsonData) => {
         console.log(jsonData);
@@ -142,7 +143,6 @@ export class Filters extends Component {
     const query = encodeURI(queryString.stringify(this.state.filters, {arrayFormat: 'bracket'}));
     const location = this.props.submitUrl ?? window.location.pathname;
     window.location = `${location}?${query}#filter-wrapper`;
-
   }
 
   /**

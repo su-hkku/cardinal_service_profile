@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Filters} from '../../Components/Filters';
 import './styles.scss';
+import queryString from 'query-string';
 
 const nodeBundle = 'su_opportunity';
 const nodeFields = [
@@ -38,6 +39,7 @@ ReactDOM.render(
     name='cardinalQuarter'
     header={<h2>Search by</h2>}
     wrapperAttributes={{className: "flex-12-of-12"}}
+    apiParams={{su_opp_dimension: ["301"]}}
   >
     <div className="flex-12-of-12 sort-links">
       <span style={{ fontWeight: 'bold' }} aria-hidden={true}>Sort By:</span>
