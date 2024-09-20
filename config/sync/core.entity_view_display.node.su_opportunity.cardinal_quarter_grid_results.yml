@@ -35,8 +35,10 @@ dependencies:
   module:
     - datetime
     - ds
+    - empty_fields
     - field_delimiter
     - field_formatter_class
+    - field_label
     - layout_builder
     - layout_builder_restrictions
     - layout_library
@@ -88,7 +90,7 @@ third_party_settings:
         - su_opp_time_year
       open_to:
         - su_opp_open_to
-      contact:
+      email_contact:
         - su_opp_contact_email
       cta_button:
         - su_opp_solo_url
@@ -132,7 +134,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 10
-    region: contact
+    region: email_contact
   su_opp_course_date:
     type: datetime_custom
     label: hidden
@@ -201,7 +203,14 @@ content:
       url_plain: false
       rel: ''
       target: ''
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+      field_label:
+        label_value: ''
+        label_tag: ''
     weight: 11
     region: cta_button
   su_opp_sponsor:

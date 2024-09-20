@@ -1,7 +1,6 @@
 {% set program = program|render_clean %}
 {% set type_list = type_list|render_clean %}
 {% set email_contact = email_contact|render_clean %}
-{% set cta_button = service_theme|render_clean %}
 
 {% if event_date|render_clean is not empty %}
   {% set date_label = 'Event Date'|t %}
@@ -70,17 +69,22 @@
       <h4>{{ 'When'|t }}:</h4> <div>{{ when }}</div>
     </div>
 
-    <div class="su-opportunity-grid-duration">
-      <h4>{{ 'Contact'|t }}:</h4> <a href="mailto: {{ email_contact }}">Contact us {{ email_contact }}</a>
-    </div>
 
-    <div class="su-opportunity-grid-duration">
-      <div class="su-card__button">
-        <a href="# class="su-link su-button su-link--external" data-extlink="">
-          {{ cta_button }}
-        </a>
+    {% if email_contact|render_clean is not empty %}
+      <div class="su-opportunity-grid-duration">
+        <h4>{{ 'Contact'|t }}: </h4> <a href="mailto: {{ email_contact }}">{{ email_contact }}</a>
       </div>
-    </div>
+    {% endif %}
+
+    {% if cta_button.su_opp_solo_url is iterable
+      and cta_button.su_opp_solo_url is not null
+      and not cta_button.su_opp_solo_url is empty %}
+      <div class="su-card__button">
+        <a href="{{ cta_button.su_opp_solo_url[0]['#url'] }}" class="su-link su-button su-link--external">{{ cta_button.su_opp_solo_url[0]['#title'] }}</a>
+      </div>
+    {% endif %}
+
+{#    {{ dump(cta_button.su_opp_solo_url) }}#}
 
     {% if date is not empty %}
       <div class="su-opportunity-grid-application-deadline">

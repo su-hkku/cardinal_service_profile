@@ -60,7 +60,7 @@ cardinal_quarter_grid:
       description: 'Display email'
       preview: 'Contact email'
     cta_button:
-      type: link
+      type: text_and_link
       label: 'Call to Action Button'
       description: 'CTA Button'
       preview: 'Link to Call to Action'
