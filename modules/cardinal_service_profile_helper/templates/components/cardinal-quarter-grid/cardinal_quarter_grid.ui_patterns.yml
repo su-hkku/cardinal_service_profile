@@ -75,3 +75,4 @@ cardinal_quarter_grid:
         css:
           component:
             ../../../dist/components/opportunity-grid/opportunity_grid.css: {}
+            ../../../dist/components/cardinal-quarter-grid/cardinal_quarter.css: {}

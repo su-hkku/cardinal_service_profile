@@ -79,12 +79,10 @@
     {% if cta_button.su_opp_solo_url is iterable
       and cta_button.su_opp_solo_url is not null
       and not cta_button.su_opp_solo_url is empty %}
-      <div class="su-card__button">
+      <div class="su-quarter-grid__button">
         <a href="{{ cta_button.su_opp_solo_url[0]['#url'] }}" class="su-link su-button su-link--external">{{ cta_button.su_opp_solo_url[0]['#title'] }}</a>
       </div>
     {% endif %}
-
-{#    {{ dump(cta_button.su_opp_solo_url) }}#}
 
     {% if date is not empty %}
       <div class="su-opportunity-grid-application-deadline">
