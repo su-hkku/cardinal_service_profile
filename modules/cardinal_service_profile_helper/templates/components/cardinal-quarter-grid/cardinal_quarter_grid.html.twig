@@ -1,23 +1,6 @@
 {% set program = program|render_clean %}
 {% set type_list = type_list|render_clean %}
-{% set time_commitment = time_commitment|render_clean %}
-{% set service_theme = service_theme|render_clean %}
-
-{# Add comma "," after program if type is not empty. #}
-{% if program is not empty and type_list is not empty %}
-	{% set program = program|merge({'#markup': program['#markup'] ~ ', '}) %}
-{% endif %}
-
-{# Add "in" between time_commitment and service_theme if both aren't empty. #}
-{% if time_commitment is not empty and service_theme is not empty %}
-	{% set time_commitment = time_commitment|merge({'#markup': time_commitment['#markup'] ~ ' in '}) %}
-
-  {# Add "comma "," after service_theme if program or type aren't empty. #}
-	{% if program is not empty or type_list is not empty %}
-    {% set service_theme = service_theme|merge({'#markup': service_theme['#markup'] ~ ', '}) %}
-	{% endif %}
-
-{% endif %}
+{% set email_contact = email_contact|render_clean %}
 
 {% if event_date|render_clean is not empty %}
   {% set date_label = 'Event Date'|t %}
@@ -54,14 +37,6 @@
               {{ image|raw }}
           </div>
         {% endif %}
-
-        {% if time_commitment is not empty or service_theme is not empty or program is not empty or type_list is not empty %}
-          <div class="su-opportunity-grid-program-type-list">
-            <div aria-label="{{ 'Time Commitment, Service Theme, Opportunity Program, and Type'|t }}">
-              <div>{{ time_commitment }}{{ service_theme }}{{ program }}{{ type_list }}</div>
-            </div>
-          </div>
-        {% endif %}
         <h3>
           {{ title }}
         </h3>
@@ -93,6 +68,21 @@
     <div class="su-opportunity-grid-duration">
       <h4>{{ 'When'|t }}:</h4> <div>{{ when }}</div>
     </div>
+
+
+    {% if email_contact|render_clean is not empty %}
+      <div class="su-opportunity-grid-duration">
+        <h4>{{ 'Contact'|t }}: </h4> <a href="mailto: {{ email_contact }}">{{ email_contact }}</a>
+      </div>
+    {% endif %}
+
+    {% if cta_button.su_opp_solo_url is iterable
+      and cta_button.su_opp_solo_url is not null
+      and not cta_button.su_opp_solo_url is empty %}
+      <div class="su-quarter-grid__button">
+        <a href="{{ cta_button.su_opp_solo_url[0]['#url'] }}" class="su-link su-button su-link--external">{{ cta_button.su_opp_solo_url[0]['#title'] }}</a>
+      </div>
+    {% endif %}
 
     {% if date is not empty %}
       <div class="su-opportunity-grid-application-deadline">
