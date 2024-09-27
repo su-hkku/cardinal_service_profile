@@ -103,8 +103,9 @@ third_party_settings:
         label: hidden
         formatter: default
         settings:
-          link: true
+          link: false
           'link class': ''
+          link_target: ''
           wrapper: ''
           class: ''
 id: node.su_opportunity.cardinal_quarter_grid_results
