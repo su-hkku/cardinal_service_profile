@@ -19,7 +19,7 @@ function cardinal_service_profile_removed_post_updates() {
 }
 
 /**
- * Disable the core search module.
+ * Create default past event and event series node pages if content exists.
  */
 function cardinal_service_profile_post_update_8200(){
   \Drupal::service('module_installer')->uninstall(['search']);

@@ -5,12 +5,8 @@
  * cardinal_service_profile.install
  */
 
-use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\node\NodeInterface;
-use Drupal\field\Entity\FieldConfig;
-
 /**
- * Save the system pages from the original config values into state.
+ * Implements hook_update_last_removed().
  */
 function cardinal_service_profile_update_8002() {
   $state = \Drupal::state();
@@ -606,7 +602,7 @@ function cardinal_service_profile_update_9104() {
 /**
  * Remove data for paragraph rows.
  */
-function stanford_profile_update_9105() {
+function cardinal_service_profile_update_9105() {
   $tables = [
     'paragraph_row__su_page_components',
     'paragraph_row__su_pubs_components',
