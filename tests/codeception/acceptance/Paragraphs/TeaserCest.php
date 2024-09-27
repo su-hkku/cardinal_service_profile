@@ -28,7 +28,6 @@ class TeaserCest {
     $node_types = \Drupal::entityTypeManager()
       ->getStorage('node_type')
       ->loadMultiple();
-    unset($node_types['su_opportunity'], $node_types['su_spotlight']);
     $teaser_entities = [];
     $teaser_item_field = [];
     foreach ($node_types as $node_type) {
@@ -75,7 +74,7 @@ class TeaserCest {
     $I->canSee($node->label(), 'h1');
     $I->canSee($header_text, 'h2');
     foreach ($teaser_entities as $entity) {
-      $I->canSee($entity->label(), '.su-entity-item h3', $entity->bundle());
+      $I->canSee($entity->label(), '.su-entity-item h3');
     }
   }
 

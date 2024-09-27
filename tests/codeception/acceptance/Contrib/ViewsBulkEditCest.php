@@ -33,13 +33,6 @@ class ViewsBulkEditCest {
    * Bulk editing content changes the field values.
    */
   public function testBulkEdits(AcceptanceTester $I) {
-    try {
-      $I->runDrush('migrate:rollback --all');
-    }
-    catch (\Throwable $e){
-      // Do nothing.
-    }
-
     $I->logInWithRole('site_manager');
     $this->createEvents($I);
 
@@ -56,7 +49,7 @@ class ViewsBulkEditCest {
       'vid' => 'stanford_publication_topics',
     ], 'taxonomy_term');
 
-    $I->amOnPage('/admin/content?order=changed&sort=desc');
+    $I->amOnPage('/admin/content');
     $I->selectOption('Action', 'Modify field values');
     foreach ($this->nodes as $delta => $node) {
       $I->canSee($node->label(), 'tr');
