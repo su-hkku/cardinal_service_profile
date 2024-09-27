@@ -49,8 +49,7 @@ class PersonCest {
    * Test that the view pages exist.
    */
   public function testViewPagesExist(AcceptanceTester $I) {
-    $I->amOnPage("/people");
-    $I->canSeeResponseCodeIs(200);
+    $I->amOnPage('/people');
     $I->seeLink('Student');
     $I->seeLink('Staff');
     $I->click('Staff');
@@ -165,7 +164,7 @@ class PersonCest {
       'parent' => ['target_id' => $term1->id()],
     ], 'taxonomy_term');
 
-    drupal_flush_all_caches();
+    $I->runDrush('cache:rebuild');
     $I->amOnPage($term3->toUrl()->toString());
     $I->canSeeLink($term1->label());
     $I->canSeeLink($term2->label());
@@ -178,7 +177,6 @@ class PersonCest {
     $I->amOnPage('/user/logout');
     $I->click('Log out', 'form');
 
-    drupal_flush_all_caches();
     $I->amOnPage('/people');
     $I->canSeeLink($term3->label());
 
@@ -189,7 +187,6 @@ class PersonCest {
     $I->amOnPage('/user/logout');
     $I->click('Log out', 'form');
 
-    drupal_flush_all_caches();
     $I->amOnPage('/people');
     $I->cantSeeLink($term3->label());
 
@@ -234,7 +231,6 @@ class PersonCest {
       ],
     ]);
 
-    drupal_flush_all_caches();
     $I->amOnPage($great_grandchild->toUrl()->toString());
     $I->canSee($node->label());
     $I->amOnPage($grandchild->toUrl()->toString());

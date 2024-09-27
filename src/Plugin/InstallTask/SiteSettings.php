@@ -192,13 +192,13 @@ class SiteSettings extends InstallTaskBase implements ContainerFactoryPluginInte
    *   Returned data if any exist.
    */
   protected function getSnowData($site_name) {
-    $api_url = Settings::get('cardinal_service_profile_snow_api_url', self::SNOW_API);
+    $api_url = Settings::get('stanford_profile_snow_api_url', self::SNOW_API);
     try {
       $response = $this->client->request('GET', $api_url, [
         'query' => ['website_address' => $site_name],
         'auth' => [
-          Settings::get('cardinal_service_profile_snow_api_user'),
-          Settings::get('cardinal_service_profile_snow_api_pass'),
+          Settings::get('stanford_profile_snow_api_user'),
+          Settings::get('stanford_profile_snow_api_pass'),
         ],
       ]);
 

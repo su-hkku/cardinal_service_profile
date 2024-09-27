@@ -75,7 +75,7 @@ class TeaserCest {
     $I->canSee($node->label(), 'h1');
     $I->canSee($header_text, 'h2');
     foreach ($teaser_entities as $entity) {
-      $I->canSee($entity->label(), '.su-entity-item h3', $entity->bundle());
+      $I->canSee($entity->label(), '.su-entity-item h3');
     }
   }
 

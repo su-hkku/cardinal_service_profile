@@ -37,6 +37,11 @@ class NewsCest {
    */
   public function testDefaultContentExists(AcceptanceTester $I) {
     $I->logInWithRole('administrator');
+    $I->amOnPage("/admin/content");
+    $I->see("Sample: Smith Conference");
+    $I->see("Sample: For Runners, Is 15 Feet the New 6 Feet for Social Distancing?");
+    $I->see("Sample: Stanford researchers find that misfiring from jittery neurons");
+
     $I->amOnPage("/news/sample-smith-conference");
     $I->see("This page is currently unpublished and not visible to the public.");
 

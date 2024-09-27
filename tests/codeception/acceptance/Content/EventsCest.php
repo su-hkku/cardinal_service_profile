@@ -86,9 +86,7 @@ class EventsCest {
     $I->click('Save');
     $I->canSee('Events Importer has been', '.messages-list');
 
-    $I->amOnPage($event->toUrl('delete-form')->toString());
-    $I->click('Delete', '.form-actions');
-    $I->canSee('has been deleted');
+    $event->delete();
 
     $I->amOnPage($term->toUrl()->toString());
     $I->canSee($term->label(), 'h1');
@@ -311,12 +309,6 @@ class EventsCest {
    * Clone events get incremented date.
    */
   public function testClone(AcceptanceTester $I) {
-    try {
-      $I->runDrush('migrate:rollback --group=courses,opportunities,stanford_events');
-    }
-    catch (\Throwable $e) {
-    }
-
     $user = $I->createUserWithRoles(['contributor']);
     /** @var \Drupal\node\NodeInterface $node */
     $node = $this->createEventNode($I);
