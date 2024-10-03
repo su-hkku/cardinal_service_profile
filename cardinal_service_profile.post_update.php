@@ -128,7 +128,7 @@ function cardinal_service_profile_post_update_site_orgs() {
 
 /**
  * Removes stanford opportunity content type created by Stanford Profile.
- * To prevent confusion between similarly named CT already configured.
+ * To prevent confusion between similarly named content type already configured.
  */
 function cardinal_service_profile_post_update_remove_stanford_opportunities() {
   $content_type = \Drupal::entityTypeManager()->getStorage('node_type')->load('stanford_opportunity');
