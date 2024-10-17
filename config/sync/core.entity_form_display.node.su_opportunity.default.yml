@@ -175,14 +175,10 @@ content:
       media_types: {  }
     third_party_settings: {  }
   su_opp_location:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 19
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   su_opp_not_eligible:
     type: boolean_checkbox
