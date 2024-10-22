@@ -17,7 +17,10 @@ class OpportunitiesFavoritesCest {
     $node = $I->createEntity([
       'type' => 'su_opportunity',
       'title' => $faker->text(),
-      'body' => $faker->text(),
+      'body' => [
+        'value' => $faker->text(),
+        'format' => 'full_html'
+      ],
     ]);
 
     $I->logInWithRole('stanford_student');
