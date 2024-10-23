@@ -19,7 +19,7 @@ class OpportunitiesFavoritesCest {
       'title' => $faker->text(),
       'body' => [
         'value' => $faker->text(),
-        'format' => 'full_html'
+        'format' => 'stanford_html'
       ],
     ]);
 
