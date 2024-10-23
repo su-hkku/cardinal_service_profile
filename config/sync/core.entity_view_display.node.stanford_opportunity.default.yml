@@ -72,6 +72,7 @@ third_party_settings:
                     label_tag: ''
             weight: 0
             additional: {  }
+            third_party_settings: {  }
           e712f81b-4aa1-4bc7-bb7f-5068acb3bbd1:
             uuid: e712f81b-4aa1-4bc7-bb7f-5068acb3bbd1
             region: main
@@ -97,6 +98,7 @@ third_party_settings:
                     label_tag: ''
             weight: 1
             additional: {  }
+            third_party_settings: {  }
           75a9a36d-20ef-46a1-aaf6-3fbe4814ec5b:
             uuid: 75a9a36d-20ef-46a1-aaf6-3fbe4814ec5b
             region: main
@@ -123,6 +125,7 @@ third_party_settings:
                     label_tag: ''
             weight: 2
             additional: {  }
+            third_party_settings: {  }
         third_party_settings: {  }
   layout_library:
     enable: false
