@@ -9,9 +9,11 @@ class OpportunitiesFilterCest {
 
   /**
    * Test the PDB is available and displays nodes when filtering.
+   *
+   * @group foobar
    */
   public function testFilters(FunctionalTester $I) {
-    $user = $I->createUserWithRoles(['site_manager','layout_builder_user']);
+    $user = $I->createUserWithRoles(['site_manager', 'layout_builder_user']);
     $I->logInAs($user->id());
     $I->resizeWindow(1400, 1400);
     /** @var \Drupal\node\NodeInterface $node */
@@ -25,17 +27,19 @@ class OpportunitiesFilterCest {
     $I->amOnPage($filter_url);
     $I->click('Layout');
     $I->click('Add block');
-    $I->waitForAjaxToFinish();
+    $I->waitForText('Choose a block');
+
     $I->click('Opportunities Filtering List');
-    $I->waitForAjaxToFinish();
+    $I->waitForElementVisible('#layout-builder-modal');
     $I->click('Add block', '#layout-builder-modal');
-    $I->waitForAjaxToFinish();
+    $I->waitForElementNotVisible('#layout-builder-modal');
+
     $I->click('Add block');
-    $I->waitForAjaxToFinish();
+    $I->waitForText('Choose a block');
     $I->click('Opportunities: All Filtered');
-    $I->waitForAjaxToFinish();
+    $I->waitForElementVisible('#layout-builder-modal');
     $I->click('Add block', '#layout-builder-modal');
-    $I->waitForAjaxToFinish();
+    $I->waitForElementNotVisible('#layout-builder-modal');
 
     // Scroll up because the admin toolbar sometimes overlays the task links.
     $I->scrollTo(['css' => '.su-brand-bar']);
@@ -63,7 +67,7 @@ class OpportunitiesFilterCest {
    * Test the exposed filters action works correctly.
    */
   public function testViewExposedFilter(FunctionalTester $I) {
-    $user = $I->createUserWithRoles(['site_manager','layout_builder_user']);
+    $user = $I->createUserWithRoles(['site_manager', 'layout_builder_user']);
     $I->logInAs($user->id());
     $node = $I->createEntity([
       'type' => 'stanford_page',
@@ -126,7 +130,7 @@ class OpportunitiesFilterCest {
       'su_opportunity_location',
       'su_opportunity_time',
       'su_opportunity_type',
-      'su_opportunity_service_theme'
+      'su_opportunity_service_theme',
     ];
     $terms = [];
     foreach ($vids as $vid) {
