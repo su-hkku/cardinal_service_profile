@@ -62,6 +62,8 @@ class PublicationsCest {
 
   /**
    * Test out the list pages.
+   *
+   * @group foobar
    */
   public function testAllPublicationListPage(AcceptanceTester $I) {
     $this->testBookCitation($I);
