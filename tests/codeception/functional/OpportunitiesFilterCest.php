@@ -34,7 +34,7 @@ class OpportunitiesFilterCest {
     $I->waitForAjaxToFinish();
     $I->click('Opportunities: All Filtered');
     $I->waitForAjaxToFinish();
-    $I->click('Add block');
+    $I->click('Add block', '#layout-builder-modal');
     $I->waitForAjaxToFinish();
 
     // Scroll up because the admin toolbar sometimes overlays the task links.
