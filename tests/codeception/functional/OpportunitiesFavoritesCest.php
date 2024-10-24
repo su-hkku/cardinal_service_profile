@@ -31,10 +31,13 @@ class OpportunitiesFavoritesCest {
     $I->canSee($node->label());
 
     $I->amOnPage($node->toUrl()->toString());
+
+    $I->cantSeeElement('.flag.action-flag');
     $I->click('.flag a');
-    $I->waitForAjaxToFinish();
+    $I->waitForElementVisible('.flag.action-flag');
     $I->cantSee('Saved', '.flag');
 
+    drupal_flush_all_caches();
     $I->amOnPage('/user/opportunities');
     $I->dontSee($node->label());
   }
