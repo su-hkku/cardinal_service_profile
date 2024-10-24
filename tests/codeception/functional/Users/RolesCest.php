@@ -7,7 +7,7 @@ use Faker\Factory;
  *
  * @group users
  */
-abstract class RolesCest {
+class RolesCest {
 
   /**
    * Storage for state settings that get restored after the tests finish.

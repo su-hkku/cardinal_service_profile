@@ -8,7 +8,7 @@ use Faker\Factory;
  * @group basic_page
  * @group resources
  */
-abstract class ResourcesCest {
+class ResourcesCest {
 
   /**
    * Faker generator.

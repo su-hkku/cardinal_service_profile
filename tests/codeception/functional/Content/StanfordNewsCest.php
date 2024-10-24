@@ -5,7 +5,7 @@ use Faker\Factory;
 /**
  * Test the news functionality.
  */
-abstract class StanfordNewsCest {
+class StanfordNewsCest {
 
   /**
    * Faker.

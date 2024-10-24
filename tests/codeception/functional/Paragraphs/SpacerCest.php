@@ -8,7 +8,7 @@ use Faker\Factory;
  * @group paragraphs
  * @group spacer
  */
-abstract class SpacerCest {
+class SpacerCest {
 
   /**
    * Faker service.

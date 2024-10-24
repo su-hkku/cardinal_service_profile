@@ -7,7 +7,7 @@ use Faker\Factory;
  *
  * @group opportunity
  */
-abstract class OpportunityCest {
+class OpportunityCest {
 
   /**
    * Faker.

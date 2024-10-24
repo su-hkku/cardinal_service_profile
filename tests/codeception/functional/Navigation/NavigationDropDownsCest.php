@@ -7,7 +7,7 @@ use Faker\Factory;
  *
  * @group navigation
  */
-abstract class NavigationDropDownsCest {
+class NavigationDropDownsCest {
 
   /**
    * Faker service.

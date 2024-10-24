@@ -5,7 +5,7 @@
  *
  * @group opportunities
  */
-abstract class OpportunitiesFilterCest {
+class OpportunitiesFilterCest {
 
   /**
    * Test the PDB is available and displays nodes when filtering.

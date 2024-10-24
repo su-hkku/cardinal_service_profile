@@ -5,7 +5,7 @@ use Faker\Factory;
 /**
  * Card paragraph tests.
  */
-abstract class CardCest {
+class CardCest {
 
   /**
    * Faker service.
