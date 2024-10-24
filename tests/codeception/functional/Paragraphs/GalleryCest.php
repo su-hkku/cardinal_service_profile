@@ -7,7 +7,7 @@ use Faker\Factory;
  *
  * @group paragraph
  */
-class GalleryCest {
+abstract class GalleryCest {
 
   /**
    * Faker service.

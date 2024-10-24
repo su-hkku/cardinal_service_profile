@@ -5,7 +5,7 @@
  *
  * @group contrib
  */
-class RedirectImportCest {
+abstract class RedirectImportCest {
 
   /**
    * Cleanup.

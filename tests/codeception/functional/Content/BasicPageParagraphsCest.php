@@ -5,7 +5,7 @@ use Faker\Factory;
 /**
  * Test for the basic page content type.
  */
-class BasicPageParagraphsCest {
+abstract class BasicPageParagraphsCest {
 
   /**
    * Faker service.

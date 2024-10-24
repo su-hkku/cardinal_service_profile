@@ -8,7 +8,7 @@ use Faker\Factory;
  * @group paragraphs
  * @group wysiwyg
  */
-class WYSIWYGCest {
+abstract class WYSIWYGCest {
 
   /**
    * Faker service.
