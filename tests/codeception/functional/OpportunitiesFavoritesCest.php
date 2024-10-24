@@ -37,6 +37,7 @@ class OpportunitiesFavoritesCest {
     $I->waitForElementVisible('.flag.action-flag');
     $I->cantSee('Saved', '.flag');
 
+    drupal_flush_all_caches();
     $I->amOnPage('/user/opportunities');
     $I->dontSee($node->label());
   }
