@@ -9,8 +9,6 @@ class OpportunitiesFilterCest {
 
   /**
    * Test the PDB is available and displays nodes when filtering.
-   *
-   * @group foobar
    */
   public function testFilters(FunctionalTester $I) {
     $user = $I->createUserWithRoles(['site_manager','layout_builder_user']);
@@ -29,7 +27,6 @@ class OpportunitiesFilterCest {
     $I->click('Add block');
     $I->waitForAjaxToFinish();
     $I->click('Opportunities Filtering List');
-    $I->wait(60);
     $I->waitForAjaxToFinish();
     $I->click('Add block', '#layout-builder-modal');
     $I->waitForAjaxToFinish();
