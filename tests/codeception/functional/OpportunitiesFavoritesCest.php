@@ -32,7 +32,20 @@ class OpportunitiesFavoritesCest {
 
     $I->amOnPage($node->toUrl()->toString());
     $I->click('.flag a');
+    $I->wait(3);
+
+    $query = \Drupal::database()
+      ->select('watchdog', 'w')
+      ->fields('w')
+      ->orderBy('timestamp', 'DESC')
+      ->range(0, 5)
+      ->execute();
+    while($row = $query->fetchAssoc()){
+      echo json_encode($row) . PHP_EOL;
+    }
+
     $I->waitForAjaxToFinish();
+
     $I->cantSee('Saved', '.flag');
 
     $I->amOnPage('/user/opportunities');
