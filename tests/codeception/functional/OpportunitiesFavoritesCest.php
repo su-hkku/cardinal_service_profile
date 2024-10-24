@@ -13,6 +13,7 @@ class OpportunitiesFavoritesCest {
    * Favorited opportunities will show in a list on the user's page.
    */
   public function testFavoriting(FunctionalTester $I) {
+    \Drupal::service('module_installer')->install(['dblog']);
     $faker = Factory::create();
     $node = $I->createEntity([
       'type' => 'su_opportunity',
