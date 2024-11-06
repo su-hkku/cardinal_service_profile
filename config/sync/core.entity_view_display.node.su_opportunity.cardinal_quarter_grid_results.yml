@@ -177,8 +177,17 @@ content:
     settings:
       link: false
     third_party_settings:
+      empty_fields:
+        handler: ''
+      field_delimiter:
+        delimiter: ', '
       field_formatter_class:
         class: ''
+      field_label:
+        label_value: ''
+        label_tag: ''
+      ds:
+        ds_limit: ''
     weight: 7
     region: location
   su_opp_open_to:
