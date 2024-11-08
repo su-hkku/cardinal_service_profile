@@ -116,7 +116,7 @@
         "drupal/name": "^1.0@RC",
         "drupal/next": "^1.2",
         "drupal/nobots": "^1.0",
-        "drupal/node_revision_delete": "^2.0@RC",
+        "drupal/node_revision_delete": "^2.0.x-dev",
         "drupal/node_title_help_text": "^1.2",
         "drupal/page_manager": "^4.0@beta",
         "drupal/paragraphs": "^1.11",
@@ -165,7 +165,7 @@
         "su-sws/stanford_fields": "^8.2",
         "su-sws/stanford_media": "^11.0",
         "su-sws/stanford_migrate": "^8.3",
-        "su-sws/stanford_profile_helper": "^9.6",
+        "su-sws/stanford_profile_helper": "^9.8",
         "su-sws/stanford_samlauth": "^1.0"
     },
     "config": {
